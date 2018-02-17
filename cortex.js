@@ -59,5 +59,6 @@ let v_token_discord             =   process.env.BOT_TOKEN_DISCORD
 const init_CorteX                 =   bib_cortex(v_token_discord
                                                 ,v_token_telegram
                                                 )
+                                                .fn_carrega_evento()
                                                 .inicializa();
 // FIM - Método construtor - Inicialização do processo          (╬ ಠ益ಠ)
