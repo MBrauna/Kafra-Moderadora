@@ -3,6 +3,10 @@
     "version"           :   "1.0.0",
     "main"              :   "cortex.js",
     "repository"        :   "git@github.com:MBrauna/CorteX.git",
+    "scripts"           :
+                        {
+                            "start": "cortex.js"
+                        },
     "author"            :   "Bropedia contato@bropedia.net",
     "license"           :   "MIT",
     "dependencies"      :
