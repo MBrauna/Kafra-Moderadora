@@ -231,4 +231,4 @@ class CorteX
 }   // CLASS CORTEX
 
 // Torna o método público
-module.exports = bropediaBot;
+module.exports = CorteX;
