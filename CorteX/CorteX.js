@@ -79,12 +79,12 @@ class CorteX
         // PARA EVENTO DO TIPO - BOT PREPARADO
         this.bib_cortex_discord.on("ready",         () =>
                                                     {
-                                                        console.log(this.bib_cortex_discord);
+                                                        console.log('teste');
                                                     }
                                 );
         // PARA EVENTO DO TIPO - BOT PREPARADO
 
-        // PARA EVENTO DO TIPO - BOT ENTROU NO CANAL
+        /* / PARA EVENTO DO TIPO - BOT ENTROU NO CANAL
         this.bib_cortex_discord.on("guildCreate",   grupo =>
                                                     {
                                                         console.log(grupo);
@@ -98,7 +98,7 @@ class CorteX
                                                         console.log(grupo);
                                                     }
                                 );
-        // PARA EVENTO DO TIPO - BOT SAIU DO CANAL
+        // PARA EVENTO DO TIPO - BOT SAIU DO CANAL */
 
         // PARA EVENTO DO TIPO TEXTO
         this.bib_cortex_discord.on("message",       async mensagem =>
@@ -224,7 +224,10 @@ class CorteX
 
 
 
-
+    inicializa()
+    {
+        this.bib_cortex_discord.login(this.v_token_discord);
+    }
 }   // CLASS CORTEX
 
 // Torna o método público
