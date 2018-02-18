@@ -1,11 +1,11 @@
 {
     "name"              :   "CorteX",
     "version"           :   "1.0.0",
-    "main"              :   "cortex.js",
+    "main"              :   "index.js",
     "repository"        :   "git@github.com:MBrauna/CorteX.git",
     "scripts"           :
                         {
-                            "start": "cortex.js"
+                            "start": "node cortex.js"
                         },
     "author"            :   "Bropedia contato@bropedia.net",
     "license"           :   "MIT",
