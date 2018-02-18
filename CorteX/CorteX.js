@@ -57,7 +57,7 @@ class CorteX
 
         // Instancia uma nova sessão para o acesso ao bot
         this.bib_cortex_discord     =   new bib_discord.Client();
-        this.bib_cortex_telegram    =   new bib_cortex_telegram(this.v_token_telegram);
+        //this.bib_cortex_telegram    =   new bib_cortex_telegram(this.v_token_telegram);
         //FIM - Instancia uma nova sessão para o acesso ao bot
     }   // Método construtor      ¯\_(⊙︿⊙)_/¯
 
@@ -117,7 +117,7 @@ class CorteX
 
         /***********************************
          *  >> >>  T E L E G R A M   << << *
-         ***********************************/
+         ***********************************
 
         // PARA EVENTO DO TIPO TEXTO
         this.bib_cortex_telegram.on('text',   (ctx) => 
@@ -219,6 +219,7 @@ class CorteX
         // PARA EVENTO DO TIPO CHAMADA DE VOZ
         this.bib_cortex_telegram.on('invoice', (ctx) => ctx.reply('CórteX - INVOICE INDISPONÍVEL! Aguarde.'));
         // PARA EVENTO DO TIPO CHAMADA DE VOZ
+        */
     }   // fn_carrega_evento()
 
 
