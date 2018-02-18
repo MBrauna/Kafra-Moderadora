@@ -1,0 +1,17 @@
+{
+    "name"              :   "CorteX MBrauna",
+    "version"           :   "1.0.0",
+    "main"              :   "cortex.js",
+    "repository"        :   "git@github.com:MBrauna/CorteX.git",
+    "scripts"           :
+                        {
+                            "start": "node cortex.js"
+                        },
+    "author"            :   "Bropedia contato@bropedia.net",
+    "license"           :   "MIT",
+    "dependencies"      :
+                        {
+                            "discord.js": "^11.2.1",
+                            "telegraf": "^3.17.0",
+                        }
+}
