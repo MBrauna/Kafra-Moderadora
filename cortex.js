@@ -56,9 +56,9 @@ let v_token_discord             =   process.env.BOT_TOKEN_DISCORD
 
 
 // Método construtor - Inicialização do processo                (╬ ಠ益ಠ)
-const init_CorteX                 =   bib_cortex(v_token_discord
-                                                ,v_token_telegram
-                                                )
-                                                .fn_carrega_evento()
-                                                .inicializa();
+const init_CorteX                 =   new bib_cortex(v_token_discord
+                                                    ,v_token_telegram
+                                                    )
+                                                    .fn_carrega_evento()
+                                                    .inicializa();
 // FIM - Método construtor - Inicialização do processo          (╬ ಠ益ಠ)
