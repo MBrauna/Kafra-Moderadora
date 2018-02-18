@@ -111,7 +111,8 @@ class CorteX
                                                         console.log(grupo);
                                                     }
                                 );
-        // PARA EVENTO DO TIPO - BOT SAIU DO CANAL */
+        // PARA EVENTO DO TIPO - BOT SAIU DO CANAL
+        */
 
         // PARA EVENTO DO TIPO TEXTO
         this.bib_cortex_discord.on("message",       async mensagem =>
@@ -234,12 +235,6 @@ class CorteX
         // PARA EVENTO DO TIPO CHAMADA DE VOZ
     }   // fn_carrega_evento()
 
-
-
-    inicializa()
-    {
-        this.bib_cortex_discord.login(this.v_token_discord);
-    }
 }   // CLASS CORTEX
 
 // Torna o método público
