@@ -333,10 +333,7 @@ class comando
                                        ,title: 'Kafra Moderadora'
                                        ,url: 'http://bropedia.net'
                                        ,description: 'A supervisora Kafra está na área!!'
-                                       ,fields:
-                                       {
-                                            p_campos
-                                       }
+                                       ,fields: p_campos
                                        ,timestamp: new Date()
                                        ,footer: {
                                             icon_url:   'https://i.imgur.com/cfYwkLQ.png'
