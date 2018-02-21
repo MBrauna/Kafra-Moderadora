@@ -29,8 +29,9 @@ class comando
 
     trata_mensagem(p_cliente, p_mensagem)
     {
+        var v_quantidade_mencao = Object.keys(p_mensagem.mentions).length;
         console.log('----------------------------------');
-        console.log(p_mensagem.mentions[0]);
+        console.log(v_quantidade_mencao);
         console.log('----------------------------------');
     }
 } // CLASS COMANDO
