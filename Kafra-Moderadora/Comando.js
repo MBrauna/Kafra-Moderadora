@@ -34,8 +34,8 @@ class comando
             var v_kafra_prefixo         =   '<@' + p_cliente.user.id + '>';
             var v_kafra_id              =   p_cliente.user.id;
             var v_tmp_prefixo           =   p_mensagem.content.startsWith(v_kafra_prefixo);
-            var v_tmp_tamanho           =   p_mensagem.mentions.users.keyArray().length;
-            var v_tmp_mencao            =   false;
+
+            //var v_tmp_tamanho           =   p_mensagem.mentions.users.keyArray().length;
 
             // Verifica se a mensagem enviada foi de um bot ou usuário
             if(p_mensagem.author.bot) return; // Caso seja de um bot finaliza a verificação
@@ -50,15 +50,10 @@ class comando
             } // if(v_tmp_prefixo)
             else if(v_tmp_tamanho > 0)
             {
-                var v_tmp_mencionados       = p_mensagem.mentions.users; // Cria uma lista com todos os usuários mencionados
+                var v_tmp_mencionados       = p_mensagem.mentions.users.user.ClientUser; // Cria uma lista com todos os usuários mencionados
                 
                 // Gera um loop para todos os usuários mencionados
-                v_tmp_mencionados.forEach(
-                    function(user)
-                    {
-                        console.log(user);
-                    }
-                );
+                console.log(v_tmp_mencionados);
             } // else if(v_tmp_tamanho > 0)
         }
         catch(p_erro)
@@ -67,6 +62,7 @@ class comando
             console.trace();
         }
     } // trata_mensagem(p_cliente, p_mensagem)
+
 } // CLASS COMANDO
 
 
