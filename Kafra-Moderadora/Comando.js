@@ -24,8 +24,8 @@ class comando
     construct()
     {
         console.log('Construtor de comandos inicializado.');
-        this.init_kafra.prefixo         =   '<@' + p_cliente.user.id + '>';
-        this.init_kafra.id              =   p_cliente.user.id;
+        this.init_kafra_prefixo         =   '<@' + p_cliente.user.id + '>';
+        this.init_kafra_id              =   p_cliente.user.id;
     } // construct()
 
 
@@ -33,7 +33,7 @@ class comando
     {
         //try
         //{
-            var v_tmp_prefixo   =   p_mensagem.content.startsWith(this.init_kafra.prefixo);
+            var v_tmp_prefixo   =   p_mensagem.content.startsWith(this.init_kafra_prefixo);
             var v_tmp_tamanho   =   p_mensagem.mentions.users.keyArray().length;
             var v_tmp_mencao    =   false;
 
@@ -50,7 +50,7 @@ class comando
             if(v_tmp_prefixo)
             {
                 console.log('Provavel comando');
-                console.log(p_mensagem.content.slice(this.init_kafra.prefixo.length).trim().split(/ +/g));
+                console.log(p_mensagem.content.slice(this.init_kafra_prefixo.length).trim().split(/ +/g));
                 console.log('------------------');
             } // if(v_tmp_prefixo)
             else if(v_tmp_tamanho > 0)
