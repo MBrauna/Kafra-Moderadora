@@ -126,7 +126,7 @@
 
 
 // Inicialização de bibliotecas                                 (∩｀-´)⊃━☆ﾟ.*･｡ﾟ
-const bib_kafra_moderadora_discord  =   require('./Kafra-moderadora/kafra-moderadora.js');
+const bib_kafra_moderadora_discord  =   require('./Kafra-Moderadora/kafra-moderadora.js');
 // Fim - Inicialização de bibliotecas                           (∩｀-´)⊃━☆ﾟ.*･｡ﾟ
 
 
