@@ -97,7 +97,7 @@ class comando
                 }
 
                 // Verifica o comando após o prefixo.
-                switch(lower(v_mensagem[0].toLowerCase()))
+                switch(v_mensagem[0].toLowerCase())
                 {
                     // ᕦ(ò_óˇ)ᕤ     ---     S E P A R A D O R     ---     ᕦ(ˇò_ó)ᕤ
 
