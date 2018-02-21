@@ -68,7 +68,7 @@ class comando
         } // try {}
         catch(p_erro)
         {
-            console.log('ERRO');
+            console.trace();
         } // catch(p_erro) {}
     } // trata_mensagem(p_cliente, p_mensagem)
 } // CLASS COMANDO
