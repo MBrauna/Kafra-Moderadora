@@ -29,8 +29,8 @@ class comando
 
     trata_mensagem(p_cliente, p_mensagem)
     {
-        //try
-        //{
+        try
+        {
             var v_kafra_prefixo         =   '<@' + p_cliente.user.id + '>';
             var v_kafra_id              =   p_cliente.user.id;
             var v_tmp_prefixo           =   p_mensagem.content.startsWith(v_kafra_prefixo);
@@ -43,6 +43,11 @@ class comando
 
             console.log(v_tmp_prefixo);
             console.log(v_tmp_tamanho);
+        }
+        catch(p_erro)
+        {
+            console.trace();
+        }
     } // trata_mensagem(p_cliente, p_mensagem)
 } // CLASS COMANDO
 
