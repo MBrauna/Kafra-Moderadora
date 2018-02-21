@@ -73,7 +73,7 @@ class Kafra_moderadora
 
 
         // Carrega evento
-        this.fn_carrega_evento_discord();
+        this.fn_carrega_evento();
         // Fim - Carrega evento
 
 
