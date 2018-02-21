@@ -50,7 +50,7 @@ const bib_discord                   =   require('discord.js');
 // Fim - Inicialização de bibliotecas                           (∩｀-´)⊃━☆ﾟ.*･｡ﾟ
 
 
-class CorteX
+class Kafra_moderadora
 {
     // Método construtor      ¯\_(⊙︿⊙)_/¯
     constructor(p_token_discord)
@@ -68,8 +68,7 @@ class CorteX
         // FIM - Salva virtualmente - protected - os dados do token
 
         // Instancia uma nova sessão para o acesso ao bot
-        this.bib_cortex_discord     =   new bib_discord.Client();
-        //this.bib_cortex_telegram    =   new bib_cortex_telegram(this.v_token_telegram);
+        this.init_kafra_moderadora   =   new bib_discord.Client();
         //FIM - Instancia uma nova sessão para o acesso ao bot
 
 
@@ -79,7 +78,7 @@ class CorteX
 
 
         // Inicializa o construtor
-        this.bib_cortex_discord.login(this.v_token_discord);
+        this.init_kafra_moderadora.login(this.v_token_discord);
         // Inicializa o construtor
     }   // Método construtor      ¯\_(⊙︿⊙)_/¯
 
@@ -102,7 +101,7 @@ class CorteX
          *  >> >>  D I S C O R D   << << *
          *********************************/
         // PARA EVENTO DO TIPO - BOT PREPARADO
-        this.bib_cortex_discord.on("ready",         () =>
+        this.init_kafra_moderadora.on("ready",         () =>
                                                     {
                                                         console.log('teste');
                                                     }
@@ -110,7 +109,7 @@ class CorteX
         // PARA EVENTO DO TIPO - BOT PREPARADO
 
         // PARA EVENTO DO TIPO - BOT ENTROU NO CANAL
-        this.bib_cortex_discord.on("guildCreate",   grupo =>
+        this.init_kafra_moderadora.on("guildCreate",   grupo =>
                                                     {
                                                         console.log(grupo);
                                                     }
@@ -118,7 +117,7 @@ class CorteX
         // PARA EVENTO DO TIPO - BOT ENTROU NO CANAL
 
         // PARA EVENTO DO TIPO - BOT SAIU DO CANAL
-        this.bib_cortex_discord.on("guildDelete",   grupo =>
+        this.init_kafra_moderadora.on("guildDelete",   grupo =>
                                                     {
                                                         console.log(grupo);
                                                     }
@@ -126,7 +125,7 @@ class CorteX
         // PARA EVENTO DO TIPO - BOT SAIU DO CANAL
 
         // PARA EVENTO DO TIPO TEXTO
-        this.bib_cortex_discord.on("message",       async mensagem =>
+        this.init_kafra_moderadora.on("message",       async mensagem =>
                                                     {
                                                         console.log(mensagem);
                                                     }
@@ -140,7 +139,7 @@ class CorteX
 
     }   // fn_carrega_evento()
 
-}   // CLASS CORTEX
+}   // CLASS KAFRA_MODERADORA
 
 // Torna o método público
-module.exports = CorteX;
+module.exports = Kafra_moderadora;
