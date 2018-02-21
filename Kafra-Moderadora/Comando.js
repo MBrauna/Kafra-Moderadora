@@ -29,10 +29,18 @@ class comando
 
     trata_mensagem(p_cliente, p_mensagem)
     {
-        var v_quantidade_mencao = Object.keys(p_mensagem.mentions.users).length;
-        console.log('----------------------------------');
-        console.log(v_quantidade_mencao);
-        console.log('----------------------------------');
+        let v_mencao = new RegExp(`^<@!?${p_cliente.user.id}> `),
+            v_prefixo = v_mencao.match(p_mensagem.content) ? p_mensagem.content.match(v_mencao)[0] + " " : v_prefixo;
+
+        console.log('----------------------');
+        console.log(v_mencao);
+        console.log('----------------------');
+        console.log(prefixo);
+        console.log('----------------------');
+        console.log(p_mensagem.content);
+        console.log('----------------------');
+        console.log(p_mensagem.mentions.users.keyArray().length);
+        console.log('----------------------');
     }
 } // CLASS COMANDO
 
