@@ -1,1 +1,1 @@
-worker: node cortex.js
+worker: node kafra-moderadora.js
