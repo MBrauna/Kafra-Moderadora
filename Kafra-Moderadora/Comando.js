@@ -31,8 +31,8 @@ class comando
 
     trata_mensagem(p_cliente, p_mensagem)
     {
-        try
-        {
+        //try
+        //{
             var v_tmp_prefixo   =   p_mensagem.content.startsWith(this.init_kafra.prefixo);
             var v_tmp_tamanho   =   p_mensagem.mentions.users.keyArray().length;
             var v_tmp_mencao    =   false;
@@ -45,7 +45,7 @@ class comando
             console.log(v_tmp_tamanho);
             console.log(this.init_kafra.prefixo.length);
 
-            /*
+            
             // Verifica se a mensagem foi iniciada com o prefixo desejado!
             if(v_tmp_prefixo)
             {
@@ -72,13 +72,12 @@ class comando
                 }
             } // else if(v_tmp_tamanho > 0)
 
-            */
-            return;
-        } // try {}
-        catch(p_erro)
-        {
-            console.trace();
-        } // catch(p_erro) {}
+            
+        //} // try {}
+        //catch(p_erro)
+        //{
+        //    console.trace();
+        //} // catch(p_erro) {}
     } // trata_mensagem(p_cliente, p_mensagem)
 } // CLASS COMANDO
 
