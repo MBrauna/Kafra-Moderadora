@@ -59,11 +59,11 @@ class comando
                     v_campo_resposta =  [
                                             {
                                                 name:   "Database"
-                                               ,value:  "Para realizar pesquisar no database digite @Kafra Moderadora <item/monstro/mapa> <nome_desejado/ID>."
+                                               ,value:  "Para realizar pesquisas no database digite @Kafra Moderadora <item/monstro/mapa> <nome_desejado/ID>."
                                             }
                                            ,{
                                                 name:   "Enciclopédia"
-                                               ,value:  "Para realizar pesquisar na enciclopédia digite @Kafra Moderadora wiki <termo_desejado>."
+                                               ,value:  "Para realizar pesquisas na enciclopédia digite @Kafra Moderadora wiki <termo_desejado>."
                                             }
                                            ,{
                                                 name:   "Recrutar para grupo"
@@ -152,11 +152,11 @@ class comando
                         v_campo_resposta =  [
                                                 {
                                                     name:   "Database"
-                                                   ,value:  "Para realizar pesquisar no database digite @Kafra Moderadora <item/monstro/mapa> <nome_desejado/ID>."
+                                                   ,value:  "Para realizar pesquisas no database digite @Kafra Moderadora <item/monstro/mapa> <nome_desejado/ID>."
                                                 }
                                                ,{
                                                     name:   "Enciclopédia"
-                                                   ,value:  "Para realizar pesquisar na enciclopédia digite @Kafra Moderadora wiki <termo_desejado>."
+                                                   ,value:  "Para realizar pesquisas na enciclopédia digite @Kafra Moderadora wiki <termo_desejado>."
                                                 }
                                                ,{
                                                     name:   "Recrutar para grupo"
