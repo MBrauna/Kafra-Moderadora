@@ -40,6 +40,11 @@ class comando
             // Verifica se a mensagem enviada foi de um bot ou usuário
             if(p_mensagem.author.bot) return; // Caso seja de um bot finaliza a verificação
 
+
+            console.log(v_tmp_prefixo);
+            console.log(v_tmp_tamanho);
+            console.log(this.init_kafra.prefixo.length);
+
             // Verifica se a mensagem foi iniciada com o prefixo desejado!
             if(v_tmp_prefixo)
             {
@@ -62,9 +67,12 @@ class comando
                 // Caso tenha encontrado uma menção gera alerta
                 if(v_tmp_mencao)
                 {
-                    console.log('Ocorreu uma menção!');
+                    console.log('Menção');
                 }
             } // else if(v_tmp_tamanho > 0)
+
+
+            return;
         } // try {}
         catch(p_erro)
         {
