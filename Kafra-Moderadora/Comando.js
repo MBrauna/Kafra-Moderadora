@@ -35,7 +35,7 @@ class comando
             var v_kafra_id              =   p_cliente.user.id;
             var v_tmp_prefixo           =   p_mensagem.content.startsWith(v_kafra_prefixo);
 
-            //var v_tmp_tamanho           =   p_mensagem.mentions.users.keyArray().length;
+            var v_tmp_tamanho           =   p_mensagem.mentions.users.keyArray().length;
 
             // Verifica se a mensagem enviada foi de um bot ou usuário
             if(p_mensagem.author.bot) return; // Caso seja de um bot finaliza a verificação
