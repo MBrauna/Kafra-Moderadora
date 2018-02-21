@@ -50,7 +50,7 @@ class comando
             } // if(v_tmp_prefixo)
             else if(v_tmp_tamanho > 0)
             {
-                var v_tmp_mencionados       = p_mensagem.mentions.users.user; // Cria uma lista com todos os usuários mencionados
+                var v_tmp_mencionados       = p_mensagem.mentions.users; // Cria uma lista com todos os usuários mencionados
                 
                 // Gera um loop para todos os usuários mencionados
                 console.log(v_tmp_mencionados);
