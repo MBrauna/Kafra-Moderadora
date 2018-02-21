@@ -50,23 +50,15 @@ class comando
             } // if(v_tmp_prefixo)
             else if(v_tmp_tamanho > 0)
             {
-                for(var tmp_integer = 0; tmp_integer < v_tmp_tamanho; tmp_integer++)
-                {
-                    /*if(p_mensagem.mentions[tmp_integer] === v_kafra_id)
+                var v_tmp_mencionados       = p_mensagem.mentions.users; // Cria uma lista com todos os usuários mencionados
+                
+                // Gera um loop para todos os usuários mencionados
+                v_tmp_mencionados.forEach(
+                    function(user)
                     {
-                        // Marca que ocorreu uma menção do bot
-                        console.log(p_mensagem.mentions[tmp_integer].id);
-                        v_tmp_mencao = true;
-                    } // if(p_mensagem.mentions[tmp_integer].id === this.init_kafra.id)
-                    */
-                    console.log(p_mensagem.mentions[tmp_integer]);
-                } // for(var tmp_integer = 0; tmp_integer < v_tmp_tamanho; tmp_integer++)
-
-                // Caso tenha encontrado uma menção gera alerta
-                if(v_tmp_mencao)
-                {
-                    console.log('Menção');
-                }
+                        console.log(user);
+                    }
+                );
             } // else if(v_tmp_tamanho > 0)
         }
         catch(p_erro)
