@@ -30,7 +30,7 @@ class comando
     trata_mensagem(p_cliente, p_mensagem)
     {
         console.log('----------------------------------');
-        console.log(p_mensagem.mentions);
+        console.log(p_mensagem.mentions.users.length);
         console.log('----------------------------------');
     }
 } // CLASS COMANDO
