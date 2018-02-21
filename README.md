@@ -1,15 +1,21 @@
-# Kafra Moderadora
+
+# **Kafra Moderadora**
+
+
+----------
+
+
 ## Pesquisa
 
-[DATABASE] 
-<@MENÇÃO> <item/monstro/mapa> <nome/id> 
-Consultas de itens, monstros e mapas em https://ragnaplace.com
+### [DATABASE] 
+- *<@MENÇÃO> <item/monstro/mapa> <nome/id>* 
+- Consultas de itens, monstros e mapas em https://ragnaplace.com
 
 
-[ENCICLOPÉDIA] 
-<@MENÇÃO> wiki <termo>
-Consulta de guias em https://bropedia.net
+### [ENCICLOPÉDIA]
 
+ - *<@MENÇÃO> wiki <termo_consulta>*
+ - Consulta de guias em https://bropedia.net
 
 
 
@@ -18,45 +24,46 @@ Consulta de guias em https://bropedia.net
 
 ## Moderação
 
-[BANIR]
-<@MENÇÃO> banir <@usuario_alvo> 
-Chamada de tal ação irá banir definitivamente o usuário alvo. 
+### [BANIR]
+ - *<@MENÇÃO> banir <@usuario_alvo>*
+ - Chamada de tal ação irá banir definitivamente o usuário alvo.
+
           
-[EXPULSAR] 
-<@MENÇÃO> expulsar <@usuario_alvo>
-Chamada irá expulsar o usuário alvo temporáriamente.
+### [EXPULSAR] 
+- *<@MENÇÃO> expulsar <@usuario_alvo>*
+- Chamada irá expulsar o usuário alvo temporáriamente.
           
-[LIMPAR] 
-<@MENÇÃO> limpar <@usuario_alvo/quantidade> 
-Chamada de tal ação irá limpar todas as mensagens para o alvo.
+### [LIMPAR] 
+- *<@MENÇÃO> limpar <@usuario_alvo/quantidade>* 
+- Chamada de tal ação irá limpar todas as mensagens para o alvo.
           
-[CRIAR REGRA]
-<@MENÇÃO> criar_regra <texto> 
-Chamada de tal ação irá criar um alerta contendo todas as regras do servidor. 
+### [CRIAR REGRA]
+- *<@MENÇÃO> criar_regra <texto_escolhido>* 
+- Chamada de tal ação irá criar um alerta contendo todas as regras do servidor. 
           
-[ADICIONAR FILTRO DE PALAVRA]
-<@MENÇÃO> criar_filtro <palavra>
-Chamada de tal ação irá criar um filtro de palavras proibidas.
+### [ADICIONAR FILTRO DE PALAVRA]
+- *<@MENÇÃO> criar_filtro <palavra_escolhida>*
+- Chamada de tal ação irá criar um filtro de palavras proibidas.
           
-[REMOVER FILTRO DE PALAVRA]
-<@MENÇÃO> remover_filtro <palavra>
-Chamada de tal ação irá remover o filtro de palavras proibidas. 
+### [REMOVER FILTRO DE PALAVRA]
+- *<@MENÇÃO> remover_filtro <palavra_escolhida>*
+- Chamada de tal ação irá remover o filtro de palavras proibidas. 
           
-[LISTAR FILTRO DE PALAVRA] 
-<@MENÇÃO> lista_filtro
-Chamada de tal ação irá listar todas as palavras proibidas contidas no filtro.
+### [LISTAR FILTRO DE PALAVRA] 
+- *<@MENÇÃO> lista_filtro*
+- Chamada de tal ação irá listar todas as palavras proibidas contidas no filtro.
           
-[ALERTAR USUÁRIO]
-<@MENÇÃO> alerta <@usuario_alvo>
-Chamada de tal ação irá gerar uma notificação ao usuário alvo e pontos negativos. 
+### [ALERTAR USUÁRIO]
+- *<@MENÇÃO> alerta <@usuario_alvo>*
+- Chamada de tal ação irá gerar uma notificação ao usuário alvo e pontos negativos. 
           
-[LISTAR GRUPO] 
-<@MENÇÃO> lista_grupo 
-Chamada de tal ação irá listar todos os usuários de determinado grupo.
+### [LISTAR GRUPO] 
+- *<@MENÇÃO> lista_grupo* 
+- Chamada de tal ação irá listar todos os usuários de determinado grupo.
           
-[VISUALIZAR USUÁRIO] 
-<@MENÇÃO> usuario <@usuario_alvo> 
-Chamada de tal ação irá listar imagem, nickname, ID, punições e grupo do alvo.
+### [VISUALIZAR USUÁRIO] 
+- *<@MENÇÃO> usuario <@usuario_alvo>* 
+- Chamada de tal ação irá listar imagem, nickname, ID, punições e grupo do alvo.
 
 
 
@@ -65,17 +72,17 @@ Chamada de tal ação irá listar imagem, nickname, ID, punições e grupo do al
 
 
 ## Ragnarök
-[RECRUTAR]
-<@MENÇÃO> recrutar <nivel_inicial> <nivel_final> <mapa>
-Chamada de tal ação irá marcar por 20 minutos recrutamento de jogadores.
+### [RECRUTAR]
+- *<@MENÇÃO> recrutar <nivel_inicial> <nivel_final> <mapa>*
+- Chamada de tal ação irá marcar por 20 minutos recrutamento de jogadores.
           
-[PROCURAR] 
-<@MENÇÃO> procurar <nivel>
-Chamada de tal ação irá listar os grupos ativos dentro do nível do personagem.
+### [PROCURAR] 
+- *<@MENÇÃO> procurar <nivel_desejado>*
+- Chamada de tal ação irá listar os grupos ativos dentro do nível do personagem.
           
-[LISTAR TODOS GRUPOS]
-<@MENÇÃO> grupos
-Chamada de tal ação irá listar todos os grupos ativos.
+### [LISTAR TODOS GRUPOS]
+- *<@MENÇÃO> grupos*
+- Chamada de tal ação irá listar todos os grupos ativos.
 
 
 
@@ -85,30 +92,39 @@ Chamada de tal ação irá listar todos os grupos ativos.
 
 ## Moderadora
 
-[APRESENTAÇÃO] 
-<@MENÇÃO> 
-Chamada de tal ação irá gerar um texto de aprensentação.
+### [APRESENTAÇÃO] 
+- *<@MENÇÃO>* 
+- Chamada de tal ação irá gerar um texto de aprensentação.
          
-[REGRA]  
-<@MENÇÃO> regras
-Chamada de tal ação irá listar as regras cadastradas. 
+### [REGRA]  
+- *<@MENÇÃO> regras*
+- Chamada de tal ação irá listar as regras cadastradas. 
          
-[AJUDA]  
-<@MENÇÃO> ajuda 
-Chamada de tal ação irá listar todos os comandos disponíveis. 
+### [AJUDA]  
+
+ - *<@MENÇÃO> ajuda*
+ - Chamada de tal ação irá listar todos os comandos disponíveis.
+
          
-[BOAS-VINDAS]
-AO ENTRAR NO SERVIDOR 
-Mensagem de boas-vindas será gerada.
+### [BOAS-VINDAS]
+
+ - AO ENTRAR NO SERVIDOR
+ - Mensagem de boas-vindas será gerada.
+
          
-[DESPEDIDA]
-AO SAIR DO servidor 
-Mensagem de despedida será gerada.
+### [DESPEDIDA]
+
+ - AO SAIR DO SERVIDOR
+ - Mensagem de despedida será gerada.
+
          
-[LOG]    
-Mediante canal pré-definido 
-Todas as ações serão monitoradas e um log gerado. 
+### [LOG]    
+
+ - Mediante canal pré-definido
+ - Todas as ações serão monitoradas e um log gerado.
+
          
-[DEFINIR LOG]
-<@MENÇÃO> log <#AREA> 
-Todos os logs serão escritos na área informada.
+### [DEFINIR LOG]
+
+ - *<@MENÇÃO> log <#AREA>*
+ - Todos os logs serão escritos na área informada.
