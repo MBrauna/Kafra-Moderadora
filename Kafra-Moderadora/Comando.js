@@ -29,20 +29,8 @@ class comando
 
     trata_mensagem(p_cliente, p_mensagem)
     {
-        // Verifica se ocorreu a menção do bot
-        var v_mencionado    = false;
-        var v_qtde_mencao   = p_mensagem.mentions;
         console.log('----------------------------------');
-        console.log('Quantidade de menções: ' + v_qtde_mencao.length);
-        console.log('----------------------------------');
-
-        for(var tmp_mencao=0; tmp_mencao <= v_qtde_mencao.length; tmp_mencao++)
-        {
-            console.log(p_mensagem.mentions[tmp_mencao]);
-        } // for(tmp_mencao=0; tmp_mencao <=p_mensagem.mentions.length; tmp_mencao++)
-
-        console.log('----------------------------------');
-        if(v_mencionado) console.log('Fui mencionado');
+        console.log(p_mensagem.mentions);
         console.log('----------------------------------');
     }
 } // CLASS COMANDO
