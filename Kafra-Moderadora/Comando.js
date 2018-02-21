@@ -53,7 +53,7 @@ class comando
                 var v_tmp_mencionados       = p_mensagem.mentions.users; // Cria uma lista com todos os usuários mencionados
                 
                 // Gera um loop para todos os usuários mencionados
-                console.log(v_tmp_mencionados.length);
+                console.log(v_tmp_mencionados[0]);
             } // else if(v_tmp_tamanho > 0)
         }
         catch(p_erro)
