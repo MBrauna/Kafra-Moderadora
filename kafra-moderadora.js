@@ -151,5 +151,5 @@ let v_token_discord                 =   process.env.BOT_TOKEN_DISCORD
 
 
 // Método construtor - Inicialização do processo                (╬ ಠ益ಠ)
-const init_kafra_moderadora         =   new bib_kafra_moderadora(v_token_discord); 
+const init_kafra_moderadora         =   new bib_kafra_moderadora_discord(v_token_discord); 
 // FIM - Método construtor - Inicialização do processo          (╬ ಠ益ಠ)
