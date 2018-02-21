@@ -49,4 +49,4 @@ class comando
 
 
 // Torna o método público
-module.exports = texto;
+module.exports = comando;
