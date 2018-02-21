@@ -41,8 +41,31 @@ class comando
             if(p_mensagem.author.bot) return; // Caso seja de um bot finaliza a verificação
 
 
-            console.log(v_tmp_prefixo);
-            console.log(v_tmp_tamanho);
+            // Verifica se a mensagem foi iniciada com o prefixo desejado!
+            if(v_tmp_prefixo)
+            {
+                console.log('Provavel comando');
+                console.log(p_mensagem.content.slice(v_kafra_prefixo.length).trim().split(/ +/g));
+                console.log('------------------');
+            } // if(v_tmp_prefixo)
+            else if(v_tmp_tamanho > 0)
+            {
+                for(var tmp_integer = 0; tmp_integer < v_tmp_tamanho; tmp_integer++)
+                {
+                    if(p_mensagem.mentions[tmp_integer].id === v_kafra_id)
+                    {
+                        // Marca que ocorreu uma menção do bot
+                        console.log(p_mensagem.mentions[tmp_integer].id);
+                        v_tmp_mencao = true;
+                    } // if(p_mensagem.mentions[tmp_integer].id === this.init_kafra.id)
+                } // for(var tmp_integer = 0; tmp_integer < v_tmp_tamanho; tmp_integer++)
+
+                // Caso tenha encontrado uma menção gera alerta
+                if(v_tmp_mencao)
+                {
+                    console.log('Menção');
+                }
+            } // else if(v_tmp_tamanho > 0)
         }
         catch(p_erro)
         {
