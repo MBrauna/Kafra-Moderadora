@@ -59,7 +59,7 @@ class comando
                         v_tmp_mencao = true;
                     } // if(p_mensagem.mentions[tmp_integer].id === this.init_kafra.id)
                     */
-                    console.log(p_mensagem.mentions.users[tmp_integer]);
+                    console.log(p_mensagem.mentions.users.[tmp_integer]);
                 } // for(var tmp_integer = 0; tmp_integer < v_tmp_tamanho; tmp_integer++)
 
                 // Caso tenha encontrado uma menção gera alerta
