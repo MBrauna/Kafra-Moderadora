@@ -127,7 +127,10 @@ class Kafra_moderadora
         // PARA EVENTO DO TIPO TEXTO
         this.init_kafra_moderadora.on("message",       async mensagem =>
                                                     {
-                                                        mensagem.reply('[TESTE] ' + mensagem.author.username + ' disse algo, e está usando o avatar: ' + mensagem.author.avatarURL);
+                                                        if(!mensagem.author.bot)
+                                                        {
+                                                            mensagem.reply('[TESTE] ' + mensagem.author.username + ' disse algo, e está usando o avatar: ' + mensagem.author.avatarURL);
+                                                        }
                                                     }
                                 );
         // PARA EVENTO DO TIPO TEXTO
