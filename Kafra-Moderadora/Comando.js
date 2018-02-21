@@ -24,7 +24,6 @@ class comando
     construct()
     {
         console.log('Construtor de comandos inicializado.');
-        this.cor    = 0x882d93;
     } // construct()
 
 
@@ -324,7 +323,7 @@ class comando
                                 {
                                     'embed':
                                     {
-                                        color: this.cor
+                                        color: 0x882d93
                                        ,author:
                                        {
                                             name:       'Kafra Moderadora'
