@@ -29,6 +29,10 @@ class comando
 
     trata_mensagem(p_cliente, p_mensagem)
     {
+        var v_mencao = message.content.startsWith('<@' + p_cliente.user.id + '>');
+
+        console.log('----------------------');
+        console.log(v_mencao);
         console.log('----------------------');
         console.log(p_mensagem.content);
         console.log('----------------------');
