@@ -45,6 +45,7 @@ class comando
             console.log(v_tmp_tamanho);
             console.log(this.init_kafra.prefixo.length);
 
+            /*
             // Verifica se a mensagem foi iniciada com o prefixo desejado!
             if(v_tmp_prefixo)
             {
@@ -71,7 +72,7 @@ class comando
                 }
             } // else if(v_tmp_tamanho > 0)
 
-
+            */
             return;
         } // try {}
         catch(p_erro)
