@@ -103,37 +103,8 @@ class comando
                     case 'item':
                         v_campo_resposta =  [
                                                 {
-                                                    name:   "Database"
-                                                   ,value:  "Para realizar pesquisar no database digite @Kafra Moderadora <item/monstro/mapa> <nome_desejado/ID>."
-                                                }
-                                               ,{
-                                                    name:   "Enciclopédia"
-                                                   ,value:  "Para realizar pesquisar na enciclopédia digite @Kafra Moderadora wiki <termo_desejado>."
-                                                }
-                                               ,{
-                                                    name:   "Recrutar para grupo"
-                                                   ,value:  "Está em jogo e pretende montar um grupo? Deixe que eu organizo para você, basta digitar @kafra Moderadora recrutar <nivel_inicial> <nivel_final> <mapa_desejado>, e por 20 minutos irei organizar seu grupo."
-                                                }
-                                               ,{
-                                                    name:   "Procurar grupo"
-                                                   ,value:  "Quer entrar num supimpa grupo e se aventurar em Rune Midgard? Digite @Kafra Moderadora procurar <nivel_atual>."
-                                                }
-                                               ,{
-                                                    name:   "Listar Grupos ativos"
-                                                   ,value:  "Quer descobrir os grupos ativos? Chame por @Kafra Moderadora grupos."
-                                                }
-                                               ,{
-                                                    name:   "Regras"
-                                                   ,value:  "Para ler as regras deste servidor digite @Kafra Moderadora regras, e irei listá-las para você."
-                                                }
-
-                                               ,{
-                                                    name:   "Ajuda"
-                                                   ,value:  "Está em dúvida sobre algo? Digite @Kafra Moderadora ajuda, que irei encontrar alguém para lhe socorrer."
-                                                }
-                                               ,{
-                                                    name:   "（ ^_^）o自  自o（^_^ ）"
-                                                   ,value:  "A qualquer momento você poderá me mencionar para que eu liste os comandos! Chame por @Kafra Moderadora."
+                                                    name:   "Calma ai!"
+                                                   ,value:  "Ainda não estou pronta!"
                                                 }
                                             ];
                         this.formata_mensagem(v_campo_resposta,p_cliente,p_mensagem);
@@ -144,37 +115,8 @@ class comando
                     case 'monstro':
                         v_campo_resposta =  [
                                                 {
-                                                    name:   "Database"
-                                                   ,value:  "Para realizar pesquisar no database digite @Kafra Moderadora <item/monstro/mapa> <nome_desejado/ID>."
-                                                }
-                                               ,{
-                                                    name:   "Enciclopédia"
-                                                   ,value:  "Para realizar pesquisar na enciclopédia digite @Kafra Moderadora wiki <termo_desejado>."
-                                                }
-                                               ,{
-                                                    name:   "Recrutar para grupo"
-                                                   ,value:  "Está em jogo e pretende montar um grupo? Deixe que eu organizo para você, basta digitar @kafra Moderadora recrutar <nivel_inicial> <nivel_final> <mapa_desejado>, e por 20 minutos irei organizar seu grupo."
-                                                }
-                                               ,{
-                                                    name:   "Procurar grupo"
-                                                   ,value:  "Quer entrar num supimpa grupo e se aventurar em Rune Midgard? Digite @Kafra Moderadora procurar <nivel_atual>."
-                                                }
-                                               ,{
-                                                    name:   "Listar Grupos ativos"
-                                                   ,value:  "Quer descobrir os grupos ativos? Chame por @Kafra Moderadora grupos."
-                                                }
-                                               ,{
-                                                    name:   "Regras"
-                                                   ,value:  "Para ler as regras deste servidor digite @Kafra Moderadora regras, e irei listá-las para você."
-                                                }
-
-                                               ,{
-                                                    name:   "Ajuda"
-                                                   ,value:  "Está em dúvida sobre algo? Digite @Kafra Moderadora ajuda, que irei encontrar alguém para lhe socorrer."
-                                                }
-                                               ,{
-                                                    name:   "（ ^_^）o自  自o（^_^ ）"
-                                                   ,value:  "A qualquer momento você poderá me mencionar para que eu liste os comandos! Chame por @Kafra Moderadora."
+                                                    name:   "Calma ai!"
+                                                   ,value:  "Ainda não estou pronta!"
                                                 }
                                             ];
                         this.formata_mensagem(v_campo_resposta,p_cliente,p_mensagem);
@@ -185,37 +127,8 @@ class comando
                     case 'mapa':
                         v_campo_resposta =  [
                                                 {
-                                                    name:   "Database"
-                                                   ,value:  "Para realizar pesquisar no database digite @Kafra Moderadora <item/monstro/mapa> <nome_desejado/ID>."
-                                                }
-                                               ,{
-                                                    name:   "Enciclopédia"
-                                                   ,value:  "Para realizar pesquisar na enciclopédia digite @Kafra Moderadora wiki <termo_desejado>."
-                                                }
-                                               ,{
-                                                    name:   "Recrutar para grupo"
-                                                   ,value:  "Está em jogo e pretende montar um grupo? Deixe que eu organizo para você, basta digitar @kafra Moderadora recrutar <nivel_inicial> <nivel_final> <mapa_desejado>, e por 20 minutos irei organizar seu grupo."
-                                                }
-                                               ,{
-                                                    name:   "Procurar grupo"
-                                                   ,value:  "Quer entrar num supimpa grupo e se aventurar em Rune Midgard? Digite @Kafra Moderadora procurar <nivel_atual>."
-                                                }
-                                               ,{
-                                                    name:   "Listar Grupos ativos"
-                                                   ,value:  "Quer descobrir os grupos ativos? Chame por @Kafra Moderadora grupos."
-                                                }
-                                               ,{
-                                                    name:   "Regras"
-                                                   ,value:  "Para ler as regras deste servidor digite @Kafra Moderadora regras, e irei listá-las para você."
-                                                }
-
-                                               ,{
-                                                    name:   "Ajuda"
-                                                   ,value:  "Está em dúvida sobre algo? Digite @Kafra Moderadora ajuda, que irei encontrar alguém para lhe socorrer."
-                                                }
-                                               ,{
-                                                    name:   "（ ^_^）o自  自o（^_^ ）"
-                                                   ,value:  "A qualquer momento você poderá me mencionar para que eu liste os comandos! Chame por @Kafra Moderadora."
+                                                    name:   "Calma ai!"
+                                                   ,value:  "Ainda não estou pronta!"
                                                 }
                                             ];
                         this.formata_mensagem(v_campo_resposta,p_cliente,p_mensagem);
@@ -226,37 +139,8 @@ class comando
                     case 'wiki':
                         v_campo_resposta =  [
                                                 {
-                                                    name:   "Database"
-                                                   ,value:  "Para realizar pesquisar no database digite @Kafra Moderadora <item/monstro/mapa> <nome_desejado/ID>."
-                                                }
-                                               ,{
-                                                    name:   "Enciclopédia"
-                                                   ,value:  "Para realizar pesquisar na enciclopédia digite @Kafra Moderadora wiki <termo_desejado>."
-                                                }
-                                               ,{
-                                                    name:   "Recrutar para grupo"
-                                                   ,value:  "Está em jogo e pretende montar um grupo? Deixe que eu organizo para você, basta digitar @kafra Moderadora recrutar <nivel_inicial> <nivel_final> <mapa_desejado>, e por 20 minutos irei organizar seu grupo."
-                                                }
-                                               ,{
-                                                    name:   "Procurar grupo"
-                                                   ,value:  "Quer entrar num supimpa grupo e se aventurar em Rune Midgard? Digite @Kafra Moderadora procurar <nivel_atual>."
-                                                }
-                                               ,{
-                                                    name:   "Listar Grupos ativos"
-                                                   ,value:  "Quer descobrir os grupos ativos? Chame por @Kafra Moderadora grupos."
-                                                }
-                                               ,{
-                                                    name:   "Regras"
-                                                   ,value:  "Para ler as regras deste servidor digite @Kafra Moderadora regras, e irei listá-las para você."
-                                                }
-
-                                               ,{
-                                                    name:   "Ajuda"
-                                                   ,value:  "Está em dúvida sobre algo? Digite @Kafra Moderadora ajuda, que irei encontrar alguém para lhe socorrer."
-                                                }
-                                               ,{
-                                                    name:   "（ ^_^）o自  自o（^_^ ）"
-                                                   ,value:  "A qualquer momento você poderá me mencionar para que eu liste os comandos! Chame por @Kafra Moderadora."
+                                                    name:   "Calma ai!"
+                                                   ,value:  "Ainda não estou pronta!"
                                                 }
                                             ];
                         this.formata_mensagem(v_campo_resposta,p_cliente,p_mensagem);
