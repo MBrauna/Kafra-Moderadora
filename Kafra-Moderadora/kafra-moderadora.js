@@ -46,7 +46,10 @@
 
 
 // Inicialização de bibliotecas                                 (∩｀-´)⊃━☆ﾟ.*･｡ﾟ
-const bib_discord                   =   require('discord.js');
+let bib_discord                     =   require('discord.js')
+   ,bib_comando                     =   require('./Comando.js')
+   ;
+
 // Fim - Inicialização de bibliotecas                           (∩｀-´)⊃━☆ﾟ.*･｡ﾟ
 
 
@@ -64,11 +67,12 @@ class Kafra_moderadora
          ************************************************************************/
 
         // Salva virtualmente - protected - os dados do token
-        this.v_token_discord        =   p_token_discord;
+        this.v_token_discord            =   p_token_discord;
         // FIM - Salva virtualmente - protected - os dados do token
 
         // Instancia uma nova sessão para o acesso ao bot
-        this.init_kafra_moderadora   =   new bib_discord.Client();
+        this.init_kafra_moderadora      =   new bib_discord.Client();
+        this.init_comando               =   new bib_comando();
         //FIM - Instancia uma nova sessão para o acesso ao bot
 
 
@@ -103,12 +107,10 @@ class Kafra_moderadora
         // PARA EVENTO DO TIPO - BOT PREPARADO
         this.init_kafra_moderadora.on(
                                         "ready"
-                                       ,v_acesso =>
+                                       ,() =>
                                         {
-                                            console.log('-- -- -- READY -- -- --');
-                                            console.log('---------------------------');
-                                            console.log(v_acesso);
-                                            console.log('---------------------------');
+                                            console.log('[Kafra moderadora] - Estou ativa!');
+                                            this.init_kafra_moderadora.user.setGame('Ragnarök Online');
                                         }
                                     );
         // PARA EVENTO DO TIPO - BOT PREPARADO
@@ -144,10 +146,10 @@ class Kafra_moderadora
                                         "message"
                                        ,async mensagem =>
                                         {
-                                            console.log('-- -- -- MENSAGEM -- -- --');
-                                            console.log('---------------------------');
-                                            console.log(mensagem);
-                                            console.log('---------------------------');
+                                            this.init_comando.trata_mensagem(
+                                                                                this.init_kafra_moderadora
+                                                                               ,mensagem
+                                                                            );
                                         }
                                 );
         // PARA EVENTO DO TIPO TEXTO
