@@ -43,7 +43,6 @@ class comando
 
             console.log(v_tmp_prefixo);
             console.log(v_tmp_tamanho);
-            console.log(this.init_kafra_prefixo.length);
     } // trata_mensagem(p_cliente, p_mensagem)
 } // CLASS COMANDO
 
