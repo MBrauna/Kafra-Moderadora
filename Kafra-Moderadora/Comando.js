@@ -33,6 +33,15 @@ class comando
         console.log('----------------------------------');
         console.log(v_quantidade_mencao);
         console.log('----------------------------------');
+        console.log(p_mensagem);
+        console.log('----------------------------------');
+        console.log(p_mensagem.mentions);
+        console.log('----------------------------------');
+        console.log(p_mensagem.mentions.users);
+        console.log('----------------------------------');
+        console.log('----------------------------------');
+        console.log('----------------------------------');
+        console.log('----------------------------------');
     }
 } // CLASS COMANDO
 
