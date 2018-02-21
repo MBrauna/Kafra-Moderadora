@@ -1,4 +1,5 @@
-#Pesquisa
+# Kafra Moderadora
+## Pesquisa
 
 [DATABASE] 
 <@MENÇÃO> <item/monstro/mapa> <nome/id> 
@@ -15,7 +16,7 @@ Consulta de guias em https://bropedia.net
 
 
 
-#Moderação
+## Moderação
 
 [BANIR]
 <@MENÇÃO> banir <@usuario_alvo> 
@@ -63,7 +64,7 @@ Chamada de tal ação irá listar imagem, nickname, ID, punições e grupo do al
 
 
 
-#Ragnarök
+## Ragnarök
 [RECRUTAR]
 <@MENÇÃO> recrutar <nivel_inicial> <nivel_final> <mapa>
 Chamada de tal ação irá marcar por 20 minutos recrutamento de jogadores.
@@ -82,7 +83,7 @@ Chamada de tal ação irá listar todos os grupos ativos.
 
 
 
-# Moderadora
+## Moderadora
 
 [APRESENTAÇÃO] 
 <@MENÇÃO> 
