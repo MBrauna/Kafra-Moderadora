@@ -57,7 +57,7 @@ class comando
                 // Verifica se existe alguma informação ou é apenas menção;
                 if(v_mensagem.length <= 0)
                 {
-                    v_campo_resposta =  {
+                    v_campo_resposta =  [
                                             {
                                                 name:   "Database"
                                                ,value:  "Para realizar pesquisar no database digite @Kafra Moderadora <item/monstro/mapa> <nome_desejado/ID>."
@@ -91,7 +91,7 @@ class comando
                                                 name:   "（ ^_^）o自  自o（^_^ ）"
                                                ,value:  "A qualquer momento você poderá me mencionar para que eu liste os comandos! Chame por @Kafra Moderadora."
                                             }
-                                        };
+                                        ];
                     this.formata_mensagem(v_campo_resposta,p_cliente,p_mensagem);
                     return;
                 }
@@ -102,7 +102,7 @@ class comando
                     // ᕦ(ò_óˇ)ᕤ     ---     S E P A R A D O R     ---     ᕦ(ˇò_ó)ᕤ
 
                     case 'item':
-                        v_campo_resposta =  {
+                        v_campo_resposta =  [
                                                 {
                                                     name:   "Database"
                                                    ,value:  "Para realizar pesquisar no database digite @Kafra Moderadora <item/monstro/mapa> <nome_desejado/ID>."
@@ -136,14 +136,14 @@ class comando
                                                     name:   "（ ^_^）o自  自o（^_^ ）"
                                                    ,value:  "A qualquer momento você poderá me mencionar para que eu liste os comandos! Chame por @Kafra Moderadora."
                                                 }
-                                            };
+                                            ];
                         this.formata_mensagem(v_campo_resposta,p_cliente,p_mensagem);
                         break;
 
                     // ᕦ(ò_óˇ)ᕤ     ---     S E P A R A D O R     ---     ᕦ(ˇò_ó)ᕤ
 
                     case 'monstro':
-                        v_campo_resposta =  {
+                        v_campo_resposta =  [
                                                 {
                                                     name:   "Database"
                                                    ,value:  "Para realizar pesquisar no database digite @Kafra Moderadora <item/monstro/mapa> <nome_desejado/ID>."
@@ -177,14 +177,14 @@ class comando
                                                     name:   "（ ^_^）o自  自o（^_^ ）"
                                                    ,value:  "A qualquer momento você poderá me mencionar para que eu liste os comandos! Chame por @Kafra Moderadora."
                                                 }
-                                            };
+                                            ];
                         this.formata_mensagem(v_campo_resposta,p_cliente,p_mensagem);
                         break;
 
                     // ᕦ(ò_óˇ)ᕤ     ---     S E P A R A D O R     ---     ᕦ(ˇò_ó)ᕤ
 
                     case 'mapa':
-                        v_campo_resposta =  {
+                        v_campo_resposta =  [
                                                 {
                                                     name:   "Database"
                                                    ,value:  "Para realizar pesquisar no database digite @Kafra Moderadora <item/monstro/mapa> <nome_desejado/ID>."
@@ -218,14 +218,14 @@ class comando
                                                     name:   "（ ^_^）o自  自o（^_^ ）"
                                                    ,value:  "A qualquer momento você poderá me mencionar para que eu liste os comandos! Chame por @Kafra Moderadora."
                                                 }
-                                            };
+                                            ];
                         this.formata_mensagem(v_campo_resposta,p_cliente,p_mensagem);
                         break;
 
                     // ᕦ(ò_óˇ)ᕤ     ---     S E P A R A D O R     ---     ᕦ(ˇò_ó)ᕤ
 
                     case 'wiki':
-                        v_campo_resposta =  {
+                        v_campo_resposta =  [
                                                 {
                                                     name:   "Database"
                                                    ,value:  "Para realizar pesquisar no database digite @Kafra Moderadora <item/monstro/mapa> <nome_desejado/ID>."
@@ -259,14 +259,14 @@ class comando
                                                     name:   "（ ^_^）o自  自o（^_^ ）"
                                                    ,value:  "A qualquer momento você poderá me mencionar para que eu liste os comandos! Chame por @Kafra Moderadora."
                                                 }
-                                            };
+                                            ];
                         this.formata_mensagem(v_campo_resposta,p_cliente,p_mensagem);
                         break;
 
                     // ᕦ(ò_óˇ)ᕤ     ---     S E P A R A D O R     ---     ᕦ(ˇò_ó)ᕤ
 
                     default:
-                        v_campo_resposta =  {
+                        v_campo_resposta =  [
                                                 {
                                                     name:   "Database"
                                                    ,value:  "Para realizar pesquisar no database digite @Kafra Moderadora <item/monstro/mapa> <nome_desejado/ID>."
@@ -300,7 +300,7 @@ class comando
                                                     name:   "（ ^_^）o自  自o（^_^ ）"
                                                    ,value:  "A qualquer momento você poderá me mencionar para que eu liste os comandos! Chame por @Kafra Moderadora."
                                                 }
-                                            };
+                                            ];
                         this.formata_mensagem(v_campo_resposta,p_cliente,p_mensagem);
                         break;
                 } // switch(lower(v_mensagem[0].toLowerCase())
