@@ -72,7 +72,7 @@ class comando
                 }
             } // else if(v_tmp_tamanho > 0)
 
-            
+            console.log(p_mensagem);
         //} // try {}
         //catch(p_erro)
         //{
