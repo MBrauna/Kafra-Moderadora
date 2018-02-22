@@ -194,6 +194,34 @@ class comando
         }
         catch(p_erro)
         {
+            p_mensagem.channel.send('Cuidadooooooooo deu erro!!!',
+                                    {
+                                        'embed':
+                                        {
+                                            color: 0x882d93
+                                           ,author:
+                                           {
+                                                name:       'Kafra Moderadora'
+                                               ,icon_url:   'https://i.imgur.com/cfYwkLQ.png'
+                                            }
+                                           ,title: 'Kafra Moderadora'
+                                           ,url: 'http://bropedia.net'
+                                           ,description: 'OU MAI GOSH O QUE SERÁ QUE FOI DESSA VEZ?'
+                                           ,fields: [
+                                                        {
+                                                            name:   "Ocorreu um erro na sua requisição!"
+                                                           ,value:  "Infelizmente não pude atender o seu pedido! Mas juro que tentarei na próxima."
+                                                        }
+                                                    ]
+                                           ,image: [{ url: "https://i.imgur.com/LOGICNS.jpg"}]
+                                           ,timestamp: new Date()
+                                           ,footer: {
+                                                icon_url:   'https://i.imgur.com/cfYwkLQ.png'
+                                               ,text:       '© bROPédia - Por MBrauna e Lazarento'
+                                            }
+                                        }
+                                    }
+                                );
             console.log(p_erro);
             console.trace();
         }
@@ -216,6 +244,7 @@ class comando
                                        ,title: 'Kafra Moderadora'
                                        ,url: 'http://bropedia.net'
                                        ,description: 'A supervisora Kafra está na área!!'
+                                       ,image: [{ url: "https://i.imgur.com/LOGICNS.jpg"}]
                                        ,fields: p_campos
                                        ,timestamp: new Date()
                                        ,footer: {
