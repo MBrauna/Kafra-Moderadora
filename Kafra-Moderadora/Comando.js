@@ -207,6 +207,7 @@ class comando
                                            ,title: 'Kafra Moderadora'
                                            ,url: 'http://bropedia.net'
                                            ,description: 'OU MAI GOSH O QUE SERÁ QUE FOI DESSA VEZ?'
+                                           ,"image": {"url" : "https://i.imgur.com/LOGICNS.jpg"}
                                            ,fields: [
                                                         {
                                                             name:   "Ocorreu um erro na sua requisição!"
@@ -243,7 +244,6 @@ class comando
                                        ,title: 'Kafra Moderadora'
                                        ,url: 'http://bropedia.net'
                                        ,description: 'A supervisora Kafra está na área!!'
-                                       ,"image": {"url" : "https://i.imgur.com/LOGICNS.jpg"}
                                        ,fields: p_campos
                                        ,timestamp: new Date()
                                        ,footer: {
