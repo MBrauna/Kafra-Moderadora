@@ -213,7 +213,6 @@ class comando
                                                            ,value:  "Infelizmente não pude atender o seu pedido! Mas juro que tentarei na próxima."
                                                         }
                                                     ]
-                                           ,image: [{ url: "https://i.imgur.com/LOGICNS.jpg"}]
                                            ,timestamp: new Date()
                                            ,footer: {
                                                 icon_url:   'https://i.imgur.com/cfYwkLQ.png'
@@ -244,7 +243,7 @@ class comando
                                        ,title: 'Kafra Moderadora'
                                        ,url: 'http://bropedia.net'
                                        ,description: 'A supervisora Kafra está na área!!'
-                                       ,image: [{ url: "https://i.imgur.com/LOGICNS.jpg"}]
+                                       ,"image": {"url" : "https://i.imgur.com/LOGICNS.jpg"}
                                        ,fields: p_campos
                                        ,timestamp: new Date()
                                        ,footer: {
