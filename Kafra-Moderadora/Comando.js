@@ -165,8 +165,8 @@ class comando
                                            ,"image": {"url" : "https://i.imgur.com/LOGICNS.jpg"}
                                            ,fields: [
                                                         {
-                                                            name:   "Foi mal " + p_mensagem.author.name + " não consegui entender sua requisição!! Desculpe."
-                                                           ,value:  "Oh my gosh, eu tentei mas não consegui interpretar sua requisição. ): Tente digitar @Kafra moderadora para ver o que consigo atender."
+                                                            name:   "Gente essa foi pior que apagar tópico de manutenção! ):"
+                                                           ,value:  "Eu juro que tentei entender mas não consegui ): Tente digitar @Kafra moderadora"
                                                         }
                                                     ]
                                            ,timestamp: new Date()
