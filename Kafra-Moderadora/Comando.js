@@ -149,42 +149,34 @@ class comando
                     // ᕦ(ò_óˇ)ᕤ     ---     S E P A R A D O R     ---     ᕦ(ˇò_ó)ᕤ
 
                     default:
-                        v_campo_resposta =  [
-                                                {
-                                                    name:   "Database"
-                                                   ,value:  "Para realizar pesquisas no database digite @Kafra Moderadora <item/monstro/mapa> <nome_desejado/ID>."
-                                                }
-                                               ,{
-                                                    name:   "Enciclopédia"
-                                                   ,value:  "Para realizar pesquisas na enciclopédia digite @Kafra Moderadora wiki <termo_desejado>."
-                                                }
-                                               ,{
-                                                    name:   "Recrutar para grupo"
-                                                   ,value:  "Está em jogo e pretende montar um grupo? Deixe que eu organizo para você, basta digitar @kafra Moderadora recrutar <nivel_inicial> <nivel_final> <mapa_desejado>, e por 20 minutos irei organizar seu grupo."
-                                                }
-                                               ,{
-                                                    name:   "Procurar grupo"
-                                                   ,value:  "Quer entrar num supimpa grupo e se aventurar em Rune Midgard? Digite @Kafra Moderadora procurar <nivel_atual>."
-                                                }
-                                               ,{
-                                                    name:   "Listar Grupos ativos"
-                                                   ,value:  "Quer descobrir os grupos ativos? Chame por @Kafra Moderadora grupos."
-                                                }
-                                               ,{
-                                                    name:   "Regras"
-                                                   ,value:  "Para ler as regras deste servidor digite @Kafra Moderadora regras, e irei listá-las para você."
-                                                }
-
-                                               ,{
-                                                    name:   "Ajuda"
-                                                   ,value:  "Está em dúvida sobre algo? Digite @Kafra Moderadora ajuda, que irei encontrar alguém para lhe socorrer."
-                                                }
-                                               ,{
-                                                    name:   "（ ^_^）o自  自o（^_^ ）"
-                                                   ,value:  "A qualquer momento você poderá me mencionar para que eu liste os comandos! Chame por @Kafra Moderadora."
-                                                }
-                                            ];
-                        this.formata_mensagem(v_campo_resposta,p_cliente,p_mensagem);
+                        p_mensagem.channel.send('Ai pessoal, que caquinha!!!',
+                                    {
+                                        'embed':
+                                        {
+                                            color: 0x882d93
+                                           ,author:
+                                           {
+                                                name:       'Kafra Moderadora'
+                                               ,icon_url:   'https://i.imgur.com/cfYwkLQ.png'
+                                            }
+                                           ,title: 'Kafra Moderadora'
+                                           ,url: 'http://bropedia.net'
+                                           ,description: 'Não pude atender sua requisição!'
+                                           ,"image": {"url" : "https://i.imgur.com/LOGICNS.jpg"}
+                                           ,fields: [
+                                                        {
+                                                            name:   "Foi mal " + p_mensagem.author.name + " não consegui entender sua requisição!! Desculpe."
+                                                           ,value:  "Oh my gosh, eu tentei mas não consegui interpretar sua requisição. ): Tente digitar @Kafra moderadora para ver o que consigo atender."
+                                                        }
+                                                    ]
+                                           ,timestamp: new Date()
+                                           ,footer: {
+                                                icon_url:   'https://i.imgur.com/cfYwkLQ.png'
+                                               ,text:       '© bROPédia - Por MBrauna e Lazarento'
+                                            }
+                                        }
+                                    }
+                                );
                         break;
                 } // switch(lower(v_mensagem[0].toLowerCase())
 
