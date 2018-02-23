@@ -88,27 +88,69 @@ class comando
                 // Coleta os parâmetros dos dados caso exista a string esperada
                 v_obj_mensagem_s_prefixo    =   p_mensagem.content.slice(v_str_mencao_kafra.length).trim().split(/ +/g); // Remove o prefixo da string e quebra em array
 
-                console.log('1');
                 if(v_obj_mensagem_s_prefixo.length <= 0)
                 {
                     // Prepara a nova mensagem
                     obj_msg_tmp.embed.description   =   'Fui chamada!? Não sou uma ursinha carinhosa (Olha o tamanho do meu banhammer), mas estou aqui para te ajudar.';
                     obj_msg_tmp.embed.fields        =   this.init_msg_funcionalidade;
-
-                    console.log(this.init_msg_funcionalidade);
-                    console.log(obj_msg_tmp);
-                    this.monta_resposta(p_cliente
-                                       ,p_mensagem
-                                       ,'Olá <@' + p_mensagem.author.id + '> estou aqui!'
-                                       ,obj_msg_tmp
-                                       );
                 } // if(v_obj_mensagem_s_prefixo.length <= 0)
                 else
                 {
-                    console.log(v_obj_mensagem_s_prefixo.length);
-                }
+                    switch(v_obj_mensagem_s_prefixo[0].toLowerCase());
+                    {
+                        case 'item':
+                            obj_msg_tmp.embed.description   =   'Desculpe pessoinha, mas esta funcionalidade não está disponível no momento.';
+                            obj_msg_tmp.embed.fields        =   this.init_msg_dev;
+                            break;
+                        case 'monstro':
+                            obj_msg_tmp.embed.description   =   'Desculpe pessoinha, mas esta funcionalidade não está disponível no momento.';
+                            obj_msg_tmp.embed.fields        =   this.init_msg_dev;
+                            break;
+                        case 'mapa':
+                            obj_msg_tmp.embed.description   =   'Desculpe pessoinha, mas esta funcionalidade não está disponível no momento.';
+                            obj_msg_tmp.embed.fields        =   this.init_msg_dev;
+                            break;
+                        case 'wiki':
+                            obj_msg_tmp.embed.description   =   'Desculpe pessoinha, mas esta funcionalidade não está disponível no momento.';
+                            obj_msg_tmp.embed.fields        =   this.init_msg_dev;
+                            break;
+                        case 'recrutar':
+                            obj_msg_tmp.embed.description   =   'Desculpe pessoinha, mas esta funcionalidade não está disponível no momento.';
+                            obj_msg_tmp.embed.fields        =   this.init_msg_dev;
+                            break;
+                        case 'procurar':
+                            obj_msg_tmp.embed.description   =   'Desculpe pessoinha, mas esta funcionalidade não está disponível no momento.';
+                            obj_msg_tmp.embed.fields        =   this.init_msg_dev;
+                            break;
+                        case 'grupos':
+                            obj_msg_tmp.embed.description   =   'Desculpe pessoinha, mas esta funcionalidade não está disponível no momento.';
+                            obj_msg_tmp.embed.fields        =   this.init_msg_dev;
+                            break;
+                        case 'regras':
+                            obj_msg_tmp.embed.description   =   'Desculpe pessoinha, mas esta funcionalidade não está disponível no momento.';
+                            obj_msg_tmp.embed.fields        =   this.init_msg_dev;
+                            break;
+                        case 'ajuda':
+                            obj_msg_tmp.embed.description   =   'Desculpe pessoinha, mas esta funcionalidade não está disponível no momento.';
+                            obj_msg_tmp.embed.fields        =   this.init_msg_dev;
+                            break;
+                        case 'bug':
+                            obj_msg_tmp.embed.description   =   'Desculpe pessoinha, mas esta funcionalidade não está disponível no momento.';
+                            obj_msg_tmp.embed.fields        =   this.init_msg_dev;
+                            break;
+                        default:
+                            obj_msg_tmp.embed.description   =   'Desculpe pessoinha, mas esta funcionalidade não está disponível no momento.';
+                            obj_msg_tmp.embed.fields        =   this.init_msg_funcionalidade;
+                            break;
+                    }
+                } // else { .. }
 
-                console.log('2');
+                // Gera a mensagem
+                this.monta_resposta(p_cliente
+                                   ,p_mensagem
+                                   ,'Olá <@' + p_mensagem.author.id + '> estou aqui!'
+                                   ,obj_msg_tmp
+                                   );
             } // if(v_bol_chamada)
 
             // ᕦ(ò_óˇ)ᕤ     ---     S E P A R A D O R     ---     ᕦ(ˇò_ó)ᕤ
