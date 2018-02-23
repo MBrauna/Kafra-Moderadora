@@ -96,7 +96,7 @@ class comando
                 } // if(v_obj_mensagem_s_prefixo.length <= 0)
                 else
                 {
-                    switch(v_obj_mensagem_s_prefixo[0].toLowerCase());
+                    switch(v_obj_mensagem_s_prefixo[0].toLowerCase())
                     {
                         case 'item':
                             obj_msg_tmp.embed.description   =   'Desculpe pessoinha, mas esta funcionalidade não está disponível no momento.';
