@@ -32,14 +32,15 @@ class comando
     // ᕦ(ò_óˇ)ᕤ     ---     S E P A R A D O R     ---     ᕦ(ˇò_ó)ᕤ
 
     // Procedimento responsável peló retorno da mensagem em seu formato esperado
-    monta_resposta(p_frase, p_configuracao)
+    monta_resposta(p_cliente, p_mensagem, p_frase, p_configuracao)
     {
         // Monitora qualquer evento de erro para se executar o cliente
         try
         {
-            this.obj_cliente.send(p_frase
-                                 ,p_configuracao
-                                 );
+            p_cliente.send(
+                            p_frase
+                           ,p_configuracao
+                        );
         }
         catch(p_erro)
         {
@@ -54,7 +55,7 @@ class comando
             console.log('------------------------');
         }
 
-    } // monta_resposta(p_frase, p_configuracao)
+    } // monta_resposta(p_cliente, p_mensagem, p_frase, p_configuracao)
 
     // ᕦ(ò_óˇ)ᕤ     ---     S E P A R A D O R     ---     ᕦ(ˇò_ó)ᕤ
 
@@ -79,8 +80,6 @@ class comando
             if(v_bol_chamada)
             {
                 // Iniciliaza os dados padrões para referenciamento
-                this.obj_cliente        =   p_cliente;
-                this.obj_mensagem       =   p_mensagem;
                 this.carrega_padrao();
 
                 // Clona o objeto de mensagem padrão para modificações conforme necessário
@@ -89,6 +88,7 @@ class comando
                 // Coleta os parâmetros dos dados caso exista a string esperada
                 v_obj_mensagem_s_prefixo    =   p_mensagem.content.slice(v_str_mencao_kafra.length).trim().split(/ +/g); // Remove o prefixo da string e quebra em array
 
+                console.log('1');
                 if(v_obj_mensagem_s_prefixo.length <= 0)
                 {
                     // Prepara a nova mensagem
@@ -97,8 +97,18 @@ class comando
 
                     console.log(this.init_msg_funcionalidade);
                     console.log(obj_msg_tmp);
-                    console.log(this.obj_cliente);
+                    this.monta_resposta(p_cliente
+                                       ,p_mensagem
+                                       ,'Olá <@' + p_mensagem.author.id + '> estou aqui!'
+                                       ,obj_msg_tmp
+                                       );
                 } // if(v_obj_mensagem_s_prefixo.length <= 0)
+                else
+                {
+                    console.log('Não caiu em cima');
+                }
+
+                console.log('2');
             } // if(v_bol_chamada)
 
             // ᕦ(ò_óˇ)ᕤ     ---     S E P A R A D O R     ---     ᕦ(ˇò_ó)ᕤ
