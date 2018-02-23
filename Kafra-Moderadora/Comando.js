@@ -93,7 +93,9 @@ class comando
                     obj_msg_tmp.embed.description   =   'Fui chamada!? Não sou uma ursinha carinhosa (Olha o tamanho do meu banhammer), mas estou aqui para te ajudar.';
                     obj_msg_tmp.embed.fields        =   this.init_msg_funcionalidade;
 
-                    this.monta_resposta('Olá <@'+p_mensagem.author.id+'>'
+                    console.log(this.init_msg_funcionalidade);
+                    console.log(obj_msg_tmp);
+                    this.monta_resposta('Olá'
                                        ,obj_msg_tmp
                                        );
                 } // if(v_obj_mensagem_s_prefixo.length <= 0)
