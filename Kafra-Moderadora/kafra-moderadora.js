@@ -146,7 +146,7 @@ class Kafra_moderadora
                                         "message"
                                        ,async mensagem =>
                                         {
-                                            this.init_comando('PRODUCAO').trata_mensagem(
+                                            this.init_comando.trata_mensagem(
                                                                                 this.init_kafra_moderadora
                                                                                ,mensagem
                                                                             );
