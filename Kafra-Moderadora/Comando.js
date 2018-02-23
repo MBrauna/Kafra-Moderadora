@@ -127,9 +127,9 @@ class comando
                                 v_string_requisicao = v_string_requisicao + ' ' + v_obj_mensagem_s_prefixo[i];
                             } // for(var i=1;i<=v_obj_mensagem_s_prefixo.length;i++)
 
-
                             // Coleta as informações para tratamento.
-                            obj_msg_tmp                     =  init_bropedia.consultar(v_string_requisicao, obj_msg_tmp, this.init_config);
+                            obj_msg_tmp                     =   {};
+                            obj_msg_tmp                     =   Object.assign({}, init_bropedia.consultar(v_string_requisicao, this.init_msg_padrao, this.init_config));
                             break;
                         case 'recrutar':
                             obj_msg_tmp.embed.description   =   'Desculpe pessoinha, mas esta funcionalidade não está disponível no momento.';
