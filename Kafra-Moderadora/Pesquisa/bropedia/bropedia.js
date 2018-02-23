@@ -27,6 +27,11 @@ let bib_requisicao      =   require('request')
 
 class bropedia
 {
+    constructor()
+    {
+        console.log('Executei');
+    }// constructor()
+
     consultar(p_consulta, p_obj_msg, p_config)
     {
         // Guarda a string de consulta à enciclopédia
