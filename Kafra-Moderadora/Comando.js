@@ -19,173 +19,196 @@
  ****************************************************************************************************/
 
 
+
 class comando
 {
-    construct()
+    // Método construtor para COMANDO
+    construct(p_teste)
     {
-        console.log('Construtor de comandos inicializado.');
-    } // construct()
+        // Indica que o procedimento foi inicializado
+        console.log('[CLASSE] Comando - Inicializada ' + p_teste);
 
+        // Define as variáveis de inicialização para os comandos
+        this.init_config                    =   [
+                                                    cor_roxa        :   0x882d93
+                                                   ,cor_vermelha    :   0xff0000
+                                                   ,cor_amarela     :   0xffff00
+                                                   ,cor_azul        :   0x0000ff
+                                                ];
+
+        // ᕦ(ò_óˇ)ᕤ     ---     S E P A R A D O R     ---     ᕦ(ˇò_ó)ᕤ
+
+        this.init_msg_padrao                =   [
+                                                    'embed' :   {
+                                                                    color               :   0x882d93
+                                                                   ,author              :   {
+                                                                                                name        :   'Kafra Moderadora'
+                                                                                               ,icone       :   'https://i.imgur.com/cfYwkLQ.png'
+                                                                                               ,url         :   'https://github.com/bropedia/Kafra-Moderadora'
+                                                                                            }
+                                                                   ,title               :   'Olá pessoal, Kafra Moderadora na área.'
+                                                                   ,url                 :   'https://github.com/bropedia/Kafra-Moderadora'
+                                                                   ,description:        :   ' (ﾉ ＾∇＾)ﾉ    TO DE OLHO    (ノ ^o^)ノ'
+                                                                   ,"image"             :   {
+                                                                                                "url"       :   null // 'https://i.imgur.com/LOGICNS.jpg'
+                                                                                               ,"height"    :   null // 123
+                                                                                               ,"width"     :   null // 123
+                                                                                            }
+                                                                   ,thumbnail           :   {
+                                                                                                "url"       :   null // 'https://i.imgur.com/LOGICNS.jpg'
+                                                                                               ,"height"    :   null // 123
+                                                                                               ,"width"     :   null // 123
+                                                                                            }
+                                                                   ,video               :   {
+                                                                                                "url"       :   null // 'https://i.imgur.com/LOGICNS.jpg'
+                                                                                               ,"height"    :   null // 123
+                                                                                               ,"width"     :   null // 123
+                                                                                            }
+                                                                   ,fields              :   {
+                                                                                                name    :   'Sabe de uma coisa?'
+                                                                                               ,value   :   'Quer saber mesmo? Adoro vocês, seus lindos.'
+                                                                                            }
+                                                                  ,timestamp            :   new Date()
+                                                                  ,footer               :   {
+                                                                                                icon_url:   'https://i.imgur.com/cfYwkLQ.png'
+                                                                                               ,text:       '© bROPédia - Por MBrauna e Lazarento'
+                                                                                            }
+                                                                }
+                                                ];
+
+        // ᕦ(ò_óˇ)ᕤ     ---     S E P A R A D O R     ---     ᕦ(ˇò_ó)ᕤ
+
+        this.init_msg_funcionalidade        =   [
+                                                    {
+                                                        name:   "@Kafra Moderadora <item/monstro/mapa> <nome_desejado/ID>"
+                                                       ,value:  "Este é o maravilhoso comando para realizar consultas de diversos itens, monstros ou até mesmo mapas no melhor database do universo!"
+                                                    }
+                                                   ,{
+                                                        name:   "@Kafra Moderadora wiki <termo_desejado>"
+                                                       ,value:  "Está em dúvida numa missão? Está perdido? Quer conhecer um pouco da história do jogo? Não tem problema, com a Kafra Moderadora não há problema, eu te ajudo."
+                                                    }
+                                                   ,{
+                                                        name:   "[ALPHA]@kafra Moderadora recrutar <nivel_inicial> <nivel_final> <mapa_desejado>"
+                                                       ,value:  "Por 20 minutos irei organizar seu grupo para que tenha um maravilhoso rendimento dentro do jogo! Basta me chamar."
+                                                    }
+                                                   ,{
+                                                        name:   "[ALPHA] @Kafra Moderadora procurar <nivel_atual>"
+                                                       ,value:  "Mãos à obra pessoal! Quer moleza? Senta num poring. Me informe seu nível que irei listar para você todos os grupos ativos para sua faixa de nível."
+                                                    }
+                                                   ,{
+                                                        name:   "[ALPHA] @Kafra Moderadora grupos"
+                                                       ,value:  "Veja todos os grupos existentes na face da Terr ... erhh... Rune Midgard que são organizados por moi (Ou seja, euzinha mesmo, com todo meu banhammer e ternura)."
+                                                    }
+                                                   ,{
+                                                        name:   "@Kafra Moderadora regras"
+                                                       ,value:  "Tá achando que aqui é bagunça? Está é por fora! Vacila ... que te mostro com quantos banhammer se faz uma canoa."
+                                                    }
+
+                                                   ,{
+                                                        name:   "@Kafra Moderadora ajuda"
+                                                       ,value:  "CALMA CALMA .... NÃO DESESPERA ... RESPIRAAAAA!!!"
+                                                    }
+                                                   ,{
+                                                        name:   "(ﾉ ＾∇＾)ﾉ"
+                                                       ,value:  "Em caso de bugs, não apague o tópico da manutenção, basta chamar: @Kafra Moderadora bug"
+                                                    }
+                                                ];
+
+        // ᕦ(ò_óˇ)ᕤ     ---     S E P A R A D O R     ---     ᕦ(ˇò_ó)ᕤ
+
+        this.init_msg_dev                   =   [
+                                                    {
+                                                        name    :   "Calma ai!"
+                                                       ,value   :   "Ainda não estou pronta!"
+                                                    }
+                                                ];
+
+        // ᕦ(ò_óˇ)ᕤ     ---     S E P A R A D O R     ---     ᕦ(ˇò_ó)ᕤ
+
+        this.init_msg_erro                  =   [
+                                                    {
+                                                        name    :   "Gente essa foi pior que apagar tópico de manutenção! ):"
+                                                       ,value   :   "Que vexame causei! Desculpe não consegui entender sua requisição."
+                                                    }
+                                                ];
+
+    } // Método construtor - construct()
+
+    // ᕦ(ò_óˇ)ᕤ     ---     S E P A R A D O R     ---     ᕦ(ˇò_ó)ᕤ
+
+    // Procedimento responsável peló retorno da mensagem em seu formato esperado
+    monta_resposta(p_frase, p_configuracao)
+    {
+        // Monitora qualquer evento de erro para se executar o cliente
+        try
+        {
+            this.obj_cliente.send(p_frase
+                                 ,p_configuracao
+                                 );
+        }
+        catch(p_erro)
+        {
+            
+            // Imprime o objeto de erro recebido
+            console.log('------------------------');
+            console.log(p_erro);
+            console.log('------------------------');
+            // Monitora qual procedimento gerou o erro
+            console.log('------------------------');
+            console.trace();
+            console.log('------------------------');
+        }
+
+    } // monta_resposta(p_frase, p_configuracao)
+
+    // ᕦ(ò_óˇ)ᕤ     ---     S E P A R A D O R     ---     ᕦ(ˇò_ó)ᕤ
 
     trata_mensagem(p_cliente, p_mensagem)
     {
+        // Declaração de variáveis 
+        let  v_str_mencao_kafra         =   '<@' + p_cliente.user.id + '>'
+            ,v_str_mencao_usuario       =   '<@' + p_mensagem.author.id + '>'
+            ,v_bol_chamada              =   p_mensagem.content.startsWith(v_str_mencao_kafra)
+            ,v_obj_mensagem_s_prefixo   =   null // p_mensagem.content.slice(v_str_mencao_kafra.length).trim().split(/ +/g)
+            ,v_obj_resposta             =   this.init_msg_padrao
+            ;
+
+        // Monitora todo tipo de erro que porventura venha surgir no  tratamento das chamadas
         try
         {
-            // ᕦ(ò_óˇ)ᕤ     ---     S E P A R A D O R     ---     ᕦ(ˇò_ó)ᕤ
-
-            var v_kafra_prefixo         =   '<@' + p_cliente.user.id + '>';
-            var v_kafra_id              =   p_cliente.user.id;
-            var v_tmp_prefixo           =   p_mensagem.content.startsWith(v_kafra_prefixo);
-            var v_tmp_tamanho           =   p_mensagem.mentions.users.keyArray().length;
-            var v_campo_resposta        = {};
-
-            // ᕦ(ò_óˇ)ᕤ     ---     S E P A R A D O R     ---     ᕦ(ˇò_ó)ᕤ
-
             // Verifica se a mensagem enviada foi de um bot ou usuário
             if(p_mensagem.author.bot) return; // Caso seja de um bot finaliza a verificação
 
             // ᕦ(ò_óˇ)ᕤ     ---     S E P A R A D O R     ---     ᕦ(ˇò_ó)ᕤ
 
-            // Verifica se a mensagem foi iniciada com o prefixo desejado!
-            if(v_tmp_prefixo)
+            // Verifica se a mensagem foi iniciada com uma menção à Kafra Moderadora
+            if(v_bol_chamada)
             {
-                // console.log(p_mensagem.content.slice(v_kafra_prefixo.length).trim().split(/ +/g));
-                // Remove o prefixo e transforma imediatamente em uma array
-                var v_mensagem = p_mensagem.content.slice(v_kafra_prefixo.length).trim().split(/ +/g);
+                // Se existir o prefixo esperado!
+                v_obj_mensagem_s_prefixo    =   p_mensagem.content.slice(v_str_mencao_kafra.length).trim().split(/ +/g); // Remove o prefixo da string e quebra em array
 
-                // Verifica se existe alguma informação ou é apenas menção;
-                if(v_mensagem.length <= 0)
-                {
-                    v_campo_resposta =  [
-                                            {
-                                                name:   "Database"
-                                               ,value:  "Para realizar pesquisas no database digite @Kafra Moderadora <item/monstro/mapa> <nome_desejado/ID>."
-                                            }
-                                           ,{
-                                                name:   "Enciclopédia"
-                                               ,value:  "Para realizar pesquisas na enciclopédia digite @Kafra Moderadora wiki <termo_desejado>."
-                                            }
-                                           ,{
-                                                name:   "Recrutar para grupo"
-                                               ,value:  "Está em jogo e pretende montar um grupo? Deixe que eu organizo para você, basta digitar @kafra Moderadora recrutar <nivel_inicial> <nivel_final> <mapa_desejado>, e por 20 minutos irei organizar seu grupo."
-                                            }
-                                           ,{
-                                                name:   "Procurar grupo"
-                                               ,value:  "Quer entrar num supimpa grupo e se aventurar em Rune Midgard? Digite @Kafra Moderadora procurar <nivel_atual>."
-                                            }
-                                           ,{
-                                                name:   "Listar Grupos ativos"
-                                               ,value:  "Quer descobrir os grupos ativos? Chame por @Kafra Moderadora grupos."
-                                            }
-                                           ,{
-                                                name:   "Regras"
-                                               ,value:  "Para ler as regras deste servidor digite @Kafra Moderadora regras, e irei listá-las para você."
-                                            }
+                //if(v_obj_mensagem_s_prefixo.length <= 0)
+                //{
+                    //console.log(v_obj_resposta);
+                //} // if(v_obj_mensagem_s_prefixo.length <= 0)
 
-                                           ,{
-                                                name:   "Ajuda"
-                                               ,value:  "Está em dúvida sobre algo? Digite @Kafra Moderadora ajuda, que irei encontrar alguém para lhe socorrer."
-                                            }
-                                           ,{
-                                                name:   "（ ^_^）o自  自o（^_^ ）"
-                                               ,value:  "A qualquer momento você poderá me mencionar para que eu liste os comandos! Chame por @Kafra Moderadora."
-                                            }
-                                        ];
-                    this.formata_mensagem(v_campo_resposta,p_cliente,p_mensagem);
-                    return;
-                }
+                console.log(v_obj_resposta);
+            } // if(v_bol_chamada)
 
-                // Verifica o comando após o prefixo.
-                switch(v_mensagem[0].toLowerCase())
-                {
-                    // ᕦ(ò_óˇ)ᕤ     ---     S E P A R A D O R     ---     ᕦ(ˇò_ó)ᕤ
-
-                    case 'item':
-                        v_campo_resposta =  [
-                                                {
-                                                    name:   "Calma ai!"
-                                                   ,value:  "Ainda não estou pronta!"
-                                                }
-                                            ];
-                        this.formata_mensagem(v_campo_resposta,p_cliente,p_mensagem);
-                        break;
-
-                    // ᕦ(ò_óˇ)ᕤ     ---     S E P A R A D O R     ---     ᕦ(ˇò_ó)ᕤ
-
-                    case 'monstro':
-                        v_campo_resposta =  [
-                                                {
-                                                    name:   "Calma ai!"
-                                                   ,value:  "Ainda não estou pronta!"
-                                                }
-                                            ];
-                        this.formata_mensagem(v_campo_resposta,p_cliente,p_mensagem);
-                        break;
-
-                    // ᕦ(ò_óˇ)ᕤ     ---     S E P A R A D O R     ---     ᕦ(ˇò_ó)ᕤ
-
-                    case 'mapa':
-                        v_campo_resposta =  [
-                                                {
-                                                    name:   "Calma ai!"
-                                                   ,value:  "Ainda não estou pronta!"
-                                                }
-                                            ];
-                        this.formata_mensagem(v_campo_resposta,p_cliente,p_mensagem);
-                        break;
-
-                    // ᕦ(ò_óˇ)ᕤ     ---     S E P A R A D O R     ---     ᕦ(ˇò_ó)ᕤ
-
-                    case 'wiki':
-                        v_campo_resposta =  [
-                                                {
-                                                    name:   "Calma ai!"
-                                                   ,value:  "Ainda não estou pronta!"
-                                                }
-                                            ];
-                        this.formata_mensagem(v_campo_resposta,p_cliente,p_mensagem);
-                        break;
-
-                    // ᕦ(ò_óˇ)ᕤ     ---     S E P A R A D O R     ---     ᕦ(ˇò_ó)ᕤ
-
-                    default:
-                        p_mensagem.channel.send('Ai pessoal, que caquinha!!!',
-                                    {
-                                        'embed':
-                                        {
-                                            color: 0x882d93
-                                           ,author:
-                                           {
-                                                name:       'Kafra Moderadora'
-                                               ,icon_url:   'https://i.imgur.com/cfYwkLQ.png'
-                                            }
-                                           ,title: 'Kafra Moderadora'
-                                           ,url: 'http://bropedia.net'
-                                           ,description: 'Não pude atender sua requisição!'
-                                           ,"image": {"url" : "https://i.imgur.com/LOGICNS.jpg"}
-                                           ,fields: [
-                                                        {
-                                                            name:   "Gente essa foi pior que apagar tópico de manutenção! ):"
-                                                           ,value:  "Eu juro que tentei entender mas não consegui ): Tente digitar @Kafra moderadora"
-                                                        }
-                                                    ]
-                                           ,timestamp: new Date()
-                                           ,footer: {
-                                                icon_url:   'https://i.imgur.com/cfYwkLQ.png'
-                                               ,text:       '© bROPédia - Por MBrauna e Lazarento'
-                                            }
-                                        }
-                                    }
-                                );
-                        break;
-                } // switch(lower(v_mensagem[0].toLowerCase())
-
-                return;
-
-            } // if(v_tmp_prefixo)
-        }
+            // ᕦ(ò_óˇ)ᕤ     ---     S E P A R A D O R     ---     ᕦ(ˇò_ó)ᕤ
+        } // try { ... }
         catch(p_erro)
         {
+            // Imprime o objeto de erro recebido
+            console.log('------------------------');
+            console.log(p_erro);
+            console.log('------------------------');
+            // Monitora qual procedimento gerou o erro
+            console.log('------------------------');
+            console.trace();
+            console.log('------------------------');
+
+            // Alerta o usuário sobre o erro encontrado
             p_mensagem.channel.send('Cuidadooooooooo deu erro!!!',
                                     {
                                         'embed':
@@ -214,40 +237,9 @@ class comando
                                         }
                                     }
                                 );
-            console.log(p_erro);
-            console.trace();
-        }
+        } // catch(p_erro) { ... }
     } // trata_mensagem(p_cliente, p_mensagem)
-
-
-
-    formata_mensagem(p_campos, p_cliente, p_mensagem)
-    {
-        p_mensagem.channel.send('Olá galerinha!!!',
-                                {
-                                    'embed':
-                                    {
-                                        color: 0x882d93
-                                       ,author:
-                                       {
-                                            name:       'Kafra Moderadora'
-                                           ,icon_url:   'https://i.imgur.com/cfYwkLQ.png'
-                                        }
-                                       ,title: 'Kafra Moderadora'
-                                       ,url: 'http://bropedia.net'
-                                       ,description: 'A supervisora Kafra está na área!!'
-                                       ,fields: p_campos
-                                       ,timestamp: new Date()
-                                       ,footer: {
-                                            icon_url:   'https://i.imgur.com/cfYwkLQ.png'
-                                           ,text:       '© bROPédia - Por MBrauna e Lazarento'
-                                        }
-                                    }
-                                }
-                            );
-    } // formata_mensagem(p_campos, p_cliente, p_mensagem)
-
-} // CLASS COMANDO
+} // class comando ༼ つ ◕_◕ ༽つ
 
 
 // Torna o método público
