@@ -52,7 +52,7 @@ class bropedia
                 if(v_resposta.query.searchinfo.totalhits == 0)
                 {
                     // Não há informações para o tipo de consulta escolhida
-                    p_obj_msg.color                 =   p_config.cor_vermelha.color;
+                    p_obj_msg.embed.color           =   p_config.cor_vermelha.color;
                     p_obj_msg.embed.title           =   'TERMO NÃO ENCONTRADO NA WIKI';
                     p_obj_msg.embed.description     =   'Desculpe ): O termo procurado não foi encontrado';
                     p_obj_msg.embed.fields          =   {
@@ -110,7 +110,7 @@ class bropedia
                 // Verifica se foi possível encontrar a página desejada
                 if(typeof v_pagina == 'undefined')
                 {
-                    p_obj_msg.color                 =   p_config.cor_vermelha.color;
+                    p_obj_msg.embed.color           =   p_config.cor_vermelha.color;
                     p_obj_msg.embed.title           =   'TERMO NÃO ENCONTRADO NA WIKI';
                     p_obj_msg.embed.description     =   'Desculpe ): O termo procurado não foi encontrado';
                     p_obj_msg.embed.fields          =   {
@@ -142,7 +142,7 @@ class bropedia
                                                             );
 
                         // Monta o objeto para retorno
-                        p_obj_msg.color                 =   p_config.cor_verde.color;
+                        p_obj_msg.embed.color           =   p_config.cor_verde.color;
                         p_obj_msg.embed.title           =   v_pagina.canonicalurl;
                         p_obj_msg.embed.description     =   'yay Consegui encontrar algo para: ' + p_pagina.title;
                         p_obj_msg.embed.fields          =   v_msg_section;
@@ -151,7 +151,7 @@ class bropedia
                     else
                     {
 
-                        p_obj_msg.color                 =   p_config.cor_vermelha.color;
+                        p_obj_msg.embed.color           =   p_config.cor_vermelha.color;
                         p_obj_msg.embed.title           =   'TERMO NÃO ENCONTRADO NA WIKI';
                         p_obj_msg.embed.description     =   'Desculpe ): O termo procurado não foi encontrado';
                         p_obj_msg.embed.fields          =   {
