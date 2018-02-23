@@ -29,12 +29,12 @@ class comando
         console.log('[CLASSE] Comando - Inicializada ' + p_teste);
 
         // Define as variáveis de inicialização para os comandos
-        this.init_config                    =   [
-                                                    'cor_roxa'      :   {color: 0x882d93 }
-                                                   ,'cor_vermelha'  :   {color: 0xff0000 }
-                                                   ,'cor_amarela'   :   {color: 0xffff00 }
-                                                   ,'cor_azul'      :   {color: 0x0000ff }
-                                                ];
+        this.init_config                    =   {
+                                                    cor_roxa      :   {color: 0x882d93 }
+                                                   ,cor_vermelha  :   {color: 0xff0000 }
+                                                   ,cor_amarela   :   {color: 0xffff00 }
+                                                   ,cor_azul      :   {color: 0x0000ff }
+                                                };
 
         // ᕦ(ò_óˇ)ᕤ     ---     S E P A R A D O R     ---     ᕦ(ˇò_ó)ᕤ
 
