@@ -90,7 +90,7 @@ class comando
                 this.carrega_padrao();
 
                 // Clona o objeto de mensagem padrão para modificações conforme necessário
-                var obj_msg_tmp     = Object.assign({}, this.init_msg_padrao);
+                var obj_msg_tmp     =   Object.assign({}, this.init_msg_padrao);
 
                 // Coleta os parâmetros dos dados caso exista a string esperada
                 v_obj_mensagem_s_prefixo    =   p_mensagem.content.slice(v_str_mencao_kafra.length).trim().split(/ +/g); // Remove o prefixo da string e quebra em array
@@ -128,7 +128,7 @@ class comando
 
                             // Coleta as informações para tratamento.
                             obj_msg_tmp                     =   {};
-                            obj_msg_tmp                     =   new bib_bropedia().consultar(v_string_requisicao, this.init_msg_padrao, this.init_config);
+                            obj_msg_tmp                     =   Object.assign({}, new bib_bropedia().consultar(v_string_requisicao, this.init_msg_padrao, this.init_config));
                             break;
                         case 'recrutar':
                             obj_msg_tmp.embed.description   =   'Desculpe pessoinha, mas esta funcionalidade não está disponível no momento.';
