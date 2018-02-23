@@ -81,6 +81,9 @@ class comando
                 // Iniciliaza os dados padrões para referenciamento
                 this.carrega_padrao();
 
+                // Clona o objeto de mensagem padrão para modificações conforme necessário
+                var obj_msg_tmp     = Object.assign({}, this.init_msg_padrao);
+
                 // Coleta os parâmetros dos dados caso exista a string esperada
                 v_obj_mensagem_s_prefixo    =   p_mensagem.content.slice(v_str_mencao_kafra.length).trim().split(/ +/g); // Remove o prefixo da string e quebra em array
 
@@ -90,7 +93,7 @@ class comando
                 //} // if(v_obj_mensagem_s_prefixo.length <= 0)
 
                 console.log("-----------------");
-                console.log(this.init_msg_padrao.embed.color);
+                console.log(obj_msg_tmp);
                 console.log("-----------------");
             } // if(v_bol_chamada)
 
