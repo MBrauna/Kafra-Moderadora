@@ -120,15 +120,16 @@ class comando
                         case 'wiki':
                             // Trata a mensagem transformando a array numa string
                             v_string_requisicao = '';
-                            for(var i=1;i<=v_obj_mensagem_s_prefixo.length;i++)
+                            for(var i=1;i<v_obj_mensagem_s_prefixo.length;i++)
                             {
                                 // Forma a string
-                                v_string_requisicao = v_string_requisicao + ' ' + v_obj_mensagem_s_prefixo[i];
+                                v_string_requisicao = v_string_requisicao + v_obj_mensagem_s_prefixo[i] + ' ';
                             } // for(var i=1;i<=v_obj_mensagem_s_prefixo.length;i++)
 
                             // Coleta as informações para tratamento.
                             console.log('---------------->>');
                             console.log('v_string_requisicao:' + v_string_requisicao);
+                            obj_msg_tmp                 = Object.assign({}, new bib_bropedia().consultar(v_string_requisicao, obj_msg_tmp, this.init_config));
                             console.log(obj_msg_tmp);
                             console.log('---------------->>');
                             break;
