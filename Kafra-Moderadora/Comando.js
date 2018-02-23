@@ -79,7 +79,7 @@ class comando
             if(v_bol_chamada)
             {
                 // Iniciliaza os dados padrões para referenciamento
-                carrega_padrao();
+                this.carrega_padrao();
 
                 // Coleta os parâmetros dos dados caso exista a string esperada
                 v_obj_mensagem_s_prefixo    =   p_mensagem.content.slice(v_str_mencao_kafra.length).trim().split(/ +/g); // Remove o prefixo da string e quebra em array
