@@ -105,7 +105,7 @@ class comando
                 } // if(v_obj_mensagem_s_prefixo.length <= 0)
                 else
                 {
-                    console.log('Não caiu em cima');
+                    console.log(v_obj_mensagem_s_prefixo);
                 }
 
                 console.log('2');
