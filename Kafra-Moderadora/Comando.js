@@ -127,9 +127,8 @@ class comando
                             } // for(var i=1;i<=v_obj_mensagem_s_prefixo.length;i++)
 
                             // Coleta as informações para tratamento.
-                            obj_msg_tmp                     =   {};
-                            obj_msg_tmp                     =   new bib_bropedia().consultar(v_string_requisicao, this.init_msg_padrao, this.init_config);
                             console.log('---------------->>');
+                            console.log('v_string_requisicao:' + v_string_requisicao);
                             console.log(obj_msg_tmp);
                             console.log('---------------->>');
                             break;
