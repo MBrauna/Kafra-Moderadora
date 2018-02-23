@@ -48,7 +48,7 @@ class comando
                                                                                             }
                                                                    ,title               :   'Olá pessoal, Kafra Moderadora na área.'
                                                                    ,url                 :   'https://github.com/bropedia/Kafra-Moderadora'
-                                                                   ,description:        :   ' (ﾉ ＾∇＾)ﾉ    TO DE OLHO    (ノ ^o^)ノ'
+                                                                   ,description:        :   'TO DE OLHO E PROMETO DAR UM PUXÃO DE ORELHA EM VOCÊS'
                                                                    ,'image'             :   {
                                                                                                 "url"       :   null // 'https://i.imgur.com/LOGICNS.jpg'
                                                                                                ,"height"    :   null // 123
