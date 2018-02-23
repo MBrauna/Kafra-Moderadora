@@ -129,6 +129,9 @@ class comando
                             // Coleta as informações para tratamento.
                             obj_msg_tmp                     =   {};
                             obj_msg_tmp                     =   Object.assign({}, new bib_bropedia().consultar(v_string_requisicao, this.init_msg_padrao, this.init_config));
+                            console.log('---------------->>');
+                            console.log(obj_msg_tmp);
+                            console.log('---------------->>');
                             break;
                         case 'recrutar':
                             obj_msg_tmp.embed.description   =   'Desculpe pessoinha, mas esta funcionalidade não está disponível no momento.';
