@@ -39,7 +39,6 @@ class bropedia
                ,v_url_bropedia      =   `http://bropedia.net/api.php?action=query&list=search&srsearch=${v_termo_consulta}&utf8=&format=json`
                ;
 
-        console.log('teste 1');
 
         // Inicia o procedimento de consulta ao termo desejado
         bib_requisicao.get(
@@ -49,11 +48,9 @@ class bropedia
                 let v_resposta  =   JSON.parse(p_corpo)
                    ,v_pagina;
 
-                console.log('entrei bropedia 1');
                 // Verifica se o resultado da consulta trouxe algum argumento
                 if(v_resposta.query.searchinfo.totalhits == 0)
                 {
-                    console.log('entrei bropedia 99');
                     // Não há informações para o tipo de consulta escolhida
                     p_obj_msg.color                 =   p_config.cor_vermelha.color;
                     p_obj_msg.embed.title           =   'TERMO NÃO ENCONTRADO NA WIKI';
@@ -62,10 +59,12 @@ class bropedia
                                                             name: 'Desculpe! Não encontrei nada!'
                                                            ,value: 'O termo ' + p_consulta + 'procurado não foi encontrado em minha base de dados!'
                                                         };
+
+                    console.log(p_obj_msg);
+                    return p_obj_msg;
                 } // if(v_resposta.query.searchinfo.totalhits == 0)
                 else
                 {
-                    console.log('entrei bropedia 66');
                     // Verifica se o termo consultado foi encontrado
                     v_resposta.query.search.forEach((p_retorno) => {
                         if(p_retorno.title.toLowerCase() == p_consulta.trim().toLowerCase())
@@ -83,15 +82,11 @@ class bropedia
                     } // if(typeof v_pagina === 'undefined')
 
                     // Retorna a página desejada nos formatos esperados
-                    p_obj_msg   =   this.geraConsulta(p_obj_msg, p_config, v_pagina);
+                    return this.geraConsulta(p_obj_msg, p_config, v_pagina);
                 } // else { ... }
 
             } // v_url_bropedia, (p_erro, p_resposta, p_corpo) =>
         );
-        console.log('---------FIM 123--------');
-        console.log(p_obj_msg);
-        console.log('-----------------------------------');
-        return p_obj_msg;
 
     } // consultar(p_consulta, p_obj_msg, p_config)
 
@@ -100,13 +95,6 @@ class bropedia
     {
         // Monta a string de consulta à Wiki
         const v_url_bropedia    =   `http://bropedia.net/api.php?action=query&titles=${p_pagina.title}&prop=info|revisions&inprop=url&rvprop=content&format=json`;
-
-
-        console.log('-- Gera consulta1 --');
-        console.log('-----------------------------------');
-        console.log(p_obj_msg);
-        console.log('-----------------------------------');
-
 
         // Realiza uma consulta nos dados da página
         bib_requisicao.get(
@@ -122,7 +110,6 @@ class bropedia
                 // Verifica se foi possível encontrar a página desejada
                 if(typeof v_pagina == 'undefined')
                 {
-                    console.log('entrei GERA 1');
                     p_obj_msg.color                 =   p_config.cor_vermelha.color;
                     p_obj_msg.embed.title           =   'TERMO NÃO ENCONTRADO NA WIKI';
                     p_obj_msg.embed.description     =   'Desculpe ): O termo procurado não foi encontrado';
@@ -133,13 +120,11 @@ class bropedia
                 } // if(typeof v_pagina == 'undefined')
                 else
                 {
-                    console.log('entrei GERA 2');
                     // Monta um objeto contendo as revisões utilizadas
                     v_obj_pagina    =   bib_wtf_wiki.parse(_.first(v_pagina.revisions)['*']);
 
                     if(typeof v_obj_pagina.sections !== 'undefined')
                     {
-                        console.log('entrei GERA 3');
                         v_obj_pagina.sections.filter(
                                                         (section) =>
                                                         {
@@ -165,7 +150,6 @@ class bropedia
                     } // if(typeof v_obj_pagina.sections !== 'undefined')
                     else
                     {
-                        console.log('entrei GERA 4');
 
                         p_obj_msg.color                 =   p_config.cor_vermelha.color;
                         p_obj_msg.embed.title           =   'TERMO NÃO ENCONTRADO NA WIKI';
@@ -178,11 +162,6 @@ class bropedia
                 } // else { ... }
             } // v_url_bropedia, (p_erro, p_resposta, p_corpo) =>
         ); // bib_requisicao.get(
-
-        console.log('-- Gera consulta 2--');
-        console.log('-----------------------------------');
-        console.log(p_obj_msg);
-        console.log('-----------------------------------');
 
         return p_obj_msg;
     } // geraConsulta(p_obj_msg, p_config, v_pagina)
