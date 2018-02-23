@@ -24,6 +24,7 @@ let  bib_bropedia       =   require('./Pesquisa/bropedia/bropedia.js');
 
 
 // Método construtor - Inicialização do processo                (╬ ಠ益ಠ)
+let init_bropedia       =   new bib_bropedia;
 // Método construtor - Inicialização do processo                (╬ ಠ益ಠ)
 
 class comando
@@ -128,7 +129,7 @@ class comando
 
 
                             // Coleta as informações para tratamento.
-                            obj_msg_tmp                     =   Object.assign({}, new bib_bropedia.consultar(v_string_requisicao, obj_msg_tmp, this.init_config));
+                            obj_msg_tmp                     =  init_bropedia.consultar(v_string_requisicao, obj_msg_tmp, this.init_config);
                             break;
                         case 'recrutar':
                             obj_msg_tmp.embed.description   =   'Desculpe pessoinha, mas esta funcionalidade não está disponível no momento.';
