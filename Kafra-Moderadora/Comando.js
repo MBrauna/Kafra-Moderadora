@@ -30,10 +30,10 @@ class comando
 
         // Define as variáveis de inicialização para os comandos
         this.init_config                    =   [
-                                                    cor_roxa        :   {color: 0x882d93 }
-                                                   ,cor_vermelha    :   {color: 0xff0000 }
-                                                   ,cor_amarela     :   {color: 0xffff00 }
-                                                   ,cor_azul        :   {color: 0x0000ff }
+                                                    'cor_roxa'      :   {color: 0x882d93 }
+                                                   ,'cor_vermelha'  :   {color: 0xff0000 }
+                                                   ,'cor_amarela'   :   {color: 0xffff00 }
+                                                   ,'cor_azul'      :   {color: 0x0000ff }
                                                 ];
 
         // ᕦ(ò_óˇ)ᕤ     ---     S E P A R A D O R     ---     ᕦ(ˇò_ó)ᕤ
@@ -49,7 +49,7 @@ class comando
                                                                    ,title               :   'Olá pessoal, Kafra Moderadora na área.'
                                                                    ,url                 :   'https://github.com/bropedia/Kafra-Moderadora'
                                                                    ,description:        :   ' (ﾉ ＾∇＾)ﾉ    TO DE OLHO    (ノ ^o^)ノ'
-                                                                   ,"image"             :   {
+                                                                   ,'image'             :   {
                                                                                                 "url"       :   null // 'https://i.imgur.com/LOGICNS.jpg'
                                                                                                ,"height"    :   null // 123
                                                                                                ,"width"     :   null // 123
