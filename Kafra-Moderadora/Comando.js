@@ -170,7 +170,7 @@ class comando
             ,v_str_mencao_usuario       =   '<@' + p_mensagem.author.id + '>'
             ,v_bol_chamada              =   p_mensagem.content.startsWith(v_str_mencao_kafra)
             ,v_obj_mensagem_s_prefixo   =   null // p_mensagem.content.slice(v_str_mencao_kafra.length).trim().split(/ +/g)
-            ,v_obj_resposta             =   Object.assign({}, this.init_msg_padrao);
+            ,v_obj_resposta             =   JSON.parse(JSON.stringify(this.init_msg_padrao));
             ;
 
         // Monitora todo tipo de erro que porventura venha surgir no  tratamento das chamadas
