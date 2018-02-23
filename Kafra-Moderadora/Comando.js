@@ -57,7 +57,7 @@ class comando
                                                                    ,thumbnail           :   {
                                                                                                 "url"       :   null // 'https://i.imgur.com/LOGICNS.jpg'
                                                                                                ,"height"    :   null // 123
-                                                                                               ,"width"     :   null // 123
+                                                                                               ,"width"     :   null // 123 
                                                                                             }
                                                                    ,video               :   {
                                                                                                 "url"       :   null // 'https://i.imgur.com/LOGICNS.jpg'
