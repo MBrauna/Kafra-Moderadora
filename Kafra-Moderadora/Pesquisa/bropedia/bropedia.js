@@ -40,6 +40,7 @@ class bropedia
                ,v_obj_retorno       =   {}
                ;
 
+        console.log('teste 1');
 
         // Inicia o procedimento de consulta ao termo desejado
         bib_requisicao.get(
@@ -84,10 +85,11 @@ class bropedia
 
                 console.log(v_obj_retorno);
 
-                return v_obj_retorno;
-
             } // v_url_bropedia, (p_erro, p_resposta, p_corpo) =>
         );
+        console.log('executei');
+        return v_obj_retorno;
+
     } // consultar(p_consulta, p_obj_msg, p_config)
 
 
