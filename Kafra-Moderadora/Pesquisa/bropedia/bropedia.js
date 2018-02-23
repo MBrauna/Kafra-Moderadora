@@ -34,12 +34,11 @@ class bropedia
 
     consultar(p_consulta, p_obj_msg, p_config)
     {
-        console.log(p_obj_msg);
-        console.log(p_config);
-
         // Guarda a string de consulta à enciclopédia
-        const v_termo_consulta  =   encodeURI(p_consulta.trim());
-        const v_url_bropedia    =   `http://bropedia.net/api.php?action=query&list=search&srsearch=${v_termo_consulta}&utf8=&format=json`;
+        let     v_termo_consulta    =   encodeURI(p_consulta.trim())
+               ,v_url_bropedia      =   `http://bropedia.net/api.php?action=query&list=search&srsearch=${v_termo_consulta}&utf8=&format=json`
+               ,v_obj_retorno       =   {}
+               ;
 
 
         // Inicia o procedimento de consulta ao termo desejado
@@ -81,10 +80,12 @@ class bropedia
                 } // if(typeof v_pagina === 'undefined')
 
                 // Retorna a página desejada nos formatos esperados
-                return this.geraConsulta(p_obj_msg, p_config, v_pagina);
+                v_obj_retorno   =   this.geraConsulta(p_obj_msg, p_config, v_pagina);
 
-                console.log(p_obj_msg);
-                console.log(p_config);
+                console.log(v_obj_retorno);
+
+                return v_obj_retorno;
+
             } // v_url_bropedia, (p_erro, p_resposta, p_corpo) =>
         );
     } // consultar(p_consulta, p_obj_msg, p_config)
@@ -160,8 +161,6 @@ class bropedia
                 } // else { ... }
             } // v_url_bropedia, (p_erro, p_resposta, p_corpo) =>
         ); // bib_requisicao.get(
-
-        console.log(p_obj_msg);
 
         return p_obj_msg;
     } // geraConsulta(p_obj_msg, p_config, v_pagina)
