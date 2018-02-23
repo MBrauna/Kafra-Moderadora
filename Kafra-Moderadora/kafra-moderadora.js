@@ -72,7 +72,7 @@ class Kafra_moderadora
 
         // Instancia uma nova sessão para o acesso ao bot
         this.init_kafra_moderadora      =   new bib_discord.Client();
-        this.init_comando               =   new bib_comando();
+        this.init_comando               =   new bib_comando('PRODUCAO');
         //FIM - Instancia uma nova sessão para o acesso ao bot
 
 
