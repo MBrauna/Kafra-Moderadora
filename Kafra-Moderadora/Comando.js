@@ -87,14 +87,16 @@ class comando
                 // Coleta os parâmetros dos dados caso exista a string esperada
                 v_obj_mensagem_s_prefixo    =   p_mensagem.content.slice(v_str_mencao_kafra.length).trim().split(/ +/g); // Remove o prefixo da string e quebra em array
 
-                //if(v_obj_mensagem_s_prefixo.length <= 0)
-                //{
-                    //console.log(v_obj_resposta);
-                //} // if(v_obj_mensagem_s_prefixo.length <= 0)
+                if(v_obj_mensagem_s_prefixo.length <= 0)
+                {
+                    // Prepara a nova mensagem
+                    obj_msg_tmp.embed.description   =   'Fui chamada!? Não sou uma ursinha carinhosa (Olha o tamanho do meu banhammer), mas estou aqui para te ajudar.';
+                    obj_msg_tmp.embed.fields        =   this.init_msg_funcionalidade;
 
-                console.log("-----------------");
-                console.log(obj_msg_tmp);
-                console.log("-----------------");
+                    this.monta_resposta('Olá <@'+p_mensagem.author.id+'>'
+                                       ,obj_msg_tmp
+                                       );
+                } // if(v_obj_mensagem_s_prefixo.length <= 0)
             } // if(v_bol_chamada)
 
             // ᕦ(ò_óˇ)ᕤ     ---     S E P A R A D O R     ---     ᕦ(ˇò_ó)ᕤ
