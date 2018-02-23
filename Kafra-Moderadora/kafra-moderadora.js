@@ -110,7 +110,7 @@ class Kafra_moderadora
                                        ,() =>
                                         {
                                             console.log('[Kafra moderadora] - Estou ativa!');
-                                            this.init_kafra_moderadora.user.setGame('Ragnarök Online','http://ragnarok.uol.com.br');
+                                            this.init_kafra_moderadora.user.setActivity('Ragnarök Online');
                                         }
                                     );
         // PARA EVENTO DO TIPO - BOT PREPARADO
