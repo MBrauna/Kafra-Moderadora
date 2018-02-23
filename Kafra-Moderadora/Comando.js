@@ -18,7 +18,13 @@
  *                                                                                                  *
  ****************************************************************************************************/
 
+// Inicialização de bibliotecas                                 (∩｀-´)⊃━☆ﾟ.*･｡ﾟ
+let  bib_bropedia       =   require('./Pesquisa/bropedia/bropedia.js');
+// Inicialização de bibliotecas                                 (∩｀-´)⊃━☆ﾟ.*･｡ﾟ
 
+
+// Método construtor - Inicialização do processo                (╬ ಠ益ಠ)
+// Método construtor - Inicialização do processo                (╬ ಠ益ಠ)
 
 class comando
 {
@@ -65,7 +71,8 @@ class comando
         let  v_str_mencao_kafra         =   '<@' + p_cliente.user.id + '>'
             ,v_str_mencao_usuario       =   '<@' + p_mensagem.author.id + '>'
             ,v_bol_chamada              =   p_mensagem.content.startsWith(v_str_mencao_kafra)
-            ,v_obj_mensagem_s_prefixo   =   '' // p_mensagem.content.slice(v_str_mencao_kafra.length).trim().split(/ +/g)
+            ,v_obj_mensagem_s_prefixo   =   [] // p_mensagem.content.slice(v_str_mencao_kafra.length).trim().split(/ +/g)
+            ,v_string_requisicao
             ;
 
         // Monitora todo tipo de erro que porventura venha surgir no  tratamento das chamadas
@@ -111,8 +118,17 @@ class comando
                             obj_msg_tmp.embed.fields        =   this.init_msg_dev;
                             break;
                         case 'wiki':
-                            obj_msg_tmp.embed.description   =   'Desculpe pessoinha, mas esta funcionalidade não está disponível no momento.';
-                            obj_msg_tmp.embed.fields        =   this.init_msg_dev;
+                            // Trata a mensagem transformando a array numa string
+                            v_string_requisicao = '';
+                            for(var i=1;i<=v_obj_mensagem_s_prefixo.length;i++)
+                            {
+                                // Forma a string
+                                v_string_requisicao = v_string_requisicao + ' ' v_obj_mensagem_s_prefixo[i];
+                            } // for(var i=1;i<=v_obj_mensagem_s_prefixo.length;i++)
+
+
+                            // Coleta as informações para tratamento.
+                            obj_msg_tmp                     =   Object.assign({}, new bib_bropedia.consultar(v_string_requisicao, obj_msg_tmp, this.init_config));
                             break;
                         case 'recrutar':
                             obj_msg_tmp.embed.description   =   'Desculpe pessoinha, mas esta funcionalidade não está disponível no momento.';
@@ -203,10 +219,11 @@ class comando
     {
         // Define as variáveis de inicialização para os comandos
         this.init_config                    =   {
-                                                    cor_roxa      :   {color: 0x882d93 }
-                                                   ,cor_vermelha  :   {color: 0xff0000 }
-                                                   ,cor_amarela   :   {color: 0xffff00 }
-                                                   ,cor_azul      :   {color: 0x0000ff }
+                                                    cor_roxa        :   {color: 0x882d93 }
+                                                   ,cor_vermelha    :   {color: 0xff0000 }
+                                                   ,cor_amarela     :   {color: 0xffff00 }
+                                                   ,cor_azul        :   {color: 0x0000ff }
+                                                   ,cor_verde       :   {color: 0x00ff00 }
                                                 };
 
         // ᕦ(ò_óˇ)ᕤ     ---     S E P A R A D O R     ---     ᕦ(ˇò_ó)ᕤ
