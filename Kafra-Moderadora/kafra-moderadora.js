@@ -72,7 +72,7 @@ class Kafra_moderadora
 
         // Instancia uma nova sessão para o acesso ao bot
         this.init_kafra_moderadora      =   new bib_discord.Client();
-        this.init_comando               =   new bib_comando('PRODUCAO');
+        this.init_comando               =   new bib_comando;
         //FIM - Instancia uma nova sessão para o acesso ao bot
 
 
@@ -146,7 +146,7 @@ class Kafra_moderadora
                                         "message"
                                        ,async mensagem =>
                                         {
-                                            this.init_comando.trata_mensagem(
+                                            this.init_comando('PRODUCAO').trata_mensagem(
                                                                                 this.init_kafra_moderadora
                                                                                ,mensagem
                                                                             );
