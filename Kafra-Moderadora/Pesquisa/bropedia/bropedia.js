@@ -27,10 +27,10 @@ let bib_requisicao      =   require('request')
 
 class bropedia
 {
-    constructor()
+    construct()
     {
-        console.log('Executei');
-    }// constructor()
+        console.log('[BROPEDIA] - BIBLIOTECA CARREGADA');
+    } // construct()
 
     consultar(p_consulta, p_obj_msg, p_config)
     {
