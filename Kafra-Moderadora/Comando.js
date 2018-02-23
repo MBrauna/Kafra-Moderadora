@@ -24,6 +24,7 @@ let  bib_bropedia       =   require('./Pesquisa/bropedia/bropedia.js');
 
 
 // Método construtor - Inicialização do processo                (╬ ಠ益ಠ)
+let init_bropedia       =   new bib_bropedia();
 // Método construtor - Inicialização do processo                (╬ ಠ益ಠ)
 
 class comando
@@ -128,9 +129,8 @@ class comando
 
                             // Coleta as informações para tratamento.
                             console.log('---------------->>');
-                            console.log('v_string_requisicao:' + v_string_requisicao);
-                            obj_msg_tmp                 = Object.assign({}, new bib_bropedia().consultar(v_string_requisicao, obj_msg_tmp, this.init_config));
-                            console.log(obj_msg_tmp);
+                            console.log(init_bropedia.consultar(v_string_requisicao, obj_msg_tmp, this.init_config));
+                            console.log(init_bropedia.consultar(v_string_requisicao, this.init_msg_padrao, this.init_config));
                             console.log('---------------->>');
                             break;
                         case 'recrutar':
