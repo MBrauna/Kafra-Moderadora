@@ -37,10 +37,10 @@ class comando
         // Monitora qualquer evento de erro para se executar o cliente
         try
         {
-            p_cliente.send(
-                            p_frase
-                           ,p_configuracao
-                        );
+            p_mensagem.channel.send(
+                                        p_frase
+                                       ,p_configuracao
+                                    );
         }
         catch(p_erro)
         {
