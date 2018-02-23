@@ -89,7 +89,7 @@ class bropedia
             } // v_url_bropedia, (p_erro, p_resposta, p_corpo) =>
         );
         console.log('---------FIM 123--------');
-        console.log(v_obj_retorno);
+        console.log(p_obj_msg);
         console.log('-----------------------------------');
         return p_obj_msg;
 
