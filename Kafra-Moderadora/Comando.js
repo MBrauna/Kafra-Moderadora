@@ -90,7 +90,7 @@ class comando
                 //} // if(v_obj_mensagem_s_prefixo.length <= 0)
 
                 console.log("-----------------");
-                console.log(this.init_msg_padrao);
+                console.log(this.init_msg_padrao.embed.color);
                 console.log("-----------------");
             } // if(v_bol_chamada)
 
