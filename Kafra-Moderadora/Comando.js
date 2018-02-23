@@ -123,7 +123,7 @@ class comando
                             for(var i=1;i<=v_obj_mensagem_s_prefixo.length;i++)
                             {
                                 // Forma a string
-                                v_string_requisicao = v_string_requisicao + ' ' v_obj_mensagem_s_prefixo[i];
+                                v_string_requisicao = v_string_requisicao + ' ' + v_obj_mensagem_s_prefixo[i];
                             } // for(var i=1;i<=v_obj_mensagem_s_prefixo.length;i++)
 
 
