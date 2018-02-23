@@ -78,7 +78,7 @@ class comando
 
         // ᕦ(ò_óˇ)ᕤ     ---     S E P A R A D O R     ---     ᕦ(ˇò_ó)ᕤ
 
-        this.init_msg_funcionalidade        =   {
+        this.init_msg_funcionalidade        =   [
                                                     {
                                                         name:   "@Kafra Moderadora <item/monstro/mapa> <nome_desejado/ID>"
                                                        ,value:  "Este é o maravilhoso comando para realizar consultas de diversos itens, monstros ou até mesmo mapas no melhor database do universo!"
@@ -112,25 +112,25 @@ class comando
                                                         name:   "(ﾉ ＾∇＾)ﾉ"
                                                        ,value:  "Em caso de bugs, não apague o tópico da manutenção, basta chamar: @Kafra Moderadora bug"
                                                     }
-                                                };
+                                                ];
 
         // ᕦ(ò_óˇ)ᕤ     ---     S E P A R A D O R     ---     ᕦ(ˇò_ó)ᕤ
 
-        this.init_msg_dev                   =   {
+        this.init_msg_dev                   =   [
                                                     {
                                                         name    :   "Calma ai!"
                                                        ,value   :   "Ainda não estou pronta!"
                                                     }
-                                                };
+                                                ];
 
         // ᕦ(ò_óˇ)ᕤ     ---     S E P A R A D O R     ---     ᕦ(ˇò_ó)ᕤ
 
-        this.init_msg_erro                  =   {
+        this.init_msg_erro                  =   [
                                                     {
                                                         name    :   "Gente essa foi pior que apagar tópico de manutenção! ):"
                                                        ,value   :   "Que vexame causei! Desculpe não consegui entender sua requisição."
                                                     }
-                                                };
+                                                ];
 
     } // Método construtor - construct()
 
