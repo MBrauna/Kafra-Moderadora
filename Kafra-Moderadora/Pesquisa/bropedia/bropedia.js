@@ -87,7 +87,9 @@ class bropedia
 
             } // v_url_bropedia, (p_erro, p_resposta, p_corpo) =>
         );
-        console.log('executei');
+        console.log('-----------------------------------');
+        console.log(v_obj_retorno);
+        console.log('-----------------------------------');
         return v_obj_retorno;
 
     } // consultar(p_consulta, p_obj_msg, p_config)
@@ -97,6 +99,13 @@ class bropedia
     {
         // Monta a string de consulta à Wiki
         const v_url_bropedia    =   `http://bropedia.net/api.php?action=query&titles=${p_pagina.title}&prop=info|revisions&inprop=url&rvprop=content&format=json`;
+
+
+        console.log('-- Gera consulta1 --');
+        console.log('-----------------------------------');
+        console.log(p_obj_msg);
+        console.log('-----------------------------------');
+
 
         // Realiza uma consulta nos dados da página
         bib_requisicao.get(
@@ -164,6 +173,10 @@ class bropedia
             } // v_url_bropedia, (p_erro, p_resposta, p_corpo) =>
         ); // bib_requisicao.get(
 
+        console.log('-- Gera consulta 2--');
+        console.log('-----------------------------------');
+        console.log(p_obj_msg);
+        console.log('-----------------------------------');
         return p_obj_msg;
     } // geraConsulta(p_obj_msg, p_config, v_pagina)
 } // class bropedia
