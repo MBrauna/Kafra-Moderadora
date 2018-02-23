@@ -23,10 +23,10 @@
 class comando
 {
     // Método construtor para COMANDO
-    construct(p_teste)
+    construct()
     {
         // Indica que o procedimento foi inicializado
-        console.log('[CLASSE] Comando - Inicializada ' + p_teste);
+        console.log('[CLASSE] Comando - Inicializada ');
     } // Método construtor - construct()
 
     // ᕦ(ò_óˇ)ᕤ     ---     S E P A R A D O R     ---     ᕦ(ˇò_ó)ᕤ
