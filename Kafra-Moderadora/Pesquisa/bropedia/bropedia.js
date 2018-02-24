@@ -58,11 +58,11 @@ class bropedia
                 // Verifica quantidade de resultados obtidos
                 if(v_resposta.query.searchinfo.totalhits == 0)
                 {
-                    this.v_obj_resposta.embed.color              =  this.p_config.cor_vermelha.color;
-                    this.v_obj_resposta.embed.title              =  'TERMO NÃO ENCONTRADO NA WIKI';
-                    this.v_obj_resposta.embed.url                =  null;
-                    this.v_obj_resposta.embed.description        =  'Desculpe ):';
-                    this.v_obj_resposta.embed.fields             =  [
+                    this.obj_resposta.embed.color               =   this.p_config.cor_vermelha.color;
+                    this.obj_resposta.embed.title               =   'TERMO NÃO ENCONTRADO NA WIKI';
+                    this.obj_resposta.embed.url                 =   null;
+                    this.obj_resposta.embed.description         =   'Desculpe ):';
+                    this.obj_resposta.embed.fields              =   [
                                                                         {
                                                                             name: 'ZERO! NADA! VAZIO!'
                                                                            ,value: 'O termo "' + p_consulta + '" procurado não foi encontrado em minha base de dados!'
@@ -95,7 +95,7 @@ class bropedia
             }); // bib_requisicao.get(v_url_bropedia, (p_erro, p_resposta, p_corpo) => {
 
             // Finaliza o procedimento
-            return this.v_obj_resposta;
+            return this.obj_resposta;
         } // try { ... }
         catch(p_erro)
         {
@@ -103,14 +103,11 @@ class bropedia
             try
             {
                 // Cria uma novo objeto para modificação.
-                this.v_obj_resposta                         =   Object.assign({}, p_obj_msg);
-
-                // Marca as informações
-                this.v_obj_resposta.embed.color             =       this.p_config.cor_vermelha.color;
-                this.v_obj_resposta.embed.title             =       'NÃO FOI POSSÍVEL CONSULTAR';
-                this.v_obj_resposta.embed.url               =       null;
-                this.v_obj_resposta.embed.description       =       'Não consegui GENTE!!!';
-                this.v_obj_resposta.embed.fields            =       [
+                this.obj_resposta.embed.color             =       this.p_config.cor_vermelha.color;
+                this.obj_resposta.embed.title             =       'NÃO FOI POSSÍVEL CONSULTAR';
+                this.obj_resposta.embed.url               =       null;
+                this.obj_resposta.embed.description       =       'Não consegui GENTE!!!';
+                this.obj_resposta.embed.fields            =       [
                                                                         {
                                                                             name: 'Ocorreu um erro durante a consulta'
                                                                            ,value: 'O termo "' + p_consulta + '" gerou um erro! Acha que é sentar e chorar? Nananinanão avise um administrador.'
@@ -176,11 +173,11 @@ class bropedia
                 // Caso a página não tenha sido encontrada
                 if(typeof v_pagina == 'undefined')
                 {
-                    this.v_obj_resposta.embed.color             =   p_config.cor_vermelha.color;
-                    this.v_obj_resposta.embed.title             =   'NÃO FOI POSSÍVEL CONSULTAR';
-                    this.v_obj_resposta.embed.url               =   null;
-                    this.v_obj_resposta.embed.description       =   'Não consegui GENTE!!!';
-                    this.v_obj_resposta.embed.fields            =   [
+                    this.obj_resposta.embed.color             =   this.p_config.cor_vermelha.color;
+                    this.obj_resposta.embed.title             =   'NÃO FOI POSSÍVEL CONSULTAR';
+                    this.obj_resposta.embed.url               =   null;
+                    this.obj_resposta.embed.description       =   'Não consegui GENTE!!!';
+                    this.obj_resposta.embed.fields            =   [
                                                                         {
                                                                             name: 'Ocorreu um erro durante a consulta'
                                                                            ,value: 'O termo "' + p_titulo + '" gerou um erro! Acha que é sentar e chorar? Nananinanão avise um administrador.'
@@ -191,11 +188,11 @@ class bropedia
                 } // if(typeof v_pagina == 'undefined')
                 else
                 {
-                    this.v_obj_resposta.embed.color             =   p_config.cor_verde.color;
-                    this.v_obj_resposta.embed.title             =   v_pagina.title;
-                    this.v_obj_resposta.embed.url               =   v_pagina.canonicalurl;
-                    this.v_obj_resposta.embed.description       =   'Este é o resultado mais relevante para ' + p_titulo;
-                    this.v_obj_resposta.embed.fields            =   [
+                    this.obj_resposta.embed.color             =   this.p_config.cor_verde.color;
+                    this.obj_resposta.embed.title             =   v_pagina.title;
+                    this.obj_resposta.embed.url               =   v_pagina.canonicalurl;
+                    this.obj_resposta.embed.description       =   'Este é o resultado mais relevante para ' + p_titulo;
+                    this.obj_resposta.embed.fields            =   [
                                                                         {
                                                                             name: v_pagina.title
                                                                            ,value: v_pagina.canonicalurl
@@ -210,21 +207,18 @@ class bropedia
             try
             {
                 // Cria uma novo objeto para modificação.
-                this.v_obj_resposta                     =   Object.assign({}, p_obj_msg);
+                this.obj_resposta                     =   Object.assign({}, p_obj_msg);
                 // Marca as informações
-                this.v_obj_resposta.embed.color             =   p_config.cor_vermelha.color;
-                this.v_obj_resposta.embed.title             =   'NÃO FOI POSSÍVEL CONSULTAR';
-                this.v_obj_resposta.embed.url               =   null;
-                this.v_obj_resposta.embed.description       =   'Não consegui GENTE!!!';
-                this.v_obj_resposta.embed.fields            =   [
+                this.obj_resposta.embed.color             =   this.p_config.cor_vermelha.color;
+                this.obj_resposta.embed.title             =   'NÃO FOI POSSÍVEL CONSULTAR';
+                this.obj_resposta.embed.url               =   null;
+                this.obj_resposta.embed.description       =   'Não consegui GENTE!!!';
+                this.obj_resposta.embed.fields            =   [
                                                                     {
                                                                         name: 'Ocorreu um erro durante a consulta'
                                                                        ,value: 'O termo "' + p_consulta + '" gerou um erro! Acha que é sentar e chorar? Nananinanão avise um administrador.'
                                                                     }
                                                                 ];
-
-                // Informa sobre o erro
-                this.obj_resposta                       =   Object.assign({}, v_obj_resposta);
             } // try { ... }
             catch(p_erro_sec)
             {
