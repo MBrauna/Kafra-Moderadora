@@ -27,12 +27,15 @@ let bib_requisicao      =   require('request')
 
 class bropedia
 {
-    construct(p_obj_msg, p_config)
+    constructor(p_obj_msg, p_config, p_mensagem, p_cliente)
     {
         console.log('[BROPEDIA] - BIBLIOTECA CARREGADA');
-        this.v_obj_resposta     =   Object.assign({}, p_obj_msg);
-        this.p_config           =   Object.assign({}, p_config);
-    } // construct()
+        this.obj_resposta       =   Object.assign({}, p_obj_msg);
+        this.obj_config         =   Object.assign({}, p_config);
+        this.obj_mensagem       =   p_mensagem;
+        this.obj_cliente        =   p_cliente;
+
+    } // constructor(p_obj_msg, p_config, p_mensagem, p_cliente)
 
     consultar(p_consulta)
     {
@@ -55,7 +58,6 @@ class bropedia
                 // Verifica quantidade de resultados obtidos
                 if(v_resposta.query.searchinfo.totalhits == 0)
                 {
-                    console.log('123');
                     this.v_obj_resposta.embed.color              =  this.p_config.cor_vermelha.color;
                     this.v_obj_resposta.embed.title              =  'TERMO NÃO ENCONTRADO NA WIKI';
                     this.v_obj_resposta.embed.url                =  null;
@@ -66,11 +68,9 @@ class bropedia
                                                                            ,value: 'O termo "' + p_consulta + '" procurado não foi encontrado em minha base de dados!'
                                                                         }
                                                                     ];
-                    return this.v_obj_resposta;
                 } // if(v_resposta.query.searchinfo.totalhits == 0)
                 else
                 {
-                    console.log('456');
                     // Roda a consulta procurando por algo similar ao pesquisado
                     v_resposta.query.search.forEach((json_resp) =>
                     {
@@ -88,16 +88,20 @@ class bropedia
                         v_pagina        =   bib_underline.first(v_resposta.query.search);
                     } // if(typeof v_pagina === 'undefined')
 
-                    return this.v_obj_resposta;
+
+                    // Monta resposta
+                    this.monta_resposta(v_pagina.title);
                 } // else { ... }
             }); // bib_requisicao.get(v_url_bropedia, (p_erro, p_resposta, p_corpo) => {
+
+            // Finaliza o procedimento
+            return this.v_obj_resposta;
         } // try { ... }
         catch(p_erro)
         {
             // Em caso de erro, tenta montar uma nova mensagem, avisando sobre o erro
             try
             {
-                console.log('ERRO 123');
                 // Cria uma novo objeto para modificação.
                 this.v_obj_resposta                         =   Object.assign({}, p_obj_msg);
 
@@ -112,6 +116,7 @@ class bropedia
                                                                            ,value: 'O termo "' + p_consulta + '" gerou um erro! Acha que é sentar e chorar? Nananinanão avise um administrador.'
                                                                         }
                                                                     ];
+
                 // Informa sobre o erro
                 return this.v_obj_resposta;
             } // try { ... }
@@ -126,10 +131,115 @@ class bropedia
                 console.trace();
                 console.log('-- --> CONSULTAR <-- --');
 
+                // Informa sobre o erro
+                return this.v_obj_resposta;
             } // catch(p_erro_sec) { ... }
 
         } // catch(p_erro) { ... }
-    } // consultar(p_consulta, p_obj_msg, p_config)
+    } // consultar(p_consulta)
+
+
+
+    monta_resposta(p_titulo)
+    {
+        try
+        {
+            // Declaração de variáveis - Criação da resposta
+            let     v_url_bropedia      =   `http://bropedia.net/api.php?action=query&titles=${p_titulo}&prop=info|revisions&inprop=url&rvprop=content&format=json`
+                   ,v_partes            =   []
+                   ,v_redirecionamento  =   false
+                   ,v_redirect
+                   ,v_pagina
+                   ,v_revisao
+                   ,v_resposta
+                   ;
+
+            // Realiza uma chamada no webservice da enciclopédia
+            bib_requisicao.get(v_url_bropedia, (p_erro, p_resposta, p_corpo) =>
+            {
+
+                // Monta os dados
+                v_resposta          =   JSON.parse(p_corpo);
+                v_pagina            =   v_resposta.query.pages[Object.keys(v_resposta.query.pages)[0]];
+                v_revisao           =   bib_underline.first(v_pagina.revisions);
+
+                // Veririca se a informação é um redirect
+                if(!v_redirecionamento && !bib_underline.isEmpty(v_revisao) && v_revisao['*'].indexOf('#REDIRECIONAMENTO') > -1)
+                {
+                    // Marca a página que receberá o redirect
+                    v_redirect      =   v_revisao['*'].replace('#REDIRECIONAMENTO [[','').replace(']]','');
+
+                    // Chama o mesmo método para encontrar as informações
+                    this.consultar(v_redirect);
+                } // if(!v_redirecionamento && !bib_underline.isEmpty(v_revisao) && v_revisao['*'].indexOf('#REDIRECIONAMENTO') > -1)
+
+                // Caso a página não tenha sido encontrada
+                if(typeof v_pagina == 'undefined')
+                {
+                    this.v_obj_resposta.embed.color             =   p_config.cor_vermelha.color;
+                    this.v_obj_resposta.embed.title             =   'NÃO FOI POSSÍVEL CONSULTAR';
+                    this.v_obj_resposta.embed.url               =   null;
+                    this.v_obj_resposta.embed.description       =   'Não consegui GENTE!!!';
+                    this.v_obj_resposta.embed.fields            =   [
+                                                                        {
+                                                                            name: 'Ocorreu um erro durante a consulta'
+                                                                           ,value: 'O termo "' + p_titulo + '" gerou um erro! Acha que é sentar e chorar? Nananinanão avise um administrador.'
+                                                                        }
+                                                                    ];
+
+                    // Informa sobre o erro
+                } // if(typeof v_pagina == 'undefined')
+                else
+                {
+                    this.v_obj_resposta.embed.color             =   p_config.cor_verde.color;
+                    this.v_obj_resposta.embed.title             =   v_pagina.title;
+                    this.v_obj_resposta.embed.url               =   v_pagina.canonicalurl;
+                    this.v_obj_resposta.embed.description       =   'Este é o resultado mais relevante para ' + p_titulo;
+                    this.v_obj_resposta.embed.fields            =   [
+                                                                        {
+                                                                            name: v_pagina.title
+                                                                           ,value: v_pagina.canonicalurl
+                                                                        }
+                                                                    ];
+                } // else  { ... }
+            }); // bib_requisicao.get(v_url_bropedia, (p_erro, p_resposta, p_corpo) =>
+        } // try { ... }
+        catch(p_erro)
+        {
+            // Em caso de erro, tenta montar uma nova mensagem, avisando sobre o erro
+            try
+            {
+                // Cria uma novo objeto para modificação.
+                this.v_obj_resposta                     =   Object.assign({}, p_obj_msg);
+                // Marca as informações
+                this.v_obj_resposta.embed.color             =   p_config.cor_vermelha.color;
+                this.v_obj_resposta.embed.title             =   'NÃO FOI POSSÍVEL CONSULTAR';
+                this.v_obj_resposta.embed.url               =   null;
+                this.v_obj_resposta.embed.description       =   'Não consegui GENTE!!!';
+                this.v_obj_resposta.embed.fields            =   [
+                                                                    {
+                                                                        name: 'Ocorreu um erro durante a consulta'
+                                                                       ,value: 'O termo "' + p_consulta + '" gerou um erro! Acha que é sentar e chorar? Nananinanão avise um administrador.'
+                                                                    }
+                                                                ];
+
+                // Informa sobre o erro
+                this.obj_resposta                       =   Object.assign({}, v_obj_resposta);
+            } // try { ... }
+            catch(p_erro_sec)
+            {
+                // Caso nada acima surgir efeito ...
+                console.log('-- --> MONTA RESPOSTA <-- --');
+                console.log(p_erro);
+                console.log('-- --> MONTA RESPOSTA <-- --');
+                console.log(p_erro_sec);
+                console.log('-- --> MONTA RESPOSTA <-- --');
+                console.trace();
+                console.log('-- --> MONTA RESPOSTA <-- --');
+
+            } // catch(p_erro_sec) { ... }
+        } // catch(p_erro) { ... }
+    } // monta_resposta(p_titulo, p_obj_msg, p_config)
 
 } // class bropedia
 

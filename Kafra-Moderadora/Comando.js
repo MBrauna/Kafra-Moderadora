@@ -29,7 +29,7 @@ let  bib_bropedia       =   require('./Pesquisa/bropedia/bropedia.js');
 class comando
 {
     // Método construtor para COMANDO
-    construct()
+    constructor()
     {
         // Indica que o procedimento foi inicializado
         console.log('[CLASSE] Comando - Inicializada ');
@@ -45,9 +45,9 @@ class comando
         {
             p_mensagem.channel.send(
                                         p_frase
-                                       ,p_configuracao
+                                        ,p_configuracao
                                     );
-        }
+        } // try { ... }
         catch(p_erro)
         {
             
@@ -59,7 +59,7 @@ class comando
             console.log('------------------------');
             console.trace();
             console.log('------------------------');
-        }
+        } // catch(p_erro) { ... }
 
     } // monta_resposta(p_cliente, p_mensagem, p_frase, p_configuracao)
 
@@ -125,7 +125,6 @@ class comando
                                 // Forma a string
                                 v_string_requisicao = v_string_requisicao + v_obj_mensagem_s_prefixo[i] + ' ';
                             } // for(var i=1;i<=v_obj_mensagem_s_prefixo.length;i++)
-                            obj_msg_tmp                     =   new bib_bropedia(this.init_msg_padrao, this.init_config).consultar(v_string_requisicao);
 
                             break;
                         case 'recrutar':
@@ -159,15 +158,16 @@ class comando
                     } // switch(v_obj_mensagem_s_prefixo[0].toLowerCase())
                 } // else { .. }
 
-                // Gera a mensagem
-                this.monta_resposta(p_cliente
-                                   ,p_mensagem
-                                   ,'Olá <@' + p_mensagem.author.id + '> estou aqui!'
-                                   ,obj_msg_tmp
-                                   );
             } // if(v_bol_chamada)
 
             // ᕦ(ò_óˇ)ᕤ     ---     S E P A R A D O R     ---     ᕦ(ˇò_ó)ᕤ
+
+            // Gera a mensagem
+            this.monta_resposta(p_cliente
+                               ,p_mensagem
+                               ,'Olá <@' + p_mensagem.author.id + '> estou aqui!'
+                               ,obj_msg_tmp
+                               );
         } // try { ... }
         catch(p_erro)
         {
