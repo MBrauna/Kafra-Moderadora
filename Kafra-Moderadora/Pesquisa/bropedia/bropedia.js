@@ -67,6 +67,8 @@ class bropedia
                                                                 ];
 
                     this.obj_resposta                       =   Object.assign({}, v_obj_resposta);
+                    console.log('-> ----- <-');
+                    console.log(this.obj_resposta);
                 } // if(v_resposta.query.searchinfo.totalhits == 0)
                 else
                 {
@@ -95,6 +97,13 @@ class bropedia
             }); // bib_requisicao.get(v_url_bropedia, (p_erro, p_resposta, p_corpo) => {
 
             // Retorna a requisição
+            console.log('-> ----- <-');
+            console.log('-> ----- <-');
+            console.log('-> ----- <-');
+            console.log(this.obj_resposta);
+            console.log('-> ----- <-');
+            console.log('-> ----- <-');
+            console.log('-> ----- <-');
             return this.obj_resposta;
         } // try { ... }
         catch(p_erro)
@@ -165,8 +174,8 @@ class bropedia
                     v_redirect      =   v_revisao['*'].replace('#REDIRECIONAMENTO [[','').replace(']]','');
 
                     // Chama o mesmo método para encontrar as informações
-                    return this.consultar(v_redirect, p_obj_msg, p_config);
-                }
+                    this.consultar(v_redirect, p_obj_msg, p_config);
+                } // if(!v_redirecionamento && !bib_underline.isEmpty(v_revisao) && v_revisao['*'].indexOf('#REDIRECIONAMENTO') > -1)
 
                 // Caso a página não tenha sido encontrada
                 if(typeof v_pagina == 'undefined')
