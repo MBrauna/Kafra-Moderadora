@@ -127,7 +127,7 @@ class comando
                             } // for(var i=1;i<=v_obj_mensagem_s_prefixo.length;i++)
 
                             console.log('-- >> << --');
-                            console.log(bib_bropedia(this.init_msg_padrao, this.init_config, p_mensagem, p_cliente).consultar(v_string_requisicao));
+                            console.log(new bib_bropedia(this.init_msg_padrao, this.init_config, p_mensagem, p_cliente).consultar(v_string_requisicao));
                             console.log('-- >> << --');
                             break;
                         case 'recrutar':
