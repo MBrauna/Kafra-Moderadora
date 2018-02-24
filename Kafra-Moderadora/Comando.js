@@ -236,10 +236,12 @@ class comando
                                                                    ,title               :   'Olá pessoal, Kafra Moderadora na área.'
                                                                    ,url                 :   'https://github.com/bropedia/Kafra-Moderadora'
                                                                    ,description         :   '(ﾉ ＾∇＾)ﾉ    TO DE OLHO    (ノ ^o^)ノ'
-                                                                   ,fields              :   {
-                                                                                                name    :   'Sabe de uma coisa?'
-                                                                                               ,value   :   'Quer saber mesmo? Adoro vocês, seus lindos.'
-                                                                                            }
+                                                                   ,fields              :   [
+                                                                                                {
+                                                                                                    name    :   'Sabe de uma coisa?'
+                                                                                                   ,value   :   'Quer saber mesmo? Adoro vocês, seus lindos.'
+                                                                                                }
+                                                                                            ]
                                                                   ,timestamp            :   new Date()
                                                                   ,footer               :   {
                                                                                                 icon_url:   'https://i.imgur.com/cfYwkLQ.png'
