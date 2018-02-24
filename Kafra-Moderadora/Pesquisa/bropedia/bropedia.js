@@ -55,6 +55,7 @@ class bropedia
                 // Verifica quantidade de resultados obtidos
                 if(v_resposta.query.searchinfo.totalhits == 0)
                 {
+                    console.log('123');
                     this.v_obj_resposta.embed.color              =  p_config.cor_vermelha.color;
                     this.v_obj_resposta.embed.title              =  'TERMO NÃO ENCONTRADO NA WIKI';
                     this.v_obj_resposta.embed.url                =  null;
@@ -68,6 +69,7 @@ class bropedia
                 } // if(v_resposta.query.searchinfo.totalhits == 0)
                 else
                 {
+                    console.log('456');
                     // Roda a consulta procurando por algo similar ao pesquisado
                     v_resposta.query.search.forEach((json_resp) =>
                     {
@@ -85,6 +87,7 @@ class bropedia
                         v_pagina        =   bib_underline.first(v_resposta.query.search);
                     } // if(typeof v_pagina === 'undefined')
 
+                    console.log('789');
                     this.monta_resposta(v_pagina.title, p_obj_msg, p_config);
 
                 } // else { ... }
@@ -100,6 +103,7 @@ class bropedia
             // Em caso de erro, tenta montar uma nova mensagem, avisando sobre o erro
             try
             {
+                console.log('ERRO 123');
                 // Cria uma novo objeto para modificação.
                 this.v_obj_resposta                         =   Object.assign({}, p_obj_msg);
 
@@ -147,15 +151,18 @@ class bropedia
                    ,v_revisao
                    ,v_resposta
                    ;
+            console.log('MNT 1');
 
             // Realiza uma chamada no webservice da enciclopédia
             bib_requisicao.get(v_url_bropedia, (p_erro, p_resposta, p_corpo) =>
             {
+                console.log('MNT 2');
                 // Monta os dados
                 v_resposta          =   JSON.parse(p_corpo);
                 v_pagina            =   v_resposta.query.pages[Object.keys(v_resposta.query.pages)[0]];
                 v_revisao           =   bib_underline.first(v_pagina.revisions);
 
+                console.log('MNT 3');
                 // Veririca se a informação é um redirect
                 if(!v_redirecionamento && !bib_underline.isEmpty(v_revisao) && v_revisao['*'].indexOf('#REDIRECIONAMENTO') > -1)
                 {
@@ -166,9 +173,12 @@ class bropedia
                     this.consultar(v_redirect, p_obj_msg, p_config);
                 } // if(!v_redirecionamento && !bib_underline.isEmpty(v_revisao) && v_revisao['*'].indexOf('#REDIRECIONAMENTO') > -1)
 
+                console.log('MNT 4');
+
                 // Caso a página não tenha sido encontrada
                 if(typeof v_pagina == 'undefined')
                 {
+                    console.log('MNT 5');
                     this.v_obj_resposta.embed.color             =   p_config.cor_vermelha.color;
                     this.v_obj_resposta.embed.title             =   'NÃO FOI POSSÍVEL CONSULTAR';
                     this.v_obj_resposta.embed.url               =   null;
@@ -184,6 +194,7 @@ class bropedia
                 } // if(typeof v_pagina == 'undefined')
                 else
                 {
+                    console.log('MNT 6');
                     this.v_obj_resposta.embed.color             =   p_config.cor_verde.color;
                     this.v_obj_resposta.embed.title             =   v_pagina.title;
                     this.v_obj_resposta.embed.url               =   v_pagina.canonicalurl;
@@ -215,6 +226,7 @@ class bropedia
                                                                        ,value: 'O termo "' + p_consulta + '" gerou um erro! Acha que é sentar e chorar? Nananinanão avise um administrador.'
                                                                     }
                                                                 ];
+                console.log('MNT 7');
 
                 // Informa sobre o erro
                 this.obj_resposta                       =   Object.assign({}, v_obj_resposta);
