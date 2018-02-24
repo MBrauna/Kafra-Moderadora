@@ -58,7 +58,7 @@ class bropedia
                 // Verifica quantidade de resultados obtidos
                 if(v_resposta.query.searchinfo.totalhits == 0)
                 {
-                    this.obj_resposta.embed.color               =   this.p_config.cor_vermelha.color;
+                    this.obj_resposta.embed.color               =   this.obj_config.cor_vermelha.color;
                     this.obj_resposta.embed.title               =   'TERMO NÃO ENCONTRADO NA WIKI';
                     this.obj_resposta.embed.url                 =   null;
                     this.obj_resposta.embed.description         =   'Desculpe ):';
@@ -103,7 +103,7 @@ class bropedia
             try
             {
                 // Cria uma novo objeto para modificação.
-                this.obj_resposta.embed.color             =       this.p_config.cor_vermelha.color;
+                this.obj_resposta.embed.color             =       this.obj_config.cor_vermelha.color;
                 this.obj_resposta.embed.title             =       'NÃO FOI POSSÍVEL CONSULTAR';
                 this.obj_resposta.embed.url               =       null;
                 this.obj_resposta.embed.description       =       'Não consegui GENTE!!!';
@@ -173,7 +173,7 @@ class bropedia
                 // Caso a página não tenha sido encontrada
                 if(typeof v_pagina == 'undefined')
                 {
-                    this.obj_resposta.embed.color             =   this.p_config.cor_vermelha.color;
+                    this.obj_resposta.embed.color             =   this.obj_config.cor_vermelha.color;
                     this.obj_resposta.embed.title             =   'NÃO FOI POSSÍVEL CONSULTAR';
                     this.obj_resposta.embed.url               =   null;
                     this.obj_resposta.embed.description       =   'Não consegui GENTE!!!';
@@ -188,7 +188,7 @@ class bropedia
                 } // if(typeof v_pagina == 'undefined')
                 else
                 {
-                    this.obj_resposta.embed.color             =   this.p_config.cor_verde.color;
+                    this.obj_resposta.embed.color             =   this.obj_config.cor_verde.color;
                     this.obj_resposta.embed.title             =   v_pagina.title;
                     this.obj_resposta.embed.url               =   v_pagina.canonicalurl;
                     this.obj_resposta.embed.description       =   'Este é o resultado mais relevante para ' + p_titulo;
@@ -209,7 +209,7 @@ class bropedia
                 // Cria uma novo objeto para modificação.
                 this.obj_resposta                     =   Object.assign({}, p_obj_msg);
                 // Marca as informações
-                this.obj_resposta.embed.color             =   this.p_config.cor_vermelha.color;
+                this.obj_resposta.embed.color             =   this.obj_config.cor_vermelha.color;
                 this.obj_resposta.embed.title             =   'NÃO FOI POSSÍVEL CONSULTAR';
                 this.obj_resposta.embed.url               =   null;
                 this.obj_resposta.embed.description       =   'Não consegui GENTE!!!';
