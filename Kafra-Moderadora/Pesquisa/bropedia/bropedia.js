@@ -92,7 +92,7 @@ class bropedia
 
             // Retorna a requisição
             console.log('-->> RESPOSTA');
-
+            console.log(this.v_obj_resposta);
             return this.v_obj_resposta;
         } // try { ... }
         catch(p_erro)
