@@ -65,6 +65,8 @@ class bropedia
                                                                        ,value: 'O termo "' + p_consulta + '" procurado não foi encontrado em minha base de dados!'
                                                                     }
                                                                 ];
+
+                    this.obj_resposta                       =   Object.assign({}, v_obj_resposta);
                 } // if(v_resposta.query.searchinfo.totalhits == 0)
                 else
                 {
@@ -85,14 +87,15 @@ class bropedia
                         v_pagina        =   bib_underline.first(v_resposta.query.search);
                     } // if(typeof v_pagina === 'undefined')
 
-                    v_obj_resposta      =  this.monta_resposta(v_pagina.title, p_obj_msg, p_config);
+                    this.monta_resposta(v_pagina.title, p_obj_msg, p_config);
+
                     console.log('->> OBJETO <<-');
-                    console.log(v_obj_resposta);
+                    console.log(this.obj_resposta);
                 } // else { ... }
             }); // bib_requisicao.get(v_url_bropedia, (p_erro, p_resposta, p_corpo) => {
 
             // Retorna a requisição
-            return v_obj_resposta;
+            return this.obj_resposta;
         } // try { ... }
         catch(p_erro)
         {
@@ -195,7 +198,7 @@ class bropedia
                                                                 ];
                 } // else  { ... }
 
-                return v_obj_resposta;
+                this.obj_resposta                           =   Object.assign({}, v_obj_resposta);
             }); // bib_requisicao.get(v_url_bropedia, (p_erro, p_resposta, p_corpo) =>
         } // try { ... }
         catch(p_erro)
@@ -218,7 +221,7 @@ class bropedia
                                                             ];
 
                 // Informa sobre o erro
-                return v_obj_resposta;
+                this.obj_resposta                       =   Object.assign({}, v_obj_resposta);
             } // try { ... }
             catch(p_erro_sec)
             {
