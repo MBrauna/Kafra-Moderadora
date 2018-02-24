@@ -242,21 +242,6 @@ class comando
                                                                    ,title               :   'Olá pessoal, Kafra Moderadora na área.'
                                                                    ,url                 :   'https://github.com/bropedia/Kafra-Moderadora'
                                                                    ,description         :   '(ﾉ ＾∇＾)ﾉ    TO DE OLHO    (ノ ^o^)ノ'
-                                                                   ,'image'             :   {
-                                                                                                "url"       :   null // 'https://i.imgur.com/LOGICNS.jpg'
-                                                                                               ,"height"    :   null // 123
-                                                                                               ,"width"     :   null // 123
-                                                                                            }
-                                                                   ,thumbnail           :   {
-                                                                                                "url"       :   null // 'https://i.imgur.com/LOGICNS.jpg'
-                                                                                               ,"height"    :   null // 123
-                                                                                               ,"width"     :   null // 123 
-                                                                                            }
-                                                                   ,video               :   {
-                                                                                                "url"       :   null // 'https://i.imgur.com/LOGICNS.jpg'
-                                                                                               ,"height"    :   null // 123
-                                                                                               ,"width"     :   null // 123
-                                                                                            }
                                                                    ,fields              :   {
                                                                                                 name    :   'Sabe de uma coisa?'
                                                                                                ,value   :   'Quer saber mesmo? Adoro vocês, seus lindos.'
