@@ -85,7 +85,7 @@ class bropedia
                         v_pagina        =   bib_underline.first(v_resposta.query.search);
                     } // if(typeof v_pagina === 'undefined')
 
-                    v_obj_resposta      =   Object.assign({}, this.monta_resposta(v_pagina.title, p_obj_msg, p_config));
+                    v_obj_resposta      =   this.monta_resposta(v_pagina.title, p_obj_msg, p_config);
                     console.log('->> OBJETO <<-');
                     console.log(v_obj_resposta);
                 } // else { ... }
@@ -112,10 +112,6 @@ class bropedia
                                                                    ,value: 'O termo "' + p_consulta + '" gerou um erro! Acha que é sentar e chorar? Nananinanão avise um administrador.'
                                                                 }
                                                             ];
-
-                console.log('->> OBJETO EM ERRO <<-');
-                console.log(v_obj_resposta);
-
                 // Informa sobre o erro
                 return v_obj_resposta;
             } // try { ... }
@@ -199,9 +195,6 @@ class bropedia
                                                                 ];
                 } // else  { ... }
 
-                console.log('->> OBJETO MONTA RESPOSTA<<-');
-                console.log(v_obj_resposta);
-
                 return v_obj_resposta;
             }); // bib_requisicao.get(v_url_bropedia, (p_erro, p_resposta, p_corpo) =>
         } // try { ... }
@@ -223,10 +216,6 @@ class bropedia
                                                                    ,value: 'O termo "' + p_consulta + '" gerou um erro! Acha que é sentar e chorar? Nananinanão avise um administrador.'
                                                                 }
                                                             ];
-
-
-                console.log('->> OBJETO TITULO<<-');
-                console.log(v_obj_resposta);
 
                 // Informa sobre o erro
                 return v_obj_resposta;
