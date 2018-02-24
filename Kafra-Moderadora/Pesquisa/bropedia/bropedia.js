@@ -85,7 +85,7 @@ class bropedia
                         v_pagina        =   bib_underline.first(v_resposta.query.search);
                     } // if(typeof v_pagina === 'undefined')
 
-                    v_obj_resposta      =   this.monta_resposta(v_pagina.title, p_obj_msg, p_config);
+                    v_obj_resposta      =   new this.monta_resposta(v_pagina.title, p_obj_msg, p_config);
                     console.log('->> OBJETO <<-');
                     console.log(v_obj_resposta);
                 } // else { ... }
