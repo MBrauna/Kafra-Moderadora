@@ -66,6 +66,7 @@ class bropedia
                                                                            ,value: 'O termo "' + p_consulta + '" procurado não foi encontrado em minha base de dados!'
                                                                         }
                                                                     ];
+                    console.log(this.v_obj_resposta);
                 } // if(v_resposta.query.searchinfo.totalhits == 0)
                 else
                 {
