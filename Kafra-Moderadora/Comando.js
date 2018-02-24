@@ -126,7 +126,7 @@ class comando
                                 // Forma a string
                                 v_string_requisicao = v_string_requisicao + v_obj_mensagem_s_prefixo[i] + ' ';
                             } // for(var i=1;i<=v_obj_mensagem_s_prefixo.length;i++)
-                            obj_msg_tmp                     =   new init_bropedia().consultar(v_string_requisicao, this.init_msg_padrao, this.init_config);
+                            obj_msg_tmp                     =   init_bropedia().consultar(v_string_requisicao, this.init_msg_padrao, this.init_config);
                             console.log(obj_msg_tmp);
                             break;
                         case 'recrutar':
