@@ -146,7 +146,7 @@ class Kafra_moderadora
                                         "message"
                                        ,async mensagem =>
                                         {
-                                            this.init_comando().trata_mensagem(this.init_kafra_moderadora,mensagem);
+                                            this.init_comando.trata_mensagem(this.init_kafra_moderadora,mensagem);
                                         }
                                 );
         // PARA EVENTO DO TIPO TEXTO
