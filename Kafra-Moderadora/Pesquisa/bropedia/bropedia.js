@@ -95,7 +95,9 @@ class bropedia
             }); // bib_requisicao.get(v_url_bropedia, (p_erro, p_resposta, p_corpo) => {
 
             // Finaliza o procedimento
+            console.log('-- >> bropedia << --');
             return this.obj_resposta;
+            console.log('-- >> bropedia << --');
         } // try { ... }
         catch(p_erro)
         {
@@ -115,7 +117,9 @@ class bropedia
                                                                     ];
 
                 // Informa sobre o erro
-                return this.v_obj_resposta;
+                console.log('-- >> bropedia erro 1<< --');
+                return this.obj_resposta;
+                console.log('-- >> bropedia erro 1<< --');
             } // try { ... }
             catch(p_erro_sec)
             {
@@ -129,7 +133,9 @@ class bropedia
                 console.log('-- --> CONSULTAR <-- --');
 
                 // Informa sobre o erro
-                return this.v_obj_resposta;
+                console.log('-- >> bropedia erro 2< --');
+                return this.obj_resposta;
+                console.log('-- >> bropedia erro 2<< --');
             } // catch(p_erro_sec) { ... }
 
         } // catch(p_erro) { ... }
