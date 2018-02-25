@@ -276,6 +276,7 @@ class bropedia
                             } // if(typeof v_pagina == 'undefined')
                             else
                             {
+                                console.log(v_pagina);
                                 // Define o objeto a ser utilizado
                                 v_obj_resposta          =   {
                                                                 'embed' :   {
