@@ -37,6 +37,31 @@ class bropedia
 
     } // constructor(p_obj_msg, p_config, p_mensagem, p_cliente)
 
+    monta_resposta(p_frase, p_mensagem)
+    {
+        // Monitora qualquer evento de erro para se executar o cliente
+        try
+        {
+            this.obj_mensagem.channel.send(
+                                            p_frase
+                                           ,p_mensagem
+                                        );
+        } // try { ... }
+        catch(p_erro)
+        {
+            
+            // Imprime o objeto de erro recebido
+            console.log('------------------------');
+            console.log(p_erro);
+            console.log('------------------------');
+            // Monitora qual procedimento gerou o erro
+            console.log('------------------------');
+            console.trace();
+            console.log('------------------------');
+        } // catch(p_erro) { ... }
+
+    } // monta_resposta(p_cliente, p_mensagem, p_frase, p_configuracao)
+
     consultar(p_consulta)
     {
         // Prepara os dados iniciais para consulta na enciclopédia.
@@ -103,9 +128,12 @@ class bropedia
                                                                                             }
                                                                 }
                                                 };
-                    console.log(v_obj_resposta);
 
-                    return v_obj_resposta;
+
+                    monta_resposta('Caramba <@' + this.obj_mensagem.author.id + '>, não consegui encontrar o que você procura!'
+                                  ,v_obj_resposta
+                                  );
+                    return;
                 } // if(v_resposta.query.searchinfo.totalhits == 0)
                 else
                 {
@@ -169,9 +197,10 @@ class bropedia
                                                                                                 }
                                                                     }
                                                     };
-                        console.log(v_obj_resposta);
-
-                        return v_obj_resposta;
+                        monta_resposta('Caramba <@' + this.obj_mensagem.author.id + '>, não consegui encontrar o que você procura!'
+                                  ,v_obj_resposta
+                                  );
+                        return;
                     }
                     else
                     {
@@ -240,9 +269,10 @@ class bropedia
                                                                                                         }
                                                                             }
                                                             };
-                                console.log(v_obj_resposta);
-
-                                return v_obj_resposta;
+                                monta_resposta('As coisas nem sempre saem como planejado <@' + this.obj_mensagem.author.id + '>, né non?'
+                                              ,v_obj_resposta
+                                              );
+                                return;
 
                             } // if(typeof v_pagina == 'undefined')
                             else
@@ -287,9 +317,9 @@ class bropedia
                                                                                                         }
                                                                             }
                                                             };
-                                console.log(v_obj_resposta);
-
-                                return v_obj_resposta;
+                                monta_resposta('<@' + this.obj_mensagem.author.id + '> é consulta que você quer? Então toma.'
+                                              ,v_obj_resposta
+                                              );
                             } // else  { ... }
                         }); // bib_requisicao.get(v_url_bropedia, (p_erro, p_resposta, p_corpo) =>
                     } // else { ... }
@@ -298,7 +328,7 @@ class bropedia
             
 
             // Retorna a função
-            return  v_obj_resposta;
+            return;
         } // try { ... }
         catch(p_erro)
         {
@@ -346,8 +376,9 @@ class bropedia
                                                             }
                                             };
 
-                // Informa sobre o erro
-                return v_obj_resposta;
+                monta_resposta('<@' + this.obj_mensagem.author.id + '> AI GODI UM ERRO SELVAGEM APARECEU!'
+                              ,v_obj_resposta
+                              );
             } // try { ... }
             catch(p_erro_sec)
             {
@@ -362,7 +393,7 @@ class bropedia
 
                 // Informa sobre o erro
                 console.log('-- >> bropedia erro << --');
-                return this.obj_resposta;
+                return;
                 console.log('-- >> bropedia erro << --');
             } // catch(p_erro_sec) { ... }
 
