@@ -310,7 +310,7 @@ class bropedia
                                                                                                         }
                                                                                                        ,{
                                                                                                             name    :   '**Resumão da Kafra**'
-                                                                                                           ,value   :   v_revisao['*'].substr(1,100)
+                                                                                                           ,value   :   v_revisao['*'].slice(v_revisao['*'].indexOf('descrição') + 9)
                                                                                                         }
                                                                                                     ]
                                                                           ,timestamp            :   new Date()
