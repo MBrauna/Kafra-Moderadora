@@ -50,7 +50,7 @@ class bropedia
               ,v_revisao
               ,v_pagina
               ;
-
+        console.log(v_obj_resposta);
 
         // Tratamento de excessão
         try
@@ -74,9 +74,6 @@ class bropedia
                                                                        ,value: 'O termo "' + p_consulta + '" procurado não foi encontrado em minha base de dados!'
                                                                     }
                                                                 ];
-
-                    // Retorna a função
-                    return  JSON.stringify(v_obj_resposta);
                 } // if(v_resposta.query.searchinfo.totalhits == 0)
                 else
                 {
@@ -100,6 +97,8 @@ class bropedia
                     // Se mesmo assim a página permanecer não definida
                     if(typeof v_pagina === 'undefined')
                     {
+                        v_obj_resposta                          =   this.obj_resposta;
+
                         v_obj_resposta.embed.color              =   this.obj_config.cor_vermelha.color;
                         v_obj_resposta.embed.title              =   'TERMO NÃO ENCONTRADO NA WIKI';
                         v_obj_resposta.embed.url                =   null;
@@ -110,8 +109,6 @@ class bropedia
                                                                            ,value: 'O termo "' + p_consulta + '" procurado não foi encontrado em minha base de dados!'
                                                                         }
                                                                     ];
-                        // Retorna a função
-                        return  JSON.stringify(v_obj_resposta);
                     }
                     else
                     {
@@ -150,8 +147,6 @@ class bropedia
                                                                                 }
                                                                             ];
 
-                                // Retorna a função
-                                return  v_obj_resposta;
                             } // if(typeof v_pagina == 'undefined')
                             else
                             {
@@ -165,14 +160,15 @@ class bropedia
                                                                                    ,value: v_pagina.canonicalurl
                                                                                 }
                                                                             ];
-                                // Retorna a função
-                                return  JSON.stringify(v_obj_resposta);
                             } // else  { ... }
                         }); // bib_requisicao.get(v_url_bropedia, (p_erro, p_resposta, p_corpo) =>
                     } // else { ... }
                 } // else { ... }
             }); // bib_requisicao.get(v_url_bropedia, (p_erro, p_resposta, p_corpo) => {
             
+
+            // Retorna a função
+            return  v_obj_resposta;
         } // try { ... }
         catch(p_erro)
         {
@@ -192,7 +188,7 @@ class bropedia
                                                                 ];
 
                 // Informa sobre o erro
-                return JSON.stringify(v_obj_resposta);
+                return v_obj_resposta;
             } // try { ... }
             catch(p_erro_sec)
             {
@@ -207,7 +203,7 @@ class bropedia
 
                 // Informa sobre o erro
                 console.log('-- >> bropedia erro << --');
-                return JSON.stringify(this.obj_mensagem);
+                return this.obj_resposta;
                 console.log('-- >> bropedia erro << --');
             } // catch(p_erro_sec) { ... }
 
