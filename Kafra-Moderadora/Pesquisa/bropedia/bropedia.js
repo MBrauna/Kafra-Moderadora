@@ -42,7 +42,6 @@ class bropedia
         // Prepara os dados iniciais para consulta na enciclopédia.
         let    v_termo_consulta     =   encodeURI(p_consulta.trim())
               ,v_url_bropedia       =   `http://bropedia.net/api.php?action=query&list=search&srsearch=${v_termo_consulta}&utf8=&format=json`
-              ,v_url_pagina         =   `http://bropedia.net/api.php?action=query&titles=${p_titulo}&prop=info|revisions&inprop=url&rvprop=content&format=json`
               ,v_obj_resposta       =   Object.assign({}, this.obj_resposta)
               ,v_partes             =   []
               ,v_redirecionamento   =   false
@@ -113,7 +112,11 @@ class bropedia
                     }
                     else
                     {
-                        bib_requisicao.get(v_url_pagina, (p_erro_pg, p_resposta_pg, p_corpo_pg) =>
+                        // Define nova consulta para obtenção dos dados
+                        v_url_bropedia  =   `http://bropedia.net/api.php?action=query&titles=${v_pagina.titulo}&prop=info|revisions&inprop=url&rvprop=content&format=json`;
+
+                        // Reaiza a requisição das informações da página
+                        bib_requisicao.get(v_url_bropedia, (p_erro_pg, p_resposta_pg, p_corpo_pg) =>
                         {
 
                             // Monta os dados
@@ -141,7 +144,7 @@ class bropedia
                                 v_obj_resposta.embed.fields            =    [
                                                                                 {
                                                                                     name: 'Ocorreu um erro durante a consulta'
-                                                                                   ,value: 'O termo "' + p_titulo + '" gerou um erro! Acha que é sentar e chorar? Nananinanão avise um administrador.'
+                                                                                   ,value: 'O termo "' + p_consulta + '" gerou um erro! Acha que é sentar e chorar? Nananinanão avise um administrador.'
                                                                                 }
                                                                             ];
 
@@ -152,7 +155,7 @@ class bropedia
                                 v_obj_resposta.embed.color              =   this.obj_config.cor_verde.color;
                                 v_obj_resposta.embed.title              =   v_pagina.title;
                                 v_obj_resposta.embed.url                =   v_pagina.canonicalurl;
-                                v_obj_resposta.embed.description        =   'Este é o resultado mais relevante para ' + p_titulo;
+                                v_obj_resposta.embed.description        =   'Este é o resultado mais relevante para ' + p_consulta;
                                 v_obj_resposta.embed.fields             =   [
                                                                                 {
                                                                                     name: v_pagina.title
