@@ -247,8 +247,8 @@ class bropedia
                                                                                                            ,icone       :   'https://i.imgur.com/cfYwkLQ.png'
                                                                                                            ,url         :   'https://github.com/bropedia/Kafra-Moderadora'
                                                                                                         }
-                                                                               ,title               :   v_pagina.title;
-                                                                               ,url                 :   v_pagina.canonicalurl;
+                                                                               ,title               :   v_pagina.title
+                                                                               ,url                 :   v_pagina.canonicalurl
                                                                                ,description         :   'Este é o resultado mais relevante para ' + p_consulta + '.'
                                                                                ,'image'             :   {
                                                                                                             "url"       :   null
