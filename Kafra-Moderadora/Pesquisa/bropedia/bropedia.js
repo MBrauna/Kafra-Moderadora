@@ -103,6 +103,9 @@ class bropedia
                                                                                             }
                                                                 }
                                                 };
+                    console.log(v_obj_resposta);
+
+                    return v_obj_resposta;
                 } // if(v_resposta.query.searchinfo.totalhits == 0)
                 else
                 {
@@ -166,6 +169,9 @@ class bropedia
                                                                                                 }
                                                                     }
                                                     };
+                        console.log(v_obj_resposta);
+
+                        return v_obj_resposta;
                     }
                     else
                     {
@@ -234,6 +240,9 @@ class bropedia
                                                                                                         }
                                                                             }
                                                             };
+                                console.log(v_obj_resposta);
+
+                                return v_obj_resposta;
 
                             } // if(typeof v_pagina == 'undefined')
                             else
@@ -278,6 +287,9 @@ class bropedia
                                                                                                         }
                                                                             }
                                                             };
+                                console.log(v_obj_resposta);
+
+                                return v_obj_resposta;
                             } // else  { ... }
                         }); // bib_requisicao.get(v_url_bropedia, (p_erro, p_resposta, p_corpo) =>
                     } // else { ... }
