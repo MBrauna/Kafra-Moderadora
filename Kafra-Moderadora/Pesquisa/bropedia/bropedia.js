@@ -97,16 +97,16 @@ class bropedia
                                                                                                ,icone       :   'https://i.imgur.com/cfYwkLQ.png'
                                                                                                ,url         :   'https://github.com/bropedia/Kafra-Moderadora'
                                                                                             }
-                                                                   ,title               :   'TERMO NÃO ENCONTRADO NA WIKI'
+                                                                   ,title               :   'Termo não encontrado!'
                                                                    ,url                 :   null
                                                                    ,description         :   'Desculpe ): Não pude atender a sua solicitação'
                                                                    ,'image'             :   {
-                                                                                                "url"       :   'https://i.imgur.com/t3E6tKA.gif'
+                                                                                                "url"       :   null
                                                                                                ,"height"    :   null // 123
                                                                                                ,"width"     :   null // 123
                                                                                             }
                                                                    ,thumbnail           :   {
-                                                                                                "url"       :   null // 'https://i.imgur.com/LOGICNS.jpg'
+                                                                                                "url"       :   'https://i.imgur.com/t3E6tKA.gif' // 'https://i.imgur.com/LOGICNS.jpg'
                                                                                                ,"height"    :   null // 123
                                                                                                ,"width"     :   null // 123 
                                                                                             }
@@ -118,7 +118,7 @@ class bropedia
                                                                    ,fields              :   [
                                                                                                 {
                                                                                                     name: 'ZERO! NADA! VAZIO!'
-                                                                                                   ,value: 'O termo "' + p_consulta + '" procurado não foi encontrado em minha base de dados!'
+                                                                                                   ,value: 'O termo "' + p_consulta + '" perdoa o vacilo e não desiste de mim!'
                                                                                                 }
                                                                                             ]
                                                                   ,timestamp            :   new Date()
@@ -170,12 +170,12 @@ class bropedia
                                                                        ,url                 :   null
                                                                        ,description         :   'Desculpe ): Não pude atender a sua solicitação'
                                                                        ,'image'             :   {
-                                                                                                    "url"       :   'https://i.imgur.com/t3E6tKA.gif'
+                                                                                                    "url"       :   null
                                                                                                    ,"height"    :   null // 123
                                                                                                    ,"width"     :   null // 123
                                                                                                 }
                                                                        ,thumbnail           :   {
-                                                                                                    "url"       :   null // 'https://i.imgur.com/LOGICNS.jpg'
+                                                                                                    "url"       :   'https://i.imgur.com/t3E6tKA.gif' // 'https://i.imgur.com/LOGICNS.jpg'
                                                                                                    ,"height"    :   null // 123
                                                                                                    ,"width"     :   null // 123 
                                                                                                 }
@@ -239,14 +239,14 @@ class bropedia
                                                                                                     }
                                                                            ,title               :   'NÃO FOI POSSÍVEL CONSULTAR'
                                                                            ,url                 :   null
-                                                                           ,description         :   'Algum erro em meu sistema não permitiu realizar a consulta.'
+                                                                           ,description         :   'Pane no sistema alguém me desconfigurou!'
                                                                            ,'image'             :   {
-                                                                                                        "url"       :   'https://i.imgur.com/6P0lZzG.gif'
+                                                                                                        "url"       :   null
                                                                                                        ,"height"    :   null // 123
                                                                                                        ,"width"     :   null // 123
                                                                                                     }
                                                                            ,thumbnail           :   {
-                                                                                                        "url"       :   'https://i.imgur.com/y2HNRng.gif'
+                                                                                                        "url"       :   'https://i.imgur.com/6P0lZzG.gif'
                                                                                                        ,"height"    :   null // 123
                                                                                                        ,"width"     :   null // 123 
                                                                                                     }
@@ -294,7 +294,7 @@ class bropedia
                                                                                                        ,"width"     :   null // 123
                                                                                                     }
                                                                            ,thumbnail           :   {
-                                                                                                        "url"       :   null
+                                                                                                        "url"       :   'https://i.imgur.com/mE0YWWh.png'
                                                                                                        ,"height"    :   null // 123
                                                                                                        ,"width"     :   null // 123 
                                                                                                     }
@@ -310,7 +310,7 @@ class bropedia
                                                                                                         }
                                                                                                        ,{
                                                                                                             name    :   '**Resumão da Kafra**'
-                                                                                                           ,value   :   v_revisao['*']
+                                                                                                           ,value   :   v_revisao['*'].substr(1,100)
                                                                                                         }
                                                                                                     ]
                                                                           ,timestamp            :   new Date()
@@ -356,7 +356,7 @@ class bropedia
                                                                                         }
                                                                ,thumbnail           :   {
                                                                                             "url"       :   'https://i.imgur.com/y2HNRng.gif'
-                                                                                           ,"height"    :   null // 123
+                                                                                           ,"height"    :   50 // 123
                                                                                            ,"width"     :   null // 123 
                                                                                         }
                                                                ,video               :   {
