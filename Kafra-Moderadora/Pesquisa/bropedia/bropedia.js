@@ -321,7 +321,7 @@ class bropedia
                                                                         }
                                                         };
                             this.monta_resposta('<@' + this.obj_mensagem.author.id + '> é consulta que você quer? Então toma (∩｀-´)⊃━☆ﾟ.*･｡ﾟ ' + v_pagina_final.canonicalurl
-                                               ,v_obj_resposta
+                                               ,{}
                                                 );
                         } // else  { ... }
                     }); // bib_requisicao.get(v_url_bropedia, (p_erro, p_resposta, p_corpo) =>
