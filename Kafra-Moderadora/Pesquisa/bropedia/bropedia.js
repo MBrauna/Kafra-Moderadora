@@ -30,8 +30,8 @@ class bropedia
     constructor(p_obj_msg, p_config, p_mensagem, p_cliente)
     {
         console.log('[BROPEDIA] - BIBLIOTECA CARREGADA');
-        this.obj_resposta       =   Object.assign({}, p_obj_msg);
-        this.obj_config         =   Object.assign({}, p_config);
+        this.obj_resposta       =   p_obj_msg;
+        this.obj_config         =   p_config;
         this.obj_mensagem       =   p_mensagem;
         this.obj_cliente        =   p_cliente;
 
