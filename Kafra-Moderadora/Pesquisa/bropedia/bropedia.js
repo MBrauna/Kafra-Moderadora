@@ -154,9 +154,6 @@ class bropedia
                         v_pagina        =   bib_underline.first(v_resposta.query.search);
                     } // if(typeof v_pagina === 'undefined')
 
-                    console.log('----------------');
-                    console.log(v_pagina);
-                    console.log('----------------');
 
                     // Se mesmo assim a página permanecer não definida
                     if(typeof v_pagina === 'undefined')
@@ -206,137 +203,136 @@ class bropedia
                                           );
                         return;
                     }
-                    else
-                    {
-
-                        // Define nova consulta para obtenção dos dados
-                        v_url_bropedia  =   `http://bropedia.net/api.php?action=query&titles=${v_pagina.titulo}&prop=info|revisions&inprop=url&rvprop=content&format=json`;
-
-                        // Reaiza a requisição das informações da página
-                        bib_requisicao.get(v_url_bropedia, (p_erro_pg, p_resposta_pg, p_corpo_pg) =>
-                        {
-                            // Monta os dados
-                            v_resposta          =   JSON.parse(p_corpo_pg);
-                            v_pagina_final      =   v_resposta.query.pages[Object.keys(v_resposta.query.pages)[0]];
-                            console.log('---->>>>>>>>');
-                            console.log(v_pagina_final);
-                            console.log('---->>>>>>>>');
-                            v_revisao           =   bib_underline.first(v_pagina_final.revisions);
-
-                            // Veririca se a informação é um redirect
-                            if(!v_redirecionamento && !bib_underline.isEmpty(v_revisao) && v_revisao['*'].indexOf('#REDIRECIONAMENTO') > -1)
-                            {
-                                // Marca a página que receberá o redirect
-                                v_redirect      =   v_revisao['*'].replace('#REDIRECIONAMENTO [[','').replace(']]','');
-
-                                // Chama o mesmo método para encontrar as informações
-                                this.consultar(v_redirect);
-                            } // if(!v_redirecionamento && !bib_underline.isEmpty(v_revisao) && v_revisao['*'].indexOf('#REDIRECIONAMENTO') > -1)
-
-                            // Caso a página não tenha sido encontrada
-                            if(typeof v_pagina_final == 'undefined')
-                            {
-
-                                // Define o objeto a ser utilizado
-                                v_obj_resposta          =   {
-                                                                'embed' :   {
-                                                                                color               :   this.obj_config.cor_amarela.color
-                                                                               ,author              :   {
-                                                                                                            name        :   'Kafra Moderadora'
-                                                                                                           ,icone       :   'https://i.imgur.com/cfYwkLQ.png'
-                                                                                                           ,url         :   'https://github.com/bropedia/Kafra-Moderadora'
-                                                                                                        }
-                                                                               ,title               :   'NÃO FOI POSSÍVEL CONSULTAR'
-                                                                               ,url                 :   null
-                                                                               ,description         :   'Algum erro em meu sistema não permitiu realizar a consulta.'
-                                                                               ,'image'             :   {
-                                                                                                            "url"       :   'https://i.imgur.com/6P0lZzG.gif'
-                                                                                                           ,"height"    :   null // 123
-                                                                                                           ,"width"     :   null // 123
-                                                                                                        }
-                                                                               ,thumbnail           :   {
-                                                                                                            "url"       :   'https://i.imgur.com/y2HNRng.gif'
-                                                                                                           ,"height"    :   null // 123
-                                                                                                           ,"width"     :   null // 123 
-                                                                                                        }
-                                                                               ,video               :   {
-                                                                                                            "url"       :   null // 'https://i.imgur.com/LOGICNS.jpg'
-                                                                                                           ,"height"    :   null // 123
-                                                                                                           ,"width"     :   null // 123
-                                                                                                        }
-                                                                               ,fields              :   [
-                                                                                                            {
-                                                                                                                name: 'Ocorreu um erro durante a consulta'
-                                                                                                               ,value: 'O termo "' + p_consulta + '" gerou um erro! Acha que é sentar e chorar? Nananinanão avise um administrador.'
-                                                                                                            }
-                                                                                                        ]
-                                                                              ,timestamp            :   new Date()
-                                                                              ,footer               :   {
-                                                                                                            icon_url:   'https://i.imgur.com/cfYwkLQ.png'
-                                                                                                           ,text:       '© bROPédia - Por MBrauna e Lazarento'
-                                                                                                        }
-                                                                            }
-                                                            };
-                                this.monta_resposta('As coisas nem sempre saem como planejado <@' + this.obj_mensagem.author.id + '>, né non?'
-                                                  ,v_obj_resposta
-                                                  );
-                                return;
-
-                            } // if(typeof v_pagina == 'undefined')
-                            else
-                            {
-                                console.log('----<<<<<<<');
-                                console.log(v_pagina_final);
-                                console.log('----<<<<<<<');
-                                // Define o objeto a ser utilizado
-                                v_obj_resposta          =   {
-                                                                'embed' :   {
-                                                                                color               :   this.obj_config.cor_verde.color
-                                                                               ,author              :   {
-                                                                                                            name        :   'Kafra Moderadora'
-                                                                                                           ,icone       :   'https://i.imgur.com/cfYwkLQ.png'
-                                                                                                           ,url         :   'https://github.com/bropedia/Kafra-Moderadora'
-                                                                                                        }
-                                                                               ,title               :   v_pagina_final.title
-                                                                               ,url                 :   v_pagina_final.canonicalurl
-                                                                               ,description         :   'Este é o resultado mais relevante para ' + p_consulta + '.'
-                                                                               ,'image'             :   {
-                                                                                                            "url"       :   null
-                                                                                                           ,"height"    :   null // 123
-                                                                                                           ,"width"     :   null // 123
-                                                                                                        }
-                                                                               ,thumbnail           :   {
-                                                                                                            "url"       :   null
-                                                                                                           ,"height"    :   null // 123
-                                                                                                           ,"width"     :   null // 123 
-                                                                                                        }
-                                                                               ,video               :   {
-                                                                                                            "url"       :   null // 'https://i.imgur.com/LOGICNS.jpg'
-                                                                                                           ,"height"    :   null // 123
-                                                                                                           ,"width"     :   null // 123
-                                                                                                        }
-                                                                               ,fields              :   [
-                                                                                                            {
-                                                                                                                name    : v_pagina_final.title
-                                                                                                               ,value   : v_pagina_final.canonicalurl
-                                                                                                            }
-                                                                                                        ]
-                                                                              ,timestamp            :   new Date()
-                                                                              ,footer               :   {
-                                                                                                            icon_url:   'https://i.imgur.com/cfYwkLQ.png'
-                                                                                                           ,text:       '© bROPédia - Por MBrauna e Lazarento'
-                                                                                                        }
-                                                                            }
-                                                            };
-                                this.monta_resposta('<@' + this.obj_mensagem.author.id + '> é consulta que você quer? Então toma.'
-                                                   ,v_obj_resposta
-                                                    );
-                            } // else  { ... }
-                        }); // bib_requisicao.get(v_url_bropedia, (p_erro, p_resposta, p_corpo) =>
-                    } // else { ... }
                 } // else { ... }
             }); // bib_requisicao.get(v_url_bropedia, (p_erro, p_resposta, p_corpo) => {
             
+
+            console.log(v_pagina);
+
+            // Define nova consulta para obtenção dos dados
+            v_url_bropedia  =   `http://bropedia.net/api.php?action=query&titles=${v_pagina.titulo}&prop=info|revisions&inprop=url&rvprop=content&format=json`;
+
+            // Reaiza a requisição das informações da página
+            bib_requisicao.get(v_url_bropedia, (p_erro_pg, p_resposta_pg, p_corpo_pg) =>
+            {
+                // Monta os dados
+                v_resposta          =   JSON.parse(p_corpo_pg);
+                v_pagina_final      =   v_resposta.query.pages[Object.keys(v_resposta.query.pages)[0]];
+                console.log('---->>>>>>>>');
+                console.log(v_pagina_final);
+                console.log('---->>>>>>>>');
+                v_revisao           =   bib_underline.first(v_pagina_final.revisions);
+
+                // Veririca se a informação é um redirect
+                if(!v_redirecionamento && !bib_underline.isEmpty(v_revisao) && v_revisao['*'].indexOf('#REDIRECIONAMENTO') > -1)
+                {
+                    // Marca a página que receberá o redirect
+                    v_redirect      =   v_revisao['*'].replace('#REDIRECIONAMENTO [[','').replace(']]','');
+
+                    // Chama o mesmo método para encontrar as informações
+                    this.consultar(v_redirect);
+                } // if(!v_redirecionamento && !bib_underline.isEmpty(v_revisao) && v_revisao['*'].indexOf('#REDIRECIONAMENTO') > -1)
+
+                // Caso a página não tenha sido encontrada
+                if(typeof v_pagina_final == 'undefined')
+                {
+
+                    // Define o objeto a ser utilizado
+                    v_obj_resposta          =   {
+                                                    'embed' :   {
+                                                                    color               :   this.obj_config.cor_amarela.color
+                                                                   ,author              :   {
+                                                                                                name        :   'Kafra Moderadora'
+                                                                                               ,icone       :   'https://i.imgur.com/cfYwkLQ.png'
+                                                                                               ,url         :   'https://github.com/bropedia/Kafra-Moderadora'
+                                                                                            }
+                                                                   ,title               :   'NÃO FOI POSSÍVEL CONSULTAR'
+                                                                   ,url                 :   null
+                                                                   ,description         :   'Algum erro em meu sistema não permitiu realizar a consulta.'
+                                                                   ,'image'             :   {
+                                                                                                "url"       :   'https://i.imgur.com/6P0lZzG.gif'
+                                                                                               ,"height"    :   null // 123
+                                                                                               ,"width"     :   null // 123
+                                                                                            }
+                                                                   ,thumbnail           :   {
+                                                                                                "url"       :   'https://i.imgur.com/y2HNRng.gif'
+                                                                                               ,"height"    :   null // 123
+                                                                                               ,"width"     :   null // 123 
+                                                                                            }
+                                                                   ,video               :   {
+                                                                                                "url"       :   null // 'https://i.imgur.com/LOGICNS.jpg'
+                                                                                               ,"height"    :   null // 123
+                                                                                               ,"width"     :   null // 123
+                                                                                            }
+                                                                   ,fields              :   [
+                                                                                                {
+                                                                                                    name: 'Ocorreu um erro durante a consulta'
+                                                                                                   ,value: 'O termo "' + p_consulta + '" gerou um erro! Acha que é sentar e chorar? Nananinanão avise um administrador.'
+                                                                                                }
+                                                                                            ]
+                                                                  ,timestamp            :   new Date()
+                                                                  ,footer               :   {
+                                                                                                icon_url:   'https://i.imgur.com/cfYwkLQ.png'
+                                                                                               ,text:       '© bROPédia - Por MBrauna e Lazarento'
+                                                                                            }
+                                                                }
+                                                };
+                    this.monta_resposta('As coisas nem sempre saem como planejado <@' + this.obj_mensagem.author.id + '>, né non?'
+                                      ,v_obj_resposta
+                                      );
+                    return;
+
+                } // if(typeof v_pagina == 'undefined')
+                else
+                {
+                    console.log('----<<<<<<<');
+                    console.log(v_pagina_final);
+                    console.log('----<<<<<<<');
+                    // Define o objeto a ser utilizado
+                    v_obj_resposta          =   {
+                                                    'embed' :   {
+                                                                    color               :   this.obj_config.cor_verde.color
+                                                                   ,author              :   {
+                                                                                                name        :   'Kafra Moderadora'
+                                                                                               ,icone       :   'https://i.imgur.com/cfYwkLQ.png'
+                                                                                               ,url         :   'https://github.com/bropedia/Kafra-Moderadora'
+                                                                                            }
+                                                                   ,title               :   v_pagina_final.title
+                                                                   ,url                 :   v_pagina_final.canonicalurl
+                                                                   ,description         :   'Este é o resultado mais relevante para ' + p_consulta + '.'
+                                                                   ,'image'             :   {
+                                                                                                "url"       :   null
+                                                                                               ,"height"    :   null // 123
+                                                                                               ,"width"     :   null // 123
+                                                                                            }
+                                                                   ,thumbnail           :   {
+                                                                                                "url"       :   null
+                                                                                               ,"height"    :   null // 123
+                                                                                               ,"width"     :   null // 123 
+                                                                                            }
+                                                                   ,video               :   {
+                                                                                                "url"       :   null // 'https://i.imgur.com/LOGICNS.jpg'
+                                                                                               ,"height"    :   null // 123
+                                                                                               ,"width"     :   null // 123
+                                                                                            }
+                                                                   ,fields              :   [
+                                                                                                {
+                                                                                                    name    : v_pagina_final.title
+                                                                                                   ,value   : v_pagina_final.canonicalurl
+                                                                                                }
+                                                                                            ]
+                                                                  ,timestamp            :   new Date()
+                                                                  ,footer               :   {
+                                                                                                icon_url:   'https://i.imgur.com/cfYwkLQ.png'
+                                                                                               ,text:       '© bROPédia - Por MBrauna e Lazarento'
+                                                                                            }
+                                                                }
+                                                };
+                    this.monta_resposta('<@' + this.obj_mensagem.author.id + '> é consulta que você quer? Então toma.'
+                                       ,v_obj_resposta
+                                        );
+                } // else  { ... }
+            }); // bib_requisicao.get(v_url_bropedia, (p_erro, p_resposta, p_corpo) =>
 
             // Retorna a função
             return;
