@@ -72,7 +72,7 @@ class bropedia
                                                                                                ,icone       :   'https://i.imgur.com/cfYwkLQ.png'
                                                                                                ,url         :   'https://github.com/bropedia/Kafra-Moderadora'
                                                                                             }
-                                                                   ,title               :   'TERMO NÃO ENCONTRADO NA WIKI';
+                                                                   ,title               :   'TERMO NÃO ENCONTRADO NA WIKI'
                                                                    ,url                 :   null
                                                                    ,description         :   'Desculpe ): Não pude atender a sua solicitação'
                                                                    ,'image'             :   {
@@ -135,7 +135,7 @@ class bropedia
                                                                                                    ,icone       :   'https://i.imgur.com/cfYwkLQ.png'
                                                                                                    ,url         :   'https://github.com/bropedia/Kafra-Moderadora'
                                                                                                 }
-                                                                       ,title               :   'TERMO NÃO ENCONTRADO NA WIKI';
+                                                                       ,title               :   'TERMO NÃO ENCONTRADO NA WIKI'
                                                                        ,url                 :   null
                                                                        ,description         :   'Desculpe ): Não pude atender a sua solicitação'
                                                                        ,'image'             :   {
@@ -249,7 +249,7 @@ class bropedia
                                                                                                         }
                                                                                ,title               :   v_pagina.title;
                                                                                ,url                 :   v_pagina.canonicalurl;
-                                                                               ,description         :   'Este é o resultado mais relevante para ' + p_consulta;
+                                                                               ,description         :   'Este é o resultado mais relevante para ' + p_consulta + '.'
                                                                                ,'image'             :   {
                                                                                                             "url"       :   null
                                                                                                            ,"height"    :   null // 123
