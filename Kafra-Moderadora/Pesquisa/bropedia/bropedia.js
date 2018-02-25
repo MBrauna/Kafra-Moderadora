@@ -48,16 +48,18 @@ class bropedia
                   ,v_resposta
                   ,v_pagina
                   ;
-
+            console.log('DEBUG 1');
             // Realiza uma chamada no webservice da enciclopédia
             bib_requisicao.get(v_url_bropedia, (p_erro, p_resposta, p_corpo) =>
             {
                 // Coleta as informações cedidas pelo webservice - Retorno JSON - Consulta à enciclopédia
                 v_resposta  =   JSON.parse(p_corpo);
 
+                console.log('DEBUG 2');
                 // Verifica quantidade de resultados obtidos
                 if(v_resposta.query.searchinfo.totalhits == 0)
                 {
+                    console.log('DEBUG 3');
                     this.obj_resposta.embed.color               =   this.obj_config.cor_vermelha.color;
                     this.obj_resposta.embed.title               =   'TERMO NÃO ENCONTRADO NA WIKI';
                     this.obj_resposta.embed.url                 =   null;
@@ -71,12 +73,14 @@ class bropedia
                 } // if(v_resposta.query.searchinfo.totalhits == 0)
                 else
                 {
+                    console.log('DEBUG 4');
                     // Roda a consulta procurando por algo similar ao pesquisado
                     v_resposta.query.search.forEach((json_resp) =>
                     {
                         // Teste - Consulta similar
                         if(json_resp.title.toLowerCase() == p_consulta.trim().toLowerCase())
                         {
+                            console.log('DEBUG 5');
                             // Caso encontre: A página desejada se faz presente.
                             v_pagina    =   json_resp;
                         } // if(json_resp.title.toLowerCase() == p_consulta.trim().toLowerCase())
@@ -85,15 +89,18 @@ class bropedia
                     // Verifica se a página informada foi definida, caso não seja utiliza a primeira opção obtida na query
                     if(typeof v_pagina === 'undefined')
                     {
+                        console.log('DEBUG 6');
                         v_pagina        =   bib_underline.first(v_resposta.query.search);
                     } // if(typeof v_pagina === 'undefined')
 
-
+                    console.log('DEBUG 7');
                     // Monta resposta
                     this.monta_resposta(v_pagina.title);
+                    console.log('DEBUG 8');
                 } // else { ... }
             }); // bib_requisicao.get(v_url_bropedia, (p_erro, p_resposta, p_corpo) => {
 
+            console.log('DEBUG 9');
             // Finaliza o procedimento
             console.log('-- >> bropedia << --');
             return this.obj_resposta;
@@ -157,9 +164,11 @@ class bropedia
                    ,v_resposta
                    ;
 
+            console.log('DEBUG 10');
             // Realiza uma chamada no webservice da enciclopédia
             bib_requisicao.get(v_url_bropedia, (p_erro, p_resposta, p_corpo) =>
             {
+                console.log('DEBUG 11');
 
                 // Monta os dados
                 v_resposta          =   JSON.parse(p_corpo);
@@ -169,6 +178,7 @@ class bropedia
                 // Veririca se a informação é um redirect
                 if(!v_redirecionamento && !bib_underline.isEmpty(v_revisao) && v_revisao['*'].indexOf('#REDIRECIONAMENTO') > -1)
                 {
+                    console.log('DEBUG 12');
                     // Marca a página que receberá o redirect
                     v_redirect      =   v_revisao['*'].replace('#REDIRECIONAMENTO [[','').replace(']]','');
 
@@ -179,6 +189,7 @@ class bropedia
                 // Caso a página não tenha sido encontrada
                 if(typeof v_pagina == 'undefined')
                 {
+                    console.log('DEBUG 13');
                     this.obj_resposta.embed.color             =   this.obj_config.cor_vermelha.color;
                     this.obj_resposta.embed.title             =   'NÃO FOI POSSÍVEL CONSULTAR';
                     this.obj_resposta.embed.url               =   null;
@@ -194,6 +205,7 @@ class bropedia
                 } // if(typeof v_pagina == 'undefined')
                 else
                 {
+                    console.log('DEBUG 14');
                     this.obj_resposta.embed.color             =   this.obj_config.cor_verde.color;
                     this.obj_resposta.embed.title             =   v_pagina.title;
                     this.obj_resposta.embed.url               =   v_pagina.canonicalurl;
