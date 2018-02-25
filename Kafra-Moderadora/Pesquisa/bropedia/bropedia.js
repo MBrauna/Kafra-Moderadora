@@ -64,8 +64,6 @@ class bropedia
                 // Verifica quantidade de resultados obtidos
                 if(v_resposta.query.searchinfo.totalhits == 0)
                 {
-                    v_obj_resposta                          =   this.obj_resposta;
-
                     v_obj_resposta.embed.color              =   this.obj_config.cor_vermelha.color;
                     v_obj_resposta.embed.title              =   'TERMO NÃO ENCONTRADO NA WIKI';
                     v_obj_resposta.embed.url                =   null;
@@ -78,7 +76,7 @@ class bropedia
                                                                 ];
 
                     // Retorna a função
-                    return  v_obj_resposta;
+                    return  JSON.stringify(v_obj_resposta);
                 } // if(v_resposta.query.searchinfo.totalhits == 0)
                 else
                 {
@@ -102,8 +100,6 @@ class bropedia
                     // Se mesmo assim a página permanecer não definida
                     if(typeof v_pagina === 'undefined')
                     {
-                        v_obj_resposta                          =   this.obj_resposta;
-
                         v_obj_resposta.embed.color              =   this.obj_config.cor_vermelha.color;
                         v_obj_resposta.embed.title              =   'TERMO NÃO ENCONTRADO NA WIKI';
                         v_obj_resposta.embed.url                =   null;
@@ -115,7 +111,7 @@ class bropedia
                                                                         }
                                                                     ];
                         // Retorna a função
-                        return  v_obj_resposta;
+                        return  JSON.stringify(v_obj_resposta);
                     }
                     else
                     {
@@ -143,8 +139,6 @@ class bropedia
                             // Caso a página não tenha sido encontrada
                             if(typeof v_pagina == 'undefined')
                             {
-                                v_obj_resposta                          =   this.obj_resposta;
-
                                 v_obj_resposta.embed.color             =    this.obj_config.cor_vermelha.color;
                                 v_obj_resposta.embed.title             =    'NÃO FOI POSSÍVEL CONSULTAR';
                                 v_obj_resposta.embed.url               =    null;
@@ -161,8 +155,6 @@ class bropedia
                             } // if(typeof v_pagina == 'undefined')
                             else
                             {
-                                v_obj_resposta                          =   this.obj_resposta;
-
                                 v_obj_resposta.embed.color              =   this.obj_config.cor_verde.color;
                                 v_obj_resposta.embed.title              =   v_pagina.title;
                                 v_obj_resposta.embed.url                =   v_pagina.canonicalurl;
@@ -174,7 +166,7 @@ class bropedia
                                                                                 }
                                                                             ];
                                 // Retorna a função
-                                return  v_obj_resposta;
+                                return  JSON.stringify(v_obj_resposta);
                             } // else  { ... }
                         }); // bib_requisicao.get(v_url_bropedia, (p_erro, p_resposta, p_corpo) =>
                     } // else { ... }
@@ -188,8 +180,6 @@ class bropedia
             try
             {
                 // Cria uma novo objeto para modificação.
-                v_obj_resposta                          =       this.obj_resposta;
-
                 v_obj_resposta.embed.color              =       this.obj_config.cor_vermelha.color;
                 v_obj_resposta.embed.title              =       'NÃO FOI POSSÍVEL CONSULTAR';
                 v_obj_resposta.embed.url                =       null;
@@ -202,7 +192,7 @@ class bropedia
                                                                 ];
 
                 // Informa sobre o erro
-                return v_obj_resposta;
+                return JSON.stringify(v_obj_resposta);
             } // try { ... }
             catch(p_erro_sec)
             {
@@ -217,7 +207,7 @@ class bropedia
 
                 // Informa sobre o erro
                 console.log('-- >> bropedia erro << --');
-                return this.obj_resposta;
+                return JSON.stringify(this.obj_mensagem);
                 console.log('-- >> bropedia erro << --');
             } // catch(p_erro_sec) { ... }
 
