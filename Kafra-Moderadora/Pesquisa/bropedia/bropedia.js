@@ -153,6 +153,8 @@ class bropedia
                         v_pagina        =   bib_underline.first(v_resposta.query.search);
                     } // if(typeof v_pagina === 'undefined')
 
+                    console.log(v_pagina);
+
                     // Se mesmo assim a página permanecer não definida
                     if(typeof v_pagina === 'undefined')
                     {
@@ -203,6 +205,7 @@ class bropedia
                     }
                     else
                     {
+
                         // Define nova consulta para obtenção dos dados
                         v_url_bropedia  =   `http://bropedia.net/api.php?action=query&titles=${v_pagina.titulo}&prop=info|revisions&inprop=url&rvprop=content&format=json`;
 
@@ -212,6 +215,8 @@ class bropedia
                             // Monta os dados
                             v_resposta          =   JSON.parse(p_corpo_pg);
                             v_pagina            =   v_resposta.query.pages[Object.keys(v_resposta.query.pages)[0]];
+
+                            console.log(v_pagina);
                             v_revisao           =   bib_underline.first(v_pagina.revisions);
 
                             // Veririca se a informação é um redirect
