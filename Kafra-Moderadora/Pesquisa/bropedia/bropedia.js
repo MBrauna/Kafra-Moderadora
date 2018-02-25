@@ -42,6 +42,7 @@ class bropedia
         // Prepara os dados iniciais para consulta na enciclopédia.
         let    v_termo_consulta     =   encodeURI(p_consulta.trim())
               ,v_url_bropedia       =   `http://bropedia.net/api.php?action=query&list=search&srsearch=${v_termo_consulta}&utf8=&format=json`
+              ,v_obj_resposta       =   {}
               ,v_partes             =   []
               ,v_redirecionamento   =   false
               ,v_redirect
@@ -62,16 +63,46 @@ class bropedia
                 // Verifica quantidade de resultados obtidos
                 if(v_resposta.query.searchinfo.totalhits == 0)
                 {
-                    this.obj_resposta.embed.color               =   this.obj_config.cor_vermelha.color;
-                    this.obj_resposta.embed.title               =   'TERMO NÃO ENCONTRADO NA WIKI';
-                    this.obj_resposta.embed.url                 =   null;
-                    this.obj_resposta.embed.description         =   'Desculpe ):';
-                    this.obj_resposta.embed.fields              =   [
-                                                                        {
-                                                                            name: 'ZERO! NADA! VAZIO!'
-                                                                           ,value: 'O termo "' + p_consulta + '" procurado não foi encontrado em minha base de dados!'
-                                                                        }
-                                                                    ];
+                    // Define o objeto a ser utilizado
+                    v_obj_resposta          =   {
+                                                    'embed' :   {
+                                                                    color               :   this.obj_config.cor_vermelha.color
+                                                                   ,author              :   {
+                                                                                                name        :   'Kafra Moderadora'
+                                                                                               ,icone       :   'https://i.imgur.com/cfYwkLQ.png'
+                                                                                               ,url         :   'https://github.com/bropedia/Kafra-Moderadora'
+                                                                                            }
+                                                                   ,title               :   'TERMO NÃO ENCONTRADO NA WIKI';
+                                                                   ,url                 :   null
+                                                                   ,description         :   'Desculpe ): Não pude atender a sua solicitação'
+                                                                   ,'image'             :   {
+                                                                                                "url"       :   'https://i.imgur.com/t3E6tKA.gif'
+                                                                                               ,"height"    :   null // 123
+                                                                                               ,"width"     :   null // 123
+                                                                                            }
+                                                                   ,thumbnail           :   {
+                                                                                                "url"       :   null // 'https://i.imgur.com/LOGICNS.jpg'
+                                                                                               ,"height"    :   null // 123
+                                                                                               ,"width"     :   null // 123 
+                                                                                            }
+                                                                   ,video               :   {
+                                                                                                "url"       :   null // 'https://i.imgur.com/LOGICNS.jpg'
+                                                                                               ,"height"    :   null // 123
+                                                                                               ,"width"     :   null // 123
+                                                                                            }
+                                                                   ,fields              :   [
+                                                                                                {
+                                                                                                    name: 'ZERO! NADA! VAZIO!'
+                                                                                                   ,value: 'O termo "' + p_consulta + '" procurado não foi encontrado em minha base de dados!'
+                                                                                                }
+                                                                                            ]
+                                                                  ,timestamp            :   new Date()
+                                                                  ,footer               :   {
+                                                                                                icon_url:   'https://i.imgur.com/cfYwkLQ.png'
+                                                                                               ,text:       '© bROPédia - Por MBrauna e Lazarento'
+                                                                                            }
+                                                                }
+                                                };
                 } // if(v_resposta.query.searchinfo.totalhits == 0)
                 else
                 {
@@ -95,16 +126,46 @@ class bropedia
                     // Se mesmo assim a página permanecer não definida
                     if(typeof v_pagina === 'undefined')
                     {
-                        this.obj_resposta.embed.color               =   this.obj_config.cor_vermelha.color;
-                        this.obj_resposta.embed.title               =   'TERMO NÃO ENCONTRADO NA WIKI';
-                        this.obj_resposta.embed.url                 =   null;
-                        this.obj_resposta.embed.description         =   'Desculpe ):';
-                        this.obj_resposta.embed.fields              =   [
-                                                                            {
-                                                                                name: 'ZERO! NADA! VAZIO!'
-                                                                               ,value: 'O termo "' + p_consulta + '" procurado não foi encontrado em minha base de dados!'
-                                                                            }
-                                                                        ];
+                        // Define o objeto a ser utilizado
+                        v_obj_resposta          =   {
+                                                        'embed' :   {
+                                                                        color               :   this.obj_config.cor_vermelha.color
+                                                                       ,author              :   {
+                                                                                                    name        :   'Kafra Moderadora'
+                                                                                                   ,icone       :   'https://i.imgur.com/cfYwkLQ.png'
+                                                                                                   ,url         :   'https://github.com/bropedia/Kafra-Moderadora'
+                                                                                                }
+                                                                       ,title               :   'TERMO NÃO ENCONTRADO NA WIKI';
+                                                                       ,url                 :   null
+                                                                       ,description         :   'Desculpe ): Não pude atender a sua solicitação'
+                                                                       ,'image'             :   {
+                                                                                                    "url"       :   'https://i.imgur.com/t3E6tKA.gif'
+                                                                                                   ,"height"    :   null // 123
+                                                                                                   ,"width"     :   null // 123
+                                                                                                }
+                                                                       ,thumbnail           :   {
+                                                                                                    "url"       :   null // 'https://i.imgur.com/LOGICNS.jpg'
+                                                                                                   ,"height"    :   null // 123
+                                                                                                   ,"width"     :   null // 123 
+                                                                                                }
+                                                                       ,video               :   {
+                                                                                                    "url"       :   null // 'https://i.imgur.com/LOGICNS.jpg'
+                                                                                                   ,"height"    :   null // 123
+                                                                                                   ,"width"     :   null // 123
+                                                                                                }
+                                                                       ,fields              :   [
+                                                                                                    {
+                                                                                                        name: 'ZERO! NADA! VAZIO! NOTHING!'
+                                                                                                       ,value: 'O termo "' + p_consulta + '" procurado não foi encontrado em minha base de dados!'
+                                                                                                    }
+                                                                                                ]
+                                                                      ,timestamp            :   new Date()
+                                                                      ,footer               :   {
+                                                                                                    icon_url:   'https://i.imgur.com/cfYwkLQ.png'
+                                                                                                   ,text:       '© bROPédia - Por MBrauna e Lazarento'
+                                                                                                }
+                                                                    }
+                                                    };
                     }
                     else
                     {
@@ -132,30 +193,91 @@ class bropedia
                             // Caso a página não tenha sido encontrada
                             if(typeof v_pagina == 'undefined')
                             {
-                                this.obj_resposta.embed.color               =   this.obj_config.cor_vermelha.color;
-                                this.obj_resposta.embed.title               =   'NÃO FOI POSSÍVEL CONSULTAR';
-                                this.obj_resposta.embed.url                 =   null;
-                                this.obj_resposta.embed.description         =   'Não consegui GENTE!!!';
-                                this.obj_resposta.embed.fields              =   [
-                                                                                    {
-                                                                                        name: 'Ocorreu um erro durante a consulta'
-                                                                                       ,value: 'O termo "' + p_consulta + '" gerou um erro! Acha que é sentar e chorar? Nananinanão avise um administrador.'
-                                                                                    }
-                                                                                ];
+
+                                // Define o objeto a ser utilizado
+                                v_obj_resposta          =   {
+                                                                'embed' :   {
+                                                                                color               :   this.obj_config.cor_amarela.color
+                                                                               ,author              :   {
+                                                                                                            name        :   'Kafra Moderadora'
+                                                                                                           ,icone       :   'https://i.imgur.com/cfYwkLQ.png'
+                                                                                                           ,url         :   'https://github.com/bropedia/Kafra-Moderadora'
+                                                                                                        }
+                                                                               ,title               :   'NÃO FOI POSSÍVEL CONSULTAR';
+                                                                               ,url                 :   null
+                                                                               ,description         :   'Algum erro em meu sistema não permitiu realizar a consulta.'
+                                                                               ,'image'             :   {
+                                                                                                            "url"       :   'https://i.imgur.com/6P0lZzG.gif'
+                                                                                                           ,"height"    :   null // 123
+                                                                                                           ,"width"     :   null // 123
+                                                                                                        }
+                                                                               ,thumbnail           :   {
+                                                                                                            "url"       :   'https://i.imgur.com/y2HNRng.gif'
+                                                                                                           ,"height"    :   null // 123
+                                                                                                           ,"width"     :   null // 123 
+                                                                                                        }
+                                                                               ,video               :   {
+                                                                                                            "url"       :   null // 'https://i.imgur.com/LOGICNS.jpg'
+                                                                                                           ,"height"    :   null // 123
+                                                                                                           ,"width"     :   null // 123
+                                                                                                        }
+                                                                               ,fields              :   [
+                                                                                                            {
+                                                                                                                name: 'Ocorreu um erro durante a consulta'
+                                                                                                               ,value: 'O termo "' + p_consulta + '" gerou um erro! Acha que é sentar e chorar? Nananinanão avise um administrador.'
+                                                                                                            }
+                                                                                                        ]
+                                                                              ,timestamp            :   new Date()
+                                                                              ,footer               :   {
+                                                                                                            icon_url:   'https://i.imgur.com/cfYwkLQ.png'
+                                                                                                           ,text:       '© bROPédia - Por MBrauna e Lazarento'
+                                                                                                        }
+                                                                            }
+                                                            };
 
                             } // if(typeof v_pagina == 'undefined')
                             else
                             {
-                                this.obj_resposta.embed.color               =   this.obj_config.cor_verde.color;
-                                this.obj_resposta.embed.title               =   v_pagina.title;
-                                this.obj_resposta.embed.url                 =   v_pagina.canonicalurl;
-                                this.obj_resposta.embed.description         =   'Este é o resultado mais relevante para ' + p_consulta;
-                                this.obj_resposta.embed.fields              =   [
-                                                                                    {
-                                                                                        name: v_pagina.title
-                                                                                       ,value: v_pagina.canonicalurl
-                                                                                    }
-                                                                                ];
+                                // Define o objeto a ser utilizado
+                                v_obj_resposta          =   {
+                                                                'embed' :   {
+                                                                                color               :   this.obj_config.cor_verde.color;
+                                                                               ,author              :   {
+                                                                                                            name        :   'Kafra Moderadora'
+                                                                                                           ,icone       :   'https://i.imgur.com/cfYwkLQ.png'
+                                                                                                           ,url         :   'https://github.com/bropedia/Kafra-Moderadora'
+                                                                                                        }
+                                                                               ,title               :   v_pagina.title;
+                                                                               ,url                 :   v_pagina.canonicalurl;
+                                                                               ,description         :   'Este é o resultado mais relevante para ' + p_consulta;
+                                                                               ,'image'             :   {
+                                                                                                            "url"       :   null
+                                                                                                           ,"height"    :   null // 123
+                                                                                                           ,"width"     :   null // 123
+                                                                                                        }
+                                                                               ,thumbnail           :   {
+                                                                                                            "url"       :   null
+                                                                                                           ,"height"    :   null // 123
+                                                                                                           ,"width"     :   null // 123 
+                                                                                                        }
+                                                                               ,video               :   {
+                                                                                                            "url"       :   null // 'https://i.imgur.com/LOGICNS.jpg'
+                                                                                                           ,"height"    :   null // 123
+                                                                                                           ,"width"     :   null // 123
+                                                                                                        }
+                                                                               ,fields              :   [
+                                                                                                            {
+                                                                                                                name: v_pagina.title
+                                                                                                               ,value: v_pagina.canonicalurl
+                                                                                                            }
+                                                                                                        ]
+                                                                              ,timestamp            :   new Date()
+                                                                              ,footer               :   {
+                                                                                                            icon_url:   'https://i.imgur.com/cfYwkLQ.png'
+                                                                                                           ,text:       '© bROPédia - Por MBrauna e Lazarento'
+                                                                                                        }
+                                                                            }
+                                                            };
                             } // else  { ... }
                         }); // bib_requisicao.get(v_url_bropedia, (p_erro, p_resposta, p_corpo) =>
                     } // else { ... }
@@ -164,7 +286,7 @@ class bropedia
             
 
             // Retorna a função
-            return  this.obj_resposta;
+            return  v_obj_resposta;
         } // try { ... }
         catch(p_erro)
         {
@@ -172,19 +294,48 @@ class bropedia
             try
             {
                 // Cria uma novo objeto para modificação.
-                this.obj_resposta.embed.color               =       this.obj_config.cor_vermelha.color;
-                this.obj_resposta.embed.title               =       'NÃO FOI POSSÍVEL CONSULTAR';
-                this.obj_resposta.embed.url                 =       null;
-                this.obj_resposta.embed.description         =       'Não consegui GENTE!!!';
-                this.obj_resposta.embed.fields              =       [
-                                                                        {
-                                                                            name: 'Ocorreu um erro durante a consulta'
-                                                                           ,value: 'O termo "' + p_consulta + '" gerou um erro! Acha que é sentar e chorar? Nananinanão avise um administrador.'
-                                                                        }
-                                                                    ];
+                v_obj_resposta          =   {
+                                                'embed' :   {
+                                                                color               :   this.obj_config.cor_amarela.color
+                                                               ,author              :   {
+                                                                                            name        :   'Kafra Moderadora'
+                                                                                           ,icone       :   'https://i.imgur.com/cfYwkLQ.png'
+                                                                                           ,url         :   'https://github.com/bropedia/Kafra-Moderadora'
+                                                                                        }
+                                                               ,title               :   'NÃO FOI POSSÍVEL CONSULTAR';
+                                                               ,url                 :   null
+                                                               ,description         :   'Algum erro em meu sistema não permitiu realizar a consulta.'
+                                                               ,'image'             :   {
+                                                                                            "url"       :   'https://i.imgur.com/6P0lZzG.gif'
+                                                                                           ,"height"    :   null // 123
+                                                                                           ,"width"     :   null // 123
+                                                                                        }
+                                                               ,thumbnail           :   {
+                                                                                            "url"       :   'https://i.imgur.com/y2HNRng.gif'
+                                                                                           ,"height"    :   null // 123
+                                                                                           ,"width"     :   null // 123 
+                                                                                        }
+                                                               ,video               :   {
+                                                                                            "url"       :   null // 'https://i.imgur.com/LOGICNS.jpg'
+                                                                                           ,"height"    :   null // 123
+                                                                                           ,"width"     :   null // 123
+                                                                                        }
+                                                               ,fields              :   [
+                                                                                            {
+                                                                                                name: 'Ocorreu um erro durante a consulta'
+                                                                                               ,value: 'O termo "' + p_consulta + '" gerou um erro! Acha que é sentar e chorar? Nananinanão avise um administrador.'
+                                                                                            }
+                                                                                        ]
+                                                              ,timestamp            :   new Date()
+                                                              ,footer               :   {
+                                                                                            icon_url:   'https://i.imgur.com/cfYwkLQ.png'
+                                                                                           ,text:       '© bROPédia - Por MBrauna e Lazarento'
+                                                                                        }
+                                                            }
+                                            };
 
                 // Informa sobre o erro
-                return this.obj_resposta;
+                return v_obj_resposta;
             } // try { ... }
             catch(p_erro_sec)
             {
