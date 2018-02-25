@@ -172,6 +172,7 @@ class bropedia
                                                                                    ,value: v_pagina.canonicalurl
                                                                                 }
                                                                             ];
+                                console.log(v_obj_resposta);
                             } // else  { ... }
                         }); // bib_requisicao.get(v_url_bropedia, (p_erro, p_resposta, p_corpo) =>
                     } // else { ... }
