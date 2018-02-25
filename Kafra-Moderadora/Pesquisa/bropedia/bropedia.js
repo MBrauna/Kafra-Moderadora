@@ -212,9 +212,6 @@ class bropedia
                         // Monta os dados
                         v_resposta          =   JSON.parse(p_corpo_pg);
                         v_pagina_final      =   v_resposta.query.pages[Object.keys(v_resposta.query.pages)[0]];
-                        console.log('---->>>>>>>>');
-                        console.log(v_pagina_final);
-                        console.log('---->>>>>>>>');
                         v_revisao           =   bib_underline.first(v_pagina_final.revisions);
 
                         // Veririca se a informação é um redirect
@@ -279,9 +276,6 @@ class bropedia
                         } // if(typeof v_pagina == 'undefined')
                         else
                         {
-                            console.log('----<<<<<<<');
-                            console.log(v_pagina_final);
-                            console.log('----<<<<<<<');
                             // Define o objeto a ser utilizado
                             v_obj_resposta          =   {
                                                             'embed' :   {
@@ -322,7 +316,7 @@ class bropedia
                                                                                                     }
                                                                         }
                                                         };
-                            this.monta_resposta('<@' + this.obj_mensagem.author.id + '> é consulta que você quer? Então toma.'
+                            this.monta_resposta('<@' + this.obj_mensagem.author.id + '> é consulta que você quer? Então toma (∩｀-´)⊃━☆ﾟ.*･｡ﾟ ' + v_pagina_final.canonicalurl
                                                ,v_obj_resposta
                                                 );
                         } // else  { ... }
