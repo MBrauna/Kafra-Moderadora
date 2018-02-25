@@ -42,7 +42,7 @@ class bropedia
         // Prepara os dados iniciais para consulta na enciclopédia.
         let    v_termo_consulta     =   encodeURI(p_consulta.trim())
               ,v_url_bropedia       =   `http://bropedia.net/api.php?action=query&list=search&srsearch=${v_termo_consulta}&utf8=&format=json`
-              ,v_obj_resposta       =   this.obj_resposta;
+              ,v_obj_resposta       =   this.obj_resposta
               ,v_resposta
               ,v_pagina
               ;
@@ -155,7 +155,7 @@ class bropedia
         let     v_url_bropedia      =   `http://bropedia.net/api.php?action=query&titles=${p_titulo}&prop=info|revisions&inprop=url&rvprop=content&format=json`
                ,v_partes            =   []
                ,v_redirecionamento  =   false
-               ,v_obj_resposta      =   this.obj_resposta;
+               ,v_obj_resposta      =   this.obj_resposta
                ,v_redirect
                ,v_pagina
                ,v_revisao
