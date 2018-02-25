@@ -45,7 +45,7 @@ class comando
         {
             p_mensagem.channel.send(
                                         p_frase
-                                        ,p_configuracao
+                                       ,p_configuracao
                                     );
         } // try { ... }
         catch(p_erro)
