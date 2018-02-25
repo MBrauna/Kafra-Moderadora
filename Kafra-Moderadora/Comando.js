@@ -162,12 +162,13 @@ class comando
                 } // else { .. }
 
                 // Gera a mensagem
-                /*this.monta_resposta(p_cliente
+                /*
+                this.monta_resposta(p_cliente
                                    ,p_mensagem
                                    ,'Olá <@' + p_mensagem.author.id + '> estou aqui!'
                                    ,obj_msg_tmp
                                    );
-
+                */
             } // if(v_bol_chamada)
 
             // ᕦ(ò_óˇ)ᕤ     ---     S E P A R A D O R     ---     ᕦ(ˇò_ó)ᕤ
