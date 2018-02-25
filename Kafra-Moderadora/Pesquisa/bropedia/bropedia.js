@@ -241,7 +241,7 @@ class bropedia
                                 // Define o objeto a ser utilizado
                                 v_obj_resposta          =   {
                                                                 'embed' :   {
-                                                                                color               :   this.obj_config.cor_verde.color;
+                                                                                color               :   this.obj_config.cor_verde.color
                                                                                ,author              :   {
                                                                                                             name        :   'Kafra Moderadora'
                                                                                                            ,icone       :   'https://i.imgur.com/cfYwkLQ.png'
