@@ -203,7 +203,7 @@ class bropedia
                                                                                                            ,icone       :   'https://i.imgur.com/cfYwkLQ.png'
                                                                                                            ,url         :   'https://github.com/bropedia/Kafra-Moderadora'
                                                                                                         }
-                                                                               ,title               :   'NÃO FOI POSSÍVEL CONSULTAR';
+                                                                               ,title               :   'NÃO FOI POSSÍVEL CONSULTAR'
                                                                                ,url                 :   null
                                                                                ,description         :   'Algum erro em meu sistema não permitiu realizar a consulta.'
                                                                                ,'image'             :   {
@@ -302,7 +302,7 @@ class bropedia
                                                                                            ,icone       :   'https://i.imgur.com/cfYwkLQ.png'
                                                                                            ,url         :   'https://github.com/bropedia/Kafra-Moderadora'
                                                                                         }
-                                                               ,title               :   'NÃO FOI POSSÍVEL CONSULTAR';
+                                                               ,title               :   'NÃO FOI POSSÍVEL CONSULTAR'
                                                                ,url                 :   null
                                                                ,description         :   'Algum erro em meu sistema não permitiu realizar a consulta.'
                                                                ,'image'             :   {
