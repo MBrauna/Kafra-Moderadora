@@ -73,6 +73,7 @@ class bropedia
               ,v_resposta
               ,v_revisao
               ,v_pagina
+              ,v_pagina_final
               ;
 
         // Tratamento de excessão
@@ -153,7 +154,9 @@ class bropedia
                         v_pagina        =   bib_underline.first(v_resposta.query.search);
                     } // if(typeof v_pagina === 'undefined')
 
+                    console.log('----------------');
                     console.log(v_pagina);
+                    console.log('----------------');
 
                     // Se mesmo assim a página permanecer não definida
                     if(typeof v_pagina === 'undefined')
@@ -214,10 +217,11 @@ class bropedia
                         {
                             // Monta os dados
                             v_resposta          =   JSON.parse(p_corpo_pg);
-                            v_pagina            =   v_resposta.query.pages[Object.keys(v_resposta.query.pages)[0]];
-
-                            console.log(v_pagina);
-                            v_revisao           =   bib_underline.first(v_pagina.revisions);
+                            v_pagina_final      =   v_resposta.query.pages[Object.keys(v_resposta.query.pages)[0]];
+                            console.log('---->>>>>>>>');
+                            console.log(v_pagina_final);
+                            console.log('---->>>>>>>>');
+                            v_revisao           =   bib_underline.first(v_pagina_final.revisions);
 
                             // Veririca se a informação é um redirect
                             if(!v_redirecionamento && !bib_underline.isEmpty(v_revisao) && v_revisao['*'].indexOf('#REDIRECIONAMENTO') > -1)
@@ -230,7 +234,7 @@ class bropedia
                             } // if(!v_redirecionamento && !bib_underline.isEmpty(v_revisao) && v_revisao['*'].indexOf('#REDIRECIONAMENTO') > -1)
 
                             // Caso a página não tenha sido encontrada
-                            if(typeof v_pagina == 'undefined')
+                            if(typeof v_pagina_final == 'undefined')
                             {
 
                                 // Define o objeto a ser utilizado
@@ -281,7 +285,9 @@ class bropedia
                             } // if(typeof v_pagina == 'undefined')
                             else
                             {
-                                console.log(v_pagina);
+                                console.log('----<<<<<<<');
+                                console.log(v_pagina_final);
+                                console.log('----<<<<<<<');
                                 // Define o objeto a ser utilizado
                                 v_obj_resposta          =   {
                                                                 'embed' :   {
@@ -291,8 +297,8 @@ class bropedia
                                                                                                            ,icone       :   'https://i.imgur.com/cfYwkLQ.png'
                                                                                                            ,url         :   'https://github.com/bropedia/Kafra-Moderadora'
                                                                                                         }
-                                                                               ,title               :   v_pagina.title
-                                                                               ,url                 :   v_pagina.canonicalurl
+                                                                               ,title               :   v_pagina_final.title
+                                                                               ,url                 :   v_pagina_final.canonicalurl
                                                                                ,description         :   'Este é o resultado mais relevante para ' + p_consulta + '.'
                                                                                ,'image'             :   {
                                                                                                             "url"       :   null
@@ -311,8 +317,8 @@ class bropedia
                                                                                                         }
                                                                                ,fields              :   [
                                                                                                             {
-                                                                                                                name: v_pagina.title
-                                                                                                               ,value: v_pagina.canonicalurl
+                                                                                                                name    : v_pagina_final.title
+                                                                                                               ,value   : v_pagina_final.canonicalurl
                                                                                                             }
                                                                                                         ]
                                                                               ,timestamp            :   new Date()
