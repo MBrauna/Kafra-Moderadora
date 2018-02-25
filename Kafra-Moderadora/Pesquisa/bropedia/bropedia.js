@@ -60,11 +60,10 @@ class bropedia
             {
                 // Coleta as informações cedidas pelo webservice - Retorno JSON - Consulta à enciclopédia
                 v_resposta  =   JSON.parse(p_corpo);
-                console.log('1');
+
                 // Verifica quantidade de resultados obtidos
                 if(v_resposta.query.searchinfo.totalhits == 0)
                 {
-                    console.log('2');
                     v_obj_resposta.embed.color              =   this.obj_config.cor_vermelha.color;
                     v_obj_resposta.embed.title              =   'TERMO NÃO ENCONTRADO NA WIKI';
                     v_obj_resposta.embed.url                =   null;
@@ -76,19 +75,17 @@ class bropedia
                                                                     }
                                                                 ];
 
-                    // Adiciona o objeto de volta a variável
+                    // Retorna a função
+                    return  v_obj_resposta;
                 } // if(v_resposta.query.searchinfo.totalhits == 0)
                 else
                 {
-                    console.log('3');
                     // Roda a consulta procurando por algo similar ao pesquisado
                     v_resposta.query.search.forEach((json_resp) =>
                     {
-                        console.log('4');
                         // Teste - Consulta similar
                         if(json_resp.title.toLowerCase() == p_consulta.trim().toLowerCase())
                         {
-                            console.log('5');
                             // Caso encontre: A página desejada se faz presente.
                             v_pagina    =   json_resp;
                         } // if(json_resp.title.toLowerCase() == p_consulta.trim().toLowerCase())
@@ -97,14 +94,12 @@ class bropedia
                     // Verifica se a página informada foi definida, caso não seja utiliza a primeira opção obtida na query
                     if(typeof v_pagina === 'undefined')
                     {
-                        console.log('6');
                         v_pagina        =   bib_underline.first(v_resposta.query.search);
                     } // if(typeof v_pagina === 'undefined')
 
                     // Se mesmo assim a página permanecer não definida
                     if(typeof v_pagina === 'undefined')
                     {
-                        console.log('7');
                         v_obj_resposta.embed.color              =   this.obj_config.cor_vermelha.color;
                         v_obj_resposta.embed.title              =   'TERMO NÃO ENCONTRADO NA WIKI';
                         v_obj_resposta.embed.url                =   null;
@@ -115,17 +110,17 @@ class bropedia
                                                                            ,value: 'O termo "' + p_consulta + '" procurado não foi encontrado em minha base de dados!'
                                                                         }
                                                                     ];
+                        // Retorna a função
+                        return  v_obj_resposta;
                     }
                     else
                     {
-                        console.log('8');
                         // Define nova consulta para obtenção dos dados
                         v_url_bropedia  =   `http://bropedia.net/api.php?action=query&titles=${v_pagina.titulo}&prop=info|revisions&inprop=url&rvprop=content&format=json`;
 
                         // Reaiza a requisição das informações da página
                         bib_requisicao.get(v_url_bropedia, (p_erro_pg, p_resposta_pg, p_corpo_pg) =>
                         {
-                            console.log('9');
                             // Monta os dados
                             v_resposta          =   JSON.parse(p_corpo_pg);
                             v_pagina            =   v_resposta.query.pages[Object.keys(v_resposta.query.pages)[0]];
@@ -134,7 +129,6 @@ class bropedia
                             // Veririca se a informação é um redirect
                             if(!v_redirecionamento && !bib_underline.isEmpty(v_revisao) && v_revisao['*'].indexOf('#REDIRECIONAMENTO') > -1)
                             {
-                                console.log('10');
                                 // Marca a página que receberá o redirect
                                 v_redirect      =   v_revisao['*'].replace('#REDIRECIONAMENTO [[','').replace(']]','');
 
@@ -145,7 +139,6 @@ class bropedia
                             // Caso a página não tenha sido encontrada
                             if(typeof v_pagina == 'undefined')
                             {
-                                console.log('11');
                                 v_obj_resposta.embed.color             =    this.obj_config.cor_vermelha.color;
                                 v_obj_resposta.embed.title             =    'NÃO FOI POSSÍVEL CONSULTAR';
                                 v_obj_resposta.embed.url               =    null;
@@ -157,11 +150,11 @@ class bropedia
                                                                                 }
                                                                             ];
 
-                                // Informa sobre o erro
+                                // Retorna a função
+                                return  v_obj_resposta;
                             } // if(typeof v_pagina == 'undefined')
                             else
                             {
-                                console.log('12');
                                 v_obj_resposta.embed.color              =   this.obj_config.cor_verde.color;
                                 v_obj_resposta.embed.title              =   v_pagina.title;
                                 v_obj_resposta.embed.url                =   v_pagina.canonicalurl;
@@ -172,19 +165,13 @@ class bropedia
                                                                                    ,value: v_pagina.canonicalurl
                                                                                 }
                                                                             ];
-                                console.log(v_obj_resposta);
+                                // Retorna a função
+                                return  v_obj_resposta;
                             } // else  { ... }
                         }); // bib_requisicao.get(v_url_bropedia, (p_erro, p_resposta, p_corpo) =>
                     } // else { ... }
                 } // else { ... }
             }); // bib_requisicao.get(v_url_bropedia, (p_erro, p_resposta, p_corpo) => {
-
-            console.log('13');
-            // Finaliza o procedimento
-            console.log('-- >> bropedia << --');
-            console.log(v_obj_resposta)
-            console.log('-- >> bropedia << --');
-            return v_obj_resposta;
             
         } // try { ... }
         catch(p_erro)
@@ -205,9 +192,7 @@ class bropedia
                                                                 ];
 
                 // Informa sobre o erro
-                console.log('-- >> bropedia erro 1<< --');
                 return v_obj_resposta;
-                console.log('-- >> bropedia erro 1<< --');
             } // try { ... }
             catch(p_erro_sec)
             {
@@ -221,9 +206,9 @@ class bropedia
                 console.log('-- --> CONSULTAR <-- --');
 
                 // Informa sobre o erro
-                console.log('-- >> bropedia erro 2< --');
+                console.log('-- >> bropedia erro << --');
                 return this.obj_resposta;
-                console.log('-- >> bropedia erro 2<< --');
+                console.log('-- >> bropedia erro << --');
             } // catch(p_erro_sec) { ... }
 
         } // catch(p_erro) { ... }
