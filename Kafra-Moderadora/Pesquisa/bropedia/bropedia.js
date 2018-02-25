@@ -305,8 +305,12 @@ class bropedia
                                                                                                     }
                                                                            ,fields              :   [
                                                                                                         {
-                                                                                                            name    : v_pagina_final.title
-                                                                                                           ,value   : v_pagina_final.canonicalurl
+                                                                                                            name    :   v_pagina_final.title
+                                                                                                           ,value   :   v_pagina_final.canonicalurl
+                                                                                                        }
+                                                                                                       ,{
+                                                                                                            name    :   '**Resumão da Kafra**'
+                                                                                                           ,value   :   v_revisao['*']
                                                                                                         }
                                                                                                     ]
                                                                           ,timestamp            :   new Date()
