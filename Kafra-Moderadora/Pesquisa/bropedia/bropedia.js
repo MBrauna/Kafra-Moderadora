@@ -130,9 +130,9 @@ class bropedia
                                                 };
 
 
-                    monta_resposta('Caramba <@' + this.obj_mensagem.author.id + '>, não consegui encontrar o que você procura!'
-                                  ,v_obj_resposta
-                                  );
+                    this.monta_resposta('Caramba <@' + this.obj_mensagem.author.id + '>, não consegui encontrar o que você procura!'
+                                      ,v_obj_resposta
+                                      );
                     return;
                 } // if(v_resposta.query.searchinfo.totalhits == 0)
                 else
@@ -197,9 +197,9 @@ class bropedia
                                                                                                 }
                                                                     }
                                                     };
-                        monta_resposta('Caramba <@' + this.obj_mensagem.author.id + '>, não consegui encontrar o que você procura!'
-                                  ,v_obj_resposta
-                                  );
+                        this.monta_resposta('Caramba <@' + this.obj_mensagem.author.id + '>, não consegui encontrar o que você procura!'
+                                          ,v_obj_resposta
+                                          );
                         return;
                     }
                     else
@@ -269,9 +269,9 @@ class bropedia
                                                                                                         }
                                                                             }
                                                             };
-                                monta_resposta('As coisas nem sempre saem como planejado <@' + this.obj_mensagem.author.id + '>, né non?'
-                                              ,v_obj_resposta
-                                              );
+                                this.monta_resposta('As coisas nem sempre saem como planejado <@' + this.obj_mensagem.author.id + '>, né non?'
+                                                  ,v_obj_resposta
+                                                  );
                                 return;
 
                             } // if(typeof v_pagina == 'undefined')
@@ -317,9 +317,9 @@ class bropedia
                                                                                                         }
                                                                             }
                                                             };
-                                monta_resposta('<@' + this.obj_mensagem.author.id + '> é consulta que você quer? Então toma.'
-                                              ,v_obj_resposta
-                                              );
+                                this.monta_resposta('<@' + this.obj_mensagem.author.id + '> é consulta que você quer? Então toma.'
+                                                   ,v_obj_resposta
+                                                    );
                             } // else  { ... }
                         }); // bib_requisicao.get(v_url_bropedia, (p_erro, p_resposta, p_corpo) =>
                     } // else { ... }
@@ -376,9 +376,9 @@ class bropedia
                                                             }
                                             };
 
-                monta_resposta('<@' + this.obj_mensagem.author.id + '> AI GODI UM ERRO SELVAGEM APARECEU!'
-                              ,v_obj_resposta
-                              );
+                this.monta_resposta('<@' + this.obj_mensagem.author.id + '> AI GODI UM ERRO SELVAGEM APARECEU!'
+                                   ,v_obj_resposta
+                                  );
             } // try { ... }
             catch(p_erro_sec)
             {
