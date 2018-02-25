@@ -42,7 +42,6 @@ class bropedia
         // Prepara os dados iniciais para consulta na enciclopédia.
         let    v_termo_consulta     =   encodeURI(p_consulta.trim())
               ,v_url_bropedia       =   `http://bropedia.net/api.php?action=query&list=search&srsearch=${v_termo_consulta}&utf8=&format=json`
-              ,v_obj_resposta       =   this.obj_resposta
               ,v_partes             =   []
               ,v_redirecionamento   =   false
               ,v_redirect
@@ -50,7 +49,6 @@ class bropedia
               ,v_revisao
               ,v_pagina
               ;
-        console.log(v_obj_resposta);
 
         // Tratamento de excessão
         try
@@ -64,16 +62,16 @@ class bropedia
                 // Verifica quantidade de resultados obtidos
                 if(v_resposta.query.searchinfo.totalhits == 0)
                 {
-                    v_obj_resposta.embed.color              =   this.obj_config.cor_vermelha.color;
-                    v_obj_resposta.embed.title              =   'TERMO NÃO ENCONTRADO NA WIKI';
-                    v_obj_resposta.embed.url                =   null;
-                    v_obj_resposta.embed.description        =   'Desculpe ):';
-                    v_obj_resposta.embed.fields             =   [
-                                                                    {
-                                                                        name: 'ZERO! NADA! VAZIO!'
-                                                                       ,value: 'O termo "' + p_consulta + '" procurado não foi encontrado em minha base de dados!'
-                                                                    }
-                                                                ];
+                    this.obj_resposta.embed.color               =   this.obj_config.cor_vermelha.color;
+                    this.obj_resposta.embed.title               =   'TERMO NÃO ENCONTRADO NA WIKI';
+                    this.obj_resposta.embed.url                 =   null;
+                    this.obj_resposta.embed.description         =   'Desculpe ):';
+                    this.obj_resposta.embed.fields              =   [
+                                                                        {
+                                                                            name: 'ZERO! NADA! VAZIO!'
+                                                                           ,value: 'O termo "' + p_consulta + '" procurado não foi encontrado em minha base de dados!'
+                                                                        }
+                                                                    ];
                 } // if(v_resposta.query.searchinfo.totalhits == 0)
                 else
                 {
@@ -97,18 +95,16 @@ class bropedia
                     // Se mesmo assim a página permanecer não definida
                     if(typeof v_pagina === 'undefined')
                     {
-                        v_obj_resposta                          =   this.obj_resposta;
-
-                        v_obj_resposta.embed.color              =   this.obj_config.cor_vermelha.color;
-                        v_obj_resposta.embed.title              =   'TERMO NÃO ENCONTRADO NA WIKI';
-                        v_obj_resposta.embed.url                =   null;
-                        v_obj_resposta.embed.description        =   'Desculpe ):';
-                        v_obj_resposta.embed.fields             =   [
-                                                                        {
-                                                                            name: 'ZERO! NADA! VAZIO!'
-                                                                           ,value: 'O termo "' + p_consulta + '" procurado não foi encontrado em minha base de dados!'
-                                                                        }
-                                                                    ];
+                        this.obj_resposta.embed.color               =   this.obj_config.cor_vermelha.color;
+                        this.obj_resposta.embed.title               =   'TERMO NÃO ENCONTRADO NA WIKI';
+                        this.obj_resposta.embed.url                 =   null;
+                        this.obj_resposta.embed.description         =   'Desculpe ):';
+                        this.obj_resposta.embed.fields              =   [
+                                                                            {
+                                                                                name: 'ZERO! NADA! VAZIO!'
+                                                                               ,value: 'O termo "' + p_consulta + '" procurado não foi encontrado em minha base de dados!'
+                                                                            }
+                                                                        ];
                     }
                     else
                     {
@@ -136,30 +132,30 @@ class bropedia
                             // Caso a página não tenha sido encontrada
                             if(typeof v_pagina == 'undefined')
                             {
-                                v_obj_resposta.embed.color             =    this.obj_config.cor_vermelha.color;
-                                v_obj_resposta.embed.title             =    'NÃO FOI POSSÍVEL CONSULTAR';
-                                v_obj_resposta.embed.url               =    null;
-                                v_obj_resposta.embed.description       =    'Não consegui GENTE!!!';
-                                v_obj_resposta.embed.fields            =    [
-                                                                                {
-                                                                                    name: 'Ocorreu um erro durante a consulta'
-                                                                                   ,value: 'O termo "' + p_consulta + '" gerou um erro! Acha que é sentar e chorar? Nananinanão avise um administrador.'
-                                                                                }
-                                                                            ];
+                                this.obj_resposta.embed.color               =   this.obj_config.cor_vermelha.color;
+                                this.obj_resposta.embed.title               =   'NÃO FOI POSSÍVEL CONSULTAR';
+                                this.obj_resposta.embed.url                 =   null;
+                                this.obj_resposta.embed.description         =   'Não consegui GENTE!!!';
+                                this.obj_resposta.embed.fields              =   [
+                                                                                    {
+                                                                                        name: 'Ocorreu um erro durante a consulta'
+                                                                                       ,value: 'O termo "' + p_consulta + '" gerou um erro! Acha que é sentar e chorar? Nananinanão avise um administrador.'
+                                                                                    }
+                                                                                ];
 
                             } // if(typeof v_pagina == 'undefined')
                             else
                             {
-                                v_obj_resposta.embed.color              =   this.obj_config.cor_verde.color;
-                                v_obj_resposta.embed.title              =   v_pagina.title;
-                                v_obj_resposta.embed.url                =   v_pagina.canonicalurl;
-                                v_obj_resposta.embed.description        =   'Este é o resultado mais relevante para ' + p_consulta;
-                                v_obj_resposta.embed.fields             =   [
-                                                                                {
-                                                                                    name: v_pagina.title
-                                                                                   ,value: v_pagina.canonicalurl
-                                                                                }
-                                                                            ];
+                                this.obj_resposta.embed.color               =   this.obj_config.cor_verde.color;
+                                this.obj_resposta.embed.title               =   v_pagina.title;
+                                this.obj_resposta.embed.url                 =   v_pagina.canonicalurl;
+                                this.obj_resposta.embed.description         =   'Este é o resultado mais relevante para ' + p_consulta;
+                                this.obj_resposta.embed.fields              =   [
+                                                                                    {
+                                                                                        name: v_pagina.title
+                                                                                       ,value: v_pagina.canonicalurl
+                                                                                    }
+                                                                                ];
                             } // else  { ... }
                         }); // bib_requisicao.get(v_url_bropedia, (p_erro, p_resposta, p_corpo) =>
                     } // else { ... }
@@ -168,7 +164,7 @@ class bropedia
             
 
             // Retorna a função
-            return  v_obj_resposta;
+            return  this.obj_resposta;
         } // try { ... }
         catch(p_erro)
         {
@@ -176,19 +172,19 @@ class bropedia
             try
             {
                 // Cria uma novo objeto para modificação.
-                v_obj_resposta.embed.color              =       this.obj_config.cor_vermelha.color;
-                v_obj_resposta.embed.title              =       'NÃO FOI POSSÍVEL CONSULTAR';
-                v_obj_resposta.embed.url                =       null;
-                v_obj_resposta.embed.description        =       'Não consegui GENTE!!!';
-                v_obj_resposta.embed.fields             =       [
-                                                                    {
-                                                                        name: 'Ocorreu um erro durante a consulta'
-                                                                       ,value: 'O termo "' + p_consulta + '" gerou um erro! Acha que é sentar e chorar? Nananinanão avise um administrador.'
-                                                                    }
-                                                                ];
+                this.obj_resposta.embed.color               =       this.obj_config.cor_vermelha.color;
+                this.obj_resposta.embed.title               =       'NÃO FOI POSSÍVEL CONSULTAR';
+                this.obj_resposta.embed.url                 =       null;
+                this.obj_resposta.embed.description         =       'Não consegui GENTE!!!';
+                this.obj_resposta.embed.fields              =       [
+                                                                        {
+                                                                            name: 'Ocorreu um erro durante a consulta'
+                                                                           ,value: 'O termo "' + p_consulta + '" gerou um erro! Acha que é sentar e chorar? Nananinanão avise um administrador.'
+                                                                        }
+                                                                    ];
 
                 // Informa sobre o erro
-                return v_obj_resposta;
+                return this.obj_resposta;
             } // try { ... }
             catch(p_erro_sec)
             {
