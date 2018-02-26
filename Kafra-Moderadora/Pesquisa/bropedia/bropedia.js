@@ -118,7 +118,7 @@ class bropedia
                                                                    ,fields              :   [
                                                                                                 {
                                                                                                     name: 'ZERO! NADA! VAZIO!'
-                                                                                                   ,value: 'O termo "' + p_consulta + '" perdoa o vacilo e não desiste de mim!'
+                                                                                                   ,value: 'QUE CAQUINHA, o termo "' + p_consulta + '" procurado não foi encontrado em minha base de dados! Perdoa o vacilo e não desiste de mim!'
                                                                                                 }
                                                                                             ]
                                                                   ,timestamp            :   new Date()
@@ -187,7 +187,7 @@ class bropedia
                                                                        ,fields              :   [
                                                                                                     {
                                                                                                         name: 'ZERO! NADA! VAZIO! NOTHING!'
-                                                                                                       ,value: 'O termo "' + p_consulta + '" procurado não foi encontrado em minha base de dados!'
+                                                                                                       ,value: 'QUE CAQUINHA, o termo "' + p_consulta + '" procurado não foi encontrado em minha base de dados! Perdoa o vacilo e não desiste de mim!'
                                                                                                     }
                                                                                                 ]
                                                                       ,timestamp            :   new Date()
