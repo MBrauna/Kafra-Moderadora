@@ -222,8 +222,6 @@ class bropedia
 
                             // Chama o mesmo método para encontrar as informações
                             this.consultar(v_redirect);
-
-                            return;
                         } // if(!v_redirecionamento && !bib_underline.isEmpty(v_revisao) && v_revisao['*'].indexOf('#REDIRECIONAMENTO') > -1)
 
                         // Caso a página não tenha sido encontrada
