@@ -308,7 +308,7 @@ class comando
                                                                                                ,"width"     :   null // 123
                                                                                             }
                                                                    ,thumbnail           :   {
-                                                                                                "url"       :   null // 'https://i.imgur.com/LOGICNS.jpg'
+                                                                                                "url"       :   'https://i.imgur.com/5SiWZwF.png' // 'https://i.imgur.com/LOGICNS.jpg'
                                                                                                ,"height"    :   null // 123
                                                                                                ,"width"     :   null // 123 
                                                                                             }
