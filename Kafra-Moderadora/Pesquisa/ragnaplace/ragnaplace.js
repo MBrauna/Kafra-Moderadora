@@ -189,7 +189,8 @@ class ragnaplace
                                                                                     }
                                                         }
                                         };
-
+            console.log(p_erro);
+            console.trace();
 
             this.monta_resposta('Caramba <@' + this.obj_mensagem.author.id + '>, não consegui encontrar o que você procura!'
                               ,v_obj_resposta
