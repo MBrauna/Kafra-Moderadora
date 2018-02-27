@@ -140,7 +140,7 @@ class ragnaplace
 
                 if(!v_bol_result) v_bol_result = v_resultado[0];
 
-                this.monta_resposta('Olha um(a) ' +  v_bol_result.text + ' fresquinho(a) saindo para <@' + this.obj_mensagem.author.id + '>. (∩｀-´)⊃━☆ﾟ.*･｡ﾟ   https://pt.ragnaplace.com/bRO/item/' +  v_bol_result.id
+                this.monta_resposta('YAY encontrei para o termo "' +  v_bol_result.text + '"  que você pesquisou, <@' + this.obj_mensagem.author.id + '> a seguinte informação. \n (∩｀-´)⊃━☆ﾟ.*･｡ﾟ \n  https://pt.ragnaplace.com/bRO/item/' +  v_bol_result.id
                                     ,null
                                     );
                 return;
@@ -280,7 +280,7 @@ class ragnaplace
 
                 if(!v_bol_result) v_bol_result = v_resultado[0];
 
-                this.monta_resposta('Quer um monstro mais feio(a) que você <@' + this.obj_mensagem.author.id + '>? Acho muito difícil. Este é o resultado mais relevante para ' +  v_bol_result.text + ' (∩｀-´)⊃━☆ﾟ.*･｡ﾟ   https://pt.ragnaplace.com/bRO/mob/' +  v_bol_result.id
+                this.monta_resposta('<@' + this.obj_mensagem.author.id + '> quer um monstro? \n Este é o resultado mais relevante para ' +  v_bol_result.text + '\n (∩｀-´)⊃━☆ﾟ.*･ \n https://pt.ragnaplace.com/bRO/mob/' +  v_bol_result.id
                                     ,null
                                     );
                 return;
@@ -419,7 +419,7 @@ class ragnaplace
 
                 if(!v_bol_result) v_bol_result = v_resultado[0];
 
-                this.monta_resposta('<@' + this.obj_mensagem.author.id + '> está por ai? Você procurou por "' +  v_bol_result.text + '" e eu encontrei https://pt.ragnaplace.com/bRO/map/' +  v_bol_result.id
+                this.monta_resposta('<@' + this.obj_mensagem.author.id + '> está por ai?\nVocê procurou por "' +  v_bol_result.text + '" e eu encontrei: \n https://pt.ragnaplace.com/bRO/map/' +  v_bol_result.id
                                     ,null
                                     );
                 return;
