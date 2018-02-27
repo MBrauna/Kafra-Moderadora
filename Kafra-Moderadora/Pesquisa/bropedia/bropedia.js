@@ -222,6 +222,7 @@ class bropedia
 
                             // Chama o mesmo método para encontrar as informações
                             this.consultar(v_redirect);
+                            return;
                         } // if(!v_redirecionamento && !bib_underline.isEmpty(v_revisao) && v_revisao['*'].indexOf('#REDIRECIONAMENTO') > -1)
 
                         // Caso a página não tenha sido encontrada
@@ -320,7 +321,7 @@ class bropedia
                                                                                                     }
                                                                         }
                                                         };
-                            this.monta_resposta('<@' + this.obj_mensagem.author.id + '> é consulta que você quer? Então toma (∩｀-´)⊃━☆ﾟ.*･｡ﾟ ' + v_pagina_final.canonicalurl
+                            this.monta_resposta('<@' + this.obj_mensagem.author.id + '> é consulta que você quer? \n Então toma (∩｀-´)⊃━☆ﾟ.*･｡ﾟ \n ' + v_pagina_final.canonicalurl
                                                ,{}
                                                 );
                         } // else  { ... }
