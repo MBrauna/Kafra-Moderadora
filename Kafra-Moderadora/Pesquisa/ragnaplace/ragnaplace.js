@@ -181,10 +181,6 @@ class ragnaplace
                                                                                             name: 'ERRO'
                                                                                            ,value: 'Infelizmente ao consultar sobre "' + p_consulta + '" Um erro foi levantado.'
                                                                                         }
-                                                                                       ,{
-                                                                                            name    :   'Mensagem de erro'
-                                                                                           ,values  :   '```' +  p_erro + '```'
-                                                                                        }
                                                                                     ]
                                                           ,timestamp            :   new Date()
                                                           ,footer               :   {
@@ -324,10 +320,6 @@ class ragnaplace
                                                                                             name: 'ERRO'
                                                                                            ,value: 'Infelizmente ao consultar sobre "' + p_consulta + '" Um erro foi levantado.'
                                                                                         }
-                                                                                       ,{
-                                                                                            name    :   'Mensagem de erro'
-                                                                                           ,values  :   '```' +  p_erro + '```'
-                                                                                        }
                                                                                     ]
                                                           ,timestamp            :   new Date()
                                                           ,footer               :   {
@@ -466,10 +458,6 @@ class ragnaplace
                                                                                         {
                                                                                             name: 'ERRO'
                                                                                            ,value: 'Infelizmente ao consultar sobre "' + p_consulta + '" Um erro foi levantado.'
-                                                                                        }
-                                                                                       ,{
-                                                                                            name    :   'Mensagem de erro'
-                                                                                           ,values  :   '```' +  p_erro + '```'
                                                                                         }
                                                                                     ]
                                                           ,timestamp            :   new Date()
