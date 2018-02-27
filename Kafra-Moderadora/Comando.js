@@ -102,6 +102,12 @@ class comando
                     // Prepara a nova mensagem
                     obj_msg_tmp.embed.description   =   'Fui chamada!? Não sou uma ursinha carinhosa (Olha o tamanho do meu banhammer), mas estou aqui para te ajudar.';
                     obj_msg_tmp.embed.fields        =   this.init_msg_funcionalidade;
+
+                    this.monta_resposta(p_cliente
+                                       ,p_mensagem
+                                       ,'Olá <@' + p_mensagem.author.id + '> estou aqui!'
+                                       ,obj_msg_tmp
+                                       );
                 } // if(v_obj_mensagem_s_prefixo.length <= 0)
                 else
                 {
@@ -209,42 +215,75 @@ class comando
                         case 'recrutar':
                             obj_msg_tmp.embed.description   =   'Desculpe pessoinha, mas esta funcionalidade não está disponível no momento.';
                             obj_msg_tmp.embed.fields        =   this.init_msg_dev;
+
+                            this.monta_resposta(p_cliente
+                                               ,p_mensagem
+                                               ,'Olá <@' + p_mensagem.author.id + '> estou aqui!'
+                                               ,obj_msg_tmp
+                                               );
                             break;
                         case 'procurar':
                             obj_msg_tmp.embed.description   =   'Desculpe pessoinha, mas esta funcionalidade não está disponível no momento.';
                             obj_msg_tmp.embed.fields        =   this.init_msg_dev;
+
+                            this.monta_resposta(p_cliente
+                                               ,p_mensagem
+                                               ,'Olá <@' + p_mensagem.author.id + '> estou aqui!'
+                                               ,obj_msg_tmp
+                                               );
                             break;
                         case 'grupos':
                             obj_msg_tmp.embed.description   =   'Desculpe pessoinha, mas esta funcionalidade não está disponível no momento.';
                             obj_msg_tmp.embed.fields        =   this.init_msg_dev;
+
+                            this.monta_resposta(p_cliente
+                                               ,p_mensagem
+                                               ,'Olá <@' + p_mensagem.author.id + '> estou aqui!'
+                                               ,obj_msg_tmp
+                                               );
                             break;
                         case 'regras':
                             obj_msg_tmp.embed.description   =   'Desculpe pessoinha, mas esta funcionalidade não está disponível no momento.';
                             obj_msg_tmp.embed.fields        =   this.init_msg_dev;
+
+                            this.monta_resposta(p_cliente
+                                               ,p_mensagem
+                                               ,'Olá <@' + p_mensagem.author.id + '> estou aqui!'
+                                               ,obj_msg_tmp
+                                               );
                             break;
                         case 'ajuda':
                             obj_msg_tmp.embed.description   =   'Desculpe pessoinha, mas esta funcionalidade não está disponível no momento.';
                             obj_msg_tmp.embed.fields        =   this.init_msg_dev;
+
+                            this.monta_resposta(p_cliente
+                                               ,p_mensagem
+                                               ,'Olá <@' + p_mensagem.author.id + '> estou aqui!'
+                                               ,obj_msg_tmp
+                                               );
                             break;
                         case 'bug':
                             obj_msg_tmp.embed.description   =   'Desculpe pessoinha, mas esta funcionalidade não está disponível no momento.';
                             obj_msg_tmp.embed.fields        =   this.init_msg_dev;
+
+                            this.monta_resposta(p_cliente
+                                               ,p_mensagem
+                                               ,'Olá <@' + p_mensagem.author.id + '> estou aqui!'
+                                               ,obj_msg_tmp
+                                               );
                             break;
                         default:
                             obj_msg_tmp.embed.description   =   'HUMANIDADE, SE PREPARE, POIS ... HOJE QUERO CAUSAR';
                             obj_msg_tmp.embed.fields        =   this.init_msg_funcionalidade;
+
+                            this.monta_resposta(p_cliente
+                                               ,p_mensagem
+                                               ,'Olá <@' + p_mensagem.author.id + '> estou aqui!'
+                                               ,obj_msg_tmp
+                                               );
                             break;
                     } // switch(v_obj_mensagem_s_prefixo[0].toLowerCase())
                 } // else { .. }
-
-                // Gera a mensagem
-                /*
-                this.monta_resposta(p_cliente
-                                   ,p_mensagem
-                                   ,'Olá <@' + p_mensagem.author.id + '> estou aqui!'
-                                   ,obj_msg_tmp
-                                   );
-                */
             } // if(v_bol_chamada)
 
             // ᕦ(ò_óˇ)ᕤ     ---     S E P A R A D O R     ---     ᕦ(ˇò_ó)ᕤ
