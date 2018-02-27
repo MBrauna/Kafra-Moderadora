@@ -66,6 +66,7 @@ class ragnaplace
         let  v_termo_consulta   =   encodeURI(p_consulta.trim())
              v_url_item         =   `https://pt.ragnaplace.com/item-search?q=${v_termo_consulta}`
              v_bol_result       = false
+             v_obj_resposta
              v_resultado
              ;
 
@@ -208,6 +209,7 @@ class ragnaplace
         let  v_termo_consulta   =   encodeURI(p_consulta.trim())
              v_url_item         =   `https://pt.ragnaplace.com/mob-search?q=${v_termo_consulta}`
              v_bol_result       = false
+             v_obj_resposta
              v_resultado
              ;
 
@@ -350,6 +352,7 @@ class ragnaplace
         let  v_termo_consulta   =   encodeURI(p_consulta.trim())
              v_url_item         =   `https://pt.ragnaplace.com/map-search?q=${v_termo_consulta}`
              v_bol_result       = false
+             v_obj_resposta
              v_resultado
              ;
 
