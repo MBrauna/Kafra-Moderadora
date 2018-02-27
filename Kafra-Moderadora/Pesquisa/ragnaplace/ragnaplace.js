@@ -19,9 +19,7 @@
 ****************************************************************************************************/
 
 // Inicialização de bibliotecas                                 (∩｀-´)⊃━☆ﾟ.*･｡ﾟ
-let bib_requisicao      =   require('request')
-,bib_underline       =   require('underscore')
-;
+let bib_requisicao = require('request')
 // Inicialização de bibliotecas                                 (∩｀-´)⊃━☆ﾟ.*･｡ﾟ
 
 class ragnaplace
@@ -73,7 +71,7 @@ class ragnaplace
         try
         {
 
-            request(
+            bib_requisicao(
             {
                 url: v_url_item
                ,headers:
@@ -213,7 +211,7 @@ class ragnaplace
         try
         {
 
-            request(
+            bib_requisicao(
             {
                 url: v_url_mob
                ,headers:
@@ -352,7 +350,7 @@ class ragnaplace
         try
         {
 
-            request(
+            bib_requisicao(
             {
                 url: v_url_mapa
                ,headers:
