@@ -121,21 +121,7 @@ class comando
                                 v_string_requisicao = v_string_requisicao + v_obj_mensagem_s_prefixo[i] + ' ';
                             } // for(var i=1;i<=v_obj_mensagem_s_prefixo.length;i++)
 
-                            if(v_string_requisicao.trim().length = 0)
-                            {
-                                obj_msg_tmp.embed.description   =   'HUMANIDADE, SE PREPARE, POIS ... HOJE QUERO CAUSAR';
-                                obj_msg_tmp.embed.fields        =   this.init_msg_funcionalidade;
-
-                                this.monta_resposta(p_cliente
-                                                   ,p_mensagem
-                                                   ,'Olá <@' + p_mensagem.author.id + '> estou aqui!'
-                                                   ,obj_msg_tmp
-                                                   );
-                            } // if(v_string_requisicao.trim().length = 0)
-                            else
-                            {
-                                obj_msg_tmp                     =   new bib_ragnaplace(this.init_msg_padrao, this.init_config, p_mensagem, p_cliente).item(v_string_requisicao);
-                            }
+                            obj_msg_tmp                     =   new bib_ragnaplace(this.init_msg_padrao, this.init_config, p_mensagem, p_cliente).item(v_string_requisicao);
 
                             break;
                         case 'monstro':
@@ -146,21 +132,7 @@ class comando
                                 v_string_requisicao = v_string_requisicao + v_obj_mensagem_s_prefixo[i] + ' ';
                             } // for(var i=1;i<=v_obj_mensagem_s_prefixo.length;i++)
 
-                            if(v_string_requisicao.trim().length = 0)
-                            {
-                                obj_msg_tmp.embed.description   =   'HUMANIDADE, SE PREPARE, POIS ... HOJE QUERO CAUSAR';
-                                obj_msg_tmp.embed.fields        =   this.init_msg_funcionalidade;
-
-                                this.monta_resposta(p_cliente
-                                                   ,p_mensagem
-                                                   ,'Olá <@' + p_mensagem.author.id + '> estou aqui!'
-                                                   ,obj_msg_tmp
-                                                   );
-                            } // if(v_string_requisicao.trim().length = 0)
-                            else
-                            {
-                                obj_msg_tmp                     =   new bib_ragnaplace(this.init_msg_padrao, this.init_config, p_mensagem, p_cliente).mob(v_string_requisicao);
-                            }
+                            obj_msg_tmp                     =   new bib_ragnaplace(this.init_msg_padrao, this.init_config, p_mensagem, p_cliente).mob(v_string_requisicao);
 
                             break;
                         case 'mapa':
@@ -171,21 +143,7 @@ class comando
                                 v_string_requisicao = v_string_requisicao + v_obj_mensagem_s_prefixo[i] + ' ';
                             } // for(var i=1;i<=v_obj_mensagem_s_prefixo.length;i++)
 
-                            if(v_string_requisicao.trim().length = 0)
-                            {
-                                obj_msg_tmp.embed.description   =   'HUMANIDADE, SE PREPARE, POIS ... HOJE QUERO CAUSAR';
-                                obj_msg_tmp.embed.fields        =   this.init_msg_funcionalidade;
-
-                                this.monta_resposta(p_cliente
-                                                   ,p_mensagem
-                                                   ,'Olá <@' + p_mensagem.author.id + '> estou aqui!'
-                                                   ,obj_msg_tmp
-                                                   );
-                            } // if(v_string_requisicao.trim().length = 0)
-                            else
-                            {
-                                obj_msg_tmp                     =   new bib_ragnaplace(this.init_msg_padrao, this.init_config, p_mensagem, p_cliente).mapa(v_string_requisicao);
-                            }
+                            obj_msg_tmp                     =   new bib_ragnaplace(this.init_msg_padrao, this.init_config, p_mensagem, p_cliente).mapa(v_string_requisicao);
                             break;
                         case 'wiki':
                             // Trata a mensagem transformando a array numa string
@@ -196,21 +154,7 @@ class comando
                                 v_string_requisicao = v_string_requisicao + v_obj_mensagem_s_prefixo[i] + ' ';
                             } // for(var i=1;i<=v_obj_mensagem_s_prefixo.length;i++)
 
-                            if(v_string_requisicao.trim().length = 0)
-                            {
-                                obj_msg_tmp.embed.description   =   'HUMANIDADE, SE PREPARE, POIS ... HOJE QUERO CAUSAR';
-                                obj_msg_tmp.embed.fields        =   this.init_msg_funcionalidade;
-
-                                this.monta_resposta(p_cliente
-                                                   ,p_mensagem
-                                                   ,'Olá <@' + p_mensagem.author.id + '> estou aqui!'
-                                                   ,obj_msg_tmp
-                                                   );
-                            } // if(v_string_requisicao.trim().length = 0)
-                            else
-                            {
-                                obj_msg_tmp                     =   new bib_bropedia(this.init_msg_padrao, this.init_config, p_mensagem, p_cliente).consultar(v_string_requisicao);
-                            }
+                            obj_msg_tmp                     =   new bib_bropedia(this.init_msg_padrao, this.init_config, p_mensagem, p_cliente).consultar(v_string_requisicao);
                             break;
                         case 'recrutar':
                             obj_msg_tmp.embed.description   =   'Desculpe pessoinha, mas esta funcionalidade não está disponível no momento.';
