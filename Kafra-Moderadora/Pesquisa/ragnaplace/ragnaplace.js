@@ -64,10 +64,10 @@ class ragnaplace
     item(p_consulta)
     {
         let  v_termo_consulta   =   encodeURI(p_consulta.trim())
-             v_url_item         =   `https://pt.ragnaplace.com/item-search?q=${v_termo_consulta}`
-             v_bol_result       = false
-             v_obj_resposta
-             v_resultado
+            ,v_url_item         =   `https://pt.ragnaplace.com/item-search?q=${v_termo_consulta}`
+            ,v_bol_result       = false
+            ,v_obj_resposta
+            ,v_resultado
              ;
 
         try
@@ -207,10 +207,10 @@ class ragnaplace
     mob(p_consulta)
     {
         let  v_termo_consulta   =   encodeURI(p_consulta.trim())
-             v_url_item         =   `https://pt.ragnaplace.com/mob-search?q=${v_termo_consulta}`
-             v_bol_result       = false
-             v_obj_resposta
-             v_resultado
+            ,v_url_mob         =   `https://pt.ragnaplace.com/mob-search?q=${v_termo_consulta}`
+            ,v_bol_result       = false
+            ,v_obj_resposta
+            ,v_resultado
              ;
 
         try
@@ -218,7 +218,7 @@ class ragnaplace
 
             request(
             {
-                url: v_url_item
+                url: v_url_mob
                ,headers:
                     {
                         'Referer'           :   'https://www.ragnaplace.com/'
@@ -350,10 +350,10 @@ class ragnaplace
     mapa(p_consulta)
     {
         let  v_termo_consulta   =   encodeURI(p_consulta.trim())
-             v_url_item         =   `https://pt.ragnaplace.com/map-search?q=${v_termo_consulta}`
-             v_bol_result       = false
-             v_obj_resposta
-             v_resultado
+            ,v_url_mapa         =   `https://pt.ragnaplace.com/map-search?q=${v_termo_consulta}`
+            ,v_bol_result       = false
+            ,v_obj_resposta
+            ,v_resultado
              ;
 
         try
@@ -361,7 +361,7 @@ class ragnaplace
 
             request(
             {
-                url: v_url_item
+                url: v_url_mapa
                ,headers:
                     {
                         'Referer'           :   'https://www.ragnaplace.com/'
