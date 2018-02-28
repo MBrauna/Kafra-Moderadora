@@ -114,47 +114,16 @@ class comando
                     switch(v_obj_mensagem_s_prefixo[0].toLowerCase())
                     {
                         case 'item':
-                            v_string_requisicao = '';
-                            for(var i=1;i<v_obj_mensagem_s_prefixo.length;i++)
-                            {
-                                // Forma a string
-                                v_string_requisicao = v_string_requisicao + v_obj_mensagem_s_prefixo[i] + ' ';
-                            } // for(var i=1;i<=v_obj_mensagem_s_prefixo.length;i++)
-
-                            obj_msg_tmp                     =   new bib_ragnaplace(this.init_msg_padrao, this.init_config, p_mensagem, p_cliente).item(v_string_requisicao);
-
+                            obj_msg_tmp                     =   new bib_ragnaplace(this.init_msg_padrao, this.init_config, p_mensagem, p_cliente).item(v_obj_mensagem_s_prefixo);
                             break;
                         case 'monstro':
-                            v_string_requisicao = '';
-                            for(var i=1;i<v_obj_mensagem_s_prefixo.length;i++)
-                            {
-                                // Forma a string
-                                v_string_requisicao = v_string_requisicao + v_obj_mensagem_s_prefixo[i] + ' ';
-                            } // for(var i=1;i<=v_obj_mensagem_s_prefixo.length;i++)
-
-                            obj_msg_tmp                     =   new bib_ragnaplace(this.init_msg_padrao, this.init_config, p_mensagem, p_cliente).mob(v_string_requisicao);
-
+                            obj_msg_tmp                     =   new bib_ragnaplace(this.init_msg_padrao, this.init_config, p_mensagem, p_cliente).mob(v_obj_mensagem_s_prefixo);
                             break;
                         case 'mapa':
-                            v_string_requisicao = '';
-                            for(var i=1;i<v_obj_mensagem_s_prefixo.length;i++)
-                            {
-                                // Forma a string
-                                v_string_requisicao = v_string_requisicao + v_obj_mensagem_s_prefixo[i] + ' ';
-                            } // for(var i=1;i<=v_obj_mensagem_s_prefixo.length;i++)
-
-                            obj_msg_tmp                     =   new bib_ragnaplace(this.init_msg_padrao, this.init_config, p_mensagem, p_cliente).mapa(v_string_requisicao);
+                            obj_msg_tmp                     =   new bib_ragnaplace(this.init_msg_padrao, this.init_config, p_mensagem, p_cliente).mapa(v_obj_mensagem_s_prefixo);
                             break;
                         case 'wiki':
-                            // Trata a mensagem transformando a array numa string
-                            v_string_requisicao = '';
-                            for(var i=1;i<v_obj_mensagem_s_prefixo.length;i++)
-                            {
-                                // Forma a string
-                                v_string_requisicao = v_string_requisicao + v_obj_mensagem_s_prefixo[i] + ' ';
-                            } // for(var i=1;i<=v_obj_mensagem_s_prefixo.length;i++)
-
-                            obj_msg_tmp                     =   new bib_bropedia(this.init_msg_padrao, this.init_config, p_mensagem, p_cliente).consultar(v_string_requisicao);
+                            obj_msg_tmp                     =   new bib_bropedia(this.init_msg_padrao, this.init_config, p_mensagem, p_cliente).consultar(v_obj_mensagem_s_prefixo);
                             break;
                         case 'recrutar':
                             obj_msg_tmp.embed.description   =   'Desculpe pessoinha, mas esta funcionalidade não está disponível no momento.';
