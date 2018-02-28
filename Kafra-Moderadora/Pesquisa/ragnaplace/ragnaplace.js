@@ -59,9 +59,26 @@ class ragnaplace
     } // monta_resposta(p_cliente, p_mensagem, p_frase, p_configuracao)
 
 
+
+    trata_consulta(p_array_frase)
+    {
+        const v_string_requisicao;
+
+        for(var i=1;i<p_array_frase.length;i++)
+        {
+            // Forma a string
+            v_string_requisicao = v_string_requisicao + p_array_frase[i] + ' ';
+        } // for(var i=1;i<=p_array_frase.length;i++)
+
+        return v_string_requisicao.trim();
+    } // trata_consulta(p_array_frase)
+
+
+
     item(p_consulta)
     {
-        let  v_termo_consulta   =   encodeURI(p_consulta.trim())
+        let  v_consulta         =   this.trata_consulta(p_consulta)
+            ,v_termo_consulta   =   encodeURI(v_consulta.trim())
             ,v_url_item         =   `https://pt.ragnaplace.com/item-search?q=${v_termo_consulta}`
             ,v_bol_result       = false
             ,v_obj_resposta
@@ -116,7 +133,7 @@ class ragnaplace
                                                                    ,fields              :   [
                                                                                                 {
                                                                                                     name: 'PESSOA NÃO VAI ACREDITAR'
-                                                                                                   ,value: 'QUE CAQUINHA, o termo "' + p_consulta + '" procurado não foi encontrado em minha base de dados! Perdoa o vacilo e não desiste de mim!'
+                                                                                                   ,value: 'QUE CAQUINHA, o termo "' + v_consulta + '" procurado não foi encontrado em minha base de dados! Perdoa o vacilo e não desiste de mim!'
                                                                                                 }
                                                                                             ]
                                                                   ,timestamp            :   new Date()
@@ -177,7 +194,7 @@ class ragnaplace
                                                            ,fields              :   [
                                                                                         {
                                                                                             name: 'ERRO'
-                                                                                           ,value: 'Infelizmente ao consultar sobre "' + p_consulta + '" Um erro foi levantado.'
+                                                                                           ,value: 'Infelizmente ao consultar sobre "' + v_consulta + '" Um erro foi levantado.'
                                                                                         }
                                                                                     ]
                                                           ,timestamp            :   new Date()
@@ -201,8 +218,9 @@ class ragnaplace
 
     mob(p_consulta)
     {
-        let  v_termo_consulta   =   encodeURI(p_consulta.trim())
-            ,v_url_mob         =   `https://pt.ragnaplace.com/mob-search?q=${v_termo_consulta}`
+        let  v_consulta         =   this.trata_consulta(p_consulta)
+            ,v_termo_consulta   =   encodeURI(v_consulta.trim())
+            ,v_url_mob          =   `https://pt.ragnaplace.com/mob-search?q=${v_termo_consulta}`
             ,v_bol_result       = false
             ,v_obj_resposta
             ,v_resultado
@@ -256,7 +274,7 @@ class ragnaplace
                                                                    ,fields              :   [
                                                                                                 {
                                                                                                     name: 'PESSOA NÃO VAI ACREDITAR'
-                                                                                                   ,value: 'QUE CAQUINHA, o termo "' + p_consulta + '" procurado não foi encontrado em minha base de dados! Perdoa o vacilo e não desiste de mim!'
+                                                                                                   ,value: 'QUE CAQUINHA, o termo "' + v_consulta + '" procurado não foi encontrado em minha base de dados! Perdoa o vacilo e não desiste de mim!'
                                                                                                 }
                                                                                             ]
                                                                   ,timestamp            :   new Date()
@@ -317,7 +335,7 @@ class ragnaplace
                                                            ,fields              :   [
                                                                                         {
                                                                                             name: 'ERRO'
-                                                                                           ,value: 'Infelizmente ao consultar sobre "' + p_consulta + '" Um erro foi levantado.'
+                                                                                           ,value: 'Infelizmente ao consultar sobre "' + v_consulta + '" Um erro foi levantado.'
                                                                                         }
                                                                                     ]
                                                           ,timestamp            :   new Date()
@@ -340,7 +358,8 @@ class ragnaplace
 
     mapa(p_consulta)
     {
-        let  v_termo_consulta   =   encodeURI(p_consulta.trim())
+        let  v_consulta         =   this.trata_consulta(p_consulta)
+            ,v_termo_consulta   =   encodeURI(v_consulta.trim())
             ,v_url_mapa         =   `https://pt.ragnaplace.com/map-search?q=${v_termo_consulta}`
             ,v_bol_result       = false
             ,v_obj_resposta
@@ -395,7 +414,7 @@ class ragnaplace
                                                                    ,fields              :   [
                                                                                                 {
                                                                                                     name    : 'ESTOU PERDIDA!'
-                                                                                                   ,value   : 'A consulta para "' + p_consulta + '" me deixou mais confusa que GPS em rotatória.'
+                                                                                                   ,value   : 'A consulta para "' + v_consulta + '" me deixou mais confusa que GPS em rotatória.'
                                                                                                 }
                                                                                             ]
                                                                   ,timestamp            :   new Date()
@@ -456,7 +475,7 @@ class ragnaplace
                                                            ,fields              :   [
                                                                                         {
                                                                                             name: 'ERRO'
-                                                                                           ,value: 'Infelizmente ao consultar sobre "' + p_consulta + '" Um erro foi levantado.'
+                                                                                           ,value: 'Infelizmente ao consultar sobre "' + v_consulta + '" Um erro foi levantado.'
                                                                                         }
                                                                                     ]
                                                           ,timestamp            :   new Date()
@@ -473,7 +492,7 @@ class ragnaplace
                               );
         }
 
-    } // item(p_consulta)
+    } // map(p_consulta)
 
 } // class ragnaplace
 
