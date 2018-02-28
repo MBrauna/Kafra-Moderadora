@@ -101,6 +101,7 @@ class ragnaplace
         let     v_consulta          =   this.trata_consulta(p_consulta)
                ,v_termo_consulta    =   encodeURI(v_consulta.trim())
                ,v_url_consulta      =   `https://pt.ragnaplace.com/api/${process.env.BOT_TOKEN_RAGNAPLACE}/8/bro/item/search/99/views/${v_termo_consulta}`
+               ,v_obj_resposta      =   {}
                ,v_resposta
                ,v_pagina
                ;
@@ -365,6 +366,7 @@ class ragnaplace
         let     v_consulta          =   this.trata_consulta(p_consulta)
                ,v_termo_consulta    =   encodeURI(v_consulta.trim())
                ,v_url_consulta      =   `https://pt.ragnaplace.com/api/${process.env.BOT_TOKEN_RAGNAPLACE}/8/bro/mob/search/99/views/${v_termo_consulta}`
+               ,v_obj_resposta      =   {}
                ,v_resposta
                ,v_pagina
                ;
@@ -622,6 +624,7 @@ class ragnaplace
         let     v_consulta          =   this.trata_consulta(p_consulta)
                ,v_termo_consulta    =   encodeURI(v_consulta.trim())
                ,v_url_consulta      =   `https://pt.ragnaplace.com/api/${process.env.BOT_TOKEN_RAGNAPLACE}/8/bro/map/search/99/views/${v_termo_consulta}`
+               ,v_obj_resposta      =   {}
                ,v_resposta
                ,v_pagina
                ;
