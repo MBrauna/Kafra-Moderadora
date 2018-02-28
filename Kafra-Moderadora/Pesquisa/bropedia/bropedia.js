@@ -61,10 +61,29 @@ class bropedia
 
     } // monta_resposta(p_cliente, p_mensagem, p_frase, p_configuracao)
 
+
+
+
+    trata_consulta(p_array_frase)
+    {
+        const v_string_requisicao;
+
+        for(var i=1;i<p_array_frase.length;i++)
+        {
+            // Forma a string
+            v_string_requisicao = v_string_requisicao + p_array_frase[i] + ' ';
+        } // for(var i=1;i<=p_array_frase.length;i++)
+
+        return v_string_requisicao.trim();
+    } // trata_consulta(p_array_frase)
+
+
+
     consultar(p_consulta)
     {
         // Prepara os dados iniciais para consulta na enciclopédia.
-        let    v_termo_consulta     =   encodeURI(p_consulta.trim())
+        let    v_consulta           =   this.trata_consulta(p_consulta)
+              ,v_termo_consulta     =   encodeURI(v_consulta.trim())
               ,v_url_bropedia       =   `http://bropedia.net/api.php?action=query&list=search&srsearch=${v_termo_consulta}&utf8=&format=json`
               ,v_obj_resposta       =   {}
               ,v_partes             =   []
@@ -118,7 +137,7 @@ class bropedia
                                                                    ,fields              :   [
                                                                                                 {
                                                                                                     name: 'ZERO! NADA! VAZIO!'
-                                                                                                   ,value: 'QUE CAQUINHA, o termo "' + p_consulta + '" procurado não foi encontrado em minha base de dados! Perdoa o vacilo e não desiste de mim!'
+                                                                                                   ,value: 'QUE CAQUINHA, o termo "' + v_consulta + '" procurado não foi encontrado em minha base de dados! Perdoa o vacilo e não desiste de mim!'
                                                                                                 }
                                                                                             ]
                                                                   ,timestamp            :   new Date()
@@ -141,11 +160,11 @@ class bropedia
                     v_resposta.query.search.forEach((json_resp) =>
                     {
                         // Teste - Consulta similar
-                        if(json_resp.title.toLowerCase() == p_consulta.trim().toLowerCase())
+                        if(json_resp.title.toLowerCase() == v_consulta.trim().toLowerCase())
                         {
                             // Caso encontre: A página desejada se faz presente.
                             v_pagina    =   json_resp;
-                        } // if(json_resp.title.toLowerCase() == p_consulta.trim().toLowerCase())
+                        } // if(json_resp.title.toLowerCase() == v_consulta.trim().toLowerCase())
                     });
 
                     // Verifica se a página informada foi definida, caso não seja utiliza a primeira opção obtida na query
@@ -187,7 +206,7 @@ class bropedia
                                                                        ,fields              :   [
                                                                                                     {
                                                                                                         name: 'ZERO! NADA! VAZIO! NOTHING!'
-                                                                                                       ,value: 'QUE CAQUINHA, o termo "' + p_consulta + '" procurado não foi encontrado em minha base de dados! Perdoa o vacilo e não desiste de mim!'
+                                                                                                       ,value: 'QUE CAQUINHA, o termo "' + v_consulta + '" procurado não foi encontrado em minha base de dados! Perdoa o vacilo e não desiste de mim!'
                                                                                                     }
                                                                                                 ]
                                                                       ,timestamp            :   new Date()
@@ -259,7 +278,7 @@ class bropedia
                                                                            ,fields              :   [
                                                                                                         {
                                                                                                             name: 'Ocorreu um erro durante a consulta'
-                                                                                                           ,value: 'O termo "' + p_consulta + '" gerou um erro! Acha que é sentar e chorar? Nananinanão avise um administrador.'
+                                                                                                           ,value: 'O termo "' + v_consulta + '" gerou um erro! Acha que é sentar e chorar? Nananinanão avise um administrador.'
                                                                                                         }
                                                                                                     ]
                                                                           ,timestamp            :   new Date()
@@ -288,7 +307,7 @@ class bropedia
                                                                                                     }
                                                                            ,title               :   v_pagina_final.title
                                                                            ,url                 :   v_pagina_final.canonicalurl
-                                                                           ,description         :   'Este é o resultado mais relevante para ' + p_consulta + '.'
+                                                                           ,description         :   'Este é o resultado mais relevante para ' + v_consulta + '.'
                                                                            ,'image'             :   {
                                                                                                         "url"       :   null
                                                                                                        ,"height"    :   null // 123
@@ -368,7 +387,7 @@ class bropedia
                                                                ,fields              :   [
                                                                                             {
                                                                                                 name: 'Ocorreu um erro durante a consulta'
-                                                                                               ,value: 'O termo "' + p_consulta + '" gerou um erro! Acha que é sentar e chorar? Nananinanão avise um administrador.'
+                                                                                               ,value: 'O termo "' + v_consulta + '" gerou um erro! Acha que é sentar e chorar? Nananinanão avise um administrador.'
                                                                                             }
                                                                                         ]
                                                               ,timestamp            :   new Date()
