@@ -66,7 +66,7 @@ class bropedia
 
     trata_consulta(p_array_frase)
     {
-        const v_string_requisicao;
+        var v_string_requisicao = '';
 
         for(var i=1;i<p_array_frase.length;i++)
         {
