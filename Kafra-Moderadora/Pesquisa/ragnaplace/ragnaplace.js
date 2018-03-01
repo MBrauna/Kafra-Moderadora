@@ -87,12 +87,10 @@ class ragnaplace
             if(p_array_frase[i].trim() !== '' || p_array_frase[i].trim() !== null || p_array_frase[i].trim() !== 'undefined')
             {
                 v_termo_consulta = p_array_frase[i].trim();
-
-                return v_termo_consulta;
             } // if(p_array_frase[i].trim() !== '' || p_array_frase[i].trim() !== null || p_array_frase[i].trim() !== 'undefined')
         } // for(var i=1;i<p_array_frase.length;i++)
 
-        return;
+        return v_termo_consulta;
     } // nova_consulta(p_array_frase)
 
 
