@@ -21,7 +21,6 @@
 // Inicialização de bibliotecas                                 (∩｀-´)⊃━☆ﾟ.*･｡ﾟ
 let  bib_bropedia       =   require('./Pesquisa/bropedia/bropedia.js')
      bib_ragnaplace     =   require('./Pesquisa/ragnaplace/ragnaplace.js')
-     bib_braunabot      =   require('./kafra-moderadora/Comando/braunabot.js')
     ;
 // Inicialização de bibliotecas                                 (∩｀-´)⊃━☆ﾟ.*･｡ﾟ
 
@@ -187,7 +186,8 @@ class comando
                                                );
                             break;
                         default:
-                            obj_msg_tmp                     =   new bib_braunabot(p_cliente, p_mensagem).conversa();
+                            obj_msg_tmp.embed.description   =   '**Kafra moderadora** na área, fique tranquilo(a) pois irei te ajudar.';
+                            obj_msg_tmp.embed.fields        =   this.init_msg_funcionalidade;
                             break;
                     } // switch(v_obj_mensagem_s_prefixo[0].toLowerCase())
                 } // else { .. }
