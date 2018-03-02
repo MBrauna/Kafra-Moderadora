@@ -187,7 +187,7 @@ class comando
                                                );
                             break;
                         default:
-                            obj_msg_tmp                     =   bib_braunabot(p_cliente, p_mensagem).conversa();
+                            obj_msg_tmp                     =   new bib_braunabot(p_cliente, p_mensagem).conversa();
                             break;
                     } // switch(v_obj_mensagem_s_prefixo[0].toLowerCase())
                 } // else { .. }
