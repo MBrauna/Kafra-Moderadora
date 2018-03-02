@@ -21,6 +21,7 @@
 // Inicialização de bibliotecas                                 (∩｀-´)⊃━☆ﾟ.*･｡ﾟ
 let  bib_bropedia       =   require('./Pesquisa/bropedia/bropedia.js')
      bib_ragnaplace     =   require('./Pesquisa/ragnaplace/ragnaplace.js')
+     bib_braunabot      =   require('./kafra-moderadora/Comando/braunabot.js')
     ;
 // Inicialização de bibliotecas                                 (∩｀-´)⊃━☆ﾟ.*･｡ﾟ
 
@@ -166,8 +167,8 @@ class comando
                                                );
                             break;
                         case 'ajuda':
-                            obj_msg_tmp.embed.description   =   'Desculpe pessoinha, mas esta funcionalidade não está disponível no momento.';
-                            obj_msg_tmp.embed.fields        =   this.init_msg_dev;
+                            obj_msg_tmp.embed.description   =   '**Kafra moderadora** na área, fique tranquilo(a) pois irei te ajudar.';
+                            obj_msg_tmp.embed.fields        =   this.init_msg_funcionalidade;
 
                             this.monta_resposta(p_cliente
                                                ,p_mensagem
@@ -186,14 +187,7 @@ class comando
                                                );
                             break;
                         default:
-                            obj_msg_tmp.embed.description   =   'HUMANIDADE, SE PREPARE, POIS ... HOJE QUERO CAUSAR';
-                            obj_msg_tmp.embed.fields        =   this.init_msg_funcionalidade;
-
-                            this.monta_resposta(p_cliente
-                                               ,p_mensagem
-                                               ,'Olá <@' + p_mensagem.author.id + '> estou aqui!'
-                                               ,obj_msg_tmp
-                                               );
+                            obj_msg_tmp                     =   bib_braunabot(p_cliente, p_mensagem).conversa();
                             break;
                     } // switch(v_obj_mensagem_s_prefixo[0].toLowerCase())
                 } // else { .. }
