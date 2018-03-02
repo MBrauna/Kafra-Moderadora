@@ -19,9 +19,9 @@
 ****************************************************************************************************/
 
 // Inicialização de bibliotecas                                 (∩｀-´)⊃━☆ﾟ.*･｡ﾟ
-let bib_requisicao      =   require('request')
-   ,bib_underline       =   require('underscore')
-   ;
+let   bib_requisicao      =   require('request')
+     ,bib_underline       =   require('underscore')
+     ;
 // Inicialização de bibliotecas                                 (∩｀-´)⊃━☆ﾟ.*･｡ﾟ
 
 class ragnaplace
@@ -95,10 +95,12 @@ class ragnaplace
 
     item(p_consulta)
     {
-        let     v_consulta          =   this.trata_consulta(p_consulta)
-               ,v_termo_consulta    =   encodeURI(v_consulta.trim())
-               ,v_url_consulta      =   `https://pt.ragnaplace.com/api/${process.env.BOT_TOKEN_RAGNAPLACE}/8/bro/item/search/99/views/${v_termo_consulta}`
-               ,v_obj_resposta      =   {}
+        let     v_consulta          =       this.trata_consulta(p_consulta)
+               ,v_termo_consulta    =       encodeURI(v_consulta.trim())
+               ,v_url_consulta      =       `https://pt.ragnaplace.com/api/${process.env.BOT_TOKEN_RAGNAPLACE}/8/bro/item/search/99/views/${v_termo_consulta}`
+               ,v_obj_resposta      =       {}
+               ,v_array_resp        =       []
+               ,v_contador          =       0
                ,v_resposta
                ,v_pagina
                ;
@@ -114,9 +116,122 @@ class ragnaplace
                 // Verifica se foi possível encontrar algum resultado para a busca desejada
                 if(v_resposta === 'null' || v_resposta === 'NULL' || v_resposta === null || v_resposta === 'undefined')
                 {
-                    this.monta_resposta('teste "' + this.nova_consulta(p_consulta) + '"'
-                                        ,null
-                                        );
+                    // Marca uma nova consulta com o termo desejado
+                    v_termo_consulta    =   encodeURI(this.nova_consulta(p_consulta));
+                    v_url_consulta      =   `https://pt.ragnaplace.com/api/${process.env.BOT_TOKEN_RAGNAPLACE}/8/bro/item/search/99/views/${v_termo_consulta}`;
+
+                    bib_requisicao.get(v_url_consulta, (p_erro_nt, p_resposta_nt, p_corpo_nt) =>
+                    {
+                        v_resposta  =   JSON.parse(p_corpo_nt);
+
+                        if(v_resposta === 'null' || v_resposta === 'NULL' || v_resposta === null || v_resposta === 'undefined')
+                        {
+                            v_obj_resposta          =   {
+                                                            'embed' :   {
+                                                                            color               :   this.obj_config.cor_vermelha.color
+                                                                           ,author              :   {
+                                                                                                        name        :   'Kafra Moderadora'
+                                                                                                       ,icone       :   'https://i.imgur.com/cfYwkLQ.png'
+                                                                                                       ,url         :   'https://github.com/bropedia/Kafra-Moderadora'
+                                                                                                    }
+                                                                           ,title               :   'O QUE É ISSO MEUS AMORES?'
+                                                                           ,url                 :   null
+                                                                           ,description         :   'Você pesquisou um item que eu não conheço.'
+                                                                           ,'image'             :   {
+                                                                                                        "url"       :   null
+                                                                                                       ,"height"    :   null // 123
+                                                                                                       ,"width"     :   null // 123
+                                                                                                    }
+                                                                           ,thumbnail           :   {
+                                                                                                        "url"       :   'https://i.imgur.com/t3E6tKA.gif' // 'https://i.imgur.com/LOGICNS.jpg'
+                                                                                                       ,"height"    :   null // 123
+                                                                                                       ,"width"     :   null // 123 
+                                                                                                    }
+                                                                           ,video               :   {
+                                                                                                        "url"       :   null // 'https://i.imgur.com/LOGICNS.jpg'
+                                                                                                       ,"height"    :   null // 123
+                                                                                                       ,"width"     :   null // 123
+                                                                                                    }
+                                                                           ,fields              :   [
+                                                                                                        {
+                                                                                                            name: 'PESSOA NÃO VAI ACREDITAR'
+                                                                                                           ,value: 'QUE CAQUINHA, o termo "' + this.trata_consulta(p_consulta) + '" procurado não foi encontrado em minha base de dados! Perdoa o vacilo e não desiste de mim!'
+                                                                                                        }
+                                                                                                    ]
+                                                                          ,timestamp            :   new Date()
+                                                                          ,footer               :   {
+                                                                                                        icon_url:   'https://i.imgur.com/cfYwkLQ.png'
+                                                                                                       ,text:       '© bROPédia - Por MBrauna e Lazarento'
+                                                                                                    }
+                                                                        }
+                                                        };
+
+
+                            this.monta_resposta('CAQUINHAS ME MORDAM <@' + this.obj_mensagem.author.id + '>, não achei nada!'
+                                              ,v_obj_resposta
+                                              );
+                            return;
+                        }
+
+                        // Zera o contador
+                        v_contador = 0;
+
+                        // Abre os resultados na nova requisição
+                        v_resposta.forEach((p_resp) =>
+                        {
+                            // Incrementa o contador
+                            v_contador++;
+
+                            if(v_contador <= 10)
+                            {
+                                var tmp_coisas = {name: p_resp.text, value: p_resp.link};
+                                v_pagina.push(tmp_coisas);
+                            } // if(v_contador <= 10)
+                        }); // v_resposta.forEach((p_resp) =>
+
+
+                        v_obj_resposta          =   {
+                                                        'embed' :   {
+                                                                        color               :   this.obj_config.cor_amarela.color
+                                                                       ,author              :   {
+                                                                                                    name        :   'Kafra Moderadora'
+                                                                                                   ,icone       :   'https://i.imgur.com/cfYwkLQ.png'
+                                                                                                   ,url         :   'https://github.com/bropedia/Kafra-Moderadora'
+                                                                                                }
+                                                                       ,title               :   'Não pude encontrar sua requisição!'
+                                                                       ,url                 :   null
+                                                                       ,description         :   '**Não encontrei sua requisição** \n Entretanto ... eis o que encontrei de semelhante'
+                                                                       ,'image'             :   {
+                                                                                                    "url"       :   null
+                                                                                                   ,"height"    :   null // 123
+                                                                                                   ,"width"     :   null // 123
+                                                                                                }
+                                                                       ,thumbnail           :   {
+                                                                                                    "url"       :   'https://i.imgur.com/5SiWZwF.png' // 'https://i.imgur.com/LOGICNS.jpg'
+                                                                                                   ,"height"    :   null // 123
+                                                                                                   ,"width"     :   null // 123 
+                                                                                                }
+                                                                       ,video               :   {
+                                                                                                    "url"       :   null // 'https://i.imgur.com/LOGICNS.jpg'
+                                                                                                   ,"height"    :   null // 123
+                                                                                                   ,"width"     :   null // 123
+                                                                                                }
+                                                                       ,fields              :   v_pagina
+                                                                       ,timestamp           :   new Date()
+                                                                       ,footer              :   {
+                                                                                                    icon_url:   'https://i.imgur.com/cfYwkLQ.png'
+                                                                                                   ,text:       '© bROPédia - Por MBrauna e Lazarento'
+                                                                                                }
+                                                                    }
+                                                    };
+
+
+                        this.monta_resposta('<@' + this.obj_mensagem.author.id + '> me perdoe meu querido, mas só pude encontrar isto.'
+                                          ,v_obj_resposta
+                                          );
+                        return;
+
+                    }); // bib_requisicao.get(v_url_consulta, (p_erro_nt, p_resposta_nt, p_corpo_nt) =>
 
                 } // if(v_resposta === 'null' || v_resposta === 'NULL' || v_resposta === null || v_resposta === 'undefined')
                 else
