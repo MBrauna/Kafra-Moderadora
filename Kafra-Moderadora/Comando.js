@@ -188,6 +188,12 @@ class comando
                         default:
                             obj_msg_tmp.embed.description   =   '**Kafra moderadora** na área, fique tranquilo(a) pois irei te ajudar.';
                             obj_msg_tmp.embed.fields        =   this.init_msg_funcionalidade;
+                              
+                            this.monta_resposta(p_cliente
+                                               ,p_mensagem
+                                               ,'E lá vamos nós <@' + p_mensagem.author.id + '>'
+                                               ,obj_msg_tmp
+                                               );
                             break;
                     } // switch(v_obj_mensagem_s_prefixo[0].toLowerCase())
                 } // else { .. }
