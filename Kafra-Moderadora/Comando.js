@@ -89,7 +89,7 @@ class comando
             if(v_bol_chamada)
             {
                 // Iniciliaza os dados padrões para referenciamento
-                this.carrega_padrao();
+                this.carrega_padrao(p_cliente);
 
                 // Clona o objeto de mensagem padrão para modificações conforme necessário
                 var obj_msg_tmp     =   Object.assign({}, this.init_msg_padrao);
@@ -247,7 +247,7 @@ class comando
     } // trata_mensagem(p_cliente, p_mensagem)
 
 
-    carrega_padrao()
+    carrega_padrao(p_cliente)
     {
         // Define as variáveis de inicialização para os comandos
         this.init_config                    =   {
@@ -304,37 +304,37 @@ class comando
 
         this.init_msg_funcionalidade        =   [
                                                     {
-                                                        name:   "@Kafra Moderadora <item/monstro/mapa> <nome_desejado/ID>"
+                                                        name:   '<@' + p_cliente.user.id + '> <item/monstro/mapa> <nome_desejado/ID>'
                                                        ,value:  "Este é o maravilhoso comando para realizar consultas de diversos itens, monstros ou até mesmo mapas no melhor database do universo!"
                                                     }
                                                    ,{
-                                                        name:   "@Kafra Moderadora wiki <termo_desejado>"
+                                                        name:   '<@' + p_cliente.user.id + '> wiki <termo_desejado>'
                                                        ,value:  "Está em dúvida numa missão? Está perdido? Quer conhecer um pouco da história do jogo? Não tem problema, com a Kafra Moderadora não há problema, eu te ajudo."
                                                     }
                                                    ,{
-                                                        name:   "[ALPHA]@kafra Moderadora recrutar <nivel_inicial> <nivel_final> <mapa_desejado>"
+                                                        name:   '[ALPHA]<@' + p_cliente.user.id + '> <nivel_inicial> <nivel_final> <mapa_desejado>'
                                                        ,value:  "Por 20 minutos irei organizar seu grupo para que tenha um maravilhoso rendimento dentro do jogo! Basta me chamar."
                                                     }
                                                    ,{
-                                                        name:   "[ALPHA] @Kafra Moderadora procurar <nivel_atual>"
+                                                        name:   '[ALPHA]<@' + p_cliente.user.id + '> procurar <nivel_atual>'
                                                        ,value:  "Mãos à obra pessoal! Quer moleza? Senta num poring. Me informe seu nível que irei listar para você todos os grupos ativos para sua faixa de nível."
                                                     }
                                                    ,{
-                                                        name:   "[ALPHA] @Kafra Moderadora grupos"
+                                                        name:   '[ALPHA]<@' + p_cliente.user.id + '> grupos'
                                                        ,value:  "Veja todos os grupos existentes na face da Terr ... erhh... Rune Midgard que são organizados por moi (Ou seja, euzinha mesmo, com todo meu banhammer e ternura)."
                                                     }
                                                    ,{
-                                                        name:   "@Kafra Moderadora regras"
+                                                        name:   '[ALPHA]<@' + p_cliente.user.id + '> regras'
                                                        ,value:  "Tá achando que aqui é bagunça? Está é por fora! Vacila ... que te mostro com quantos banhammer se faz uma canoa."
                                                     }
 
                                                    ,{
-                                                        name:   "@Kafra Moderadora ajuda"
+                                                        name:   '[ALPHA]<@' + p_cliente.user.id + '> ajuda'
                                                        ,value:  "CALMA CALMA .... NÃO DESESPERA ... RESPIRAAAAA!!!"
                                                     }
                                                    ,{
                                                         name:   "(ﾉ ＾∇＾)ﾉ"
-                                                       ,value:  "Em caso de bugs, não apague o tópico da manutenção, basta chamar: @Kafra Moderadora bug"
+                                                       ,value:  'Em caso de bugs, não apague o tópico da manutenção, basta chamar: <@' + p_cliente.user.id + '>'
                                                     }
                                                 ];
 
