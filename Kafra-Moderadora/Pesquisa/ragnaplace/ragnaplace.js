@@ -185,7 +185,7 @@ class ragnaplace
                             if(v_contador <= 10)
                             {
                                 var tmp_coisas = {name: p_resp.text, value: p_resp.link};
-                                v_pagina.push(tmp_coisas);
+                                v_array_resp.push(tmp_coisas);
                             } // if(v_contador <= 10)
                         }); // v_resposta.forEach((p_resp) =>
 
@@ -216,7 +216,7 @@ class ragnaplace
                                                                                                    ,"height"    :   null // 123
                                                                                                    ,"width"     :   null // 123
                                                                                                 }
-                                                                       ,fields              :   v_pagina
+                                                                       ,fields              :   v_array_resp
                                                                        ,timestamp           :   new Date()
                                                                        ,footer              :   {
                                                                                                     icon_url:   'https://i.imgur.com/cfYwkLQ.png'
