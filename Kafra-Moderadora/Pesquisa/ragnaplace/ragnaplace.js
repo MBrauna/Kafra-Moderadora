@@ -399,7 +399,7 @@ class ragnaplace
                 {
                     // Marca uma nova consulta com o termo desejado
                     v_termo_consulta    =   encodeURI(this.nova_consulta(p_consulta));
-                    v_url_consulta      =   `https://pt.ragnaplace.com/api/${process.env.BOT_TOKEN_RAGNAPLACE}/8/bro/item/search/99/views/${v_termo_consulta}`;
+                    v_url_consulta      =   `https://pt.ragnaplace.com/api/${process.env.BOT_TOKEN_RAGNAPLACE}/8/bro/mob/search/99/views/${v_termo_consulta}`;
 
                     bib_requisicao.get(v_url_consulta, (p_erro_nt, p_resposta_nt, p_corpo_nt) =>
                     {
