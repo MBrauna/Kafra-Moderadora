@@ -184,7 +184,7 @@ class ragnaplace
 
                             if(v_contador <= 10)
                             {
-                                var tmp_coisas = {name: p_resp.text, value: p_resp.link};
+                                var tmp_coisas = {name: p_resp.name, value: p_resp.link};
                                 v_array_resp.push(tmp_coisas);
                             } // if(v_contador <= 10)
                         }); // v_resposta.forEach((p_resp) =>
@@ -465,7 +465,7 @@ class ragnaplace
 
                             if(v_contador <= 10)
                             {
-                                var tmp_coisas = {name: p_resp.text, value: p_resp.link};
+                                var tmp_coisas = {name: p_resp.name, value: p_resp.link};
                                 v_array_resp.push(tmp_coisas);
                             } // if(v_contador <= 10)
                         }); // v_resposta.forEach((p_resp) =>
@@ -652,7 +652,9 @@ class ragnaplace
         let     v_consulta          =   this.trata_consulta(p_consulta)
                ,v_termo_consulta    =   encodeURI(v_consulta.trim())
                ,v_url_consulta      =   `https://pt.ragnaplace.com/api/${process.env.BOT_TOKEN_RAGNAPLACE}/8/bro/map/search/99/views/${v_termo_consulta}`
-               ,v_obj_resposta      =   {}
+               ,v_obj_resposta      =       {}
+               ,v_array_resp        =       []
+               ,v_contador          =       0
                ,v_resposta
                ,v_pagina
                ;
@@ -665,193 +667,205 @@ class ragnaplace
                 // Atribui ao corpo da consulta a informação
                 v_resposta  =   JSON.parse(p_corpo);
 
-                // Verifica se foi possível encontrar algum resultado para a busca desejada
                 if(v_resposta === 'null' || v_resposta === 'NULL' || v_resposta === null || v_resposta === 'undefined')
                 {
-                    // Caso seja nulo, expõe uma lista com opções extras, com a primeira palavra consultada
-                    v_consulta          =   this.nova_consulta(p_consulta);
-                    // Se mesmo assim nada for encontrado
-                    if(v_consulta.trim() === null || v_consulta.trim() === 'undefined')
+                    // Marca uma nova consulta com o termo desejado
+                    v_termo_consulta    =   encodeURI(this.nova_consulta(p_consulta));
+                    v_url_consulta      =   `https://pt.ragnaplace.com/api/${process.env.BOT_TOKEN_RAGNAPLACE}/8/bro/map/search/99/views/${v_termo_consulta}`;
+
+                    bib_requisicao.get(v_url_consulta, (p_erro_nt, p_resposta_nt, p_corpo_nt) =>
+                    {
+                        v_resposta  =   JSON.parse(p_corpo_nt);
+
+                        if(v_resposta === 'null' || v_resposta === 'NULL' || v_resposta === null || v_resposta === 'undefined')
+                        {
+                            v_obj_resposta          =   {
+                                                            'embed' :   {
+                                                                            color               :   this.obj_config.cor_vermelha.color
+                                                                           ,author              :   {
+                                                                                                        name        :   'Kafra Moderadora'
+                                                                                                       ,icone       :   'https://i.imgur.com/cfYwkLQ.png'
+                                                                                                       ,url         :   'https://github.com/bropedia/Kafra-Moderadora'
+                                                                                                    }
+                                                                           ,title               :   'O QUE É ISSO MEUS AMORES?'
+                                                                           ,url                 :   null
+                                                                           ,description         :   'NUNCA NEM VI ESSE LUGAR.'
+                                                                           ,'image'             :   {
+                                                                                                        "url"       :   null
+                                                                                                       ,"height"    :   null // 123
+                                                                                                       ,"width"     :   null // 123
+                                                                                                    }
+                                                                           ,thumbnail           :   {
+                                                                                                        "url"       :   'https://i.imgur.com/t3E6tKA.gif' // 'https://i.imgur.com/LOGICNS.jpg'
+                                                                                                       ,"height"    :   null // 123
+                                                                                                       ,"width"     :   null // 123 
+                                                                                                    }
+                                                                           ,video               :   {
+                                                                                                        "url"       :   null // 'https://i.imgur.com/LOGICNS.jpg'
+                                                                                                       ,"height"    :   null // 123
+                                                                                                       ,"width"     :   null // 123
+                                                                                                    }
+                                                                           ,fields              :   [
+                                                                                                        {
+                                                                                                            name: 'Sei que é meio embaraçoso o que irei dizer mas ...'
+                                                                                                           ,value: 'QUE CAQUINHA, o termo "' + this.trata_consulta(p_consulta) + '" procurado não foi encontrado em minha base de dados! Perdoa o vacilo e não desiste de mim!'
+                                                                                                        }
+                                                                                                    ]
+                                                                          ,timestamp            :   new Date()
+                                                                          ,footer               :   {
+                                                                                                        icon_url:   'https://i.imgur.com/cfYwkLQ.png'
+                                                                                                       ,text:       '© bROPédia - Por MBrauna e Lazarento'
+                                                                                                    }
+                                                                        }
+                                                        };
+
+
+                            this.monta_resposta('CAQUINHAS ME MORDAM <@' + this.obj_mensagem.author.id + '>, não achei nada!'
+                                              ,v_obj_resposta
+                                              );
+                            return;
+                        } // if(v_resposta === 'null' || v_resposta === 'NULL' || v_resposta === null || v_resposta === 'undefined')
+
+                        // Zera o contador
+                        v_contador = 0;
+
+                        // Abre os resultados na nova requisição
+                        v_resposta.forEach((p_resp) =>
+                        {
+                            // Incrementa o contador
+                            v_contador++;
+
+                            if(v_contador <= 10)
+                            {
+                                var tmp_coisas = {name: p_resp.name, value: p_resp.link};
+                                v_array_resp.push(tmp_coisas);
+                            } // if(v_contador <= 10)
+                        }); // v_resposta.forEach((p_resp) =>
+
+
+                        v_obj_resposta          =   {
+                                                        'embed' :   {
+                                                                        color               :   this.obj_config.cor_amarela.color
+                                                                       ,author              :   {
+                                                                                                    name        :   'Kafra Moderadora'
+                                                                                                   ,icone       :   'https://i.imgur.com/cfYwkLQ.png'
+                                                                                                   ,url         :   'https://github.com/bropedia/Kafra-Moderadora'
+                                                                                                }
+                                                                       ,title               :   '**Não pude encontrar o mapa que pediu**'
+                                                                       ,url                 :   null
+                                                                       ,description         :   'VAMOS PASSEAR NA FLORESTA ENQUANTO O BANHAMMER NÃO VEM ' + this.obj_mensagem.author.username + '!! \nMeu brilhante GPS está marcando locais similares, dá uma olhada:'
+                                                                       ,'image'             :   {
+                                                                                                    "url"       :   null
+                                                                                                   ,"height"    :   null // 123
+                                                                                                   ,"width"     :   null // 123
+                                                                                                }
+                                                                       ,thumbnail           :   {
+                                                                                                    "url"       :   'https://i.imgur.com/5SiWZwF.png' // 'https://i.imgur.com/LOGICNS.jpg'
+                                                                                                   ,"height"    :   null // 123
+                                                                                                   ,"width"     :   null // 123 
+                                                                                                }
+                                                                       ,video               :   {
+                                                                                                    "url"       :   null // 'https://i.imgur.com/LOGICNS.jpg'
+                                                                                                   ,"height"    :   null // 123
+                                                                                                   ,"width"     :   null // 123
+                                                                                                }
+                                                                       ,fields              :   v_array_resp
+                                                                       ,timestamp           :   new Date()
+                                                                       ,footer              :   {
+                                                                                                    icon_url:   'https://i.imgur.com/cfYwkLQ.png'
+                                                                                                   ,text:       '© bROPédia - Por MBrauna e Lazarento'
+                                                                                                }
+                                                                    }
+                                                    };
+
+
+                        this.monta_resposta('<@' + this.obj_mensagem.author.id + '> o GPS da Kafra mais linda do Braseu tá doido ... '
+                                          ,v_obj_resposta
+                                          );
+                        return;
+
+                    }); // bib_requisicao.get(v_url_consulta, (p_erro_nt, p_resposta_nt, p_corpo_nt) =>
+
+                } // if(v_resposta === 'null' || v_resposta === 'NULL' || v_resposta === null || v_resposta === 'undefined')
+                else
+                {
+                    v_resposta.forEach((p_resp) =>
+                    {
+                        if(p_resp.id.split('/')[0] == this.input) v_bol_result = p_resp;
+                    });
+
+                    v_resposta.forEach((json_resp) =>
+                    {
+                        // Teste - Consulta similar
+                        if(json_resp.name.toLowerCase() == v_consulta.trim().toLowerCase())
+                        {
+                            // Caso encontre: A página desejada se faz presente.
+                            v_pagina    =   json_resp;
+                        } // if(json_resp.title.toLowerCase() == v_consulta.trim().toLowerCase())
+                    });
+
+                    // Verifica se a página informada foi definida, caso não seja utiliza a primeira opção obtida na query
+                    if(typeof v_pagina === 'undefined')
+                    {
+                        v_pagina        =   bib_underline.first(v_resposta);
+                    } // if(typeof v_pagina === 'undefined')
+
+                    // Se mesmo assim a página permanecer não definida
+                    if(typeof v_pagina === 'undefined')
                     {
                         v_obj_resposta          =   {
-                                                    'embed' :   {
-                                                                    color               :   this.obj_config.cor_vermelha.color
-                                                                   ,author              :   {
-                                                                                                name        :   'Kafra Moderadora'
-                                                                                               ,icone       :   'https://i.imgur.com/cfYwkLQ.png'
-                                                                                               ,url         :   'https://github.com/bropedia/Kafra-Moderadora'
-                                                                                            }
-                                                                   ,title               :   'ESTOU PERDIDA!'
-                                                                   ,url                 :   null
-                                                                   ,description         :   'Aonde estou? Que lugar é esse? Quem são vocês? Cadê meu GPS?!'
-                                                                   ,'image'             :   {
-                                                                                                "url"       :   null
-                                                                                               ,"height"    :   null // 123
-                                                                                               ,"width"     :   null // 123
-                                                                                            }
-                                                                   ,thumbnail           :   {
-                                                                                                "url"       :   'https://i.imgur.com/t3E6tKA.gif' // 'https://i.imgur.com/LOGICNS.jpg'
-                                                                                               ,"height"    :   null // 123
-                                                                                               ,"width"     :   null // 123 
-                                                                                            }
-                                                                   ,video               :   {
-                                                                                                "url"       :   null // 'https://i.imgur.com/LOGICNS.jpg'
-                                                                                               ,"height"    :   null // 123
-                                                                                               ,"width"     :   null // 123
-                                                                                            }
-                                                                   ,fields              :   [
-                                                                                                {
-                                                                                                    name    : 'ESTOU PERDIDA!'
-                                                                                                   ,value   : 'A consulta para "' + v_consulta + '" me deixou mais confusa que GPS em rotatória.'
+                                                        'embed' :   {
+                                                                        color               :   this.obj_config.cor_vermelha.color
+                                                                       ,author              :   {
+                                                                                                    name        :   'Kafra Moderadora'
+                                                                                                   ,icone       :   'https://i.imgur.com/cfYwkLQ.png'
+                                                                                                   ,url         :   'https://github.com/bropedia/Kafra-Moderadora'
                                                                                                 }
-                                                                                            ]
-                                                                  ,timestamp            :   new Date()
-                                                                  ,footer               :   {
-                                                                                                icon_url:   'https://i.imgur.com/cfYwkLQ.png'
-                                                                                               ,text:       '© bROPédia - Por MBrauna e Lazarento'
-                                                                                            }
-                                                                }
-                                                };
+                                                                       ,title               :   'ESTOU PERDIDA!'
+                                                                       ,url                 :   null
+                                                                       ,description         :   'Aonde estou? Que lugar é esse? Quem são vocês? Cadê meu GPS?!'
+                                                                       ,'image'             :   {
+                                                                                                    "url"       :   null
+                                                                                                   ,"height"    :   null // 123
+                                                                                                   ,"width"     :   null // 123
+                                                                                                }
+                                                                       ,thumbnail           :   {
+                                                                                                    "url"       :   'https://i.imgur.com/t3E6tKA.gif' // 'https://i.imgur.com/LOGICNS.jpg'
+                                                                                                   ,"height"    :   null // 123
+                                                                                                   ,"width"     :   null // 123 
+                                                                                                }
+                                                                       ,video               :   {
+                                                                                                    "url"       :   null // 'https://i.imgur.com/LOGICNS.jpg'
+                                                                                                   ,"height"    :   null // 123
+                                                                                                   ,"width"     :   null // 123
+                                                                                                }
+                                                                       ,fields              :   [
+                                                                                                    {
+                                                                                                        name    : 'ESTOU PERDIDA!'
+                                                                                                       ,value   : 'A consulta para "' + v_consulta + '" me deixou mais confusa que GPS em rotatória.'
+                                                                                                    }
+                                                                                                ]
+                                                                      ,timestamp            :   new Date()
+                                                                      ,footer               :   {
+                                                                                                    icon_url:   'https://i.imgur.com/cfYwkLQ.png'
+                                                                                                   ,text:       '© bROPédia - Por MBrauna e Lazarento'
+                                                                                                }
+                                                                    }
+                                                    };
 
 
-                    this.monta_resposta('Caramba <@' + this.obj_mensagem.author.id + '>, não consegui encontrar o que você procura!'
-                                      ,v_obj_resposta
-                                      );
+                        this.monta_resposta('Caramba <@' + this.obj_mensagem.author.id + '>, não consegui encontrar o que você procura!'
+                                          ,v_obj_resposta
+                                          );
                         return;
-                    } // if(v_consulta.trim() === null || v_consulta.trim() === 'undefined')
+                    } // if(typeof v_pagina === 'undefined')
 
-                    v_termo_consulta    =   encodeURI(v_consulta.trim());
-
-                    bib_requisicao.get(v_url_consulta, (p_erro_null, p_resposta_null, p_corpo_null) =>
-                    {
-                        v_resposta  = JSON.parse(p_corpo_null);
-                    });
-                } // if(v_resposta === 'null' || v_resposta === 'NULL' || v_resposta === null || v_resposta === 'undefined')
-
-                if(v_resposta === 'null' || v_resposta === 'NULL' || v_resposta === null || v_resposta === 'undefined')
-                {
-                    v_obj_resposta          =   {
-                                                    'embed' :   {
-                                                                    color               :   this.obj_config.cor_vermelha.color
-                                                                   ,author              :   {
-                                                                                                name        :   'Kafra Moderadora'
-                                                                                               ,icone       :   'https://i.imgur.com/cfYwkLQ.png'
-                                                                                               ,url         :   'https://github.com/bropedia/Kafra-Moderadora'
-                                                                                            }
-                                                                   ,title               :   'ESTOU PERDIDA!'
-                                                                   ,url                 :   null
-                                                                   ,description         :   'Aonde estou? Que lugar é esse? Quem são vocês? Cadê meu GPS?!'
-                                                                   ,'image'             :   {
-                                                                                                "url"       :   null
-                                                                                               ,"height"    :   null // 123
-                                                                                               ,"width"     :   null // 123
-                                                                                            }
-                                                                   ,thumbnail           :   {
-                                                                                                "url"       :   'https://i.imgur.com/t3E6tKA.gif' // 'https://i.imgur.com/LOGICNS.jpg'
-                                                                                               ,"height"    :   null // 123
-                                                                                               ,"width"     :   null // 123 
-                                                                                            }
-                                                                   ,video               :   {
-                                                                                                "url"       :   null // 'https://i.imgur.com/LOGICNS.jpg'
-                                                                                               ,"height"    :   null // 123
-                                                                                               ,"width"     :   null // 123
-                                                                                            }
-                                                                   ,fields              :   [
-                                                                                                {
-                                                                                                    name    : 'ESTOU PERDIDA!'
-                                                                                                   ,value   : 'A consulta para "' + v_consulta + '" me deixou mais confusa que GPS em rotatória.'
-                                                                                                }
-                                                                                            ]
-                                                                  ,timestamp            :   new Date()
-                                                                  ,footer               :   {
-                                                                                                icon_url:   'https://i.imgur.com/cfYwkLQ.png'
-                                                                                               ,text:       '© bROPédia - Por MBrauna e Lazarento'
-                                                                                            }
-                                                                }
-                                                };
-
-
-                    this.monta_resposta('Caramba <@' + this.obj_mensagem.author.id + '>, não consegui encontrar o que você procura!'
-                                      ,v_obj_resposta
-                                      );
+                    this.monta_resposta('YAY encontrei para o termo "' +  v_pagina.name + '" a seguinte informação <@' + this.obj_mensagem.author.id + '> (∩｀-´)⊃━☆ﾟ.*･｡ﾟ \n' +  v_pagina.link
+                                        ,null
+                                        );
                     return;
-                } // if(v_resposta === 'null' || v_resposta === 'NULL' || v_resposta === null || v_resposta === 'undefined')
+                } // else { ... }
 
-                v_resposta.forEach((p_resp) =>
-                {
-                    if(p_resp.id.split('/')[0] == this.input) v_bol_result = p_resp;
-                });
-
-                v_resposta.forEach((json_resp) =>
-                {
-                    // Teste - Consulta similar
-                    if(json_resp.name.toLowerCase() == v_consulta.trim().toLowerCase())
-                    {
-                        // Caso encontre: A página desejada se faz presente.
-                        v_pagina    =   json_resp;
-                    } // if(json_resp.title.toLowerCase() == v_consulta.trim().toLowerCase())
-                });
-
-                // Verifica se a página informada foi definida, caso não seja utiliza a primeira opção obtida na query
-                if(typeof v_pagina === 'undefined')
-                {
-                    v_pagina        =   bib_underline.first(v_resposta);
-                } // if(typeof v_pagina === 'undefined')
-
-                // Se mesmo assim a página permanecer não definida
-                if(typeof v_pagina === 'undefined')
-                {
-                    v_obj_resposta          =   {
-                                                    'embed' :   {
-                                                                    color               :   this.obj_config.cor_vermelha.color
-                                                                   ,author              :   {
-                                                                                                name        :   'Kafra Moderadora'
-                                                                                               ,icone       :   'https://i.imgur.com/cfYwkLQ.png'
-                                                                                               ,url         :   'https://github.com/bropedia/Kafra-Moderadora'
-                                                                                            }
-                                                                   ,title               :   'ESTOU PERDIDA!'
-                                                                   ,url                 :   null
-                                                                   ,description         :   'Aonde estou? Que lugar é esse? Quem são vocês? Cadê meu GPS?!'
-                                                                   ,'image'             :   {
-                                                                                                "url"       :   null
-                                                                                               ,"height"    :   null // 123
-                                                                                               ,"width"     :   null // 123
-                                                                                            }
-                                                                   ,thumbnail           :   {
-                                                                                                "url"       :   'https://i.imgur.com/t3E6tKA.gif' // 'https://i.imgur.com/LOGICNS.jpg'
-                                                                                               ,"height"    :   null // 123
-                                                                                               ,"width"     :   null // 123 
-                                                                                            }
-                                                                   ,video               :   {
-                                                                                                "url"       :   null // 'https://i.imgur.com/LOGICNS.jpg'
-                                                                                               ,"height"    :   null // 123
-                                                                                               ,"width"     :   null // 123
-                                                                                            }
-                                                                   ,fields              :   [
-                                                                                                {
-                                                                                                    name    : 'ESTOU PERDIDA!'
-                                                                                                   ,value   : 'A consulta para "' + v_consulta + '" me deixou mais confusa que GPS em rotatória.'
-                                                                                                }
-                                                                                            ]
-                                                                  ,timestamp            :   new Date()
-                                                                  ,footer               :   {
-                                                                                                icon_url:   'https://i.imgur.com/cfYwkLQ.png'
-                                                                                               ,text:       '© bROPédia - Por MBrauna e Lazarento'
-                                                                                            }
-                                                                }
-                                                };
-
-
-                    this.monta_resposta('Caramba <@' + this.obj_mensagem.author.id + '>, não consegui encontrar o que você procura!'
-                                      ,v_obj_resposta
-                                      );
-                    return;
-                } // if(typeof v_pagina === 'undefined')
-
-                this.monta_resposta('YAY encontrei para o termo "' +  v_pagina.name + '" a seguinte informação <@' + this.obj_mensagem.author.id + '> (∩｀-´)⊃━☆ﾟ.*･｡ﾟ \n' +  v_pagina.link
-                                    ,null
-                                    );
-                return;
             }); // bib_requisicao.get(v_url_consulta, (p_erro, p_resposta, p_corpo) =>
         } // try { ... }
         catch(p_erro)
