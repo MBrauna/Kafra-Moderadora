@@ -39,7 +39,7 @@ class braunabot
         // Configura uma instância do BraunaBot para execução
         bib_braunabot.configure({botapi: process.env.BOT_TOKEN_CLEVERBOT});
     } // constructor(p_cliente, p_mensagem)
-
+ 
     monta_resposta(p_frase, p_mensagem)
     {
         // Monitora qualquer evento de erro para se executar o cliente
