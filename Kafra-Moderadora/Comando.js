@@ -171,7 +171,7 @@ class comando
 
                             this.monta_resposta(p_cliente
                                                ,p_mensagem
-                                               ,'Olá <@' + p_mensagem.author.id + '> estou aqui!'
+                                               ,'E lá vamos nós <@' + p_mensagem.author.id + '>'
                                                ,obj_msg_tmp
                                                );
                             break;
