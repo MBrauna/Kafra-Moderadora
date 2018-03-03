@@ -46,7 +46,7 @@ class kafra_inicia
         this.obj_cliente    =   p_cliente;
         this.obj_grupo      =   p_grupo;
     } // constructor(p_cliente, p_grupo)
-
+ 
 
     trata_informacao()
     {
