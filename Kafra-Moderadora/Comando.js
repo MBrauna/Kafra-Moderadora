@@ -312,23 +312,6 @@ class comando
                                                        ,value:  "Está em dúvida numa missão? Está perdido? Quer conhecer um pouco da história do jogo? Não tem problema, com a Kafra Moderadora não há problema, eu te ajudo."
                                                     }
                                                    ,{
-                                                        name:   '[ALPHA] ***@' + p_cliente.user.username + ' <nivel_inicial> <nivel_final> <mapa_desejado>***'
-                                                       ,value:  "Por 20 minutos irei organizar seu grupo para que tenha um maravilhoso rendimento dentro do jogo! Basta me chamar."
-                                                    }
-                                                   ,{
-                                                        name:   '[ALPHA] ***@' + p_cliente.user.username + ' procurar <nivel_atual>***'
-                                                       ,value:  "Mãos à obra pessoal! Quer moleza? Senta num poring. Me informe seu nível que irei listar para você todos os grupos ativos para sua faixa de nível."
-                                                    }
-                                                   ,{
-                                                        name:   '[ALPHA] ***@' + p_cliente.user.username + ' grupos***'
-                                                       ,value:  "Veja todos os grupos existentes na face da Terr ... erhh... Rune Midgard que são organizados por moi (Ou seja, euzinha mesmo, com todo meu banhammer e ternura)."
-                                                    }
-                                                   ,{
-                                                        name:   '[ALPHA] ***@' + p_cliente.user.username + ' regras***'
-                                                       ,value:  "Tá achando que aqui é bagunça? Está é por fora! Vacila ... que te mostro com quantos banhammer se faz uma canoa."
-                                                    }
-
-                                                   ,{
                                                         name:   '[ALPHA] ***@' + p_cliente.user.username + '> ajuda***'
                                                        ,value:  "CALMA CALMA .... NÃO DESESPERA ... RESPIRAAAAA!!!"
                                                     }
