@@ -21,6 +21,7 @@
 // Inicialização de bibliotecas                                 (∩｀-´)⊃━☆ﾟ.*･｡ﾟ
 let  bib_bropedia       =   require('./Pesquisa/bropedia/bropedia.js')
      bib_ragnaplace     =   require('./Pesquisa/ragnaplace/ragnaplace.js')
+     bib_grupo          =   require('./Ragnarok/grupo_ragnarok.js')
     ;
 // Inicialização de bibliotecas                                 (∩｀-´)⊃━☆ﾟ.*･｡ﾟ
 
@@ -126,14 +127,7 @@ class comando
                             obj_msg_tmp                     =   new bib_bropedia(this.init_msg_padrao, this.init_config, p_mensagem, p_cliente).consultar(v_obj_mensagem_s_prefixo);
                             break;
                         case 'recrutar':
-                            obj_msg_tmp.embed.description   =   'Desculpe pessoinha, mas esta funcionalidade não está disponível no momento.';
-                            obj_msg_tmp.embed.fields        =   this.init_msg_dev;
-
-                            this.monta_resposta(p_cliente
-                                               ,p_mensagem
-                                               ,'Olá <@' + p_mensagem.author.id + '> estou aqui!'
-                                               ,obj_msg_tmp
-                                               );
+                            obj_msg_tmp                     =   new bib_grupo(p_cliente, null, p_mensagem).monta_grupo(v_obj_mensagem_s_prefixo);
                             break;
                         case 'procurar':
                             obj_msg_tmp.embed.description   =   'Desculpe pessoinha, mas esta funcionalidade não está disponível no momento.';
