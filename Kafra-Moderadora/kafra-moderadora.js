@@ -48,7 +48,6 @@
 // Inicialização de bibliotecas                                 (∩｀-´)⊃━☆ﾟ.*･｡ﾟ
 let bib_discord                     =   require('discord.js')
    ,bib_comando                     =   require('./Comando.js')
-   ,bib_kafra_inicializa            =   require('./_UI/inicializacao/kafra_inicia.js');
    ;
 
 // Fim - Inicialização de bibliotecas                           (∩｀-´)⊃━☆ﾟ.*･｡ﾟ
