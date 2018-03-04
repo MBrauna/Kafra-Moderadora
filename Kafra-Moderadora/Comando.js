@@ -306,7 +306,15 @@ class comando
                                                        ,value:  "Está em dúvida numa missão? Está perdido? Quer conhecer um pouco da história do jogo? Não tem problema, com a Kafra Moderadora não há problema, eu te ajudo."
                                                     }
                                                    ,{
-                                                        name:   '[ALPHA] ***@' + p_cliente.user.username + '> ajuda***'
+                                                        name:   '[ALPHA] ***@' + p_cliente.user.username + '> recrutar <NIVEL_INICIAL> <NIVEL_FINAL> <MAPA>***'
+                                                       ,value:  "CALMA CALMA .... NÃO DESESPERA ... RESPIRAAAAA!!!"
+                                                    }
+                                                   ,{
+                                                        name:   '[ALPHA] ***@' + p_cliente.user.username + '> procurar <NIVEL_DESEJADO>***'
+                                                       ,value:  "CALMA CALMA .... NÃO DESESPERA ... RESPIRAAAAA!!!"
+                                                    }
+                                                   ,{
+                                                        name:   '***@' + p_cliente.user.username + '> ajuda***'
                                                        ,value:  "CALMA CALMA .... NÃO DESESPERA ... RESPIRAAAAA!!!"
                                                     }
                                                    ,{
