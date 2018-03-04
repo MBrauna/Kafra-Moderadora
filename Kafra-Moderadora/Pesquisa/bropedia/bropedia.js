@@ -143,7 +143,7 @@ class bropedia
                                                                   ,timestamp            :   new Date()
                                                                   ,footer               :   {
                                                                                                 icon_url:   'https://i.imgur.com/cfYwkLQ.png'
-                                                                                               ,text:       '© bROPédia - Por MBrauna e Lazarento'
+                                                                                               ,text:       '© bROPédia - Por MBrauna'
                                                                                             }
                                                                 }
                                                 };
@@ -212,7 +212,7 @@ class bropedia
                                                                       ,timestamp            :   new Date()
                                                                       ,footer               :   {
                                                                                                     icon_url:   'https://i.imgur.com/cfYwkLQ.png'
-                                                                                                   ,text:       '© bROPédia - Por MBrauna e Lazarento'
+                                                                                                   ,text:       '© bROPédia - Por MBrauna'
                                                                                                 }
                                                                     }
                                                     };
@@ -284,7 +284,7 @@ class bropedia
                                                                           ,timestamp            :   new Date()
                                                                           ,footer               :   {
                                                                                                         icon_url:   'https://i.imgur.com/cfYwkLQ.png'
-                                                                                                       ,text:       '© bROPédia - Por MBrauna e Lazarento'
+                                                                                                       ,text:       '© bROPédia - Por MBrauna'
                                                                                                     }
                                                                         }
                                                         };
@@ -336,7 +336,7 @@ class bropedia
                                                                           ,timestamp            :   new Date()
                                                                           ,footer               :   {
                                                                                                         icon_url:   'https://i.imgur.com/cfYwkLQ.png'
-                                                                                                       ,text:       '© bROPédia - Por MBrauna e Lazarento'
+                                                                                                       ,text:       '© bROPédia - Por MBrauna'
                                                                                                     }
                                                                         }
                                                         };
@@ -393,7 +393,7 @@ class bropedia
                                                               ,timestamp            :   new Date()
                                                               ,footer               :   {
                                                                                             icon_url:   'https://i.imgur.com/cfYwkLQ.png'
-                                                                                           ,text:       '© bROPédia - Por MBrauna e Lazarento'
+                                                                                           ,text:       '© bROPédia - Por MBrauna'
                                                                                         }
                                                             }
                                             };

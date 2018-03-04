@@ -139,7 +139,7 @@ class grupo_ragnarok
                                                       ,timestamp            :   new Date()
                                                       ,footer               :   {
                                                                                     icon_url:   'https://i.imgur.com/cfYwkLQ.png'
-                                                                                   ,text:       '© bROPédia - Por MBrauna e Lazarento'
+                                                                                   ,text:       '© bROPédia - Por MBrauna'
                                                                                 }
                                                     }
                                     };
@@ -257,7 +257,7 @@ class grupo_ragnarok
                                                   ,timestamp            :   new Date()
                                                   ,footer               :   {
                                                                                 icon_url:   'https://i.imgur.com/cfYwkLQ.png'
-                                                                               ,text:       '© bROPédia - Por MBrauna e Lazarento'
+                                                                               ,text:       '© bROPédia - Por MBrauna'
                                                                             }
                                                 }
                                 };
@@ -328,7 +328,7 @@ class grupo_ragnarok
                                                       ,timestamp            :   new Date()
                                                       ,footer               :   {
                                                                                     icon_url:   'https://i.imgur.com/cfYwkLQ.png'
-                                                                                   ,text:       '© bROPédia - Por MBrauna e Lazarento'
+                                                                                   ,text:       '© bROPédia - Por MBrauna'
                                                                                 }
                                                     }
                                     };
@@ -409,7 +409,7 @@ class grupo_ragnarok
                                                   ,timestamp            :   new Date()
                                                   ,footer               :   {
                                                                                 icon_url:   'https://i.imgur.com/cfYwkLQ.png'
-                                                                               ,text:       '© bROPédia - Por MBrauna e Lazarento'
+                                                                               ,text:       '© bROPédia - Por MBrauna'
                                                                             }
                                                 }
                                 };
