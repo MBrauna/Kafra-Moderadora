@@ -38,7 +38,7 @@
  *                                                                                                  *
  ****************************************************************************************************/
 
-let bib_postgres            =   require('pg');
+const { bib_postgres_fila, bib_postgres }  =   require('pg');
 
 class banco_dados
 {
