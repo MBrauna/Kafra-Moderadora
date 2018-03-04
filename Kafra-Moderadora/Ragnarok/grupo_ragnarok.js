@@ -195,7 +195,7 @@ class grupo_ragnarok
             } // else { ... }
 
             console.log(this.obj_mensagem);
-            v_resultado     = this.obj_database.monta_grupo(this.obj_mensagem.author.id, this.obj_mensagem.channl_id, v_nivel_inicial, v_nivel_final, v_mapa);
+            v_resultado     = this.obj_database.monta_grupo(this.obj_mensagem.author.id, this.obj_mensagem.channel.id, v_nivel_inicial, v_nivel_final, v_mapa);
 
             if(v_resultado === 1)
             {
