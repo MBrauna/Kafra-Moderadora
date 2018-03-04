@@ -193,7 +193,7 @@ class grupo_ragnarok
             else
             {
                 // Valida se o mapa é realmente válido
-                bib_requisicao.get(`https://pt.ragnaplace.com/api/${process.env.BOT_TOKEN_RAGNAPLACE}/8/bro/item/search/99/views/${encodeURI(p_regra[3].trim())}`
+                bib_requisicao.get(`https://pt.ragnaplace.com/api/${process.env.BOT_TOKEN_RAGNAPLACE}/8/bro/map/search/1/id/${encodeURI(p_regra[3].trim())}`
                                   ,(p_erro, p_resposta, p_corpo) =>
                 {
                     v_resposta  =   JSON.parse(p_corpo);
@@ -208,11 +208,11 @@ class grupo_ragnarok
                     else
                     {
                         v_mapa      =   p_regra[3].trim();
+                        v_resultado     = this.obj_database.monta_grupo(this.obj_mensagem.author.id, this.obj_mensagem.channel.id, v_nivel_inicial, v_nivel_final, v_mapa, this.obj_mensagem, this.obj_configuracao);
+                        return;
                     } // else { ... }
                 }); // bib_requisicao.get(`https://pt.ragnaplace.com/api/${process.env.BOT_TOKEN_RAGNAPLACE}/8/bro/item/search/99/views/${encodeURI(p_regra[3].trim())}`
             } // else { ... }
-
-            v_resultado     = this.obj_database.monta_grupo(this.obj_mensagem.author.id, this.obj_mensagem.channel.id, v_nivel_inicial, v_nivel_final, v_mapa, this.obj_mensagem, this.obj_configuracao);
 
 
             return;
