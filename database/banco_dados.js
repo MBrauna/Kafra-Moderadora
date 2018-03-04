@@ -183,7 +183,7 @@ class banco_dados
                                     };
 
                 this.monta_resposta(p_mensagem
-                                   ,'EEEEPAAAAA algo ocorreu e não pude montar seu grupo <@' + p_mensagem.author.id + '>'
+                                   ,'<@' + p_mensagem.author.id + '>, muitíssissississimo obrigada por participar, seu grupo foi montado.'
                                    ,v_obj_resposta
                                    );
                 return 1;

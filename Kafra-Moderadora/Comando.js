@@ -130,14 +130,7 @@ class comando
                             obj_msg_tmp                     =   new bib_grupo(this.obj_banco_dados, p_cliente, p_mensagem, this.init_config).monta_grupo(v_obj_mensagem_s_prefixo);
                             break;
                         case 'procurar':
-                            obj_msg_tmp.embed.description   =   'Desculpe pessoinha, mas esta funcionalidade não está disponível no momento.';
-                            obj_msg_tmp.embed.fields        =   this.init_msg_dev;
-
-                            this.monta_resposta(p_cliente
-                                               ,p_mensagem
-                                               ,'Olá <@' + p_mensagem.author.id + '> estou aqui!'
-                                               ,obj_msg_tmp
-                                               );
+                            obj_msg_tmp                     =   new bib_grupo(this.obj_banco_dados, p_cliente, p_mensagem, this.init_config).consulta_grupo(v_obj_mensagem_s_prefixo);
                             break;
                         case 'grupos':
                             obj_msg_tmp.embed.description   =   'Desculpe pessoinha, mas esta funcionalidade não está disponível no momento.';
