@@ -200,7 +200,7 @@ class grupo_ragnarok
 
                     if(v_resposta === 'null' || v_resposta === 'NULL' || v_resposta === null || v_resposta === 'undefined')
                     {
-                        this.monta_resposta('Me diz, <@' + this.obj_mensagem.author.id + '> como a Kafrinha aqui pode te ajudar se você não colabora? Cadê o mapinha?!'
+                        this.monta_resposta('Me diz, <@' + this.obj_mensagem.author.id + '> como a Kafrinha aqui pode te ajudar se você não colabora? Me fala cadê o mapinha?!'
                                             ,v_obj_resposta
                                             );
                         return;
