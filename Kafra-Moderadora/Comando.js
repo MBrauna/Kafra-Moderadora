@@ -307,11 +307,11 @@ class comando
                                                     }
                                                    ,{
                                                         name:   '[ALPHA] ***@' + p_cliente.user.username + '> recrutar <NIVEL_INICIAL> <NIVEL_FINAL> <MAPA>***'
-                                                       ,value:  "CALMA CALMA .... NÃO DESESPERA ... RESPIRAAAAA!!!"
+                                                       ,value:  "A tia kafroronta está louca para te ajudar a ganhar alguns níveis em Ragnarök, que tal deixar eu ajudando a montar seu grupo? Me chame, fale o nível dos personagens que deseja, me diga qual mapa e o resto é comigo."
                                                     }
                                                    ,{
                                                         name:   '[ALPHA] ***@' + p_cliente.user.username + '> procurar <NIVEL_DESEJADO>***'
-                                                       ,value:  "CALMA CALMA .... NÃO DESESPERA ... RESPIRAAAAA!!!"
+                                                       ,value:  'Está cansado de procurar em N mapas por grupos?\nPois deixe com a Kafronilda aqui eu me viro para encontrar todos os grupos organizados.'
                                                     }
                                                    ,{
                                                         name:   '***@' + p_cliente.user.username + '> ajuda***'
