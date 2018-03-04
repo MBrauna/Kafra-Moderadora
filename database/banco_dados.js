@@ -81,7 +81,7 @@ class banco_dados
     monta_grupo(p_id_usuario, p_id_canal, p_nivel_inicial, p_nivel_final, p_mapa, p_mensagem, p_configuracao)
     {
         let  v_string_query     =   {}
-             v_obj_resposta     =   {}
+            ,v_obj_resposta     =   {}
             ;
 
 
@@ -195,8 +195,8 @@ class banco_dados
     consulta_grupo(p_nivel, p_mensagem, p_configuracao)
     {
         let  v_string_query     =   {}
-             v_obj_resposta     =   {}
-             v_campo_resposta   =   []
+            ,v_obj_resposta     =   {}
+            ,v_campo_resposta   =   []
             ;
 
         v_string_query          =   {
