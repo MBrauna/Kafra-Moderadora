@@ -32,10 +32,10 @@ let  bib_bropedia       =   require('./Pesquisa/bropedia/bropedia.js')
 class comando
 {
     // Método construtor para COMANDO
-    constructor()
+    constructor(p_banco_dados)
     {
         // Indica que o procedimento foi inicializado
-        console.log('[CLASSE] Comando - Inicializada ');
+        this.obj_banco_dados    = p_banco_dados;
     } // Método construtor - construct()
 
     // ᕦ(ò_óˇ)ᕤ     ---     S E P A R A D O R     ---     ᕦ(ˇò_ó)ᕤ
@@ -127,7 +127,7 @@ class comando
                             obj_msg_tmp                     =   new bib_bropedia(this.init_msg_padrao, this.init_config, p_mensagem, p_cliente).consultar(v_obj_mensagem_s_prefixo);
                             break;
                         case 'recrutar':
-                            obj_msg_tmp                     =   new bib_grupo(null, p_cliente, p_mensagem, this.init_config).monta_grupo(v_obj_mensagem_s_prefixo);
+                            obj_msg_tmp                     =   new bib_grupo(this.obj_banco_dados, p_cliente, p_mensagem, this.init_config).monta_grupo(v_obj_mensagem_s_prefixo);
                             break;
                         case 'procurar':
                             obj_msg_tmp.embed.description   =   'Desculpe pessoinha, mas esta funcionalidade não está disponível no momento.';
@@ -256,7 +256,7 @@ class comando
 
         this.init_msg_padrao                =   {
                                                     'embed' :   {
-                                                                    color               :   0x882d93
+                                                                    color               :   this.init_config.cor_roxa.color
                                                                    ,author              :   {
                                                                                                 name        :   'Kafra Moderadora'
                                                                                                ,icone       :   'https://i.imgur.com/cfYwkLQ.png'

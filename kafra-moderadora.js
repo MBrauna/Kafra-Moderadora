@@ -126,7 +126,9 @@
 
 
 // Inicialização de bibliotecas                                 (∩｀-´)⊃━☆ﾟ.*･｡ﾟ
-const bib_kafra_moderadora_discord  =   require('./Kafra-Moderadora/kafra-moderadora.js');
+let   bib_kafra_moderadora_discord  =   require('./Kafra-Moderadora/kafra-moderadora.js')
+     ,bib_banco_dados               =   require('./database/banco_dados.js')
+     ;
 // Fim - Inicialização de bibliotecas                           (∩｀-´)⊃━☆ﾟ.*･｡ﾟ
 
 
@@ -140,8 +142,12 @@ const bib_kafra_moderadora_discord  =   require('./Kafra-Moderadora/kafra-modera
 // Tokens
 let v_token_discord                 =   process.env.BOT_TOKEN_DISCORD
    ,v_token_telegram                =   process.env.BOT_TOKEN_TELEGRAM
+   ,v_token_banco_dados             =   process.env.DATABASE_URL
    ;
 
+
+// Conexão ao banco de dados
+let v_db_conexao                    =   new bib_banco_dados(v_token_banco_dados);
 // Fim - Inicialização das variáveis de ambiente                （ ^_^）o自  自o（^_^ ）
 
 
@@ -151,5 +157,5 @@ let v_token_discord                 =   process.env.BOT_TOKEN_DISCORD
 
 
 // Método construtor - Inicialização do processo                (╬ ಠ益ಠ)
-const init_kafra_moderadora         =   new bib_kafra_moderadora_discord(v_token_discord); 
+const init_kafra_moderadora         =   new bib_kafra_moderadora_discord(v_token_discord, v_db_conexao); 
 // FIM - Método construtor - Inicialização do processo          (╬ ಠ益ಠ)
