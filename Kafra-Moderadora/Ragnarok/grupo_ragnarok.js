@@ -84,6 +84,7 @@ class grupo_ragnarok
                ,v_nivel_final       =   0
                ,v_mapa              =   ''
                ,v_resultado         =   9
+               ,v_resposta
                ;
 
         // Declara a resposta padrão.
@@ -191,7 +192,24 @@ class grupo_ragnarok
             } // if(p_regra[3].trim() === 'null' || p_regra[3].trim() === null || p_regra[3].trim() === 'undefined')
             else
             {
-                v_mapa      =   p_regra[3].trim();
+                // Valida se o mapa é realmente válido
+                bib_requisicao.get(`https://pt.ragnaplace.com/api/${process.env.BOT_TOKEN_RAGNAPLACE}/8/bro/item/search/99/views/${encodeURI(p_regra[3].trim())}`
+                                  ,(p_erro, p_resposta, p_corpo) =>
+                {
+                    v_resposta  =   JSON.parse(p_corpo);
+
+                    if(v_resposta === 'null' || v_resposta === 'NULL' || v_resposta === null || v_resposta === 'undefined')
+                    {
+                        this.monta_resposta('Me diz, <@' + this.obj_mensagem.author.id + '> como a Kafrinha aqui pode te ajudar se você não colabora? Cadê o mapinha?!'
+                                            ,v_obj_resposta
+                                            );
+                        return;
+                    } // if(v_resposta === 'null' || v_resposta === 'NULL' || v_resposta === null || v_resposta === 'undefined')
+                    else
+                    {
+                        v_mapa      =   p_regra[3].trim();
+                    } // else { ... }
+                }); // bib_requisicao.get(`https://pt.ragnaplace.com/api/${process.env.BOT_TOKEN_RAGNAPLACE}/8/bro/item/search/99/views/${encodeURI(p_regra[3].trim())}`
             } // else { ... }
 
             v_resultado     = this.obj_database.monta_grupo(this.obj_mensagem.author.id, this.obj_mensagem.channel.id, v_nivel_inicial, v_nivel_final, v_mapa, this.obj_mensagem, this.obj_configuracao);
@@ -328,13 +346,13 @@ class grupo_ragnarok
 
             if(!isNaN(parseFloat(p_regra[1].trim())) && isFinite(p_regra[1].trim()))
             {
-                v_nivel     =   number(p_regra[1].trim());
+                v_nivel     =   Number(p_regra[1].trim());
             } // if(!isNaN(parseFloat(p_regra[1].trim())) && isFinite(p_regra[1].trim()))
             else
             {
                 this.monta_resposta('Você tem certeza que o valor informado é um nível, <@' + this.obj_mensagem.author.id + '>?'
-                                        ,v_obj_resposta
-                                        );
+                                    ,v_obj_resposta
+                                    );
                 return;
             } // else { ... }
 
