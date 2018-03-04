@@ -52,7 +52,7 @@ class grupo_ragnarok
     {
         // Para toda a regra .. faz-se valer que ...
         // [1] - mapa, [2] - Nivel inicial, [3] - Nível final
-        this.obj_mensagem.channel.send('Quantidade de palavras: ' + regra.length,null);
+        this.obj_mensagem.channel.send('Quantidade de palavras: ' + p_regra.length,null);
     } // monta_grupo(p_regra)
 } // class grupo_ragnarok
 
