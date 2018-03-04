@@ -318,7 +318,7 @@ class grupo_ragnarok
 
         try
         {
-            if(p_regra[1].trim() === 'null ' || p_regra[1].trim() === null p_regra[1].trim() === 'undefined')
+            if(p_regra[1].trim() === 'null ' || p_regra[1].trim() === null || p_regra[1].trim() === 'undefined')
             {
                 this.monta_resposta('Me diz, <@' + this.obj_mensagem.author.id + '> como a Kafrinha aqui pode te ajudar se você não colabora? Cadê o nível?!'
                                     ,v_obj_resposta
