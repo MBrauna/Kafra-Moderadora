@@ -67,6 +67,9 @@ class banco_dados
         {
             if(p_erro)
             {
+                console.log(p_erro);
+                console.trace();
+
                 return 9; // [9] - ERRO
             }
             else
