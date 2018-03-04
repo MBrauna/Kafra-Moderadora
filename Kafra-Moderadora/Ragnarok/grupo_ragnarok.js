@@ -156,14 +156,10 @@ class grupo_ragnarok
             } // if(p_regra.length !== 4)
 
 
-            if(isNaN(p_regra[1].trim()))
+            if(Number(p_regra[1].trim()) >= 1 && Number(p_regra[1].trim()) <= 175)
             {
-                // Verifica se o valor está entre o range esperado
-                if(Number(p_regra[1].trim()) >= 1 && Number(p_regra[1].trim()) <= 175)
-                {
-                    v_nivel_inicial = Number(p_regra[1].trim());
-                } // if(Number(p_regra[1]) >= 1 && Number(p_regra[1]) <= 175)
-            } // if(isNaN(p_regra[1]))
+                v_nivel_inicial = Number(p_regra[1].trim());
+            } // if(Number(p_regra[1]) >= 1 && Number(p_regra[1]) <= 175)
             else
             {
                 this.monta_resposta('<@' + this.obj_mensagem.author.id + '> acho que você não entendeu os requisitos.'
@@ -172,26 +168,16 @@ class grupo_ragnarok
                 return;
             } // else { ... }
 
-            if(isNaN(p_regra[2].trim()))
+            // Verifica se o valor está entre o range esperado
+            if(Number(p_regra[2].trim()) >= 1 && Number(p_regra[2].trim()) <= 175 && v_nivel_inicial <= Number(p_regra[2].trim()))
             {
-                // Verifica se o valor está entre o range esperado
-                if(Number(p_regra[2].trim()) >= 1 && Number(p_regra[2].trim()) <= 175 && v_nivel_inicial <= Number(p_regra[2].trim()))
-                {
-                    v_nivel_final = Number(p_regra[2].trim());
-                } // if(Number(p_regra[2]) >= 1 && Number(p_regra[2]) <= 175 && v_nivel_inicial <= Number(p_regra[2]))
-                else
-                {
-                    this.monta_resposta('O nível inicial que você citou <@' + this.obj_mensagem.author.id + '> é maior que o nível final! Como pode?'
-                                      ,v_obj_resposta
-                                      );
-                    return;
-                } // else { ... }
-            } // if(isNaN(p_regra[1]))
+                v_nivel_final = Number(p_regra[2].trim());
+            } // if(Number(p_regra[2]) >= 1 && Number(p_regra[2]) <= 175 && v_nivel_inicial <= Number(p_regra[2]))
             else
             {
-                this.monta_resposta('<@' + this.obj_mensagem.author.id + '> acho que você não entendeu os requisitos.'
-                                   ,v_obj_resposta
-                                   );
+                this.monta_resposta('O nível inicial que você citou <@' + this.obj_mensagem.author.id + '> é maior que o nível final! Como pode?'
+                                  ,v_obj_resposta
+                                  );
                 return;
             } // else { ... }
 
