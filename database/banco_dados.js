@@ -268,8 +268,114 @@ class banco_dados
             } // if(p_erro)
             else
             {
-                console.log(p_resposta);
-                return;
+                if(p_resposta.rowCount <= 0)
+                {
+                    v_obj_resposta  =   {
+                                            'embed' :   {
+                                                            color               :   p_configuracao.cor_vermelha.color
+                                                           ,author              :   {
+                                                                                        name        :   'Kafra Moderadora'
+                                                                                       ,icon_url    :   'https://i.imgur.com/cfYwkLQ.png'
+                                                                                       ,url         :   'https://github.com/bropedia/Kafra-Moderadora'
+                                                                                    }
+                                                           ,title               :   'Não há vagas!'
+                                                           ,url                 :   null
+                                                           ,description         :   'Olá ' +  p_mensagem.author.username + ' não encontrei nenhum resultado para sua consulta!'
+                                                           ,'image'             :   {
+                                                                                        "url"       :   null // 'https://i.imgur.com/LOGICNS.jpg'
+                                                                                       ,"height"    :   null // 123
+                                                                                       ,"width"     :   null // 123
+                                                                                    }
+                                                           ,thumbnail           :   {
+                                                                                        "url"       :   'https://i.imgur.com/5SiWZwF.png' // 'https://i.imgur.com/LOGICNS.jpg'
+                                                                                       ,"height"    :   null // 123
+                                                                                       ,"width"     :   null // 123 
+                                                                                    }
+                                                           ,video               :   {
+                                                                                        "url"       :   'https://www.youtube.com/watch?v=YBgQhv45uhE' // 'https://i.imgur.com/LOGICNS.jpg'
+                                                                                       ,"height"    :   null // 123
+                                                                                       ,"width"     :   null // 123
+                                                                                    }
+                                                           ,fields              :   [
+                                                                                        {
+                                                                                            name    :   'Não há vagas'
+                                                                                           ,value   :   'Desculpe, não há atualmente nenhum grupo registrado para o nível ' + p_nivel
+                                                                                        }
+                                                                                    ]
+                                                          ,timestamp            :   new Date()
+                                                          ,footer               :   {
+                                                                                        icon_url:   'https://i.imgur.com/cfYwkLQ.png'
+                                                                                       ,text:       '© bROPédia - Por MBrauna e Lazarento'
+                                                                                    }
+                                                        }
+                                        };
+
+                    this.monta_resposta(p_mensagem
+                                       ,'EEEEPAAAAA algo ocorreu e não pude montar seu grupo <@' + p_mensagem.author.id + '>'
+                                       ,v_obj_resposta
+                                       );
+                    return;
+                } // if(p_resposta.rowCount <= 0)
+                else
+                {
+                    // Marca como novo array - impede lixo de mémória
+                    v_campo_resposta    =   [];
+
+                    // Marca um novo loop para as respostas
+                    p_resposta.rows.forEach((p_resp) =>
+                    {
+                        var tmp_coisas  =   {
+                                                name    :   'Mapa [' + p_resp.mapa + '] - Nível[' + p_resp.nivel_inicial + '/' + p_resp.nivel_final + ']'
+                                               ,value   :   'Chame por <@' + p_resp.id_usuario + '> ou dirija-se ao mapa ' + p_resp.mapa
+                                            };
+
+                        v_campo_resposta.push(tmp_coisas);
+                    });
+
+                    v_obj_resposta  =   {
+                                            'embed' :   {
+                                                            color               :   p_configuracao.cor_roxa.color
+                                                           ,author              :   {
+                                                                                        name        :   'Kafra Moderadora'
+                                                                                       ,icon_url    :   'https://i.imgur.com/cfYwkLQ.png'
+                                                                                       ,url         :   'https://github.com/bropedia/Kafra-Moderadora'
+                                                                                    }
+                                                           ,title               :   'Grupos ativos para Ragnarök Online'
+                                                           ,url                 :   null
+                                                           ,description         :   'Olá ' +  p_mensagem.author.username + '!!! A Kafruda vai te ajudar com os grupos, vamos analisar:'
+                                                           ,'image'             :   {
+                                                                                        "url"       :   null // 'https://i.imgur.com/LOGICNS.jpg'
+                                                                                       ,"height"    :   null // 123
+                                                                                       ,"width"     :   null // 123
+                                                                                    }
+                                                           ,thumbnail           :   {
+                                                                                        "url"       :   'https://i.imgur.com/5SiWZwF.png' // 'https://i.imgur.com/LOGICNS.jpg'
+                                                                                       ,"height"    :   null // 123
+                                                                                       ,"width"     :   null // 123 
+                                                                                    }
+                                                           ,video               :   {
+                                                                                        "url"       :   null // 'https://i.imgur.com/LOGICNS.jpg'
+                                                                                       ,"height"    :   null // 123
+                                                                                       ,"width"     :   null // 123
+                                                                                    }
+                                                           ,fields              :   v_campo_resposta
+                                                          ,timestamp            :   new Date()
+                                                          ,footer               :   {
+                                                                                        icon_url:   'https://i.imgur.com/cfYwkLQ.png'
+                                                                                       ,text:       '© bROPédia - Por MBrauna e Lazarento'
+                                                                                    }
+                                                        }
+                                        };
+
+                    this.monta_resposta(p_mensagem
+                                       ,'EEEEPAAAAA algo ocorreu e não pude montar seu grupo <@' + p_mensagem.author.id + '>'
+                                       ,v_obj_resposta
+                                       );
+
+                    return;
+                }
+
+
             } // else { ... }
         }); // this.obj_db.query(v_string_query, (p_erro, p_resposta) =>
 
