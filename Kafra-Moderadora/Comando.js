@@ -127,7 +127,7 @@ class comando
                             obj_msg_tmp                     =   new bib_bropedia(this.init_msg_padrao, this.init_config, p_mensagem, p_cliente).consultar(v_obj_mensagem_s_prefixo);
                             break;
                         case 'recrutar':
-                            obj_msg_tmp                     =   new bib_grupo(p_cliente, null, p_mensagem).monta_grupo(v_obj_mensagem_s_prefixo);
+                            obj_msg_tmp                     =   new bib_grupo(null, p_cliente, p_mensagem, this.init_config).monta_grupo(v_obj_mensagem_s_prefixo);
                             break;
                         case 'procurar':
                             obj_msg_tmp.embed.description   =   'Desculpe pessoinha, mas esta funcionalidade não está disponível no momento.';
