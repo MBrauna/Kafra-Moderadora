@@ -54,9 +54,7 @@ class banco_dados
 
     monta_grupo(p_id_usuario, p_id_canal, p_nivel_inicial, p_nivel_final, p_mapa)
     {
-        let  v_id_usuario   =   p_mensagem.author.id
-            ,v_id_canal     =   p_mensagem.channel_id
-            ,v_string_query =   {}
+        let  v_string_query =   {}
             ;
 
 
@@ -76,7 +74,7 @@ class banco_dados
                 return 1; // [1] Sucesso
             }
         });
-    } // monta_grupo(p_mensagem)
+    } // monta_grupo(p_id_usuario, p_id_canal, p_nivel_inicial, p_nivel_final, p_mapa)
 
 } // class kafra_inicia
 
