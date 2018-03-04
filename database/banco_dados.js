@@ -38,7 +38,7 @@
  *                                                                                                  *
  ****************************************************************************************************/
 
-const { bib_postgres_fila, bib_postgres }  =   require('pg');
+let   bib_postgres      =   require('pg').Client;
 
 class banco_dados
 {
@@ -48,6 +48,7 @@ class banco_dados
         this.obj_db         =   new bib_postgres({
                                                     connectionString    :   p_uri_db
                                                 });
+        this.obj_db.connect();
     } // constructor(p_cliente,p_uri_db)
  
 
