@@ -57,10 +57,10 @@ class grupo_ragnarok
         // Monitora qualquer evento de erro para se executar o cliente
         try
         {
-            p_mensagem.channel.send(
-                                        p_frase
-                                       ,p_configuracao
-                                    );
+            this.obj_mensagem.channel.send(
+                                            p_frase
+                                           ,p_configuracao
+                                        );
         } // try { ... }
         catch(p_erro)
         {
