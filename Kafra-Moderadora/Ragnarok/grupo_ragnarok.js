@@ -197,49 +197,7 @@ class grupo_ragnarok
             console.log(this.obj_mensagem);
             v_resultado     = this.obj_database.monta_grupo(this.obj_mensagem.author.id, this.obj_mensagem.channel.id, v_nivel_inicial, v_nivel_final, v_mapa);
 
-            if(v_resultado === 1)
-            {
-                v_obj_resposta  =   {
-                                        'embed' :   {
-                                                        color               :   this.obj_configuracao.cor_verde.color
-                                                       ,author              :   {
-                                                                                    name        :   'Kafra Moderadora'
-                                                                                   ,icone       :   'https://i.imgur.com/cfYwkLQ.png'
-                                                                                   ,url         :   'https://github.com/bropedia/Kafra-Moderadora'
-                                                                                }
-                                                       ,title               :   'Cadastro realizado com sucesso!'
-                                                       ,url                 :   null
-                                                       ,description         :   'Olá ' +  this.obj_mensagem.author.username + ' seu grupo foi cadastrado com sucesso!'
-                                                       ,'image'             :   {
-                                                                                    "url"       :   null // 'https://i.imgur.com/LOGICNS.jpg'
-                                                                                   ,"height"    :   null // 123
-                                                                                   ,"width"     :   null // 123
-                                                                                }
-                                                       ,thumbnail           :   {
-                                                                                    "url"       :   'https://i.imgur.com/5SiWZwF.png' // 'https://i.imgur.com/LOGICNS.jpg'
-                                                                                   ,"height"    :   null // 123
-                                                                                   ,"width"     :   null // 123 
-                                                                                }
-                                                       ,video               :   {
-                                                                                    "url"       :   null // 'https://i.imgur.com/LOGICNS.jpg'
-                                                                                   ,"height"    :   null // 123
-                                                                                   ,"width"     :   null // 123
-                                                                                }
-                                                       ,fields              :   [
-                                                                                    {
-                                                                                        name    :   'Grupo cadastrado:'
-                                                                                       ,value   :   'Mapa: ' + v_mapa + '\nNível Inicial: ' + v_nivel_inicial + '\nNível Final: ' + v_nivel_final
-                                                                                    }
-                                                                                ]
-                                                      ,timestamp            :   new Date()
-                                                      ,footer               :   {
-                                                                                    icon_url:   'https://i.imgur.com/cfYwkLQ.png'
-                                                                                   ,text:       '© bROPédia - Por MBrauna e Lazarento'
-                                                                                }
-                                                    }
-                                    };
-            }
-            else
+            if(v_resultado === 9)
             {
                 v_obj_resposta  =   {
                                         'embed' :   {
@@ -270,6 +228,48 @@ class grupo_ragnarok
                                                        ,fields              :   [
                                                                                     {
                                                                                         name    :   'Erro ao cadastrar:'
+                                                                                       ,value   :   'Mapa: ' + v_mapa + '\nNível Inicial: ' + v_nivel_inicial + '\nNível Final: ' + v_nivel_final
+                                                                                    }
+                                                                                ]
+                                                      ,timestamp            :   new Date()
+                                                      ,footer               :   {
+                                                                                    icon_url:   'https://i.imgur.com/cfYwkLQ.png'
+                                                                                   ,text:       '© bROPédia - Por MBrauna e Lazarento'
+                                                                                }
+                                                    }
+                                    };
+            }
+            else
+            {
+                v_obj_resposta  =   {
+                                        'embed' :   {
+                                                        color               :   this.obj_configuracao.cor_verde.color
+                                                       ,author              :   {
+                                                                                    name        :   'Kafra Moderadora'
+                                                                                   ,icone       :   'https://i.imgur.com/cfYwkLQ.png'
+                                                                                   ,url         :   'https://github.com/bropedia/Kafra-Moderadora'
+                                                                                }
+                                                       ,title               :   'Cadastro realizado com sucesso!'
+                                                       ,url                 :   null
+                                                       ,description         :   'Olá ' +  this.obj_mensagem.author.username + ' seu grupo foi cadastrado com sucesso!'
+                                                       ,'image'             :   {
+                                                                                    "url"       :   null // 'https://i.imgur.com/LOGICNS.jpg'
+                                                                                   ,"height"    :   null // 123
+                                                                                   ,"width"     :   null // 123
+                                                                                }
+                                                       ,thumbnail           :   {
+                                                                                    "url"       :   'https://i.imgur.com/5SiWZwF.png' // 'https://i.imgur.com/LOGICNS.jpg'
+                                                                                   ,"height"    :   null // 123
+                                                                                   ,"width"     :   null // 123 
+                                                                                }
+                                                       ,video               :   {
+                                                                                    "url"       :   null // 'https://i.imgur.com/LOGICNS.jpg'
+                                                                                   ,"height"    :   null // 123
+                                                                                   ,"width"     :   null // 123
+                                                                                }
+                                                       ,fields              :   [
+                                                                                    {
+                                                                                        name    :   'Grupo cadastrado:'
                                                                                        ,value   :   'Mapa: ' + v_mapa + '\nNível Inicial: ' + v_nivel_inicial + '\nNível Final: ' + v_nivel_final
                                                                                     }
                                                                                 ]

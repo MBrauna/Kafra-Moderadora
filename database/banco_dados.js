@@ -72,10 +72,8 @@ class banco_dados
 
                 return 9; // [9] - ERRO
             }
-            else
-            {
-                return 1; // [1] Sucesso
-            }
+
+            return 1; // [1] Sucesso
         });
     } // monta_grupo(p_id_usuario, p_id_canal, p_nivel_inicial, p_nivel_final, p_mapa)
 
