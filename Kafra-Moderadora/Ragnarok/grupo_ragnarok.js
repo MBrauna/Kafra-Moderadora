@@ -80,9 +80,9 @@ class grupo_ragnarok
     monta_grupo(p_regra)
     {
         let     v_obj_resposta      =   {}
-                v_nivel_inicial     =   0
-                v_nivel_final       =   0
-                v_mapa              =   ''
+               ,v_nivel_inicial     =   0
+               ,v_nivel_final       =   0
+               ,v_mapa              =   ''
                ;
 
         // Declara a resposta padrão.
@@ -295,7 +295,7 @@ class grupo_ragnarok
                                                 }
                                 };
 
-            this.monta_resposta('<@' + this.obj_mensagem.author.id + '> seu grupo foi cadastrado com sucesso.'
+            this.monta_resposta('<@' + this.obj_mensagem.author.id + '> erro ao cadastrar grupo'
                                 ,v_obj_resposta
                                 );
             return;
