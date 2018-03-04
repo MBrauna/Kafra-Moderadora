@@ -90,6 +90,19 @@ class banco_dados
                                    ,values  :   [p_id_usuario, p_id_canal, p_mapa, p_nivel_inicial, p_nivel_final]
                                 };
 
+
+
+        // Antes de qualquer coisa irá remover os grupos antigos
+        this.obj_db.query('delete from grupo_ragnarok where data_fim < now()', (p_erro, p_resposta) =>
+        {
+            if(p_erro)
+            {
+                console.log(p_erro);
+                console.trace();
+            } // if(p_erro)
+        }); // this.obj_db.query('delete from grupo_ragnarok where data_fim < now()', (p_erro, p_resposta) =>
+
+
         this.obj_db.query(v_string_query, (p_erro, p_resposta) =>
         {
             if(p_erro)
