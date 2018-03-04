@@ -289,6 +289,9 @@ class grupo_ragnarok
         } // try { ... }
         catch(p_erro)
         {
+            console.log(p_erro);
+            console.trace();
+
             v_obj_resposta  =   {
                                     'embed' :   {
                                                     color               :   this.obj_configuracao.cor_vermelha.color
