@@ -261,7 +261,7 @@ class banco_dados
                                     };
 
                 this.monta_resposta(p_mensagem
-                                   ,'EEEEPAAAAA algo ocorreu e não pude montar seu grupo <@' + p_mensagem.author.id + '>'
+                                   ,'EEEEPAAAAA ocorreu um erro na consulta <@' + p_mensagem.author.id + '>'
                                    ,v_obj_resposta
                                    );
                 return;
@@ -311,7 +311,7 @@ class banco_dados
                                         };
 
                     this.monta_resposta(p_mensagem
-                                       ,'EEEEPAAAAA algo ocorreu e não pude montar seu grupo <@' + p_mensagem.author.id + '>'
+                                       ,'Vish <@' + p_mensagem.author.id + '> infelizmente não há nenhum grupo ativo atualmente.'
                                        ,v_obj_resposta
                                        );
                     return;
@@ -368,7 +368,7 @@ class banco_dados
                                         };
 
                     this.monta_resposta(p_mensagem
-                                       ,'EEEEPAAAAA algo ocorreu e não pude montar seu grupo <@' + p_mensagem.author.id + '>'
+                                       ,'VRUMMMM VRUMMMM <@' + p_mensagem.author.id + '> olha a lista de grupos ativos abaixo:'
                                        ,v_obj_resposta
                                        );
 
