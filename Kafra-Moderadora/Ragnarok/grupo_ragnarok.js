@@ -89,10 +89,10 @@ class grupo_ragnarok
         // Declara a resposta padrão.
         v_obj_resposta          =   {
                                         'embed' :   {
-                                                        color               :   this.obj_configuracao.cor_vermelha.color
+                                                        color               :   this.obj_configuracao.cor_roxa.color
                                                        ,author              :   {
                                                                                     name        :   'Kafra Moderadora'
-                                                                                   ,icone       :   'https://i.imgur.com/cfYwkLQ.png'
+                                                                                   ,icon_url    :   'https://i.imgur.com/cfYwkLQ.png'
                                                                                    ,url         :   'https://github.com/bropedia/Kafra-Moderadora'
                                                                                 }
                                                        ,title               :   'Parâmetros incorretos'
@@ -194,96 +194,9 @@ class grupo_ragnarok
                 v_mapa      =   p_regra[3].trim();
             } // else { ... }
 
-            v_resultado     = this.obj_database.monta_grupo(this.obj_mensagem.author.id, this.obj_mensagem.channel.id, v_nivel_inicial, v_nivel_final, v_mapa);
+            v_resultado     = this.obj_database.monta_grupo(this.obj_mensagem.author.id, this.obj_mensagem.channel.id, v_nivel_inicial, v_nivel_final, v_mapa, this.obj_mensagem, this.obj_configuracao);
 
-            if(v_resultado === 9)
-            {
-                v_obj_resposta  =   {
-                                        'embed' :   {
-                                                        color               :   this.obj_configuracao.cor_vermelha.color
-                                                       ,author              :   {
-                                                                                    name        :   'Kafra Moderadora'
-                                                                                   ,icone       :   'https://i.imgur.com/cfYwkLQ.png'
-                                                                                   ,url         :   'https://github.com/bropedia/Kafra-Moderadora'
-                                                                                }
-                                                       ,title               :   'ERRO DURANTE O CADASTRO'
-                                                       ,url                 :   null
-                                                       ,description         :   'Olá ' +  this.obj_mensagem.author.username + ' seu grupo não pode ser criado!'
-                                                       ,'image'             :   {
-                                                                                    "url"       :   null // 'https://i.imgur.com/LOGICNS.jpg'
-                                                                                   ,"height"    :   null // 123
-                                                                                   ,"width"     :   null // 123
-                                                                                }
-                                                       ,thumbnail           :   {
-                                                                                    "url"       :   'https://i.imgur.com/5SiWZwF.png' // 'https://i.imgur.com/LOGICNS.jpg'
-                                                                                   ,"height"    :   null // 123
-                                                                                   ,"width"     :   null // 123 
-                                                                                }
-                                                       ,video               :   {
-                                                                                    "url"       :   null // 'https://i.imgur.com/LOGICNS.jpg'
-                                                                                   ,"height"    :   null // 123
-                                                                                   ,"width"     :   null // 123
-                                                                                }
-                                                       ,fields              :   [
-                                                                                    {
-                                                                                        name    :   'Erro ao cadastrar:'
-                                                                                       ,value   :   'Mapa: ' + v_mapa + '\nNível Inicial: ' + v_nivel_inicial + '\nNível Final: ' + v_nivel_final
-                                                                                    }
-                                                                                ]
-                                                      ,timestamp            :   new Date()
-                                                      ,footer               :   {
-                                                                                    icon_url:   'https://i.imgur.com/cfYwkLQ.png'
-                                                                                   ,text:       '© bROPédia - Por MBrauna e Lazarento'
-                                                                                }
-                                                    }
-                                    };
-            }
-            else
-            {
-                v_obj_resposta  =   {
-                                        'embed' :   {
-                                                        color               :   this.obj_configuracao.cor_verde.color
-                                                       ,author              :   {
-                                                                                    name        :   'Kafra Moderadora'
-                                                                                   ,icone       :   'https://i.imgur.com/cfYwkLQ.png'
-                                                                                   ,url         :   'https://github.com/bropedia/Kafra-Moderadora'
-                                                                                }
-                                                       ,title               :   'Cadastro realizado com sucesso!'
-                                                       ,url                 :   null
-                                                       ,description         :   'Olá ' +  this.obj_mensagem.author.username + ' seu grupo foi cadastrado com sucesso!'
-                                                       ,'image'             :   {
-                                                                                    "url"       :   null // 'https://i.imgur.com/LOGICNS.jpg'
-                                                                                   ,"height"    :   null // 123
-                                                                                   ,"width"     :   null // 123
-                                                                                }
-                                                       ,thumbnail           :   {
-                                                                                    "url"       :   'https://i.imgur.com/5SiWZwF.png' // 'https://i.imgur.com/LOGICNS.jpg'
-                                                                                   ,"height"    :   null // 123
-                                                                                   ,"width"     :   null // 123 
-                                                                                }
-                                                       ,video               :   {
-                                                                                    "url"       :   null // 'https://i.imgur.com/LOGICNS.jpg'
-                                                                                   ,"height"    :   null // 123
-                                                                                   ,"width"     :   null // 123
-                                                                                }
-                                                       ,fields              :   [
-                                                                                    {
-                                                                                        name    :   'Grupo cadastrado:'
-                                                                                       ,value   :   'Mapa: ' + v_mapa + '\nNível Inicial: ' + v_nivel_inicial + '\nNível Final: ' + v_nivel_final
-                                                                                    }
-                                                                                ]
-                                                      ,timestamp            :   new Date()
-                                                      ,footer               :   {
-                                                                                    icon_url:   'https://i.imgur.com/cfYwkLQ.png'
-                                                                                   ,text:       '© bROPédia - Por MBrauna e Lazarento'
-                                                                                }
-                                                    }
-                                    };
-            }
 
-            this.monta_resposta('<@' + this.obj_mensagem.author.id + '> seu grupo foi cadastrado com sucesso.'
-                                ,v_obj_resposta
-                                );
             return;
         } // try { ... }
         catch(p_erro)
@@ -296,7 +209,7 @@ class grupo_ragnarok
                                                     color               :   this.obj_configuracao.cor_vermelha.color
                                                    ,author              :   {
                                                                                 name        :   'Kafra Moderadora'
-                                                                               ,icone       :   'https://i.imgur.com/cfYwkLQ.png'
+                                                                               ,icon_url    :   'https://i.imgur.com/cfYwkLQ.png'
                                                                                ,url         :   'https://github.com/bropedia/Kafra-Moderadora'
                                                                             }
                                                    ,title               :   'PELO AMOR DO FINADO ODIN'
@@ -337,6 +250,158 @@ class grupo_ragnarok
             return;
         } // catch(p_erro) { ... }
     } // monta_grupo(p_regra)
+
+
+
+
+
+
+
+
+
+    consulta_grupo(p_regra)
+    {
+        let     v_obj_resposta      =   {}
+               ,v_nivel             =   0
+               ,v_resultado         =   9
+               ;
+
+        // Declara a resposta padrão.
+        v_obj_resposta          =   {
+                                        'embed' :   {
+                                                        color               :   this.obj_configuracao.cor_vermelha.color
+                                                       ,author              :   {
+                                                                                    name        :   'Kafra Moderadora'
+                                                                                   ,icone       :   'https://i.imgur.com/cfYwkLQ.png'
+                                                                                   ,url         :   'https://github.com/bropedia/Kafra-Moderadora'
+                                                                                }
+                                                       ,title               :   'Parâmetros incorretos'
+                                                       ,url                 :   'https://github.com/bropedia/Kafra-Moderadora'
+                                                       ,description         :   'Olá ' +  this.obj_mensagem.author.username + ' os parâmetros informados não correspondem ao valor esperado'
+                                                       ,'image'             :   {
+                                                                                    "url"       :   null // 'https://i.imgur.com/LOGICNS.jpg'
+                                                                                   ,"height"    :   null // 123
+                                                                                   ,"width"     :   null // 123
+                                                                                }
+                                                       ,thumbnail           :   {
+                                                                                    "url"       :   'https://i.imgur.com/5SiWZwF.png' // 'https://i.imgur.com/LOGICNS.jpg'
+                                                                                   ,"height"    :   null // 123
+                                                                                   ,"width"     :   null // 123 
+                                                                                }
+                                                       ,video               :   {
+                                                                                    "url"       :   null // 'https://i.imgur.com/LOGICNS.jpg'
+                                                                                   ,"height"    :   null // 123
+                                                                                   ,"width"     :   null // 123
+                                                                                }
+                                                       ,fields              :   [
+                                                                                    {
+                                                                                        name    :   'Entenda a **procura** por grupos'
+                                                                                       ,value   :   'O comando ***procurar*** irá listar para você todos os grupos dentro da sua faixa de nível'
+                                                                                    }
+                                                                                   ,{
+                                                                                        name    :   '<NIVEL_DESEJADO>'
+                                                                                       ,value   :   'Informe qual nível você está com seu personagem e eu irei listar toooooooooooodooooooos os grupinhos ativos\nExemplo: ***110***'
+                                                                                    }
+                                                                                   ,{
+                                                                                        name    :   'A chamada para a procura de grupo é simples, veja:'
+                                                                                       ,value   :   'Se meu personagem está no nível 117 irei digitar:\n**@Kafra Moderadora procurar 117**\nE com isto irei listar os grupitchos para você upar, não é o máximo?'
+                                                                                    }
+                                                                                ]
+                                                      ,timestamp            :   new Date()
+                                                      ,footer               :   {
+                                                                                    icon_url:   'https://i.imgur.com/cfYwkLQ.png'
+                                                                                   ,text:       '© bROPédia - Por MBrauna e Lazarento'
+                                                                                }
+                                                    }
+                                    };
+
+
+        try
+        {
+            if(p_regra[1].trim() === 'null ' || p_regra[1].trim() === null p_regra[1].trim() === 'undefined')
+            {
+                this.monta_resposta('Me diz, <@' + this.obj_mensagem.author.id + '> como a Kafrinha aqui pode te ajudar se você não colabora? Cadê o nível?!'
+                                    ,v_obj_resposta
+                                    );
+                return;
+            }
+
+            if(!isNaN(parseFloat(p_regra[1].trim())) && isFinite(p_regra[1].trim()))
+            {
+                v_nivel     =   number(p_regra[1].trim());
+            } // if(!isNaN(parseFloat(p_regra[1].trim())) && isFinite(p_regra[1].trim()))
+            else
+            {
+                this.monta_resposta('Você tem certeza que o valor informado é um nível, <@' + this.obj_mensagem.author.id + '>?'
+                                        ,v_obj_resposta
+                                        );
+                return;
+            } // else { ... }
+
+
+            if(v_nivel < 1 || v_nivel > 175)
+            {
+                this.monta_resposta('Que nível é esse <@' + this.obj_mensagem.author.id + '>?'
+                                    ,v_obj_resposta
+                                    );
+                return;
+            } // if(v_nivel < 1 || v_nivel > 175)
+
+            v_resultado     = this.obj_database.consulta_grupo(v_nivel, this.obj_mensagem, this.obj_configuracao);
+
+            return;
+        }
+        catch(p_erro)
+        {
+            console.log(p_erro);
+            console.trace();
+
+            v_obj_resposta  =   {
+                                    'embed' :   {
+                                                    color               :   this.obj_configuracao.cor_vermelha.color
+                                                   ,author              :   {
+                                                                                name        :   'Kafra Moderadora'
+                                                                               ,icon_url    :   'https://i.imgur.com/cfYwkLQ.png'
+                                                                               ,url         :   'https://github.com/bropedia/Kafra-Moderadora'
+                                                                            }
+                                                   ,title               :   'PELO AMOR DO FINADO ODIN'
+                                                   ,url                 :   'https://i.imgur.com/cfYwkLQ.png'
+                                                   ,description         :   'Surgiu um erro que eu jamais previ! Vou reportar.'
+                                                   ,'image'             :   {
+                                                                                "url"       :   null // 'https://i.imgur.com/LOGICNS.jpg'
+                                                                               ,"height"    :   null // 123
+                                                                               ,"width"     :   null // 123
+                                                                            }
+                                                   ,thumbnail           :   {
+                                                                                "url"       :   'https://i.imgur.com/5SiWZwF.png' // 'https://i.imgur.com/LOGICNS.jpg'
+                                                                               ,"height"    :   null // 123
+                                                                               ,"width"     :   null // 123 
+                                                                            }
+                                                   ,video               :   {
+                                                                                "url"       :   null // 'https://i.imgur.com/LOGICNS.jpg'
+                                                                               ,"height"    :   null // 123
+                                                                               ,"width"     :   null // 123
+                                                                            }
+                                                   ,fields              :   [
+                                                                                {
+                                                                                    name    :   'CACETADA! Ocorreu um pequeno erro'
+                                                                                   ,value   :   'Durante a criação do grupo, infelizemnte meu sisteminha apresentou um problema, seu grupo não foi criado'
+                                                                                }
+                                                                            ]
+                                                  ,timestamp            :   new Date()
+                                                  ,footer               :   {
+                                                                                icon_url:   'https://i.imgur.com/cfYwkLQ.png'
+                                                                               ,text:       '© bROPédia - Por MBrauna e Lazarento'
+                                                                            }
+                                                }
+                                };
+
+            this.monta_resposta('<@' + this.obj_mensagem.author.id + '> erro ao consultar um grupo'
+                                ,v_obj_resposta
+                                );
+            return;
+        }
+    } // consulta_grupo(p_regra)
 } // class grupo_ragnarok
 
 // Torna o método público

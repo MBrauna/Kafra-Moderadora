@@ -259,7 +259,7 @@ class comando
                                                                     color               :   this.init_config.cor_roxa.color
                                                                    ,author              :   {
                                                                                                 name        :   'Kafra Moderadora'
-                                                                                               ,icone       :   'https://i.imgur.com/cfYwkLQ.png'
+                                                                                               ,icon_url    :   'https://i.imgur.com/cfYwkLQ.png'
                                                                                                ,url         :   'https://github.com/bropedia/Kafra-Moderadora'
                                                                                             }
                                                                    ,title               :   'Olá pessoal, Kafra Moderadora na área.'
