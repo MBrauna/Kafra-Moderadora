@@ -144,7 +144,7 @@ class Kafra_moderadora
                                         "message"
                                        ,async mensagem =>
                                         {
-                                           if(mensagem.channel.isPrivate)
+                                           if(mensagem.channel.type === 'dm')
                                            {
                                               this.init_kafra_moderadora.sendMessage(mensagem.author, "Você disse: " + mensagem.content);
                                            }
