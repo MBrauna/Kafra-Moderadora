@@ -146,7 +146,7 @@ class Kafra_moderadora
                                         {
                                            if(mensagem.channel.type === 'dm')
                                            {
-                                              this.init_kafra_moderadora.sendMessage(mensagem.author, "Você disse: " + mensagem.content);
+                                              mensagem.channel.send("Você disse: " + mensagem.content);
                                            }
                                            else
                                            {
