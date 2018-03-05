@@ -143,19 +143,9 @@ class Kafra_moderadora
         this.init_kafra_moderadora.on(
                                         "message"
                                        ,async mensagem =>
-                                        {
-                                           if(mensagem.channel.type === 'dm')
-                                           {
-                                              if(!mensagem.author.bot)
-                                              {
-                                                 mensagem.channel.send("Você disse: " + mensagem.content);
-                                              }
-                                           }
-                                           else
-                                           {
-                                               this.init_comando.trata_mensagem(this.init_kafra_moderadora,mensagem);
-                                           }
-                                        }
+                                       {
+                                          this.init_comando.trata_mensagem(this.init_kafra_moderadora,mensagem);
+                                       }
                                 );
         // PARA EVENTO DO TIPO TEXTO
 
