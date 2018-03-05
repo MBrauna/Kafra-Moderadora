@@ -146,7 +146,10 @@ class Kafra_moderadora
                                         {
                                            if(mensagem.channel.type === 'dm')
                                            {
-                                              mensagem.channel.send("Você disse: " + mensagem.content);
+                                              if(!mensagem.author.bot)
+                                              {
+                                                 mensagem.channel.send("Você disse: " + mensagem.content);
+                                              }
                                            }
                                            else
                                            {
