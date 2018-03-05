@@ -11,6 +11,7 @@
                            ,"request"           :   "^2.83.0"
                            ,"underscore"        :   "^1.8.3"
                            ,"wtf_wikipedia"     :   "^2.2.0"
+                           ,"cleverbot.io"      :   "^1.0.3"
                            ,"pg"                :   "^7.1.0"
                         }
 }
