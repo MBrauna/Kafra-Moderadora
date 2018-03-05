@@ -144,7 +144,14 @@ class Kafra_moderadora
                                         "message"
                                        ,async mensagem =>
                                         {
-                                            this.init_comando.trata_mensagem(this.init_kafra_moderadora,mensagem);
+                                           if(mensagem.channel.isPrivate)
+                                           {
+                                              this.init_kafra_moderadora.sendMessage(mensagem.author, "Você disse: " + mensagem.content);
+                                           }
+                                           else
+                                           {
+                                               this.init_comando.trata_mensagem(this.init_kafra_moderadora,mensagem);
+                                           }
                                         }
                                 );
         // PARA EVENTO DO TIPO TEXTO
