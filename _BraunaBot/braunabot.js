@@ -124,13 +124,11 @@ class braunabot
             }
             ,(p_erro, p_resposta, p_corpo) =>
             {
-                var v_resposta_bot  =   JSON.parse(p_corpo);
-
-                if(v_resposta_bot.status === 'success')
+                if(p_corpo.status === 'success')
                 {
-                    p_mensagem.channel.send(v_resposta_bot.response);
+                    p_mensagem.channel.send(p_corpo.response);
                     return;
-                } // if(v_resposta_bot.status === 'success')
+                } // if(p_corpo.status === 'success')
                 else
                 {
                     p_mensagem.channel.send(
