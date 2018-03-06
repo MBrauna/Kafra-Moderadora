@@ -61,7 +61,7 @@ class braunabot
     pergunta(p_mensagem)
     {
         let  v_obj_resposta     =   {}
-            ,v_resposta_bot
+            ,v_resposta_bot     =   []
             ;
 
 
