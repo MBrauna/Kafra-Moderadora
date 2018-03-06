@@ -67,7 +67,7 @@ class braunabot
 
         v_obj_resposta          =   {
                                         'embed' :   {
-                                                        color               :   this.obj_config.cor_vermelha.color
+                                                        color               :   0xff0000
                                                        ,author              :   {
                                                                                     name        :   'Kafra Moderadora'
                                                                                    ,icone       :   'https://i.imgur.com/cfYwkLQ.png'
