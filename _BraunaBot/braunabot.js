@@ -138,6 +138,7 @@ class braunabot
                 } // if(p_corpo.status === 'success')
                 else
                 {
+                    console.log(p_corpo);
                     p_mensagem.channel.send(
                                                 'Pessoa, tenho uma notícia ruim!'
                                                ,v_obj_resposta
