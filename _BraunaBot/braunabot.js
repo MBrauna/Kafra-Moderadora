@@ -61,6 +61,7 @@ class braunabot
     pergunta(p_mensagem)
     {
         var  v_obj_resposta     =   {}
+            ,v_obj_retorno      =   {}
             ;
 
 
@@ -124,11 +125,12 @@ class braunabot
             }
             ,(p_erro, p_resposta, p_corpo) =>
             {
-                if(p_corpo.status === 'success')
+                v_obj_retorno   = JSON.parse(p_corpo);
+                if(v_obj_retorno.status === 'success')
                 {
-                    p_mensagem.channel.send(p_corpo.response);
+                    p_mensagem.channel.send(v_obj_retorno.response);
                     return;
-                } // if(p_corpo.status === 'success')
+                } // if(v_obj_retorno.status === 'success')
                 else
                 {
                     p_mensagem.channel.send(
