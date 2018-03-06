@@ -143,6 +143,8 @@ let   bib_kafra_moderadora_discord  =   require('./Kafra-Moderadora/kafra-modera
 let v_token_discord                 =   process.env.BOT_TOKEN_DISCORD
    ,v_token_telegram                =   process.env.BOT_TOKEN_TELEGRAM
    ,v_token_banco_dados             =   process.env.DATABASE_URL
+   ,v_usuario_braunabot             =   process.env.BOT_USER_BRAUNABOT
+   ,v_token_braunabot               =   process.env.BOT_TOKEN_BRAUNABOT
    ;
 
 
@@ -157,5 +159,5 @@ let v_db_conexao                    =   new bib_banco_dados(v_token_banco_dados)
 
 
 // Método construtor - Inicialização do processo                (╬ ಠ益ಠ)
-const init_kafra_moderadora         =   new bib_kafra_moderadora_discord(v_token_discord, v_db_conexao); 
+const init_kafra_moderadora         =   new bib_kafra_moderadora_discord(v_token_discord, v_db_conexao, v_usuario_braunabot, v_token_braunabot); 
 // FIM - Método construtor - Inicialização do processo          (╬ ಠ益ಠ)
