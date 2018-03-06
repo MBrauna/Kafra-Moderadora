@@ -123,7 +123,7 @@ class braunabot
                                                    ,'text'                  :   p_mensagem.content
                                                 }
             }
-            ,function(p_erro, p_resposta, p_corpo)
+            ,(p_erro, p_resposta, p_corpo) =>
             {
                 v_resposta_bot  =   JSON.parse(p_corpo);
 
