@@ -47,11 +47,11 @@ class braunabot
                                                ,'Accept-Language'       :   'pt-BR,pt;q=0.9,en-US;q=0.8,en;q=0.7'
                                             }
            ,url                         :   this.url_padrao + 'create'
-           ,body                        :   {
+           ,body                        :   JSON.stringify({
                                                 'user'                  :   '8pqLB0PAGEpnuTDt'
                                                ,'key'                   :   'IEGVAI9b1F6OUn9pDCzPaCSFxaztgpWs'
                                                ,'nick'                  :   'Kafra Moderadora'
-                                            }
+                                            })
         }
         ,function(p_erro, p_resposta, p_corpo)
         {
@@ -122,12 +122,12 @@ class braunabot
                                                    ,'Accept-Language'       :   'pt-BR,pt;q=0.9,en-US;q=0.8,en;q=0.7'
                                                 }
                ,url                         :   this.url_padrao + 'ask'
-               ,body                        :   {
+               ,body                        :   JSON.stringify({
                                                     'user'                  :   '8pqLB0PAGEpnuTDt'
                                                    ,'key'                   :   'IEGVAI9b1F6OUn9pDCzPaCSFxaztgpWs'
                                                    ,'nick'                  :   'Kafra Moderadora'
                                                    ,'text'                  :   p_mensagem.content
-                                                }
+                                                })
             }
             ,(p_erro, p_resposta, p_corpo) =>
             {
