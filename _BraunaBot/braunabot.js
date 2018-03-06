@@ -58,12 +58,10 @@ class braunabot
 
 
 
-    pergunta(p_mensagem, p_obj_pergunta)
+    pergunta(p_mensagem)
     {
-        let  v_chamada_bot      =   '<@' + this.obj_cliente.user.id + '>'
-            ,v_obj_resposta     =   {}
+        let  v_obj_resposta     =   {}
             ,v_resposta_bot
-            ,v_string_msg
             ;
 
 
@@ -109,16 +107,6 @@ class braunabot
 
         try
         {
-            // Percorre o objeto da pergunta para montar a frase
-            for(var iteracao =0; iteracao<p_obj_pergunta.length;iteracao++)
-            {
-                // monta a array de frase - Para consulta futura
-                v_string_msg = v_string_msg + ' ' + p_obj_pergunta[iteracao];
-            } // for(var iteracao =0; iteracao<p_obj_pergunta.length;iteracao++)
-
-            // remove os espaços adicionais - caso exista
-            v_string_msg    =   v_string_msg.trim();
-
             request.post(
             {
                 headers                     :   {
@@ -132,7 +120,7 @@ class braunabot
                                                     'user'                  :   '8pqLB0PAGEpnuTDt'
                                                    ,'key'                   :   'IEGVAI9b1F6OUn9pDCzPaCSFxaztgpWs'
                                                    ,'nick'                  :   'Kafra Moderadora'
-                                                   ,'text'                  :   v_string_msg
+                                                   ,'text'                  :   p_mensagem.content
                                                 }
             }
             ,function(p_erro, p_resposta, p_corpo)
