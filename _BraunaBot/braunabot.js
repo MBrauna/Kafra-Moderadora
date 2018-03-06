@@ -60,8 +60,7 @@ class braunabot
 
     pergunta(p_mensagem)
     {
-        let  v_obj_resposta     =   {}
-            ,v_resposta_bot     =   []
+        var  v_obj_resposta     =   {}
             ;
 
 
@@ -125,7 +124,7 @@ class braunabot
             }
             ,(p_erro, p_resposta, p_corpo) =>
             {
-                v_resposta_bot  =   JSON.parse(p_corpo);
+                var v_resposta_bot  =   JSON.parse(p_corpo);
 
                 if(v_resposta_bot.status === 'success')
                 {
