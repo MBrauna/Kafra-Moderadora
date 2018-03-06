@@ -131,7 +131,19 @@ class braunabot
             }
             ,(p_erro, p_resposta, p_corpo) =>
             {
-               console.log(p_corpo);
+               if(p_corpo.status === 'success')
+                {
+                    p_mensagem.channel.send(p_corpo.response);
+                    return;
+                } // if(p_corpo.status === 'success')
+                else
+                {
+                    p_mensagem.channel.send(
+                                                'Pessoa, tenho uma notícia ruim!'
+                                               ,v_obj_resposta
+                                            );
+                    return;
+                } // else{ ...}
             }); // request.post(
         } // try { ... }
         catch(p_erro)
