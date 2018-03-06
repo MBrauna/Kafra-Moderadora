@@ -134,7 +134,7 @@ class braunabot
                 v_obj_retorno   = JSON.parse(p_corpo);
                if(v_obj_retorno.status === 'success')
                 {
-                    p_mensagem.channel.send(v_obj_retorno.response);
+                    console.log(v_obj_retorno.response);
                     return;
                 } // if(v_obj_retorno.status === 'success')
                 else
