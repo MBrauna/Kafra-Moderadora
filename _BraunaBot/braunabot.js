@@ -131,7 +131,11 @@ class braunabot
             }
             ,(p_erro, p_resposta, p_corpo) =>
             {
+                console.log('-------------');
+                console.log(p_erro);
+                console.log(p_resposta);
                 console.log(p_corpo);
+                console.log('-------------');
             }); // request.post(
         } // try { ... }
         catch(p_erro)
