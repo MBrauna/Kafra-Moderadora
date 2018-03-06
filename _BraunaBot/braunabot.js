@@ -35,7 +35,7 @@ class braunabot
 
     inicializa()
     {
-        request.post(
+        bib_requisicao.post(
         {
             headers                     :   {
                                                 'Accept'                :   '*/*'
@@ -107,7 +107,7 @@ class braunabot
 
         try
         {
-            request.post(
+            bib_requisicao.post(
             {
                 headers                     :   {
                                                     'Accept'                :   '*/*'
