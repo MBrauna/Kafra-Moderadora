@@ -48,6 +48,7 @@
 // Inicialização de bibliotecas                                 (∩｀-´)⊃━☆ﾟ.*･｡ﾟ
 let bib_discord                     =   require('discord.js')
    ,bib_comando                     =   require('./Comando.js')
+   ,bib_braunabot                   =   require('./../_BraunaBot/braunabot.js')
    ;
 
 // Fim - Inicialização de bibliotecas                           (∩｀-´)⊃━☆ﾟ.*･｡ﾟ
@@ -56,7 +57,7 @@ let bib_discord                     =   require('discord.js')
 class Kafra_moderadora
 {
     // Método construtor      ¯\_(⊙︿⊙)_/¯
-    constructor(p_token_discord, p_banco_dados)
+    constructor(p_token_discord, p_banco_dados, p_usuario_braunabot, p_token_braunabot)
     {
         /************************************************************************
          * Autor: Michel Brauna                                Data: 17/02/2018 *
@@ -69,11 +70,14 @@ class Kafra_moderadora
         // Salva virtualmente - protected - os dados do token
         this.v_token_discord            =   p_token_discord;
         this.v_banco_dados              =   p_banco_dados;
+        this.v_usuario_braunabot        =   p_usuario_braunabot;
+        this.v_token_braunabot          =   p_token_braunabot;
         // FIM - Salva virtualmente - protected - os dados do token
 
         // Instancia uma nova sessão para o acesso ao bot
         this.init_kafra_moderadora      =   new bib_discord.Client();
         this.init_comando               =   new bib_comando(this.v_banco_dados);
+        this.init_braunabot             =   new bib_braunabot(this.init_kafra_moderadora, this.v_usuario_braunabot, this.v_token_braunabot);
         //FIM - Instancia uma nova sessão para o acesso ao bot
 
 
@@ -142,13 +146,22 @@ class Kafra_moderadora
         // PARA EVENTO DO TIPO TEXTO
         this.init_kafra_moderadora.on(
                                         "message"
-                                       ,async mensagem =>
-                                       {
-                                          this.init_comando.trata_mensagem(this.init_kafra_moderadora,mensagem);
-                                       }
-                                );
+                                        ,async mensagem =>
+                                        {
+                                            if(mensagem.channel.type === 'dm')
+                                            {
+                                                if(!mensagem.author.bot)
+                                                {
+                                                   this.init_braunabot.pergunta(mensagem);
+                                                } // if(!mensagem.author.bot)
+                                            } // if(mensagem.channel.type === 'dm')
+                                            else
+                                            {
+                                                this.init_comando.trata_mensagem(this.init_kafra_moderadora,mensagem);
+                                            } // else { ... }
+                                        } // ,async mensagem =>
+                                    );
         // PARA EVENTO DO TIPO TEXTO
-
 
 
 
