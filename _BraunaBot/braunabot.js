@@ -64,7 +64,7 @@ class braunabot
     pergunta(p_mensagem)
     {
         var  v_obj_resposta     =   {}
-            ,v_obj_retorno
+            ,v_obj_retorno      =   []
             ;
 
 
