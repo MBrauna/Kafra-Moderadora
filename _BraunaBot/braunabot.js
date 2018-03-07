@@ -129,10 +129,18 @@ class braunabot
             ,(p_erro, p_resposta, p_corpo) =>
             {
                 v_obj_retorno   = JSON.parse(p_corpo);
-                console.log(v_obj_retorno);
-                console.log(v_obj_retorno.response);
-                console.log(p_corpo);
-                console.log(p_erro);
+                
+                if(p_erro)
+                {
+                    p_mensagem.channel.send(
+                                                'UOUUUU estou indisponível temporariamente'
+                                               ,v_obj_resposta
+                                            );
+                }
+                else
+                {
+                    p_mensagem.channel.send(v_obj_retorno.response);
+                }
 
             }); // request.post(
         } // try { ... }
