@@ -44,7 +44,7 @@ class braunabot
                                                ,'Origin'                :   'https://docs.cleverbot.io'
                                                ,'Content-Type'          :   'application/json'
                                                ,'Referer'               :   'https://docs.cleverbot.io/docs/getting-started'
-                                               ,'Accept-Encoding'       :   'gzip, deflate, br'
+                                               //,'Accept-Encoding'       :   'gzip, deflate, br'
                                                ,'Accept-Language'       :   'pt-BR,pt;q=0.9,en-US;q=0.8,en;q=0.7'
                                             }
            ,url                         :   this.url_padrao + 'create'
@@ -115,7 +115,7 @@ class braunabot
                                                    ,'Origin'                :   'https://docs.cleverbot.io'
                                                    ,'Content-Type'          :   'application/json'
                                                    ,'Referer'               :   'https://docs.cleverbot.io/docs/getting-started'
-                                                   ,'Accept-Encoding'       :   'gzip, deflate, br'
+                                                   //,'Accept-Encoding'       :   'gzip, deflate, br'
                                                    ,'Accept-Language'       :   'pt-BR,pt;q=0.9,en-US;q=0.8,en;q=0.7'
                                                 }
                ,url                         :   this.url_padrao + 'ask'
