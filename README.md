@@ -1,4 +1,4 @@
-# :ribbon: Kafra Moderadora :ribbon:
+# Kafra Moderadora
 
 
 A mais conhecida organização de serviços, com suas lindas garotas padronizadas com lindos uniformes de fácil identificação estão patrulhando Rune Midgard e agora também no Discord, embora sua sede esteja localizada em Aldebaran, avançados computadores chegaram lá e elas agora estão loucas para acompanhar tudo que a tecnologia oferece, para tal chamaram a menina ~~Gihkonta~~ ***Kafra Moderadora*** e ensinaram ela a administrar vários assuntos de Ragnarök Online.
@@ -7,7 +7,7 @@ Convide a [Kafra moderadora para seu Discord](https://discordapp.com/oauth2/auth
 
 
 
-## Funcionalidades :princess:
+## Funcionalidades
 - [x] Consulta de missões e histórias na [enciclopédia](https://bropedia.net).
 - [x] Consulta de itens no [database](https://pt.ragnaplace.com/bRO/item-categories).
 - [x] Consulta de monstros no [database](https://pt.ragnaplace.com/bRO/mob-categories).
@@ -76,12 +76,12 @@ Uso restrito à moderação do chat, esta funcionalidade irá banir ou expulsar 
 
 
 
-## Sobre Kafra Moderadora :book:
-**Kafra Moderadora** é uma criação de @github/MBrauna e @github/sergiovilar, tal projeto tem o foco na exposição dos projetos já criados pela comunidade de Ragnarök Online, tais como :diamond_shape_with_a_dot_inside: [Ragnaplace](https://pt.ragnaplace.com) e :smiling_imp: [bROPédia](https://bropedia.net).
+## Sobre Kafra Moderadora
+**Kafra Moderadora** é uma criação de @github/MBrauna e @github/sergiovilar, tal projeto tem o foco na exposição dos projetos já criados pela comunidade de Ragnarök Online, tais como [Ragnaplace](https://pt.ragnaplace.com) e [bROPédia](https://bropedia.net).
 
 
 
-## Use a API :recycle:
+## Use a API
 Abaixo um exemplo de instância da API Kafra Moderadora:
 ```js
 const bib_kafra_moderadora_discord  =   require('kafra-moderadora.js');
