@@ -1,4 +1,4 @@
-# Kafra Moderadora
+# :ribbon: Kafra Moderadora
 
 
 A mais conhecida organização de serviços, com suas lindas garotas padronizadas com lindos uniformes de fácil identificação estão patrulhando Rune Midgard e agora também no Discord, embora sua sede esteja localizada em Aldebaran, avançados computadores chegaram lá e elas agora estão loucas para acompanhar tudo que a tecnologia oferece, para tal chamaram a menina ~~Gihkonta~~ ***Kafra Moderadora*** e ensinaram ela a administrar vários assuntos de Ragnarök Online.
