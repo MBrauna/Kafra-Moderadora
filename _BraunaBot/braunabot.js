@@ -27,7 +27,9 @@ class braunabot
     constructor(p_cliente, p_usuario_braunabot, p_token_braunabot)
     {
         // Armazena o código do cliente
-        this.obj_cliente    =   p_cliente;
+        this.obj_cliente        =   p_cliente;
+        this.token_braunabot    =   p_token_braunabot;
+        this.user_braunabot     =   p_usuario_braunabot;
         // Salva a URL padrão para consulta
         this.url_padrao     =   "https://cleverbot.io/1.0/";
     } // constructor(p_cliente, p_usuario_braunabot, p_token_braunabot)
@@ -48,8 +50,8 @@ class braunabot
                                             }
            ,url                         :   this.url_padrao + 'create'
            ,body                        :   JSON.stringify({
-                                                'user'                  :   '8pqLB0PAGEpnuTDt'
-                                               ,'key'                   :   'IEGVAI9b1F6OUn9pDCzPaCSFxaztgpWs'
+                                                'user'                  :   this.user_braunabot
+                                               ,'key'                   :   this.token_braunabot
                                                ,'nick'                  :   'Kafra Moderadora'
                                             })
         }
@@ -120,8 +122,8 @@ class braunabot
                                                 }
                ,url                         :   this.url_padrao + 'ask'
                ,body                        :   JSON.stringify({
-                                                    'user'                  :   '8pqLB0PAGEpnuTDt'
-                                                   ,'key'                   :   'IEGVAI9b1F6OUn9pDCzPaCSFxaztgpWs'
+                                                    'user'                  :   this.user_braunabot
+                                                   ,'key'                   :   this.user_braunabot
                                                    ,'nick'                  :   'Kafra Moderadora'
                                                    ,'text'                  :   p_mensagem.content
                                                 })
@@ -130,7 +132,11 @@ class braunabot
             {
                 v_obj_retorno   =   JSON.parse(p_corpo);
 
-                console.log(v_obj_retorno.response);
+                console.log('1\n' + v_obj_retorno);
+                console.log('2\n' + p_corpo);
+                console.log('3\n' + p_resposta);
+                console.log('4\n' + p_erro);
+
             }); // request.post(
         } // try { ... }
         catch(p_erro)
