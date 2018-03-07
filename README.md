@@ -1,130 +1,26 @@
-
-# **Kafra Moderadora**
-
-
-----------
+# Kafra Moderadora
 
 
-## Pesquisa
+A mais conhecida organização de serviços, com suas lindas garotas padronizadas com lindos uniformes de fácil identificação estão patrulhando Rune Midgard e agora também no Discord, embora sua sede esteja localizada em Aldebaran, avançados computadores chegaram lá e elas agora estão loucas para acompanhar tudo que a tecnologia oferece, para tal chamaram a menina ~~Gihkonta~~ ***Kafra Moderadora*** e ensinaram ela a administrar vários assuntos de Ragnarök Online.
 
-### [DATABASE] 
-- *<@MENÇÃO> <item/monstro/mapa> <nome/id>* 
-- Consultas de itens, monstros e mapas em https://ragnaplace.com
-
-
-### [ENCICLOPÉDIA]
-
- - *<@MENÇÃO> wiki <termo_consulta>*
- - Consulta de guias em https://bropedia.net
+Convide a [Kafra moderadora para seu Discord](https://discordapp.com/oauth2/authorize?client_id=415645321071427615&scope=bot&permissions=2146958591)
 
 
 
-
-
-
-## Moderação
-
-### [BANIR]
- - *<@MENÇÃO> banir <@usuario_alvo>*
- - Chamada de tal ação irá banir definitivamente o usuário alvo.
-
-          
-### [EXPULSAR] 
-- *<@MENÇÃO> expulsar <@usuario_alvo>*
-- Chamada irá expulsar o usuário alvo temporáriamente.
-          
-### [LIMPAR] 
-- *<@MENÇÃO> limpar <@usuario_alvo/quantidade>* 
-- Chamada de tal ação irá limpar todas as mensagens para o alvo.
-          
-### [CRIAR REGRA]
-- *<@MENÇÃO> criar_regra <texto_escolhido>* 
-- Chamada de tal ação irá criar um alerta contendo todas as regras do servidor. 
-          
-### [ADICIONAR FILTRO DE PALAVRA]
-- *<@MENÇÃO> criar_filtro <palavra_escolhida>*
-- Chamada de tal ação irá criar um filtro de palavras proibidas.
-          
-### [REMOVER FILTRO DE PALAVRA]
-- *<@MENÇÃO> remover_filtro <palavra_escolhida>*
-- Chamada de tal ação irá remover o filtro de palavras proibidas. 
-          
-### [LISTAR FILTRO DE PALAVRA] 
-- *<@MENÇÃO> lista_filtro*
-- Chamada de tal ação irá listar todas as palavras proibidas contidas no filtro.
-          
-### [ALERTAR USUÁRIO]
-- *<@MENÇÃO> alerta <@usuario_alvo>*
-- Chamada de tal ação irá gerar uma notificação ao usuário alvo e pontos negativos. 
-          
-### [LISTAR GRUPO] 
-- *<@MENÇÃO> lista_grupo* 
-- Chamada de tal ação irá listar todos os usuários de determinado grupo.
-          
-### [VISUALIZAR USUÁRIO] 
-- *<@MENÇÃO> usuario <@usuario_alvo>* 
-- Chamada de tal ação irá listar imagem, nickname, ID, punições e grupo do alvo.
+## Funcionalidades
+- [x] Consulta de missões e histórias na [enciclopédia](https://bropedia.net).
+- [x] Consulta de itens no [database](https://pt.ragnaplace.com/bRO/item-categories).
+- [x] Consulta de monstros no [database](https://pt.ragnaplace.com/bRO/mob-categories).
+- [x] Consulta de mapas no [database](https://pt.ragnaplace.com/bRO/mob-categories).
+- [x] Organização de grupos para Ragnarök Online.
+- [x] Busca de grupos ativos para Ragnarök Online.
+- [x] Chat
+- [ ] Sistema de nível
+- [ ] Filtro de palavras
+- [ ] Sistema de avisos
+- [ ] Banimento/Expulsão
 
 
 
 
-
-
-
-## Ragnarök
-### [RECRUTAR]
-- *<@MENÇÃO> recrutar <nivel_inicial> <nivel_final> <mapa>*
-- Chamada de tal ação irá marcar por 20 minutos recrutamento de jogadores.
-          
-### [PROCURAR] 
-- *<@MENÇÃO> procurar <nivel_desejado>*
-- Chamada de tal ação irá listar os grupos ativos dentro do nível do personagem.
-          
-### [LISTAR TODOS GRUPOS]
-- *<@MENÇÃO> grupos*
-- Chamada de tal ação irá listar todos os grupos ativos.
-
-
-
-
-
-
-
-## Moderadora
-
-### [APRESENTAÇÃO] 
-- *<@MENÇÃO>* 
-- Chamada de tal ação irá gerar um texto de aprensentação.
-         
-### [REGRA]  
-- *<@MENÇÃO> regras*
-- Chamada de tal ação irá listar as regras cadastradas. 
-         
-### [AJUDA]  
-
- - *<@MENÇÃO> ajuda*
- - Chamada de tal ação irá listar todos os comandos disponíveis.
-
-         
-### [BOAS-VINDAS]
-
- - AO ENTRAR NO SERVIDOR
- - Mensagem de boas-vindas será gerada.
-
-         
-### [DESPEDIDA]
-
- - AO SAIR DO SERVIDOR
- - Mensagem de despedida será gerada.
-
-         
-### [LOG]    
-
- - Mediante canal pré-definido
- - Todas as ações serão monitoradas e um log gerado.
-
-         
-### [DEFINIR LOG]
-
- - *<@MENÇÃO> log <#AREA>*
- - Todos os logs serão escritos na área informada.
+## Comandos
