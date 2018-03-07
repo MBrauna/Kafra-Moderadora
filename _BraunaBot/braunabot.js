@@ -131,8 +131,9 @@ class braunabot
             }
             ,(p_erro, p_resposta, p_corpo) =>
             {
-                v_obj_retorno   = JSON.parse(p_corpo);
-               console.log(typeof v_obj_retorno);
+              v_obj_retorno   = JSON.parse(p_corpo);
+              console.log(typeof v_obj_retorno);
+              console.log(v_obj_resposta);
             }); // request.post(
         } // try { ... }
         catch(p_erro)
