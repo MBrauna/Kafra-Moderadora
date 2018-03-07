@@ -130,9 +130,6 @@ class braunabot
             }
             ,(p_erro, p_resposta, p_corpo) =>
             {
-                v_obj_retorno   =   JSON.parse(p_corpo);
-
-                console.log(v_obj_retorno);
                 console.log(p_corpo);
                 console.log(p_resposta);
                 console.log(p_erro);
