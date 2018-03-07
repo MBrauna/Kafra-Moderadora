@@ -130,7 +130,7 @@ class braunabot
             {
                 v_obj_retorno   =   JSON.parse(p_corpo);
 
-                console.log(v_obj_resposta.response);
+                console.log(v_obj_retorno.response);
             }); // request.post(
         } // try { ... }
         catch(p_erro)
