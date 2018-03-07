@@ -123,7 +123,7 @@ class braunabot
                ,url                         :   this.url_padrao + 'ask'
                ,body                        :   JSON.stringify({
                                                     'user'                  :   this.user_braunabot
-                                                   ,'key'                   :   this.user_braunabot
+                                                   ,'key'                   :   this.token_braunabot
                                                    ,'nick'                  :   'Kafra Moderadora'
                                                    ,'text'                  :   p_mensagem.content
                                                 })
@@ -132,10 +132,10 @@ class braunabot
             {
                 v_obj_retorno   =   JSON.parse(p_corpo);
 
-                console.log('1\n' + v_obj_retorno);
-                console.log('2\n' + p_corpo);
-                console.log('3\n' + p_resposta);
-                console.log('4\n' + p_erro);
+                console.log(v_obj_retorno);
+                console.log(p_corpo);
+                console.log(p_resposta);
+                console.log(p_erro);
 
             }); // request.post(
         } // try { ... }
