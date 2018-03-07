@@ -63,12 +63,8 @@ class braunabot
 
     pergunta(p_mensagem)
     {
-        var  v_obj_resposta     =   {}
-            ,v_obj_retorno      =   []
-            ;
-
-
-        v_obj_resposta          =   {
+        var  v_obj_retorno
+            ,v_obj_resposta     =   {
                                         'embed' :   {
                                                         color               :   0xff0000
                                                        ,author              :   {
@@ -106,7 +102,8 @@ class braunabot
                                                                                    ,text:       '© bROPédia - Por MBrauna'
                                                                                 }
                                                     }
-                                    };
+                                    }
+            ;
 
         try
         {
@@ -131,8 +128,9 @@ class braunabot
             }
             ,(p_erro, p_resposta, p_corpo) =>
             {
-              console.log(typeof p_corpo);
-              console.log(p_corpo);
+                v_obj_retorno   =   JSON.parse(p_corpo);
+
+                console.log(v_obj_resposta.response);
             }); // request.post(
         } // try { ... }
         catch(p_erro)
