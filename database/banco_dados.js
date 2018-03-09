@@ -193,6 +193,7 @@ class banco_dados
                                                                                    ,text:       '© bROPédia - Por MBrauna'
                                                                                 }
                                                     }
+                                        ,tts:true
                                     };
 
                 this.monta_resposta(p_mensagem
@@ -378,6 +379,7 @@ class banco_dados
                                                                                        ,text:       '© bROPédia - Por MBrauna'
                                                                                     }
                                                         }
+                                            ,tts:true
                                         };
 
                     this.monta_resposta(p_mensagem
