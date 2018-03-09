@@ -139,7 +139,7 @@ class braunabot
                 }
                 else
                 {
-                    p_mensagem.channel.send(v_obj_retorno.response);
+                    p_mensagem.channel.send(v_obj_retorno.response, {tts:true});
                 }
 
             }); // request.post(
