@@ -116,6 +116,18 @@ class Kafra_moderadora
                                         {
                                             console.log('[Kafra moderadora] - Estou ativa!');
                                             this.init_kafra_moderadora.user.setActivity('Ragnarök Online');
+
+
+                                            try
+                                            {
+                                                var v_canal     =   client.channels;
+                                                console.log(v_canal);
+                                            }
+                                            catch(p_erro)
+                                            {
+                                                console.log(p_erro);
+                                                console.trace();
+                                            }
                                         }
                                     );
         // PARA EVENTO DO TIPO - BOT PREPARADO
