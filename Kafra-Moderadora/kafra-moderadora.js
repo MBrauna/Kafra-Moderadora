@@ -120,10 +120,14 @@ class Kafra_moderadora
 
                                             try
                                             {
-                                                var v_canal     =   this.init_kafra_moderadora.guilds;
-                                                console.log('--------------');
-                                                console.log(v_canal);
-                                                console.log('--------------');
+                                                var v_grupo     =   this.init_kafra_moderadora.guilds;
+                                                
+                                                v_grupo.foreach(p_dados =>{
+                                                    var v_canal = this.fn_coleta_canal(p_dados);
+
+                                                    console.log(v_canal);
+                                                    console.log(p_dados);
+                                                });
                                             }
                                             catch(p_erro)
                                             {
@@ -183,6 +187,29 @@ class Kafra_moderadora
 
     }   // fn_carrega_evento()
 
+
+    // ᕦ(ò_óˇ)ᕤ     ---     S E P A R A D O R     ---     ᕦ(ˇò_ó)ᕤ
+
+
+    fn_coleta_canal(p_grupo)
+    {
+        /********************************************************
+         * Autor: Michel Brauna                Data: 10/03/2018 *
+         *                                                      *
+         * Procedimento para coleta do canal padrão do grupo, o *
+         * Discord agora removeu a opção default_channel e com  *
+         * isto tal método se fez necessário.                   *
+         ********************************************************/
+
+        // Obter o canal original.
+        if(p_grupo.channel.has(p_grupo.id)) return p_grupo.channels.get(p_grupo.id);
+
+        // Procura pelo grupo com nome 'general' criado por padrão
+        if p_grupo.channels.exists('name','general') return p_grupo.channels.find('name','general');
+
+        // Se nenhum dos dados acima satisfazer a operação - Obtém o primeiro chat da lista
+        return p_grupo.channels.filter(c => c.type === "text" && c.permissionsFor(p_grupo.client.user).has("SEND_MESSAGES")).sort((a, b) => a.position - b.position || Long.fromString(a.id).sub(Long.fromString(b.id)).toNumber()).first();
+    } // fn_coleta_canal(p_grupo)
 }   // CLASS KAFRA_MODERADORA
 
 // Torna o método público
