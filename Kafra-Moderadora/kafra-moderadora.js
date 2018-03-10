@@ -120,7 +120,7 @@ class Kafra_moderadora
 
                                             try
                                             {
-                                                var v_canal     =   this.init_kafra_moderadora.servers;
+                                                var v_canal     =   this.init_kafra_moderadora.guilds;
                                                 console.log('--------------');
                                                 console.log(v_canal);
                                                 console.log('--------------');
