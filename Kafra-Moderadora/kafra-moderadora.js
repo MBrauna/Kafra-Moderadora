@@ -120,7 +120,7 @@ class Kafra_moderadora
 
                                             try
                                             {
-                                                var v_canal     =   client.channels;
+                                                var v_canal     =   this.init_kafra_moderadora;
                                                 console.log(v_canal);
                                             }
                                             catch(p_erro)
