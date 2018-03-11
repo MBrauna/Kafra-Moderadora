@@ -212,10 +212,7 @@ class bropedia
                                                 );
                             return;
                         } // else { ... }
-                    } // bib_requisicao.get(v_url_bropedia, (p_erro_tmp, p_resposta_tmp, p_corpo_tmp) =>
-
-                    
-                    // Define o objeto a ser utilizado
+                    }); // bib_requisicao.get(v_url_bropedia, (p_erro_tmp, p_resposta_tmp, p_corpo_tmp) =>
                     
                 } // if(v_resposta.query.searchinfo.totalhits == 0)
                 else
