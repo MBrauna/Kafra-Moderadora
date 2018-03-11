@@ -107,52 +107,116 @@ class bropedia
                 // Verifica quantidade de resultados obtidos
                 if(v_resposta.query.searchinfo.totalhits == 0)
                 {
+                    v_consulta              =   p_consulta[1].trim().substring(0, (v_consulta.trim().length/2)) + '*';
+                    v_termo_consulta        =   encodeURI(v_consulta.trim());
+                    v_url_bropedia          =   `http://bropedia.net/api.php?action=query&list=search&srsearch=${v_termo_consulta}&utf8=&format=json`;
+
+
+                    bib_requisicao.get(v_url_bropedia, (p_erro_tmp, p_resposta_tmp, p_corpo_tmp) =>
+                    {
+                        // Atribui o novo valor de carpo
+                        v_resposta  =   JSON.parse(p_corpo_tmp);
+
+                        // Verifica os resultados finais
+                        if(v_resposta.query.searchinfo.totalhits == 0)
+                        {
+                            v_obj_resposta          =   {
+                                                            'embed' :   {
+                                                                            color               :   this.obj_config.cor_vermelha.color
+                                                                           ,author              :   {
+                                                                                                        name        :   'Kafra Moderadora'
+                                                                                                       ,icone       :   'https://i.imgur.com/cfYwkLQ.png'
+                                                                                                       ,url         :   'https://github.com/bropedia/Kafra-Moderadora'
+                                                                                                    }
+                                                                           ,title               :   'Termo não encontrado!'
+                                                                           ,url                 :   null
+                                                                           ,description         :   'Desculpe ): Não pude atender a sua solicitação'
+                                                                           ,'image'             :   {
+                                                                                                        "url"       :   null
+                                                                                                       ,"height"    :   null // 123
+                                                                                                       ,"width"     :   null // 123
+                                                                                                    }
+                                                                           ,thumbnail           :   {
+                                                                                                        "url"       :   'https://i.imgur.com/t3E6tKA.gif' // 'https://i.imgur.com/LOGICNS.jpg'
+                                                                                                       ,"height"    :   null // 123
+                                                                                                       ,"width"     :   null // 123 
+                                                                                                    }
+                                                                           ,video               :   {
+                                                                                                        "url"       :   null // 'https://i.imgur.com/LOGICNS.jpg'
+                                                                                                       ,"height"    :   null // 123
+                                                                                                       ,"width"     :   null // 123
+                                                                                                    }
+                                                                           ,fields              :   [
+                                                                                                        {
+                                                                                                            name: 'ZERO! NADA! VAZIO!'
+                                                                                                           ,value: 'QUE CAQUINHA, o termo "' + v_consulta + '" procurado não foi encontrado em minha base de dados! Perdoa o vacilo e não desiste de mim!'
+                                                                                                        }
+                                                                                                    ]
+                                                                          ,timestamp            :   new Date()
+                                                                          ,footer               :   {
+                                                                                                        icon_url:   'https://i.imgur.com/cfYwkLQ.png'
+                                                                                                       ,text:       '© bROPédia - Por MBrauna'
+                                                                                                    }
+                                                                        }
+                                                        };
+
+
+                            this.monta_resposta('Caramba <@' + this.obj_mensagem.author.id + '>, não consegui encontrar o que você procura!'
+                                              ,v_obj_resposta
+                                              );
+                            return;
+                        } // if(v_resposta.query.searchinfo.totalhits == 0)
+                        else
+                        {
+                            v_resposta.query.search.forEach(p_tmp_dado => {
+                                var tmp_info = {name: p_tmp_dado.title, value: p_tmp_dado.snippet};
+                                v_partes.push(tmp_info);
+                            });
+
+                            v_obj_resposta          =   {
+                                                            'embed' :   {
+                                                                            color               :   this.obj_config.cor_amarela.color
+                                                                           ,author              :   {
+                                                                                                        name        :   'Kafra Moderadora'
+                                                                                                       ,icone       :   'https://i.imgur.com/cfYwkLQ.png'
+                                                                                                       ,url         :   'https://github.com/bropedia/Kafra-Moderadora'
+                                                                                                    }
+                                                                           ,title               :   'O termo consultado não foi encontrado'
+                                                                           ,url                 :   'https://bropedia.net'
+                                                                           ,description         :   'Olá pessoa, não pude atender sua solicitação, o exato termo que você procura não foi encontrado, entretanto, abaixo os termos similares existentes:'
+                                                                           ,'image'             :   {
+                                                                                                        "url"       :   null
+                                                                                                       ,"height"    :   null // 123
+                                                                                                       ,"width"     :   null // 123
+                                                                                                    }
+                                                                           ,thumbnail           :   {
+                                                                                                        "url"       :   'https://i.imgur.com/mE0YWWh.png' // 'https://i.imgur.com/LOGICNS.jpg'
+                                                                                                       ,"height"    :   null // 123
+                                                                                                       ,"width"     :   null // 123 
+                                                                                                    }
+                                                                           ,video               :   {
+                                                                                                        "url"       :   null // 'https://i.imgur.com/LOGICNS.jpg'
+                                                                                                       ,"height"    :   null // 123
+                                                                                                       ,"width"     :   null // 123
+                                                                                                    }
+                                                                           ,fields              :   v_partes
+                                                                          ,timestamp            :   new Date()
+                                                                          ,footer               :   {
+                                                                                                        icon_url:   'https://i.imgur.com/cfYwkLQ.png'
+                                                                                                       ,text:       '© bROPédia - Por MBrauna'
+                                                                                                    }
+                                                                        }
+                                                        };
+                            this.monta_resposta('Não encontrei o que vc queria  <@' + this.obj_mensagem.author.id + '>, mas veja abaixo uma lista de similares para consulta.'
+                                                ,v_obj_resposta
+                                                );
+                            return;
+                        } // else { ... }
+                    } // bib_requisicao.get(v_url_bropedia, (p_erro_tmp, p_resposta_tmp, p_corpo_tmp) =>
+
+                    
                     // Define o objeto a ser utilizado
-                    v_obj_resposta          =   {
-                                                    'embed' :   {
-                                                                    color               :   this.obj_config.cor_vermelha.color
-                                                                   ,author              :   {
-                                                                                                name        :   'Kafra Moderadora'
-                                                                                               ,icone       :   'https://i.imgur.com/cfYwkLQ.png'
-                                                                                               ,url         :   'https://github.com/bropedia/Kafra-Moderadora'
-                                                                                            }
-                                                                   ,title               :   'Termo não encontrado!'
-                                                                   ,url                 :   null
-                                                                   ,description         :   'Desculpe ): Não pude atender a sua solicitação'
-                                                                   ,'image'             :   {
-                                                                                                "url"       :   null
-                                                                                               ,"height"    :   null // 123
-                                                                                               ,"width"     :   null // 123
-                                                                                            }
-                                                                   ,thumbnail           :   {
-                                                                                                "url"       :   'https://i.imgur.com/t3E6tKA.gif' // 'https://i.imgur.com/LOGICNS.jpg'
-                                                                                               ,"height"    :   null // 123
-                                                                                               ,"width"     :   null // 123 
-                                                                                            }
-                                                                   ,video               :   {
-                                                                                                "url"       :   null // 'https://i.imgur.com/LOGICNS.jpg'
-                                                                                               ,"height"    :   null // 123
-                                                                                               ,"width"     :   null // 123
-                                                                                            }
-                                                                   ,fields              :   [
-                                                                                                {
-                                                                                                    name: 'ZERO! NADA! VAZIO!'
-                                                                                                   ,value: 'QUE CAQUINHA, o termo "' + v_consulta + '" procurado não foi encontrado em minha base de dados! Perdoa o vacilo e não desiste de mim!'
-                                                                                                }
-                                                                                            ]
-                                                                  ,timestamp            :   new Date()
-                                                                  ,footer               :   {
-                                                                                                icon_url:   'https://i.imgur.com/cfYwkLQ.png'
-                                                                                               ,text:       '© bROPédia - Por MBrauna'
-                                                                                            }
-                                                                }
-                                                };
-
-
-                    this.monta_resposta('Caramba <@' + this.obj_mensagem.author.id + '>, não consegui encontrar o que você procura!'
-                                      ,v_obj_resposta
-                                      );
-                    return;
+                    
                 } // if(v_resposta.query.searchinfo.totalhits == 0)
                 else
                 {
@@ -341,7 +405,7 @@ class bropedia
                                                                         }
                                                         };
                             this.monta_resposta('<@' + this.obj_mensagem.author.id + '> é consulta que você quer? \n Então toma (∩｀-´)⊃━☆ﾟ.*･｡ﾟ \n ' + v_pagina_final.canonicalurl
-                                               ,{}
+                                               ,null
                                                 );
                         } // else  { ... }
                     }); // bib_requisicao.get(v_url_bropedia, (p_erro, p_resposta, p_corpo) =>
