@@ -87,7 +87,9 @@ class bropedia
               ,v_url_bropedia       =   `http://bropedia.net/api.php?action=query&list=search&srsearch=${v_termo_consulta}&utf8=&format=json`
               ,v_obj_resposta       =   {}
               ,v_partes             =   []
+              ,v_array_resp         =   []
               ,v_redirecionamento   =   false
+              ,v_contador           =   0;
               ,v_redirect
               ,v_resposta
               ,v_revisao
@@ -168,9 +170,16 @@ class bropedia
                         } // if(v_resposta.query.searchinfo.totalhits == 0)
                         else
                         {
+                            v_contador = 0;
+
                             v_resposta.query.search.forEach(p_tmp_dado => {
-                                var tmp_info = {name: p_tmp_dado.title, value: p_tmp_dado.snippet};
-                                v_partes.push(tmp_info);
+                                v_contador++;
+
+                                if(v_contador <= 10)
+                                {
+                                    var tmp_info = {name: p_tmp_dado.title, value: p_tmp_dado.snippet};
+                                    v_array_resp.push(tmp_info);
+                                } // if(v_contador <= 10)
                             });
 
                             v_obj_resposta          =   {
