@@ -89,7 +89,7 @@ class bropedia
               ,v_partes             =   []
               ,v_array_resp         =   []
               ,v_redirecionamento   =   false
-              ,v_contador           =   0;
+              ,v_contador           =   0
               ,v_redirect
               ,v_resposta
               ,v_revisao
