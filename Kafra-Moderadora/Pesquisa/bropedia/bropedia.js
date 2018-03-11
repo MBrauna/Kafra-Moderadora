@@ -170,19 +170,13 @@ class bropedia
                         } // if(v_resposta.query.searchinfo.totalhits == 0)
                         else
                         {
-                            v_contador = 0;
-
                             v_resposta.query.search.forEach(p_tmp_dado => {
-                                v_contador++;
+                                var tmp_info = {
+                                                    name: 'Termo: ' +  p_tmp_dado.title
+                                                   ,value: '<@' + this.obj_cliente.user.id + '> wiki ' + p_tmp_dado.title
+                                                };
 
-                                if(v_contador <= 10)
-                                {
-                                    var tmp_info = {
-                                                        name: 'Termo: ' +  p_tmp_dado.title
-                                                       ,value: ' ' + p_tmp_dado.snippet
-                                                    };
-                                    v_array_resp.push(tmp_info);
-                                } // if(v_contador <= 10)
+                                v_array_resp.push(tmp_info);
                             });
 
                             v_obj_resposta          =   {
