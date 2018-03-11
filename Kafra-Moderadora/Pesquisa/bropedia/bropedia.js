@@ -177,7 +177,10 @@ class bropedia
 
                                 if(v_contador <= 10)
                                 {
-                                    var tmp_info = {name: p_tmp_dado.title, value: p_tmp_dado.snippet};
+                                    var tmp_info = {
+                                                        name: 'Termo: ' +  p_tmp_dado.title
+                                                       ,value: ' ' + p_tmp_dado.snippet
+                                                    };
                                     v_array_resp.push(tmp_info);
                                 } // if(v_contador <= 10)
                             });
