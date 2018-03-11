@@ -208,7 +208,7 @@ class bropedia
                                                                                                        ,"height"    :   null // 123
                                                                                                        ,"width"     :   null // 123
                                                                                                     }
-                                                                           ,fields              :   v_partes
+                                                                           ,fields              :   v_array_resp
                                                                           ,timestamp            :   new Date()
                                                                           ,footer               :   {
                                                                                                         icon_url:   'https://i.imgur.com/cfYwkLQ.png'
