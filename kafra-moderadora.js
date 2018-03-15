@@ -22,8 +22,7 @@
  ****************************************************************************************************/
 
 // Inicialização de bibliotecas                                 (∩｀-´)⊃━☆ﾟ.*･｡ﾟ
-let     bib_kafra_moderadora        =   require('./Monitor/kafra-moderadora.js')            // Inicializa a biblioteca de funcionalidades Kafra Moderadora
-       ;
+const bib_kafra_moderadora        =   require('./Monitor/kafra-moderadora.js');     // Inicializa a biblioteca de funcionalidades Kafra Moderadora
 // Inicialização de bibliotecas                                 (∩｀-´)⊃━☆ﾟ.*･｡ﾟ
 
 // ᕦ(ò_óˇ)ᕤ     ---     S E P A R A D O R     ---     ᕦ(ˇò_ó)ᕤ 
@@ -31,7 +30,7 @@ let     bib_kafra_moderadora        =   require('./Monitor/kafra-moderadora.js')
 // Coleta de variáveis de ambiente                              （ ^_^）o自  自o（^_^ ）
 let     v_token_discord             =   process.env.BOT_TOKEN_DISCORD
        ,v_token_braunabot           =   process.env.BOT_TOKEN_BRAUNABOT
-       ,v_usuario_braunabot         =   process.env.BOT_USUARIO_BRAUNABOT
+       ,v_usuario_braunabot         =   process.env.BOT_USER_BRAUNABOT
        ;
 // Coleta de variáveis de ambiente                              （ ^_^）o自  自o（^_^ ）
 
