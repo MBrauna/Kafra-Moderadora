@@ -195,6 +195,7 @@ class mensagem
                     break;
 
                 default:
+                    console.log(tmp_comando[0].toLowerCase());
                     console.log('>> PADRAO <<');
                     break;
             } // switch(tmp_comando[0]) { ... }
