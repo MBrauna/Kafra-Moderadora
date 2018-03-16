@@ -23,6 +23,7 @@
 
 // Inicialização de bibliotecas                                 (∩｀-´)⊃━☆ﾟ.*･｡ﾟ
 let     bib_discord                 =   require('discord.js')                               // Inicializa a biblioteca para Discord
+       ,bib_mensagem                =   require('./Usuario/mensagem.js')                    // Requisita a biblioteca para tratamento de mensagens
        ;
 // Inicialização de bibliotecas                                 (∩｀-´)⊃━☆ﾟ.*･｡ﾟ
 
@@ -95,11 +96,16 @@ class Monitor
             {
 
             });
-            */
 
             // ᕦ(ò_óˇ)ᕤ     ---     S E P A R A D O R     ---     ᕦ(ˇò_ó)ᕤ 
 
-            /*
+            this.init_discord.on('debug', (informacao) =>
+            {
+                console.log('---- debug ----');
+            });
+
+            // ᕦ(ò_óˇ)ᕤ     ---     S E P A R A D O R     ---     ᕦ(ˇò_ó)ᕤ 
+
             this.init_discord.on('warn', () =>
             {
 
@@ -141,7 +147,8 @@ class Monitor
 
             this.init_discord.on('message', (mensagem) =>
             {
-                console.log('---- message ----');
+                // Inicializa o pacote de tratativas para mensagens
+                new bib_mensagem(this.init_discord, mensagem);
             });
 
             // ᕦ(ò_óˇ)ᕤ     ---     S E P A R A D O R     ---     ᕦ(ˇò_ó)ᕤ 
@@ -269,13 +276,6 @@ class Monitor
             this.init_discord.on('clientUserGuildSettingsUpdate', (configuracao) =>
             {
                 console.log('---- clientUserGuildSettingsUpdate ----');
-            });
-
-            // ᕦ(ò_óˇ)ᕤ     ---     S E P A R A D O R     ---     ᕦ(ˇò_ó)ᕤ 
-
-            this.init_discord.on('debug', (informacao) =>
-            {
-                console.log('---- debug ----');
             });
 
             // ᕦ(ò_óˇ)ᕤ     ---     S E P A R A D O R     ---     ᕦ(ˇò_ó)ᕤ 
