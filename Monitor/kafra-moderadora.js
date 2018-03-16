@@ -149,7 +149,8 @@ class Monitor
 
             this.init_discord.on('message', (mensagem) =>
             {
-                v_retorno   =   new bib_mensagem(this.init_discord, mensagem).trata_mensagem();
+                v_retorno   =   new bib_mensagem(this.init_discord, mensagem);
+                v_retorno.trata_mensagem();
             });
 
             // ᕦ(ò_óˇ)ᕤ     ---     S E P A R A D O R     ---     ᕦ(ˇò_ó)ᕤ 
