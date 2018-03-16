@@ -120,7 +120,7 @@ class mensagem
         // Verifica se a mensagem inicia com uma chamada para o bot (menção direta)
         if(this.verifica_mencao())
         {
-            var tmp_comando     =   this.mensagem_para_array_sprefixo(this.mencao_bot);
+            var tmp_comando     =   this.mensagem_para_array_sprefixo(this.mencao_bot());
 
             // Verifica se a variável realmente foi encontrada, caso não tenha informação - Encerra
             if(typeof tmp_comando[0] === 'undefined' || tmp_comando[0].trim() === 'null' || tmp_comando[0].trim() === null || tmp_comando[0].trim() === undefined || tmp_comando[0].trim() === 'undefined' || tmp_comando[0].trim() === '') return;
