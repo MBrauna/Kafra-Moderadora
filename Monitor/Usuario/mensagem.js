@@ -154,7 +154,7 @@ class mensagem
                 case 'ticket':      // ticket <<codigo_ticket>>
                     console.log('>> ticket <<');
                     break;
-                case 'bug'          // bug [<<mensagem>>]
+                case 'bug':          // bug [<<mensagem>>]
                     console.log('>> bug <<');
                     break;
 
