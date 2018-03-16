@@ -204,3 +204,7 @@ class mensagem
 
 
 } // class mensagem
+
+
+// Torna o método público - Acesso externo é permitido.
+module.exports = mensagem;
