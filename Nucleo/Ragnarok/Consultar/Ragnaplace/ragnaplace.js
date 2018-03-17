@@ -142,7 +142,7 @@ class ragnaplace
         // Marca a nível global a mensagem a ser tratada
         this.array_mensagem     =   p_termo_consulta;
 
-        let v_url_consulta      =   this.prepara_url(this.trata_consulta(),p_tipo,1)
+        let v_url_consulta      =   this.prepara_url(this.trata_consulta(),p_tipo,20)
            ,v_resposta          =   {}
            ,v_array_resp        =   []
            ,v_pagina
@@ -177,6 +177,8 @@ class ragnaplace
             {
                 // Obtem o objeto entregue em "p_corpo" para tratativa da resposta
                 v_resposta      =   JSON.parse(p_corpo);
+
+                console.log(v_resposta);
 
                 // Verifica se o objeto encontrado é válido
                 if(typeof v_resposta === 'undefined' || v_resposta === 'null' || v_resposta === null || v_resposta === 'undefined')
