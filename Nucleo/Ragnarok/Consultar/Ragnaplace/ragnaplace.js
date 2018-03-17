@@ -172,13 +172,13 @@ class ragnaplace
             }
             // Pacote de correção -- Michel Brauna -- 17/03/2018
 
+            console.log(v_url_consulta);
+
             // Consome a API Ragnaplace - Método GET
             bib_requisicao.get(v_url_consulta, (p_erro, p_resposta, p_corpo) =>
             {
                 // Obtem o objeto entregue em "p_corpo" para tratativa da resposta
                 v_resposta      =   JSON.parse(p_corpo);
-
-                console.log(v_resposta);
 
                 // Verifica se o objeto encontrado é válido
                 if(typeof v_resposta === 'undefined' || v_resposta === 'null' || v_resposta === null || v_resposta === 'undefined')
