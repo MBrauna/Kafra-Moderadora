@@ -145,7 +145,7 @@ class mensagem
                     new bib_ragnaplace(this.obj_cliente, this.obj_mensagem).consultar(tmp_comando, 'mapa');
                     break;
                 case 'wiki':        // wiki <<termo>>
-                    new bib_bropedia(this.obj_cliente, this.obj_mensagem).consulta(tmp_comando);
+                    new bib_bropedia(this.obj_cliente, this.obj_mensagem).consultar(tmp_comando);
                     break;
 
                 // Comandos de recrutamento em Ragnarök
