@@ -51,6 +51,14 @@ class ragnaplace
 
         try
         {
+            // Pacote de correção -- Michel Brauna -- 17/03/2018
+            // Caso a quantidade de elementos presentes na array de mensagem não satisfaça a operação, finaliza.
+            if(this.array_mensagem.length <= 1)
+            {
+                return null;
+            } // if(this.array_mensagem.length < 1)
+            // Pacote de correção -- Michel Brauna -- 17/03/2018
+
             for(var iteracao=1;iteracao<this.array_mensagem.length; iteracao++)
             {
                 v_string_requisicao =   v_string_requisicao + this.array_mensagem[iteracao] + ' ';
@@ -76,7 +84,16 @@ class ragnaplace
             }
             else
             {
+                // Pacote de correção -- Michel Brauna -- 17/03/2018
+                // Caso a quantidade de elementos presentes na array de mensagem não satisfaça a operação, finaliza.
+                if(this.array_mensagem.length <= 1)
+                {
+                    return null;
+                } // if(this.array_mensagem.length < 1)
+                // Pacote de correção -- Michel Brauna -- 17/03/2018
+
                 var v_ultimo_termo = '';
+
                 for(var iteracao=1;iteracao<this.array_mensagem.length; iteracao++)
                 {
                     v_ultimo_termo =   this.array_mensagem[iteracao];
