@@ -25,7 +25,7 @@
  ****************************************************************************************************/
 
 // Inicialização de bibliotecas                                 (∩｀-´)⊃━☆ﾟ.*･｡ﾟ
-let bib_ragnaplace                      =   request('./../../Nucleo/Ragnarok/Consultar/Ragnaplace/ragnaplace.js')
+let bib_ragnaplace                      =   require('./../../Nucleo/Ragnarok/Consultar/Ragnaplace/ragnaplace.js')
    ;
 // Inicialização de bibliotecas                                 (∩｀-´)⊃━☆ﾟ.*･｡ﾟ
 
