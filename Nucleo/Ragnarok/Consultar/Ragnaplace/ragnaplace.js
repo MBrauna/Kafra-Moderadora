@@ -102,16 +102,16 @@ class ragnaplace
         switch(p_tipo_url.toLowerCase())
         {
             case 'item':
-                v_url_retorno   =   `https://pt.ragnaplace.com/api/${process.env.BOT_TOKEN_RAGNAPLACE}/8/bro/item/search/${p_quantidade}/views/${encodeURI(p_termo_consulta.trim())}`;
+                v_url_retorno   =   'https://pt.ragnaplace.com/api/' + process.env.BOT_TOKEN_RAGNAPLACE + '/8/bro/item/search/' + p_quantidade + '/views/' + encodeURI(p_termo_consulta.trim());
                 break;
             case 'monstro':
-                v_url_retorno   =   `https://pt.ragnaplace.com/api/${process.env.BOT_TOKEN_RAGNAPLACE}/8/bro/mob/search/${p_quantidade}/views/${encodeURI(p_termo_consulta.trim())}`;
+                v_url_retorno   =   'https://pt.ragnaplace.com/api/' + process.env.BOT_TOKEN_RAGNAPLACE + '/8/bro/mob/search/' + p_quantidade + '/views/' + encodeURI(p_termo_consulta.trim());
                 break;
             case 'mapa':
-                v_url_retorno   =   `https://pt.ragnaplace.com/api/${process.env.BOT_TOKEN_RAGNAPLACE}/8/bro/map/search/${p_quantidade}/views/${encodeURI(p_termo_consulta.trim())}`;
+                v_url_retorno   =   'https://pt.ragnaplace.com/api/' + process.env.BOT_TOKEN_RAGNAPLACE + '/8/bro/map/search/' + p_quantidade + '/views/' + encodeURI(p_termo_consulta.trim());
                 break;
             default
-                v_url_retorno   =   `https://pt.ragnaplace.com/api/${process.env.BOT_TOKEN_RAGNAPLACE}/8/bro/item/search/${p_quantidade}/views/${encodeURI(p_termo_consulta.trim())}`;
+                v_url_retorno   =   'https://pt.ragnaplace.com/api/' + process.env.BOT_TOKEN_RAGNAPLACE + '/8/bro/item/search/' + p_quantidade + '/views/' + encodeURI(p_termo_consulta.trim());
                 break;
         } // switch(p_tipo_url.toLowerCase() === 'item') { ... }
 
