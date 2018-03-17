@@ -96,7 +96,7 @@ class ragnaplace
     prepara_url(p_termo_consulta, p_tipo_url, p_quantidade)
     {
         // Declara a variável de retorno
-        var v_url_retorno               =   '';
+        var v_url_retorno               =   'teste';
 
         // Verifica qual tipo de URL deverá ser utilizada
         switch(p_tipo_url.toLowerCase())
@@ -110,7 +110,7 @@ class ragnaplace
             case 'mapa':
                 v_url_retorno   =   'https://pt.ragnaplace.com/api/' + process.env.BOT_TOKEN_RAGNAPLACE + '/8/bro/map/search/' + p_quantidade + '/views/' + encodeURI(p_termo_consulta.trim());
                 break;
-            default
+            default:
                 v_url_retorno   =   'https://pt.ragnaplace.com/api/' + process.env.BOT_TOKEN_RAGNAPLACE + '/8/bro/item/search/' + p_quantidade + '/views/' + encodeURI(p_termo_consulta.trim());
                 break;
         } // switch(p_tipo_url.toLowerCase() === 'item') { ... }
