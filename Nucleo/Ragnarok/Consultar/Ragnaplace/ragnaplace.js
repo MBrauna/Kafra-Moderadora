@@ -120,7 +120,7 @@ class ragnaplace
 
     // ᕦ(ò_óˇ)ᕤ     ---     S E P A R A D O R     ---     ᕦ(ˇò_ó)ᕤ 
 
-    consulta(p_termo_consulta,p_tipo)
+    consultar(p_termo_consulta,p_tipo)
     {
         // Marca a nível global a mensagem a ser tratada
         this.array_mensagem     =   p_termo_consulta;
@@ -207,7 +207,7 @@ class ragnaplace
             console.log(p_erro);
             console.trace();
         } // catch(p_erro) { ... }
-    } // consulta(p_termo_consulta,p_tipo)
+    } // consultar(p_termo_consulta,p_tipo)
 
 } // class ragnaplace { ... }
 
