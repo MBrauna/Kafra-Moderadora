@@ -119,16 +119,16 @@ class ragnaplace
         switch(p_tipo_url.toLowerCase())
         {
             case 'item':
-                v_url_retorno   =   'https://pt.ragnaplace.com/api/' + process.env.BOT_TOKEN_RAGNAPLACE + '/8/bro/item/search/' + p_quantidade + '/views/' + encodeURI(p_termo_consulta.trim());
+                v_url_retorno   =   'https://pt.ragnaplace.com/api/' + process.env.BOT_TOKEN_RAGNAPLACE + '/8/bro/item/search/' + p_quantidade + '/views/' + encodeURI(p_termo_consulta);
                 break;
             case 'monstro':
-                v_url_retorno   =   'https://pt.ragnaplace.com/api/' + process.env.BOT_TOKEN_RAGNAPLACE + '/8/bro/mob/search/' + p_quantidade + '/views/' + encodeURI(p_termo_consulta.trim());
+                v_url_retorno   =   'https://pt.ragnaplace.com/api/' + process.env.BOT_TOKEN_RAGNAPLACE + '/8/bro/mob/search/' + p_quantidade + '/views/' + encodeURI(p_termo_consulta);
                 break;
             case 'mapa':
-                v_url_retorno   =   'https://pt.ragnaplace.com/api/' + process.env.BOT_TOKEN_RAGNAPLACE + '/8/bro/map/search/' + p_quantidade + '/views/' + encodeURI(p_termo_consulta.trim());
+                v_url_retorno   =   'https://pt.ragnaplace.com/api/' + process.env.BOT_TOKEN_RAGNAPLACE + '/8/bro/map/search/' + p_quantidade + '/views/' + encodeURI(p_termo_consulta);
                 break;
             default:
-                v_url_retorno   =   'https://pt.ragnaplace.com/api/' + process.env.BOT_TOKEN_RAGNAPLACE + '/8/bro/item/search/' + p_quantidade + '/views/' + encodeURI(p_termo_consulta.trim());
+                v_url_retorno   =   'https://pt.ragnaplace.com/api/' + process.env.BOT_TOKEN_RAGNAPLACE + '/8/bro/item/search/' + p_quantidade + '/views/' + encodeURI(p_termo_consulta);
                 break;
         } // switch(p_tipo_url.toLowerCase() === 'item') { ... }
 
@@ -152,6 +152,12 @@ class ragnaplace
         {
             // Pacote de correção -- Michel Brauna -- 17/03/2018
             // Antes de iniciar o procedimento, verificar se as tratativas de mensagem não retornarão nulo
+            if (this.array_mensagem.lengt <= 1)
+            {
+                // Comunica com o usuário
+                console.log('Chamada incorreta!');
+                return;
+            } // if (this.array_mensagem.lengt <= 1)
             if(this.trata_consulta() === null)
             {
                 // Comunica com o usuário
