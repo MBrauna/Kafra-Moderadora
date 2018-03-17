@@ -61,7 +61,6 @@ class ragnaplace
 
             for(var iteracao=1;iteracao<this.array_mensagem.length; iteracao++)
             {
-                console.log('i[' + iteracao + '] --> ' + this.array_mensagem[iteracao]);
                 v_string_requisicao =   v_string_requisicao + ' ' + this.array_mensagem[iteracao];
             } // for(var iteracao=1;iteracao<this.array_mensagem.length; iteracao++)
 
@@ -172,8 +171,6 @@ class ragnaplace
                 return;
             }
             // Pacote de correção -- Michel Brauna -- 17/03/2018
-
-            console.log(v_url_consulta);
 
             // Consome a API Ragnaplace - Método GET
             bib_requisicao.get(v_url_consulta, (p_erro, p_resposta, p_corpo) =>
