@@ -27,6 +27,7 @@
 // Inicialização de bibliotecas                                 (∩｀-´)⊃━☆ﾟ.*･｡ﾟ
 let bib_ragnaplace                      =   require('./../../Nucleo/Ragnarok/Consultar/Ragnaplace/ragnaplace.js')
    ,bib_bropedia                        =   require('./../../Nucleo/Ragnarok/Consultar/Bropedia/bropedia.js')
+   ,bib_jogo                            =   require('./../../Nucleo/Jogo/jogos.js')
    ;
 // Inicialização de bibliotecas                                 (∩｀-´)⊃━☆ﾟ.*･｡ﾟ
 
@@ -166,10 +167,10 @@ class mensagem
 
                 // Comando para jogos
                 case 'sorte':       //  sorte
-                    console.log('>> sorte <<');
+                    new bib_jogo(this.obj_cliente, this.obj_mensagem).sorte();
                     break;
                 case 'jokenpo':     // jokenpo
-                    console.log('>> jokenpo <<');
+                    new bib_jogo(this.obj_cliente, this.obj_mensagem).jokenpo();
                     break;
 
                 // Comando para moderação
@@ -196,6 +197,8 @@ class mensagem
                 case 'ver':         // ver <<usuario>>
                     console.log('>> ver <<');
                     break;
+                case 'regra':
+                    console.log('>> regra <<');
                 case 'ajuda':       // ajuda
                     console.log('>> ajuda <<');
                     break;
