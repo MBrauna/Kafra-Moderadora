@@ -47,7 +47,7 @@ class ragnaplace
     trata_consulta()
     {
         // Declaração de variáveis
-        var v_string_requisicao     =   '';
+        var v_string_requisicao;
 
         try
         {
@@ -61,7 +61,8 @@ class ragnaplace
 
             for(var iteracao=1;iteracao<this.array_mensagem.length; iteracao++)
             {
-                v_string_requisicao =   v_string_requisicao + this.array_mensagem[iteracao] + ' ';
+                console.log('i[' + iteracao + '] --> ' + this.array_mensagem[iteracao]);
+                v_string_requisicao =   v_string_requisicao + ' ' + this.array_mensagem[iteracao];
             } // for(var iteracao=1;iteracao<this.array_mensagem.length; iteracao++)
 
             return v_string_requisicao.trim().toLowerCase();
