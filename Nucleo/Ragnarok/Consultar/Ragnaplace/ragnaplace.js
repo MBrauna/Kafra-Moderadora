@@ -47,7 +47,7 @@ class ragnaplace
     trata_consulta()
     {
         // Declaração de variáveis
-        var v_string_requisicao;
+        var v_string_requisicao = '';
 
         try
         {
