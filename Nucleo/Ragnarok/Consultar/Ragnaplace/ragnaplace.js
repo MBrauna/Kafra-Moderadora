@@ -179,7 +179,7 @@ class ragnaplace
                 v_resposta      =   JSON.parse(p_corpo);
 
                 // Verifica se o objeto encontrado é válido
-                if(typeof v_resposta === 'undefined' || v_resposta.toLowerCase() === 'null' || v_resposta === null || v_resposta === 'undefined')
+                if(typeof v_resposta === 'undefined' || v_resposta === 'null' || v_resposta === null || v_resposta === 'undefined')
                 {
                     // Marca uma nova consulta ao termo desejado.
                     v_url_consulta  =   this.prepara_url(this.ultimo_termo(),p_tipo,15);
