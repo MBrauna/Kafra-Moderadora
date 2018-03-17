@@ -133,6 +133,22 @@ class ragnaplace
 
         try
         {
+            // Pacote de correção -- Michel Brauna -- 17/03/2018
+            // Antes de iniciar o procedimento, verificar se as tratativas de mensagem não retornarão nulo
+            if(this.trata_consulta() === null)
+            {
+                // Comunica com o usuário
+                console.log('Chamada incorreta!');
+                return;
+            } // if(this.trata_consulta() === null)
+            if(this.ultimo_termo() === null)
+            {
+                // Comunica com o usuário
+                console.log('Chamada incorreta!');
+                return;
+            }
+            // Pacote de correção -- Michel Brauna -- 17/03/2018
+
             // Consome a API Ragnaplace - Método GET
             bib_requisicao.get(v_url_consulta, (p_erro, p_resposta, p_corpo) =>
             {
