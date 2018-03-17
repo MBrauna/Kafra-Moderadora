@@ -26,6 +26,7 @@
 
 // Inicialização de bibliotecas                                 (∩｀-´)⊃━☆ﾟ.*･｡ﾟ
 let bib_ragnaplace                      =   require('./../../Nucleo/Ragnarok/Consultar/Ragnaplace/ragnaplace.js')
+   ,bib_bropedia                        =   require('./../../Nucleo/Ragnarok/Consultar/Bropedia/bropedia.js')
    ;
 // Inicialização de bibliotecas                                 (∩｀-´)⊃━☆ﾟ.*･｡ﾟ
 
@@ -144,7 +145,7 @@ class mensagem
                     new bib_ragnaplace(this.obj_cliente, this.obj_mensagem).consultar(tmp_comando, 'mapa');
                     break;
                 case 'wiki':        // wiki <<termo>>
-                    console.log('>> wiki <<');
+                    new bib_bropedia(this.obj_cliente, this.obj_mensagem).consulta(tmp_comando);
                     break;
 
                 // Comandos de recrutamento em Ragnarök
