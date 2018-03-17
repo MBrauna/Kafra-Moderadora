@@ -27,12 +27,26 @@ class jogo
         this.obj_mensagem   =   p_mensagem;
     } // constructor(p_cliente, p_mensagem)
 
+    gera_aleatorio(p_minimo, p_maximo)
+    {
+        try
+        {
+            var v_minimo    =   Math.ceil(p_minimo);
+            var v_maximo    =   Math.floor(p_maximo);
+            return Math.floor(Math.random() * (v_maximo - v_minimo + 1)) + v_minimo;
+        }
+        catch(p_erro)
+        {
+            return p_minimo;
+        }
+    }
+
     sorte()
     {
         try
         {
             // Monta o resultado do jogo de sorte -> min(1) max(6)
-            var v_resultado = Math.random() * (6 - 1) + 1;
+            var v_resultado =   this.gera_aleatorio(1,6);
 
             console.log(v_resultado);
             return;
@@ -51,10 +65,9 @@ class jogo
         try
         {
             // Monta o resultado do jogo de sorte -> min(1) max(3)
-            var v_jokenpo       =   Math.random() * (3 - 1) + 1;
             var v_resultado     =   '';
 
-            switch(v_jokenpo)
+            switch(this.gera_aleatorio(1,3))
             {
                 case 1:
                     // Se este for o escolhido ... anotará Pedra
@@ -69,7 +82,7 @@ class jogo
                     v_resultado     =   ':hand_splayed:';
                     break;
                 default:
-                    v_resultado     =   ':fist:';
+                    v_resultado     =   ':exclamation:';
                     break;
             }
 
