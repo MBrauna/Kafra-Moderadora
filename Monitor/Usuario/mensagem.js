@@ -24,6 +24,11 @@
  ****************************************************************************************************
  ****************************************************************************************************/
 
+// Inicialização de bibliotecas                                 (∩｀-´)⊃━☆ﾟ.*･｡ﾟ
+let bib_ragnaplace                      =   request('./../../Nucleo/Ragnarok/Consultar/Ragnaplace/ragnaplace.js')
+   ;
+// Inicialização de bibliotecas                                 (∩｀-´)⊃━☆ﾟ.*･｡ﾟ
+
 class mensagem
 {
     constructor(p_cliente, p_mensagem)
@@ -130,13 +135,13 @@ class mensagem
             {
                 // Comandos de consulta de informações
                 case 'item':        // item <<nome/id do item>>
-                    console.log('>> item <<');
+                    new bib_ragnaplace(this.obj_cliente, this.obj_mensagem).consultar(tmp_comando, 'item');
                     break;
                 case 'monstro':     // monstro <<nome/id do monstro>>
-                    console.log('>> monstro <<');
+                    new bib_ragnaplace(this.obj_cliente, this.obj_mensagem).consultar(tmp_comando, 'monstro');
                     break;
                 case 'mapa':        // mapa <<nome/id do mapa>>
-                    console.log('>> mapa <<');
+                    new bib_ragnaplace(this.obj_cliente, this.obj_mensagem).consultar(tmp_comando, 'mapa');
                     break;
                 case 'wiki':        // wiki <<termo>>
                     console.log('>> wiki <<');
