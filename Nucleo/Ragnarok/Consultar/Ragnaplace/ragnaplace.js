@@ -190,7 +190,7 @@ class ragnaplace
                         v_resposta  =   JSON.parse(p_corpo_nt);
 
 
-                        if(typeof v_resposta === 'undefined' || v_resposta.toLowerCase() === 'null' || v_resposta === null || v_resposta === 'undefined')
+                        if(typeof v_resposta === 'undefined' || v_resposta === 'null' || v_resposta === null || v_resposta === 'undefined')
                         {
                             // Comunica com o usuário
                             console.log('Nada encontrado para ultimo termo: ' + this.ultimo_termo());
