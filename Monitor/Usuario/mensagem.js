@@ -27,6 +27,7 @@
 // Inicialização de bibliotecas                                 (∩｀-´)⊃━☆ﾟ.*･｡ﾟ
 let bib_ragnaplace                      =   require('./../../Nucleo/Ragnarok/Consultar/Ragnaplace/ragnaplace.js')
    ,bib_bropedia                        =   require('./../../Nucleo/Ragnarok/Consultar/Bropedia/bropedia.js')
+   ,bib_banco_dados                     =   require('./../../Provedor/gera_log.js')
    ,bib_jogo                            =   require('./../../Nucleo/Jogo/jogos.js')
    ;
 // Inicialização de bibliotecas                                 (∩｀-´)⊃━☆ﾟ.*･｡ﾟ
@@ -208,8 +209,25 @@ class mensagem
                     console.log('>> PADRAO <<');
                     break;
             } // switch(tmp_comando[0]) { ... }
+
+
+            this.gera_log()
         } // if(this.verifica_mencao()) { ... }
     } // trata_mensagem() { ... }
+
+    async gera_log()
+    {
+        const v_saida   =   new bib_banco_dados(this.obj_cliente).log_mensagem(this.obj_mensagem, this.obj_mensagem);
+
+        if(v_saida === 1)
+        {
+            console.log('Salvou');
+        }
+        else
+        {
+            console.log('erro');
+        }
+    } // async gera_log()
 
 
 
