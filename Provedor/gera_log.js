@@ -39,12 +39,12 @@ class log
         let v_url_log           =   'http://kafra.mbrauna.org/api/log'
            ,v_informacao        =   {
                                         'token'     :   process.env.TOKEN_KAFRA_ADMIN
-                                       ,'cliente'   :   JSON.stringify(this.obj_cliente)
+                                       ,'cliente'   :   this.obj_cliente
                                        ,'evento'    :   'mensagem'
                                        ,'nome_obj1' :   'mensagem_atual'
                                        ,'nome_obj2' :   'mensagem_anterior'
-                                       ,'obj1'      :   JSON.stringify(p_mensagem)
-                                       ,'obj2'      :   JSON.stringify(p_mensagem_antiga)
+                                       ,'obj1'      :   p_mensagem
+                                       ,'obj2'      :   p_mensagem_antiga
                                     }
            ,v_arquivo_data      =   {
                                         url     :   v_url_log
