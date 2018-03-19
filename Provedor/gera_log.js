@@ -77,3 +77,6 @@ class log
         });
     } // log_mensagem(p_mensagem, p_mensagem_atual)
 } // class log
+
+
+module.exports = log;
