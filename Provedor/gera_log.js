@@ -49,7 +49,7 @@ class log
            ,v_arquivo_data      =   {
                                         url     :   v_url_log
                                        ,json    :   true
-                                       ,body    :   JSON.stringify(v_informacao);
+                                       ,body    :   JSON.stringify(v_informacao)
                                     }
            ,v_informacao        =   {}
             ;
