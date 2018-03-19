@@ -56,7 +56,7 @@ class log
 
 
 
-        request.post(v_arquivo_data, (p_erro, p_resposta, p_corpo) =>
+        bib_requisicao.post(v_arquivo_data, (p_erro, p_resposta, p_corpo) =>
         {
             v_resposta    =   JSON.parse(p_corpo);
 
