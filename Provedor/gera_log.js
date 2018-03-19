@@ -51,14 +51,14 @@ class log
                                        ,json    :   true
                                        ,body    :   JSON.stringify(v_informacao)
                                     }
-           ,v_informacao        =   {}
+           ,v_resposta          =   {}
             ;
 
 
 
         request.post(v_arquivo_data, (p_erro, p_resposta, p_corpo) =>
         {
-            v_informacao    =   JSON.parse(p_corpo);
+            v_resposta    =   JSON.parse(p_corpo);
 
 
             if(typeof v_resposta === 'undefined' || v_resposta === 'null' || v_resposta === null || v_resposta === 'undefined')
@@ -66,7 +66,7 @@ class log
                 return 9;
             }
 
-            if(v_informacao.codigo === '1')
+            if(v_resposta.codigo === '1')
             {
                 return 1;
             }
