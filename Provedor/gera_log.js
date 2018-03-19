@@ -58,7 +58,7 @@ class log
 
         bib_requisicao.post(v_arquivo_data, (p_erro, p_resposta, p_corpo) =>
         {
-            v_resposta    =   JSON.parse(p_corpo);
+            v_resposta    =   p_corpo;
 
 
             if(typeof v_resposta === 'undefined' || v_resposta === 'null' || v_resposta === null || v_resposta === 'undefined')
