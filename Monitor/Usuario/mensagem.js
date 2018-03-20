@@ -136,9 +136,6 @@ class mensagem
         // Verifica se o método foi chamado à partir de uma mensagem de bot
         if(this.verifica_bot()) return; // Caso tenha sido chamado por um bot, nada será realizado.
 
-        // Coleta métricas de conversas para geração de estatísticas
-        this.gera_log();
-
         // Verifica se a mensagem inicia com uma chamada para o bot (menção direta)
         if(this.verifica_mencao())
         {
@@ -223,6 +220,9 @@ class mensagem
                     console.log('>> PADRAO <<');
                     break;
             } // switch(tmp_comando[0]) { ... }
+
+            // Coleta métricas de conversas para geração de estatísticas
+            this.gera_log();
         } // if(this.verifica_mencao()) { ... }
     } // trata_mensagem() { ... }
 
