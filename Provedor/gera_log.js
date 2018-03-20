@@ -70,7 +70,7 @@ class log
                 v_saida     =   9;
             }
 
-            if(v_resposta.codigo === 1)
+            if(v_resposta.codigo === '1')
             {
                 v_saida     =   1;
             }
