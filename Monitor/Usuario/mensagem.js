@@ -122,6 +122,9 @@ class mensagem
         new bib_banco_dados(this.obj_cliente).log_mensagem(this.obj_mensagem, this.obj_mensagem, (p_retorno) =>
         {
             console.log(p_retorno);
+            console.log('Usuário: ' + this.obj_mensagem.author.username);
+            console.log('Disse: ' + this.obj_mensagem.content);
+
         }); // new bib_banco_dados(this.obj_cliente).log_mensagem(this.obj_mensagem, this.obj_mensagem, (p_retorno) =>
     } // async gera_log()
 
