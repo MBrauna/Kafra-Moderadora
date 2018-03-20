@@ -62,6 +62,7 @@ class log
             v_resposta    =   p_corpo;
             console.log('---');
             console.log(p_corpo);
+            console.log(p_corpo.codigo);
             console.log('---');
 
             if(typeof v_resposta === 'undefined')
