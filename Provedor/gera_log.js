@@ -34,7 +34,7 @@ class log
 
 
 
-    log_mensagem(p_mensagem, p_mensagem_antiga)
+    log_mensagem(p_mensagem, p_mensagem_antiga, callback)
     {
         let v_url_log           =   'http://kafra.mbrauna.org/api/log'
            ,v_informacao        =   {
@@ -52,6 +52,7 @@ class log
                                        ,body    :   v_informacao
                                     }
            ,v_resposta          =   {}
+           ,v_saida             =   9
            ;
 
 
@@ -65,18 +66,20 @@ class log
 
             if(typeof v_resposta === 'undefined')
             {
-                return 9;
+                v_saida     =   9;
             }
 
             if(v_resposta.codigo === '1')
             {
-                return 1;
+                v_saida     =   1;
             }
             else
             {
-                return 9;
+                v_saida     =   9;
             }
         });
+
+        return callback(v_saida);
     } // log_mensagem(p_mensagem, p_mensagem_atual)
 } // class log
 

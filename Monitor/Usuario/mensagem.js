@@ -119,10 +119,10 @@ class mensagem
 
     gera_log()
     {
-        const v_saida       =   new bib_banco_dados(this.obj_cliente);
-        var   v_resultado   =   v_saida.log_mensagem(this.obj_mensagem, this.obj_mensagem);
-
-        console.log(v_resultado);
+        new bib_banco_dados(this.obj_cliente).log_mensagem(this.obj_mensagem, this.obj_mensagem, (p_retorno) =>
+        {
+            console.log(p_retorno);
+        }); // new bib_banco_dados(this.obj_cliente).log_mensagem(this.obj_mensagem, this.obj_mensagem, (p_retorno) =>
     } // async gera_log()
 
     /***********************************
