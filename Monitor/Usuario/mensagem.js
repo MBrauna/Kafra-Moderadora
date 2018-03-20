@@ -117,6 +117,13 @@ class mensagem
 
     // ᕦ(ò_óˇ)ᕤ     ---     S E P A R A D O R     ---     ᕦ(ˇò_ó)ᕤ 
 
+    gera_log()
+    {
+        const v_saida   =   new bib_banco_dados(this.obj_cliente).log_mensagem(this.obj_mensagem, this.obj_mensagem);
+
+        console.log(v_saida);
+    } // async gera_log()
+
     /***********************************
      * Métodos internos para mensagens *
      ***********************************/
@@ -214,21 +221,6 @@ class mensagem
             this.gera_log()
         } // if(this.verifica_mencao()) { ... }
     } // trata_mensagem() { ... }
-
-    async gera_log()
-    {
-        const v_saida   =   new bib_banco_dados(this.obj_cliente).log_mensagem(this.obj_mensagem, this.obj_mensagem);
-
-        if(v_saida === 1)
-        {
-            console.log('Salvou');
-        }
-        else
-        {
-            console.log('erro');
-        }
-    } // async gera_log()
-
 
 
 } // class mensagem
