@@ -59,9 +59,11 @@ class log
         bib_requisicao.post(v_arquivo_data, (p_erro, p_resposta, p_corpo) =>
         {
             v_resposta    =   p_corpo;
+            console.log('---');
+            console.log(p_corpo);
+            console.log('---');
 
-
-            if(typeof v_resposta === 'undefined' || v_resposta === 'null' || v_resposta === null || v_resposta === 'undefined')
+            if(typeof v_resposta === 'undefined')
             {
                 return 9;
             }
