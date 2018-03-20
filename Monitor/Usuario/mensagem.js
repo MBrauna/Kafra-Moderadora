@@ -119,7 +119,8 @@ class mensagem
 
     gera_log()
     {
-        const v_saida   =   new bib_banco_dados(this.obj_cliente).log_mensagem(this.obj_mensagem, this.obj_mensagem);
+        const v_saida       =   new bib_banco_dados(this.obj_cliente);
+        var   v_resultado   =   v_saida.log_mensagem(this.obj_mensagem, this.obj_mensagem);
 
         console.log(v_saida);
     } // async gera_log()
@@ -131,6 +132,9 @@ class mensagem
     {
         // Verifica se o método foi chamado à partir de uma mensagem de bot
         if(this.verifica_bot()) return; // Caso tenha sido chamado por um bot, nada será realizado.
+
+        // Coleta métricas de conversas para geração de estatísticas
+        this.gera_log();
 
         // Verifica se a mensagem inicia com uma chamada para o bot (menção direta)
         if(this.verifica_mencao())
@@ -216,9 +220,6 @@ class mensagem
                     console.log('>> PADRAO <<');
                     break;
             } // switch(tmp_comando[0]) { ... }
-
-
-            this.gera_log()
         } // if(this.verifica_mencao()) { ... }
     } // trata_mensagem() { ... }
 
