@@ -51,7 +51,6 @@ class log
                                        ,json    :   true
                                        ,body    :   v_informacao
                                     }
-           ,v_resposta          =   {}
            ,v_saida             =   9
            ;
 
@@ -59,18 +58,12 @@ class log
 
         bib_requisicao.post(v_arquivo_data, (p_erro, p_resposta, p_corpo) =>
         {
-            v_resposta    =   p_corpo;
-            console.log('---');
-            console.log(p_corpo);
-            console.log(typeof p_corpo.codigo);
-            console.log('---');
-
-            if(typeof v_resposta === 'undefined')
+            if(typeof p_corpo === 'undefined')
             {
                 v_saida     =   9;
             }
 
-            if(v_resposta.codigo === "1")
+            if(p_corpo.codigo === "1")
             {
                 v_saida     =   1;
             }
