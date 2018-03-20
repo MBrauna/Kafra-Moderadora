@@ -51,7 +51,7 @@ class log
                                        ,json    :   true
                                        ,body    :   v_informacao
                                     }
-           ,v_saida             =   9
+           ,v_saida             =   0
            ;
 
 
@@ -60,10 +60,10 @@ class log
         {
             if(typeof p_corpo === 'undefined')
             {
-                v_saida     =   9;
+                v_saida     =   8;
             }
 
-            if(p_corpo.codigo === "1")
+            if(p_corpo.codigo == '1')
             {
                 v_saida     =   1;
             }
