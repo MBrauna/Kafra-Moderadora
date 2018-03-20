@@ -51,7 +51,6 @@ class log
                                        ,json    :   true
                                        ,body    :   v_informacao
                                     }
-           ,v_saida             =   0
            ;
 
 
@@ -60,20 +59,18 @@ class log
         {
             if(typeof p_corpo === 'undefined')
             {
-                v_saida     =   8;
+                return callback(8);
             }
 
             if(p_corpo.codigo == '1')
             {
-                v_saida     =   1;
+                return callback(1);
             }
             else
             {
-                v_saida     =   9;
+                return callback(9);
             }
         });
-
-        return callback(v_saida);
     } // log_mensagem(p_mensagem, p_mensagem_atual)
 } // class log
 
