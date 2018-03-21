@@ -52,6 +52,27 @@ class comunica_msg
         // Mede o tamanho de caracteres em p_conteudo
         return p_conteudo.length; // Adiciona 1 ao valor final para eliminar a casa 0
     } // quantidade_letra(p_conteudo)
+
+
+    estatistica_mensagem(p_mensagem, callback)
+    {
+        let v_url_log           =   'http://kafra.mbrauna.org/api/estatistica/mensagem'
+           ,v_informacao        =   {
+                                        'token'     :   process.env.TOKEN_KAFRA_ADMIN
+                                       ,'cliente'   :   this.obj_cliente
+                                       ,'evento'    :   'mensagem'
+                                       ,'nome_obj1' :   'mensagem_atual'
+                                       ,'nome_obj2' :   'mensagem_anterior'
+                                       ,'obj1'      :   p_mensagem
+                                       ,'obj2'      :   p_mensagem_antiga
+                                    }
+           ,v_arquivo_data      =   {
+                                        url     :   v_url_log
+                                       ,json    :   true
+                                       ,body    :   v_informacao
+                                    }
+           ;
+    }
 } // class comunica_msg
 
 // Torna o método público - Acesso externo é permitido.
