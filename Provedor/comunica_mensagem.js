@@ -58,13 +58,14 @@ class comunica_msg
     {
         let v_url_log           =   'http://kafra.mbrauna.org/api/estatistica/mensagem'
            ,v_informacao        =   {
-                                        'token'     :   process.env.TOKEN_KAFRA_ADMIN
-                                       ,'cliente'   :   this.obj_cliente
-                                       ,'evento'    :   'mensagem'
-                                       ,'nome_obj1' :   'mensagem_atual'
-                                       ,'nome_obj2' :   'mensagem_anterior'
-                                       ,'obj1'      :   p_mensagem
-                                       ,'obj2'      :   p_mensagem_antiga
+                                        'token'             :   process.env.TOKEN_KAFRA_ADMIN
+                                       ,'qtde_palavra'      :   this.quantidade_palavra(p_mensagem.content)
+                                       ,'qtde_letra'        :   this.quantidade_letra(p_mensagem.content)
+                                       ,'mensagem'          :   p_mensagem.content
+                                       ,'id_usuario'        :   p_mensagem.author
+                                       ,'canal'             :   p_mensagem.channel
+                                       ,'servidor'          :   p_mensagem.guild
+                                       ,'tipo_mensagem'     :   p_mensagem.type
                                     }
            ,v_arquivo_data      =   {
                                         url     :   v_url_log
@@ -72,7 +73,24 @@ class comunica_msg
                                        ,body    :   v_informacao
                                     }
            ;
-    }
+        // Trata as informações
+        bib_requisicao.post(v_arquivo_data, (p_erro, p_resposta, p_corpo) =>
+        {
+            if(typeof p_corpo === 'undefined')
+            {
+                return callback(8);
+            }
+
+            if(p_corpo.codigo === '1')
+            {
+                return callback(1);
+            } // if(p_corpo.codigo === '1')
+            else
+            {
+                return callback(9);
+            } // else { ... }
+        }); // bib_requisicao.post(v_arquivo_data, (p_erro, p_resposta, p_corpo) =>
+    } // estatistica_mensagem(p_mensagem, callback)
 } // class comunica_msg
 
 // Torna o método público - Acesso externo é permitido.
