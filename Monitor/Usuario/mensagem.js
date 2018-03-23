@@ -270,9 +270,6 @@ class mensagem
                     console.log('>> PADRAO <<');
                     break;
             } // switch(tmp_comando[0]) { ... }
-
-            // Coleta métricas de conversas para geração de estatísticas
-            this.gera_log();
         } // if(this.verifica_mencao()) { ... }
     } // trata_mensagem() { ... }
 
