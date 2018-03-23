@@ -117,7 +117,7 @@ class mensagem
 
     // ᕦ(ò_óˇ)ᕤ     ---     S E P A R A D O R     ---     ᕦ(ˇò_ó)ᕤ 
 
-    gera_estatistica()
+    gera_estatistica_mensagem()
     {
         new bib_banco_dados(this.obj_cliente).estatistica_mensagem(this.obj_mensagem, (p_retorno) =>
         {
@@ -126,7 +126,50 @@ class mensagem
                 console.log('Não foi possível comunicar.');
             } // if(p_retorno===9)
         }); // new bib_banco_dados(this.obj_cliente).log_mensagem(this.obj_mensagem, this.obj_mensagem, (p_retorno) =>
-    } // async gera_log()
+    } // gera_estatistica_mensagem()
+
+    // ᕦ(ò_óˇ)ᕤ     ---     S E P A R A D O R     ---     ᕦ(ˇò_ó)ᕤ 
+
+    trata_consulta(p_comando)
+    {
+        // Declaração de variáveis
+        var v_string_requisicao = '';
+
+        try
+        {
+            // Pacote de correção -- Michel Brauna -- 17/03/2018
+            // Caso a quantidade de elementos presentes na array de mensagem não satisfaça a operação, finaliza.
+            if(p_comando.length <= 1)
+            {
+                return null;
+            } // if(this.array_mensagem.length < 1)
+            // Pacote de correção -- Michel Brauna -- 17/03/2018
+
+            for(var iteracao=1;iteracao<p_comando.length; iteracao++)
+            {
+                v_string_requisicao =   v_string_requisicao + ' ' + p_comando[iteracao];
+            } // for(var iteracao=1;iteracao<this.array_mensagem.length; iteracao++)
+
+            return v_string_requisicao.trim().toLowerCase();
+        } // try { ... }
+        catch(p_erro)
+        {
+            return null;
+        } // catch { ... }
+    } // trata_consulta() { ... }
+
+    // ᕦ(ò_óˇ)ᕤ     ---     S E P A R A D O R     ---     ᕦ(ˇò_ó)ᕤ 
+
+    gera_estatistica_bot(p_consulta, p_tipo)
+    {
+        new bib_banco_dados(this.obj_cliente).estatistica_bot(this.trata_consulta(p_consulta), p_tipo, this.obj_mensagem, (p_retorno) =>
+        {
+            if(p_retorno===9)
+            {
+                console.log('Não foi possível comunicar.');
+            } // if(p_retorno===9)
+        }); // new bib_banco_dados(this.obj_cliente).log_mensagem(this.obj_mensagem, this.obj_mensagem, (p_retorno) =>
+    } // gera_estatistica_bot(p_comando)
 
     /***********************************
      * Métodos internos para mensagens *
@@ -153,15 +196,19 @@ class mensagem
                 // Comandos de consulta de informações
                 case 'item':        // item <<nome/id do item>>
                     new bib_ragnaplace(this.obj_cliente, this.obj_mensagem).consultar(tmp_comando, 'item');
+                    this.gera_estatistica_bot(tmp_comando, 'item');
                     break;
                 case 'monstro':     // monstro <<nome/id do monstro>>
                     new bib_ragnaplace(this.obj_cliente, this.obj_mensagem).consultar(tmp_comando, 'monstro');
+                    this.gera_estatistica_bot(tmp_comando, 'monstro');
                     break;
                 case 'mapa':        // mapa <<nome/id do mapa>>
                     new bib_ragnaplace(this.obj_cliente, this.obj_mensagem).consultar(tmp_comando, 'mapa');
+                    this.gera_estatistica_bot(tmp_comando, 'mapa');
                     break;
                 case 'wiki':        // wiki <<termo>>
                     new bib_bropedia(this.obj_cliente, this.obj_mensagem).consultar(tmp_comando);
+                    this.gera_estatistica_bot(tmp_comando, 'wiki');
                     break;
 
                 // Comandos de recrutamento em Ragnarök

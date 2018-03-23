@@ -61,11 +61,7 @@ class comunica_msg
                                         'token'             :   process.env.TOKEN_KAFRA_ADMIN
                                        ,'qtde_palavra'      :   this.quantidade_palavra(p_mensagem.content)
                                        ,'qtde_letra'        :   this.quantidade_letra(p_mensagem.content)
-                                       ,'mensagem'          :   p_mensagem.content
-                                       ,'id_usuario'        :   p_mensagem.author
-                                       ,'canal'             :   p_mensagem.channel
-                                       ,'servidor'          :   p_mensagem.guild
-                                       ,'tipo_mensagem'     :   p_mensagem.type
+                                       ,'obj_mensagem'      :   p_mensagem.content
                                     }
            ,v_arquivo_data      =   {
                                         url     :   v_url_log
@@ -91,6 +87,44 @@ class comunica_msg
             } // else { ... }
         }); // bib_requisicao.post(v_arquivo_data, (p_erro, p_resposta, p_corpo) =>
     } // estatistica_mensagem(p_mensagem, callback)
+
+
+    estatistica_bot(p_consulta, p_tipo, p_mensagem, callback)
+    {
+        /********************************************************************
+         * Autor: Michel Brauna                            Data: 22/12/2018 *
+         ********************************************************************/
+        let v_url_log           =   'http://kafra.mbrauna.org/api/estatistica/bot'
+           ,v_informacao        =   {
+                                        'token'             :   process.env.TOKEN_KAFRA_ADMIN
+                                       ,'tipo_consulta'     :   p_tipo
+                                       ,'consulta'          :   p_consulta
+                                       ,'obj_mensagem'      :   p_mensagem
+                                    }
+           ,v_arquivo_data      =   {
+                                        url     :   v_url_log
+                                       ,json    :   true
+                                       ,body    :   v_informacao
+                                    }
+           ;
+        // Trata as informações
+        bib_requisicao.post(v_arquivo_data, (p_erro, p_resposta, p_corpo) =>
+        {
+            if(typeof p_corpo === 'undefined')
+            {
+                return callback(8);
+            }
+
+            if(p_corpo.codigo === '1')
+            {
+                return callback(1);
+            } // if(p_corpo.codigo === '1')
+            else
+            {
+                return callback(9);
+            } // else { ... }
+        }
+    } // estatistica_bot(p_consulta, p_tipo, p_mensagem, callback)
 } // class comunica_msg
 
 // Torna o método público - Acesso externo é permitido.

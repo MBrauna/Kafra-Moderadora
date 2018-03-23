@@ -20,8 +20,9 @@
  ****************************************************************************************************/
 
 // Inicialização de bibliotecas                                 (∩｀-´)⊃━☆ﾟ.*･｡ﾟ
-let   bib_requisicao      =   require('request')            // Para consulta a API de Ragnaplace
-     ,bib_underline       =   require('underscore')         // Para tratamento do objeto recebido
+let   bib_requisicao        =   require('request')            // Para consulta a API de Ragnaplace
+     ,bib_underline         =   require('underscore')         // Para tratamento do objeto recebido
+     ,bib_replicador        =   require('./../../../Replicador/envia_mensagem.js')
      ;
 // Inicialização de bibliotecas                                 (∩｀-´)⊃━☆ﾟ.*･｡ﾟ
 
@@ -193,7 +194,7 @@ class ragnaplace
                         if(typeof v_resposta === 'undefined' || v_resposta === 'null' || v_resposta === null || v_resposta === 'undefined')
                         {
                             // Comunica com o usuário
-                            console.log('Nada encontrado para ultimo termo: ' + this.ultimo_termo());
+                            new bib_replicador.envia_URL_simples('Nada encontrado para ultimo termo: ' + this.ultimo_termo(), false, true);
                             return;
                         } // if(typeof v_resposta === 'undefined' || v_resposta.toLowerCase() === 'null' || v_resposta === null || v_resposta === 'undefined')
 
@@ -205,7 +206,7 @@ class ragnaplace
                         }); // v_resposta.forEach((p_resp) =>
 
                         // Comunica com o usuário
-                        console.log('Encontrado para ultimo termo: ' + this.ultimo_termo());
+                        new bib_replicador.envia_URL_simples('Nada encontrado para ultimo termo: ' + this.ultimo_termo(), false, false);
                         return;
                     }); // bib_requisicao.get(v_url_consulta, (p_erro_nt, p_resposta_nt, p_corpo_nt) =>
                 } // if(typeof v_resposta === 'undefined' || v_resposta.toLowerCase() === 'null' || v_resposta === null || v_resposta === 'undefined')
@@ -231,12 +232,12 @@ class ragnaplace
                 if(typeof v_pagina  === 'undefined')
                 {
                     // Comunica com o usuário
-                    console.log('Pagina indefinida pós consulta');
+                    new bib_replicador.envia_URL_simples('Pagina indefinida pós consulta', true, true);
                     return;
                 } // if(typeof v_pagina  === 'undefined')
 
                 // Comunica com o usuário
-                console.log('Sua pesquisa foi encontrada');
+                new bib_replicador.envia_URL_simples('Sua pesquisa foi encontrada', true, false);
                 return;
 
             }); // bib_requisicao.get(v_url_consulta, (p_erro, p_resposta, p_corpo) =>

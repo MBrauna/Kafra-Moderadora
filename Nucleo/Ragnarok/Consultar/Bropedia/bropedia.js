@@ -19,9 +19,10 @@
  ****************************************************************************************************/
 
 // Inicialização de bibliotecas                                 (∩｀-´)⊃━☆ﾟ.*･｡ﾟ
-let bib_requisicao      =   require('request')
-   ,bib_underline       =   require('underscore')
-   ,bib_wtf_wiki        =   require('wtf_wikipedia')
+let bib_requisicao          =   require('request')
+   ,bib_underline           =   require('underscore')
+   ,bib_wtf_wiki            =   require('wtf_wikipedia')
+   ,bib_replicador          =   require('./../../../Replicador/envia_mensagem.js')
    ;
 // Inicialização de bibliotecas                                 (∩｀-´)⊃━☆ﾟ.*･｡ﾟ
 
@@ -92,7 +93,7 @@ class bropedia
                         // Verifica os resultados finais
                         if(v_resposta.query.searchinfo.totalhits == 0)
                         {
-                            console.log('Nenhuma informação foi encontrada!');
+                            new bib_replicador.envia_URL_simples('Nenhuma informação foi encontrada!', true, false);
                             return;
                         } // if(v_resposta.query.searchinfo.totalhits == 0)
                         else
@@ -107,7 +108,7 @@ class bropedia
                             });
 
                             // Informa o usuário
-                            console.log('Outra consulta feita!');
+                            new bib_replicador.envia_URL_simples('Outra consulta feita', true, false);
                             return;
                         } // else { ... }
                     }); // bib_requisicao.get(v_url_bropedia, (p_erro_tmp, p_resposta_tmp, p_corpo_tmp) =>
@@ -137,7 +138,7 @@ class bropedia
                     {
                         // Define o objeto a ser utilizado
                         // Informa o usuário
-                        console.log('Termo não encontrado!');
+                        new bib_replicador.envia_URL_simples('Termo não encontrado!', true, false);
                         return;
                     }
 
@@ -168,7 +169,7 @@ class bropedia
                         {
 
                             // Informa o usuário
-                            console.log('Nada encontrado!');
+                            new bib_replicador.envia_URL_simples('Nada encontrado!', true, false);
                             return;
 
                         } // if(typeof v_pagina == 'undefined')
@@ -176,7 +177,7 @@ class bropedia
                         {
                             // Define o objeto a ser utilizado
                             // Informa o usuário
-                            console.log('Encontrou wiki');
+                            new bib_replicador.envia_URL_simples('Encontrou na wiki!', true, false);
                             return;
                         } // else  { ... }
                     }); // bib_requisicao.get(v_url_bropedia, (p_erro, p_resposta, p_corpo) =>
@@ -194,7 +195,7 @@ class bropedia
             {
                 // Cria uma novo objeto para modificação.
                 // Informa o usuário
-                console.log('Erro wiki');
+                new bib_replicador.envia_URL_simples('Erro!', true, false);
                 return;
             } // try { ... }
             catch(p_erro_sec)
