@@ -22,7 +22,7 @@
 // Inicialização de bibliotecas                                 (∩｀-´)⊃━☆ﾟ.*･｡ﾟ
 let   bib_requisicao        =   require('request')            // Para consulta a API de Ragnaplace
      ,bib_underline         =   require('underscore')         // Para tratamento do objeto recebido
-     ,bib_replicador        =   require('./../../../Replicador/envia_mensagem.js')
+     ,bib_replicador        =   require('./../../../../Replicador/envia_mensagem.js')
      ;
 // Inicialização de bibliotecas                                 (∩｀-´)⊃━☆ﾟ.*･｡ﾟ
 

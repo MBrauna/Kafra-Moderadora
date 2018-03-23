@@ -22,7 +22,7 @@
 let bib_requisicao          =   require('request')
    ,bib_underline           =   require('underscore')
    ,bib_wtf_wiki            =   require('wtf_wikipedia')
-   ,bib_replicador          =   require('./../../../Replicador/envia_mensagem.js')
+   ,bib_replicador          =   require('./../../../../Replicador/envia_mensagem.js')
    ;
 // Inicialização de bibliotecas                                 (∩｀-´)⊃━☆ﾟ.*･｡ﾟ
 
