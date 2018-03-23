@@ -93,7 +93,7 @@ class bropedia
                         // Verifica os resultados finais
                         if(v_resposta.query.searchinfo.totalhits == 0)
                         {
-                            new bib_replicador.envia_URL_simples('Nenhuma informação foi encontrada!', true, false);
+                            new bib_replicador(this.obj_cliente, this.obj_mensagem).envia_URL_simples('Nenhuma informação foi encontrada!', true, false);
                             return;
                         } // if(v_resposta.query.searchinfo.totalhits == 0)
                         else
@@ -108,7 +108,7 @@ class bropedia
                             });
 
                             // Informa o usuário
-                            new bib_replicador.envia_URL_simples('Outra consulta feita', true, false);
+                            new bib_replicador(this.obj_cliente, this.obj_mensagem).envia_URL_simples('Outra consulta feita', true, false);
                             return;
                         } // else { ... }
                     }); // bib_requisicao.get(v_url_bropedia, (p_erro_tmp, p_resposta_tmp, p_corpo_tmp) =>
@@ -138,7 +138,7 @@ class bropedia
                     {
                         // Define o objeto a ser utilizado
                         // Informa o usuário
-                        new bib_replicador.envia_URL_simples('Termo não encontrado!', true, false);
+                        new bib_replicador(this.obj_cliente, this.obj_mensagem).envia_URL_simples('Termo não encontrado!', true, false);
                         return;
                     }
 
@@ -169,7 +169,7 @@ class bropedia
                         {
 
                             // Informa o usuário
-                            new bib_replicador.envia_URL_simples('Nada encontrado!', true, false);
+                            new bib_replicador(this.obj_cliente, this.obj_mensagem).envia_URL_simples('Nada encontrado!', true, false);
                             return;
 
                         } // if(typeof v_pagina == 'undefined')
@@ -177,7 +177,7 @@ class bropedia
                         {
                             // Define o objeto a ser utilizado
                             // Informa o usuário
-                            new bib_replicador.envia_URL_simples('Encontrou na wiki!', true, false);
+                            new bib_replicador(this.obj_cliente, this.obj_mensagem).envia_URL_simples('Encontrou na wiki!', true, false);
                             return;
                         } // else  { ... }
                     }); // bib_requisicao.get(v_url_bropedia, (p_erro, p_resposta, p_corpo) =>
@@ -195,7 +195,7 @@ class bropedia
             {
                 // Cria uma novo objeto para modificação.
                 // Informa o usuário
-                new bib_replicador.envia_URL_simples('Erro!', true, false);
+                new bib_replicador(this.obj_cliente, this.obj_mensagem).envia_URL_simples('Erro!', true, false);
                 return;
             } // try { ... }
             catch(p_erro_sec)

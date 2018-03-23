@@ -36,7 +36,7 @@ class ragnaplace
          *            Método construtor para a classe Ragnaplace             *
          *********************************************************************/
         this.obj_cliente            =   p_cliente;
-        this.obj_mensaggem          =   p_mensagem;
+        this.obj_mensagem           =   p_mensagem;
     } // constructor(p_cliente, p_mensagem) { ... }
 
 
@@ -156,19 +156,19 @@ class ragnaplace
             if (this.array_mensagem.lengt <= 1)
             {
                 // Comunica com o usuário
-                console.log('Chamada incorreta!');
+                new bib_replicador(this.obj_cliente, this.obj_mensagem).envia_URL_simples('Chamada incorreta: ' + this.ultimo_termo(), false, false);
                 return;
             } // if (this.array_mensagem.lengt <= 1)
             if(this.trata_consulta() === null)
             {
                 // Comunica com o usuário
-                console.log('Chamada incorreta!');
+                new bib_replicador(this.obj_cliente, this.obj_mensagem).envia_URL_simples('Chamada incorreta: ' + this.ultimo_termo(), false, false);
                 return;
             } // if(this.trata_consulta() === null)
             if(this.ultimo_termo() === null)
             {
                 // Comunica com o usuário
-                console.log('Chamada incorreta!');
+                new bib_replicador(this.obj_cliente, this.obj_mensagem).envia_URL_simples('Chamada incorreta: ' + this.ultimo_termo(), false, false);
                 return;
             }
             // Pacote de correção -- Michel Brauna -- 17/03/2018
@@ -194,7 +194,7 @@ class ragnaplace
                         if(typeof v_resposta === 'undefined' || v_resposta === 'null' || v_resposta === null || v_resposta === 'undefined')
                         {
                             // Comunica com o usuário
-                            new bib_replicador.envia_URL_simples('Nada encontrado para ultimo termo: ' + this.ultimo_termo(), false, true);
+                            new bib_replicador(this.obj_cliente, this.obj_mensagem).envia_URL_simples('Nada encontrado para ultimo termo: ' + this.ultimo_termo(), false, true);
                             return;
                         } // if(typeof v_resposta === 'undefined' || v_resposta.toLowerCase() === 'null' || v_resposta === null || v_resposta === 'undefined')
 
@@ -206,7 +206,7 @@ class ragnaplace
                         }); // v_resposta.forEach((p_resp) =>
 
                         // Comunica com o usuário
-                        new bib_replicador.envia_URL_simples('Nada encontrado para ultimo termo: ' + this.ultimo_termo(), false, false);
+                        new bib_replicador(this.obj_cliente, this.obj_mensagem).envia_URL_simples('Nada encontrado para ultimo termo: ' + this.ultimo_termo(), false, false);
                         return;
                     }); // bib_requisicao.get(v_url_consulta, (p_erro_nt, p_resposta_nt, p_corpo_nt) =>
                 } // if(typeof v_resposta === 'undefined' || v_resposta.toLowerCase() === 'null' || v_resposta === null || v_resposta === 'undefined')
@@ -232,12 +232,12 @@ class ragnaplace
                 if(typeof v_pagina  === 'undefined')
                 {
                     // Comunica com o usuário
-                    new bib_replicador.envia_URL_simples('Pagina indefinida pós consulta', true, true);
+                    new bib_replicador(this.obj_cliente, this.obj_mensagem).envia_URL_simples('Pagina indefinida pós consulta', true, true);
                     return;
                 } // if(typeof v_pagina  === 'undefined')
 
                 // Comunica com o usuário
-                new bib_replicador.envia_URL_simples('Sua pesquisa foi encontrada', true, false);
+                new bib_replicador(this.obj_cliente, this.obj_mensagem).envia_URL_simples('Sua pesquisa foi encontrada', true, false);
                 return;
 
             }); // bib_requisicao.get(v_url_consulta, (p_erro, p_resposta, p_corpo) =>
