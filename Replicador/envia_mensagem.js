@@ -82,3 +82,7 @@ class envia_mensagem
         this.obj_mensagem.channel.send(resposta(p_tipo_resposta, p_mencao) + '\n ALERTA:' + p_url);
     } // url_direto(p_url, p_mencao)
 } // class envia_mensagem
+
+
+// Torna o método público - Acesso externo é permitido.
+module.exports = envia_mensagem;
