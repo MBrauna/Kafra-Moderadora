@@ -117,19 +117,6 @@ class mensagem
 
     // ᕦ(ò_óˇ)ᕤ     ---     S E P A R A D O R     ---     ᕦ(ˇò_ó)ᕤ 
 
-    gera_estatistica_mensagem()
-    {
-        new bib_banco_dados(this.obj_cliente).estatistica_mensagem(this.obj_mensagem, (p_retorno) =>
-        {
-            if(p_retorno===9)
-            {
-                console.log('Não foi possível comunicar.');
-            } // if(p_retorno===9)
-        }); // new bib_banco_dados(this.obj_cliente).log_mensagem(this.obj_mensagem, this.obj_mensagem, (p_retorno) =>
-    } // gera_estatistica_mensagem()
-
-    // ᕦ(ò_óˇ)ᕤ     ---     S E P A R A D O R     ---     ᕦ(ˇò_ó)ᕤ 
-
     trata_consulta(p_comando)
     {
         // Declaração de variáveis
@@ -160,6 +147,19 @@ class mensagem
 
     // ᕦ(ò_óˇ)ᕤ     ---     S E P A R A D O R     ---     ᕦ(ˇò_ó)ᕤ 
 
+    gera_estatistica_mensagem()
+    {
+        new bib_banco_dados(this.obj_cliente).estatistica_mensagem(this.obj_mensagem, (p_retorno) =>
+        {
+            if(p_retorno===9)
+            {
+                console.log('Não foi possível comunicar.');
+            } // if(p_retorno===9)
+        }); // new bib_banco_dados(this.obj_cliente).log_mensagem(this.obj_mensagem, this.obj_mensagem, (p_retorno) =>
+    } // gera_estatistica_mensagem()
+
+    // ᕦ(ò_óˇ)ᕤ     ---     S E P A R A D O R     ---     ᕦ(ˇò_ó)ᕤ 
+
     gera_estatistica_bot(p_consulta, p_tipo)
     {
         new bib_banco_dados(this.obj_cliente).estatistica_bot(this.trata_consulta(p_consulta), p_tipo, this.obj_mensagem, (p_retorno) =>
@@ -180,7 +180,7 @@ class mensagem
         if(this.verifica_bot()) return; // Caso tenha sido chamado por um bot, nada será realizado.
 
         // Coleta métricas de conversas para geração de estatísticas
-        this.gera_estatistica();
+        this.gera_estatistica_mensagem();
 
         // Verifica se a mensagem inicia com uma chamada para o bot (menção direta)
         if(this.verifica_mencao())
