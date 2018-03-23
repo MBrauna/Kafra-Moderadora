@@ -58,13 +58,13 @@ class envia_mensagem
      **************************************************/
     envia_URL_simples(p_url, p_mencao, p_tipo_resposta)
     {
-        this.obj_mensagem.channel.send(resposta(p_tipo_resposta, p_mencao) + '\n' + p_url);
+        this.obj_mensagem.channel.send(this.resposta(p_tipo_resposta, p_mencao) + '\n' + p_url);
     } // url_canal(p_url)
 
 
     envia_URL_completa(p_url, p_mencao, p_objeto)
     {
-        this.obj_mensagem.channel.send(resposta(p_tipo_resposta, p_mencao) + '\n EMBED:' + p_url);
+        this.obj_mensagem.channel.send(this.resposta(p_tipo_resposta, p_mencao) + '\n EMBED:' + p_url);
     } // url_direto(p_url, p_mencao)
 
 
@@ -73,13 +73,13 @@ class envia_mensagem
      **************************************************/
     alerta_canal(p_url, p_mencao)
     {
-        this.obj_mensagem.channel.send(resposta(p_tipo_resposta, p_mencao) + '\n ALERTA:' + p_url);
+        this.obj_mensagem.channel.send(this.resposta(p_tipo_resposta, p_mencao) + '\n ALERTA:' + p_url);
     } // url_canal(p_url)
 
 
     url_direto(p_url, p_mencao)
     {
-        this.obj_mensagem.channel.send(resposta(p_tipo_resposta, p_mencao) + '\n ALERTA:' + p_url);
+        this.obj_mensagem.channel.send(this.resposta(p_tipo_resposta, p_mencao) + '\n ALERTA:' + p_url);
     } // url_direto(p_url, p_mencao)
 } // class envia_mensagem
 
