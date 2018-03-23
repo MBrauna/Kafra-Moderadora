@@ -107,13 +107,14 @@ class comunica_msg
                                        ,body    :   v_informacao
                                     }
            ;
+
         // Trata as informações
         bib_requisicao.post(v_arquivo_data, (p_erro, p_resposta, p_corpo) =>
         {
             if(typeof p_corpo === 'undefined')
             {
                 return callback(8);
-            }
+            } // if(typeof p_corpo === 'undefined')
 
             if(p_corpo.codigo === '1')
             {
@@ -123,7 +124,7 @@ class comunica_msg
             {
                 return callback(9);
             } // else { ... }
-        }
+        });
     } // estatistica_bot(p_consulta, p_tipo, p_mensagem, callback)
 } // class comunica_msg
 
