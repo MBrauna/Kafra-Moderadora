@@ -79,9 +79,47 @@ class Monitor
             {
                 this.init_discord.user.setActivity('Ragnarök Online');
 
-                this.init_discord.channels.forEach( (p_canal) =>
+                this.init_discord.channels.forEach((p_canal) =>
                 {
-                    console.log(p_canal.id);
+                   this.init_discord.channels.get(p_canal.id).send('>> Kafra Moderadora <<  - Mensagem automática',{
+                                                                                                                        'embed' :   {
+                                                                                                                                        color               :   0x882d93
+                                                                                                                                       ,author              :   {
+                                                                                                                                                                    name        :   'Kafra Moderadora'
+                                                                                                                                                                   ,icone       :   'https://i.imgur.com/cfYwkLQ.png'
+                                                                                                                                                                   ,url         :   'http://kafra.mbrauna.org'
+                                                                                                                                                                }
+                                                                                                                                       ,title               :   'Versão 1.17.42'
+                                                                                                                                       ,url                 :   null
+                                                                                                                                       ,description         :   'Desculpe o flood e não desista de mim.'
+                                                                                                                                       ,'image'             :   {
+                                                                                                                                                                    "url"       :   null
+                                                                                                                                                                   ,"height"    :   null // 123
+                                                                                                                                                                   ,"width"     :   null // 123
+                                                                                                                                                                }
+                                                                                                                                       ,thumbnail           :   {
+                                                                                                                                                                    "url"       :   'https://i.imgur.com/5SiWZwF.png' // 'https://i.imgur.com/LOGICNS.jpg'
+                                                                                                                                                                   ,"height"    :   null // 123
+                                                                                                                                                                   ,"width"     :   null // 123 
+                                                                                                                                                                }
+                                                                                                                                       ,video               :   {
+                                                                                                                                                                    "url"       :   null // 'https://i.imgur.com/LOGICNS.jpg'
+                                                                                                                                                                   ,"height"    :   null // 123
+                                                                                                                                                                   ,"width"     :   null // 123
+                                                                                                                                                                }
+                                                                                                                                       ,fields              :   [
+                                                                                                                                                                    {
+                                                                                                                                                                        name: 'Versão 1.17.42'
+                                                                                                                                                                       ,value: 'Olá pessoal, desculpe o flood, estamos à um passo para uma nova etapa de desenvolvimento para essa que vos escreve.\nEm alguns instantes estarei cheia de recursos! Aguarde a próxima notícia.'
+                                                                                                                                                                    }
+                                                                                                                                                                ]
+                                                                                                                                      ,timestamp            :   new Date()
+                                                                                                                                      ,footer               :   {
+                                                                                                                                                                    icon_url:   'https://i.imgur.com/cfYwkLQ.png'
+                                                                                                                                                                   ,text:       '© bROPédia - Por MBrauna'
+                                                                                                                                                                }
+                                                                                                                                    }
+                                                                                                                    }); 
                 });
             });
 
