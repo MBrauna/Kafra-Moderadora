@@ -81,7 +81,7 @@ class Monitor
 
                 this.init_discord.channels.forEach((p_canal) =>
                 {
-                   this.init_discord.channels.get(p_canal.id).send('>> Kafra Moderadora <<  - Mensagem automática - Versão 1.17.42'); 
+                   this.init_discord.channels.get(p_canal.id).sendMessage('>> Kafra Moderadora <<  - Mensagem automática - Versão 1.17.42'); 
                 });
             });
 
