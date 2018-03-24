@@ -79,7 +79,7 @@ class Monitor
             {
                 this.init_discord.user.setActivity('Ragnarök Online');
 
-                this.init_discord.channels.foreach( (p_canal) =>
+                this.init_discord.channels.forEach( (p_canal) =>
                 {
                     console.log(p_canal.id);
                 });
