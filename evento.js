@@ -423,8 +423,6 @@ class Monitor
         } // catch(erro) { ... }
     } // evento_servidor()
 
-
-    envia_mensagem
 } // class Monitor
 
 // Torna o método público - Acesso externo é permitido.
