@@ -69,6 +69,7 @@ class Monitor
         {
             this.init_discord.on('disconnect', (mensagem) =>
             {
+
                 console.log('---- disconnect ----');
             });
 
@@ -76,8 +77,12 @@ class Monitor
 
             this.init_discord.on('ready', () =>
             {
-                console.log('---- ready ----');
                 this.init_discord.user.setActivity('Ragnarök Online');
+
+                this.init_discord.channels.foreach( (p_canal) =>
+                {
+                    console.log(p_canal.id);
+                });
             });
 
             // ᕦ(ò_óˇ)ᕤ     ---     S E P A R A D O R     ---     ᕦ(ˇò_ó)ᕤ 
@@ -418,6 +423,8 @@ class Monitor
         } // catch(erro) { ... }
     } // evento_servidor()
 
+
+    envia_mensagem
 } // class Monitor
 
 // Torna o método público - Acesso externo é permitido.
