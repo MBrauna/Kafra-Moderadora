@@ -38,8 +38,8 @@ class comunica
     {
         this.v_corpo_requisicao     =   {
                                             'Cliente'       :   this.init_discord.user
-                                            'Servidor'      :   this.init_discord.guilds
-                                            'Canal'         :   this.init_discord.channels
+                                           ,'Servidor'      :   this.init_discord.guilds
+                                           ,'Canal'         :   this.init_discord.channels
                                         };
 
         this.v_data_info_url        =   {
