@@ -58,7 +58,7 @@ class Monitor
     } // constructor(p_bib_discord,p_token_discord,p_token_braunabot,p_usuario_braunabot)
 
 
-    realiza_requisicao(p_tipo ,p_objeto_1 ,p_objeto_2 ,p_objeto_3)
+    realiza_requisicao(p_tipo ,p_objeto_1 ,p_objeto_2 ,p_objeto_3, callback)
     {
         let v_url_requisicao        =   process.env.url_requisicao + '/' + p_tipo
            ,v_corpo_requisicao      =   {
@@ -84,66 +84,26 @@ class Monitor
                 {
                     // Finaliza o procedimento
                     console.log('Indefinido.');
-                    return 9;
+                    return callback(9);
                 } // if(typeof p_corpo === 'undefined')
                 else if(p_corpo === 1)
                 {
                   console.log('Deu certo');
-                  return 1;
+                  return callback(1);
                 }
                 else
                 {
                   console.log('Erro');
-                  return 9;
+                  return callback(9);
                 }
             });
 
         } // try { ... }
         catch(p_erro)
         {
-            v_retorno     =     {
-                                    'embed' :   {
-                                                    color               :   0xff0000
-                                                   ,author              :   {
-                                                                                name        :   'Kafra Moderadora'
-                                                                               ,icone       :   'https://i.imgur.com/cfYwkLQ.png'
-                                                                               ,url         :   'http://kafra.mbrauna.org'
-                                                                            }
-                                                   ,title               :   '[ERRO] - Erro no procedimento'
-                                                   ,url                 :   null
-                                                   ,description         :   'Ocorreu um erro no procedimento de requisição aos servidores mbrauna.org'
-                                                   ,'image'             :   {
-                                                                                "url"       :   null
-                                                                               ,"height"    :   null // 123
-                                                                               ,"width"     :   null // 123
-                                                                            }
-                                                   ,thumbnail           :   {
-                                                                                "url"       :   'https://i.imgur.com/LOGICNS.jpg'
-                                                                               ,"height"    :   null // 123
-                                                                               ,"width"     :   null // 123 
-                                                                            }
-                                                   ,video               :   {
-                                                                                "url"       :   null // 'https://i.imgur.com/LOGICNS.jpg'
-                                                                               ,"height"    :   null // 123
-                                                                               ,"width"     :   null // 123
-                                                                            }
-                                                   ,fields              :   [
-                                                                                {
-                                                                                    name: 'Erro no procedimento'
-                                                                                   ,value: 'Não foi possível responder a requisição corretamente! Contate o Brauna'
-                                                                                }
-                                                                            ]
-                                                  ,timestamp            :   new Date()
-                                                  ,footer               :   {
-                                                                                icon_url:   'https://i.imgur.com/cfYwkLQ.png'
-                                                                               ,text:       '© bROPédia - Por MBrauna'
-                                                                            }
-                                                }
-                                };
-
             // Finaliza o procedimento
             console.log('Erro');
-            return 9;
+            return callback(9);
         } // catch(p_erro) { ... }
     } // realiza_requisicao(p_tipo ,p_objeto_1 ,p_objeto_2 ,p_objeto_3)
 
@@ -168,7 +128,10 @@ class Monitor
             {
                 this.init_discord.user.setActivity('Ragnarök Online');
                 // Quando inicializado.
-                console.log(this.realiza_requisicao('inicia',null,null,null));
+                this.realiza_requisicao('inicia',null,null,null, (p_situacao) =>
+                {
+                    console.log('Retorna: ' + p_situacao);
+                });
                 
             });
 
