@@ -37,7 +37,7 @@ class comunica
     trata_inicializacao(callback)
     {
         this.v_corpo_requisicao     =   {
-                                            'Cliente'       :   this.init_discord.user
+                                            'Cliente'       :   this.init_discord
                                            ,'Servidor'      :   this.init_discord.guilds
                                            ,'Canal'         :   this.init_discord.channels
                                         };
