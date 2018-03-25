@@ -85,7 +85,7 @@ class Monitor
 
                     p_canal.guild.members.forEach((p_resposta) =>{
                         console.log('---');
-                        console.log(p_resposta);
+                        console.log(p_resposta.user);
                         console.log('---');
                     })
                 });
