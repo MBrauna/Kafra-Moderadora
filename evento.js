@@ -83,7 +83,7 @@ class Monitor
                 {
                     //this.init_discord.sendMessage(p_canal.id,'>> Kafra Moderadora <<  - Mensagem automática - Versão 1.17.42'); 
 
-                    console.log(p_canal);
+                    console.log(p_canal.guild.members);
                 });
             });
 
