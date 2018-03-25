@@ -73,7 +73,6 @@ class Monitor
                                            ,'json'          :   true
                                            ,'body'          :   v_corpo_requisicao
                                         }
-           ,v_retorno               =   {}
            ;
 
         try
@@ -83,53 +82,20 @@ class Monitor
                 // Verifica se o objeto de retorno é indefinido.
                 if(typeof p_corpo === 'undefined')
                 {
-                    // Realiza a construção do objeto para mensageria
-                    v_retorno     =     {
-                                            'embed' :   {
-                                                            color               :   0xff0000
-                                                           ,author              :   {
-                                                                                        name        :   'Kafra Moderadora'
-                                                                                       ,icone       :   'https://i.imgur.com/cfYwkLQ.png'
-                                                                                       ,url         :   'http://kafra.mbrauna.org'
-                                                                                    }
-                                                           ,title               :   '[ERRO] - Requisição incorreta'
-                                                           ,url                 :   null
-                                                           ,description         :   'Não foi possível realizar a requisição aos servidores mbrauna.org'
-                                                           ,'image'             :   {
-                                                                                        "url"       :   null
-                                                                                       ,"height"    :   null // 123
-                                                                                       ,"width"     :   null // 123
-                                                                                    }
-                                                           ,thumbnail           :   {
-                                                                                        "url"       :   'https://i.imgur.com/5SiWZwF.png' // 'https://i.imgur.com/LOGICNS.jpg'
-                                                                                       ,"height"    :   null // 123
-                                                                                       ,"width"     :   null // 123 
-                                                                                    }
-                                                           ,video               :   {
-                                                                                        "url"       :   null // 'https://i.imgur.com/LOGICNS.jpg'
-                                                                                       ,"height"    :   null // 123
-                                                                                       ,"width"     :   null // 123
-                                                                                    }
-                                                           ,fields              :   [
-                                                                                        {
-                                                                                            name: 'Requisição - INDEFINIDA'
-                                                                                           ,value: 'Não foi possível realizar uma requisição em MBrauna.org'
-                                                                                        }
-                                                                                    ]
-                                                          ,timestamp            :   new Date()
-                                                          ,footer               :   {
-                                                                                        icon_url:   'https://i.imgur.com/cfYwkLQ.png'
-                                                                                       ,text:       '© bROPédia - Por MBrauna'
-                                                                                    }
-                                                        }
-                                        };
-
                     // Finaliza o procedimento
-                    return v_retorno;
+                    console.log('Indefinido.');
+                    return 9;
                 } // if(typeof p_corpo === 'undefined')
-
-                // Retorna o objeto recebido.
-                return p_corpo;
+                else if(p_corpo === 1)
+                {
+                  console.log('Deu certo');
+                  return 1;
+                }
+                else
+                {
+                  console.log('Erro');
+                  return 9;
+                }
             });
 
         } // try { ... }
@@ -176,7 +142,8 @@ class Monitor
                                 };
 
             // Finaliza o procedimento
-            return v_retorno;
+            console.log('Erro');
+            return 9;
         } // catch(p_erro) { ... }
     } // realiza_requisicao(p_tipo ,p_objeto_1 ,p_objeto_2 ,p_objeto_3)
 
