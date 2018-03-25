@@ -58,6 +58,128 @@ class Monitor
     } // constructor(p_bib_discord,p_token_discord,p_token_braunabot,p_usuario_braunabot)
 
 
+    realiza_requisicao(p_tipo ,p_objeto_1 ,p_objeto_2 ,p_objeto_3)
+    {
+        let v_url_requisicao        =   process.env.url_requisicao + '/' + p_tipo
+           ,v_corpo_requisicao      =   {
+                                            'tipo'          :   p_tipo
+                                           ,'cliente'       :   this.init_discord
+                                           ,'objeto_1'      :   p_objeto_1
+                                           ,'objeto_2'      :   p_objeto_2
+                                           ,'objeto_3'      :   p_objeto_3
+                                        }
+           ,v_data_info_url         =   {
+                                            'url'           :   v_url_requisicao
+                                           ,'json'          :   true
+                                           ,'body'          :   v_corpo_requisicao
+                                        }
+           ,v_retorno               =   {}
+           ;
+
+        try
+        {
+            bib_requisicao.post(v_data_info_url, (p_erro, p_resposta, p_corpo) =>
+            {
+                // Verifica se o objeto de retorno é indefinido.
+                if(typeof p_corpo === 'undefined')
+                {
+                    // Realiza a construção do objeto para mensageria
+                    v_retorno     =     {
+                                            'embed' :   {
+                                                            color               :   0xff0000
+                                                           ,author              :   {
+                                                                                        name        :   'Kafra Moderadora'
+                                                                                       ,icone       :   'https://i.imgur.com/cfYwkLQ.png'
+                                                                                       ,url         :   'http://kafra.mbrauna.org'
+                                                                                    }
+                                                           ,title               :   '[ERRO] - Requisição incorreta'
+                                                           ,url                 :   null
+                                                           ,description         :   'Não foi possível realizar a requisição aos servidores mbrauna.org'
+                                                           ,'image'             :   {
+                                                                                        "url"       :   null
+                                                                                       ,"height"    :   null // 123
+                                                                                       ,"width"     :   null // 123
+                                                                                    }
+                                                           ,thumbnail           :   {
+                                                                                        "url"       :   'https://i.imgur.com/5SiWZwF.png' // 'https://i.imgur.com/LOGICNS.jpg'
+                                                                                       ,"height"    :   null // 123
+                                                                                       ,"width"     :   null // 123 
+                                                                                    }
+                                                           ,video               :   {
+                                                                                        "url"       :   null // 'https://i.imgur.com/LOGICNS.jpg'
+                                                                                       ,"height"    :   null // 123
+                                                                                       ,"width"     :   null // 123
+                                                                                    }
+                                                           ,fields              :   [
+                                                                                        {
+                                                                                            name: 'Requisição - INDEFINIDA'
+                                                                                           ,value: 'Não foi possível realizar uma requisição em MBrauna.org'
+                                                                                        }
+                                                                                    ]
+                                                          ,timestamp            :   new Date()
+                                                          ,footer               :   {
+                                                                                        icon_url:   'https://i.imgur.com/cfYwkLQ.png'
+                                                                                       ,text:       '© bROPédia - Por MBrauna'
+                                                                                    }
+                                                        }
+                                        };
+
+                    // Finaliza o procedimento
+                    return v_retorno;
+                } // if(typeof p_corpo === 'undefined')
+
+                // Retorna o objeto recebido.
+                return p_corpo;
+            });
+
+        } // try { ... }
+        catch(p_erro)
+        {
+            v_retorno     =     {
+                                    'embed' :   {
+                                                    color               :   0xff0000
+                                                   ,author              :   {
+                                                                                name        :   'Kafra Moderadora'
+                                                                               ,icone       :   'https://i.imgur.com/cfYwkLQ.png'
+                                                                               ,url         :   'http://kafra.mbrauna.org'
+                                                                            }
+                                                   ,title               :   '[ERRO] - Erro no procedimento'
+                                                   ,url                 :   null
+                                                   ,description         :   'Ocorreu um erro no procedimento de requisição aos servidores mbrauna.org'
+                                                   ,'image'             :   {
+                                                                                "url"       :   null
+                                                                               ,"height"    :   null // 123
+                                                                               ,"width"     :   null // 123
+                                                                            }
+                                                   ,thumbnail           :   {
+                                                                                "url"       :   'https://i.imgur.com/LOGICNS.jpg'
+                                                                               ,"height"    :   null // 123
+                                                                               ,"width"     :   null // 123 
+                                                                            }
+                                                   ,video               :   {
+                                                                                "url"       :   null // 'https://i.imgur.com/LOGICNS.jpg'
+                                                                               ,"height"    :   null // 123
+                                                                               ,"width"     :   null // 123
+                                                                            }
+                                                   ,fields              :   [
+                                                                                {
+                                                                                    name: 'Erro no procedimento'
+                                                                                   ,value: 'Não foi possível responder a requisição corretamente! Contate o Brauna'
+                                                                                }
+                                                                            ]
+                                                  ,timestamp            :   new Date()
+                                                  ,footer               :   {
+                                                                                icon_url:   'https://i.imgur.com/cfYwkLQ.png'
+                                                                               ,text:       '© bROPédia - Por MBrauna'
+                                                                            }
+                                                }
+                                };
+
+            // Finaliza o procedimento
+            return v_retorno;
+        } // catch(p_erro) { ... }
+    } // realiza_requisicao(p_tipo ,p_objeto_1 ,p_objeto_2 ,p_objeto_3)
+
     evento_auto()
     {
         /************************************************************************
@@ -78,15 +200,9 @@ class Monitor
             this.init_discord.on('ready', () =>
             {
                 this.init_discord.user.setActivity('Ragnarök Online');
-
-                this.init_discord.channels.forEach((p_canal) =>
-                {
-                    //this.init_discord.sendMessage(p_canal.id,'>> Kafra Moderadora <<  - Mensagem automática - Versão 1.17.42'); 
-
-                    p_canal.guild.members.forEach((p_resposta) =>{
-                       // p_resposta.user.sendMessage('>> Kafra Moderadora <<  - Mensagem automática - Versão 1.17.42'); 
-                    })
-                });
+                // Quando inicializado.
+                console.log(this.realiza_requisicao('inicia',null,null,null));
+                
             });
 
             // ᕦ(ò_óˇ)ᕤ     ---     S E P A R A D O R     ---     ᕦ(ˇò_ó)ᕤ 
