@@ -58,24 +58,24 @@ class comunica
                 {
                     // Finaliza o procedimento
                     console.log('Indefinido.');
-                    return callback(9, p_corpo);
+                    return callback(9);
                 } // if(typeof p_corpo === 'undefined')
                 else if(p_corpo === 1)
                 {
                   console.log('Deu certo');
-                  return callback(1, p_corpo);
+                  return callback(1);
                 }
                 else
                 {
                   console.log('Erro');
-                  return callback(9, p_corpo);
+                  return callback(9);
                 }
             });
         } // try { ... }
         catch(p_erro)
         {
             console.log('Erro 2');
-            return callback(9, p_erro);
+            return callback(9);
         } // catch(p_erro) { ... }
     } // trata_inicializacao(p_servidores)
 } // class comunica

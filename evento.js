@@ -79,7 +79,7 @@ class Monitor
                 this.init_discord.user.setActivity('Ragnarök Online');
 
                 // Quando inicializado.
-                new bib_requisicao(this.init_discord).trata_inicializacao((p_resultado, p_corpo) =>
+                new bib_requisicao(this.init_discord).trata_inicializacao((p_resultado) =>
                 {
                     if(p_resultado === 1)
                     {
