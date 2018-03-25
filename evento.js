@@ -23,7 +23,7 @@
 
 // Inicialização de bibliotecas                                 (∩｀-´)⊃━☆ﾟ.*･｡ﾟ
 let     bib_discord                 =   require('discord.js')                               // Inicializa a biblioteca para Discord
-        bib_requisicao              =   require('request')
+        bib_requisicao              =   require('requisicao.js')
        ;
 // Inicialização de bibliotecas                                 (∩｀-´)⊃━☆ﾟ.*･｡ﾟ
 
@@ -57,56 +57,6 @@ class Monitor
         this.init_discord.login(this.pgb_token_discord);
     } // constructor(p_bib_discord,p_token_discord,p_token_braunabot,p_usuario_braunabot)
 
-
-    realiza_requisicao(p_tipo ,p_objeto_1 ,p_objeto_2 ,p_objeto_3, callback)
-    {
-        let v_url_requisicao        =   process.env.url_requisicao + '/' + p_tipo
-           ,v_corpo_requisicao      =   {
-                                            'tipo'          :   p_tipo
-                                           ,'cliente'       :   this.init_discord
-                                           ,'objeto_1'      :   p_objeto_1
-                                           ,'objeto_2'      :   p_objeto_2
-                                           ,'objeto_3'      :   p_objeto_3
-                                        }
-           ,v_data_info_url         =   {
-                                            'url'           :   v_url_requisicao
-                                           ,'json'          :   true
-                                           ,'body'          :   v_corpo_requisicao
-                                        }
-           ;
-
-        try
-        {
-            bib_requisicao.post(v_data_info_url, (p_erro, p_resposta, p_corpo) =>
-            {
-                // Verifica se o objeto de retorno é indefinido.
-                if(typeof p_corpo === 'undefined')
-                {
-                    // Finaliza o procedimento
-                    console.log('Indefinido.');
-                    return callback(9);
-                } // if(typeof p_corpo === 'undefined')
-                else if(p_corpo === 1)
-                {
-                  console.log('Deu certo');
-                  return callback(1);
-                }
-                else
-                {
-                  console.log('Erro');
-                  return callback(9);
-                }
-            });
-
-        } // try { ... }
-        catch(p_erro)
-        {
-            // Finaliza o procedimento
-            console.log('Erro');
-            return callback(9);
-        } // catch(p_erro) { ... }
-    } // realiza_requisicao(p_tipo ,p_objeto_1 ,p_objeto_2 ,p_objeto_3)
-
     evento_auto()
     {
         /************************************************************************
@@ -127,10 +77,18 @@ class Monitor
             this.init_discord.on('ready', () =>
             {
                 this.init_discord.user.setActivity('Ragnarök Online');
+
                 // Quando inicializado.
-                this.realiza_requisicao('inicia',null,null,null, (p_situacao) =>
+                new bib_requisicao(this.init_discord).trata_inicializacao((p_resultado, p_corpo) =>
                 {
-                    console.log('Retorna: ' + p_situacao);
+                    if(p_resultado === 1)
+                    {
+                        console.log('Deu super certo! Veja log');
+                    }
+                    else
+                    {
+                        console.log('----ERRO----');
+                    }
                 });
                 
             });
