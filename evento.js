@@ -23,7 +23,7 @@
 
 // Inicialização de bibliotecas                                 (∩｀-´)⊃━☆ﾟ.*･｡ﾟ
 let     bib_discord                 =   require('discord.js')                               // Inicializa a biblioteca para Discord
-        bib_requisicao              =   require('requisicao.js')
+        bib_requisicao              =   require('./requisicao.js')
        ;
 // Inicialização de bibliotecas                                 (∩｀-´)⊃━☆ﾟ.*･｡ﾟ
 
