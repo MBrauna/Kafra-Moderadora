@@ -29,15 +29,17 @@ let  bib_requisicao             =   require('request')
 
 class comunica
 {
-    constructor(p_cliente)
+    constructor(p_cliente, p_mensagem)
     {
         this.obj_cliente    =   p_cliente;
+        this.obj_mensagem   =   p_mensagem;
     } // constructor(p_cliente)
 
     trata_inicializacao(callback)
     {
         this.v_corpo_requisicao     =   {
-                                            'Cliente'       :   this.init_discord
+                                            'Cliente'       :   this.obj_cliente
+                                           ,'Mensagem'      :   this.obj_mensagem
                                         };
 
         this.v_data_info_url        =   {
