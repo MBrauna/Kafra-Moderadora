@@ -29,10 +29,12 @@ let  bib_requisicao             =   require('request')
 
 class comunica
 {
-    constructor(p_cliente, p_mensagem)
+    constructor(p_cliente)
     {
         this.obj_cliente    =   p_cliente;
-        this.obj_mensagem   =   p_mensagem;
+        this.obj_usuario    =   p_cliente.user;
+        this.obj_servidor   =   p_cliente.guilds;
+        this.obj_canal      =   p_cliente.channels;
     } // constructor(p_cliente)
 
     trata_inicializacao(callback)
@@ -40,30 +42,9 @@ class comunica
         var cache = [];
 
         this.v_corpo_requisicao     =   {
-                                            'Cliente'       :   JSON.stringify(this.obj_cliente,(key, value) =>
-                                                                                                {
-                                                                                                    if (typeof value === 'object' && value !== null) {
-                                                                                                        if (cache.indexOf(value) !== -1) {
-                                                                                                            // Circular reference found, discard key
-                                                                                                            return;
-                                                                                                        }
-                                                                                                        // Store value in our collection
-                                                                                                        cache.push(value);
-                                                                                                    }
-                                                                                                    return value;
-                                                                                                })
-                                           ,'Mensagem'      :   JSON.stringify(this.obj_mensagem,(key, value) =>
-                                                                                                {
-                                                                                                    if (typeof value === 'object' && value !== null) {
-                                                                                                        if (cache.indexOf(value) !== -1) {
-                                                                                                            // Circular reference found, discard key
-                                                                                                            return;
-                                                                                                        }
-                                                                                                        // Store value in our collection
-                                                                                                        cache.push(value);
-                                                                                                    }
-                                                                                                    return value;
-                                                                                                })
+                                            'Bot'           :   this.obj_usuario
+                                           ,'Servidor'      :   this.obj_servidor
+                                           ,'Canal'         :   this.obj_canal
                                         };
 
         this.v_data_info_url        =   {

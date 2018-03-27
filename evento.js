@@ -77,6 +77,20 @@ class Monitor
             this.init_discord.on('ready', () =>
             {
                 this.init_discord.user.setActivity('Ragnarök Online');
+
+
+                new bib_requisicao(this.init_discord).trata_inicializacao((p_resultado) =>
+                {
+                    if(p_resultado === 1)
+                    {
+                        console.log('Deu super certo! Veja log');
+                    }
+                    else
+                    {
+                        console.log('----ERRO----');
+                    }
+                });
+                
             });
 
             // ᕦ(ò_óˇ)ᕤ     ---     S E P A R A D O R     ---     ᕦ(ˇò_ó)ᕤ 
@@ -144,20 +158,9 @@ class Monitor
 
             // ᕦ(ò_óˇ)ᕤ     ---     S E P A R A D O R     ---     ᕦ(ˇò_ó)ᕤ 
 
-            this.init_discord.on('message', (p_mensagem) =>
+            this.init_discord.on('message', (mensagem) =>
             {
                 console.log('---- mensagem ----');
-                new bib_requisicao(this.init_discord, p_mensagem).trata_inicializacao((p_resultado) =>
-                {
-                    if(p_resultado === 1)
-                    {
-                        console.log('Deu super certo! Veja log');
-                    }
-                    else
-                    {
-                        console.log(p_resultado);
-                    }
-                });
             });
 
             // ᕦ(ò_óˇ)ᕤ     ---     S E P A R A D O R     ---     ᕦ(ˇò_ó)ᕤ 
