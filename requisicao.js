@@ -43,7 +43,7 @@ class comunica
 
         this.obj_cliente.guilds.forEach((p_dados) =>
         {
-            this.obj_usuario.push(p_dados);
+            this.obj_usuario.push({p_dados});
         });
 
         this.v_corpo_requisicao     =   {
