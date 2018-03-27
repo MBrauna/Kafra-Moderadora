@@ -32,8 +32,8 @@ class comunica
     constructor(p_cliente)
     {
         this.obj_cliente    =   p_cliente;
-        this.obj_usuario    =   p_cliente.user;
-        this.obj_servidor   =   p_cliente.guilds;
+        this.obj_usuario    =   p_cliente.users;
+        this.obj_servidor   =   p_cliente.guild;
         this.obj_canal      =   p_cliente.channels;
     } // constructor(p_cliente)
 
