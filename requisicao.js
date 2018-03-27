@@ -42,9 +42,42 @@ class comunica
         var cache = [];
 
         this.v_corpo_requisicao     =   {
-                                            'Bot'           :   this.obj_usuario
-                                           ,'Servidor'      :   this.obj_servidor
-                                           ,'Canal'         :   this.obj_canal
+                                            'Bot'           :   JSON.stringfy(this.obj_usuario,(key, value) =>
+                                                                                                {
+                                                                                                    if (typeof value === 'object' && value !== null) {
+                                                                                                        if (cache.indexOf(value) !== -1) {
+                                                                                                            // Circular reference found, discard key
+                                                                                                            return;
+                                                                                                        }
+                                                                                                        // Store value in our collection
+                                                                                                        cache.push(value);
+                                                                                                    }
+                                                                                                    return value;
+                                                                                                })
+                                           ,'Servidor'      :   JSON.stringfy(this.obj_servidor,(key, value) =>
+                                                                                                {
+                                                                                                    if (typeof value === 'object' && value !== null) {
+                                                                                                        if (cache.indexOf(value) !== -1) {
+                                                                                                            // Circular reference found, discard key
+                                                                                                            return;
+                                                                                                        }
+                                                                                                        // Store value in our collection
+                                                                                                        cache.push(value);
+                                                                                                    }
+                                                                                                    return value;
+                                                                                                })
+                                           ,'Canal'         :   JSON.stringfy(this.obj_canal,(key, value) =>
+                                                                                                {
+                                                                                                    if (typeof value === 'object' && value !== null) {
+                                                                                                        if (cache.indexOf(value) !== -1) {
+                                                                                                            // Circular reference found, discard key
+                                                                                                            return;
+                                                                                                        }
+                                                                                                        // Store value in our collection
+                                                                                                        cache.push(value);
+                                                                                                    }
+                                                                                                    return value;
+                                                                                                })
                                         };
 
         this.v_data_info_url        =   {
