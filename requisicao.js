@@ -70,8 +70,7 @@ class comunica
                 }
                 else
                 {
-                    console.trace();
-                    console.log('Erro');
+                    console.log(p_corpo);
                     return callback(9);
                 }
             });
