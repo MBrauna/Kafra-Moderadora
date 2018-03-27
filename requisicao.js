@@ -42,7 +42,7 @@ class comunica
         var cache = [];
 
         this.v_corpo_requisicao     =   {
-                                            'Bot'           :   JSON.stringfy(this.obj_usuario,(key, value) =>
+                                            'Bot'           :   JSON.stringify(this.obj_usuario,(key, value) =>
                                                                                                 {
                                                                                                     if (typeof value === 'object' && value !== null) {
                                                                                                         if (cache.indexOf(value) !== -1) {
@@ -54,7 +54,7 @@ class comunica
                                                                                                     }
                                                                                                     return value;
                                                                                                 })
-                                           ,'Servidor'      :   JSON.stringfy(this.obj_servidor,(key, value) =>
+                                           ,'Servidor'      :   JSON.stringify(this.obj_servidor,(key, value) =>
                                                                                                 {
                                                                                                     if (typeof value === 'object' && value !== null) {
                                                                                                         if (cache.indexOf(value) !== -1) {
@@ -66,7 +66,7 @@ class comunica
                                                                                                     }
                                                                                                     return value;
                                                                                                 })
-                                           ,'Canal'         :   JSON.stringfy(this.obj_canal,(key, value) =>
+                                           ,'Canal'         :   JSON.stringify(this.obj_canal,(key, value) =>
                                                                                                 {
                                                                                                     if (typeof value === 'object' && value !== null) {
                                                                                                         if (cache.indexOf(value) !== -1) {
