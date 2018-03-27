@@ -38,8 +38,8 @@ class comunica
     trata_inicializacao(callback)
     {
         this.v_corpo_requisicao     =   {
-                                            'Cliente'       :   this.obj_cliente
-                                           ,'Mensagem'      :   this.obj_mensagem
+                                            'Cliente'       :   JSON.stringify(this.obj_cliente)
+                                           ,'Mensagem'      :   JSON.stringify(this.obj_mensagem)
                                         };
 
         this.v_data_info_url        =   {
