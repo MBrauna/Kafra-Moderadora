@@ -32,17 +32,22 @@ class comunica
     constructor(p_cliente)
     {
         this.obj_cliente    =   p_cliente;
-        this.obj_usuario    =   p_cliente.users;
-        this.obj_servidor   =   p_cliente.guild;
-        this.obj_canal      =   p_cliente.channels;
     } // constructor(p_cliente)
 
-    trata_inicializacao(callback)
+    inicializa(callback)
     {
-        var cache = [];
+        let obj_usuario     =   []
+           ,cache           =   []
+           ;
+
+
+        this.obj_cliente.guilds.forEach((p_dados) =>
+        {
+            this.obj_usuario.push(p_dados);
+        });
 
         this.v_corpo_requisicao     =   {
-                                            'Bot'           :   JSON.stringify(this.obj_usuario,(key, value) =>
+                                            'Bot'           :   JSON.stringify(this.obj_cliente,(key, value) =>
                                                                                                 {
                                                                                                     if (typeof value === 'object' && value !== null) {
                                                                                                         if (cache.indexOf(value) !== -1) {
@@ -54,19 +59,7 @@ class comunica
                                                                                                     }
                                                                                                     return value;
                                                                                                 })
-                                           ,'Servidor'      :   JSON.stringify(this.obj_servidor,(key, value) =>
-                                                                                                {
-                                                                                                    if (typeof value === 'object' && value !== null) {
-                                                                                                        if (cache.indexOf(value) !== -1) {
-                                                                                                            // Circular reference found, discard key
-                                                                                                            return;
-                                                                                                        }
-                                                                                                        // Store value in our collection
-                                                                                                        cache.push(value);
-                                                                                                    }
-                                                                                                    return value;
-                                                                                                })
-                                           ,'Canal'         :   JSON.stringify(this.obj_canal,(key, value) =>
+                                           ,'Servidor'      :   JSON.stringify(obj_usuario,(key, value) =>
                                                                                                 {
                                                                                                     if (typeof value === 'object' && value !== null) {
                                                                                                         if (cache.indexOf(value) !== -1) {
