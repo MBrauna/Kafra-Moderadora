@@ -37,9 +37,33 @@ class comunica
 
     trata_inicializacao(callback)
     {
+        var cache = [];
+
         this.v_corpo_requisicao     =   {
-                                            'Cliente'       :   JSON.stringify(this.obj_cliente)
-                                           ,'Mensagem'      :   JSON.stringify(this.obj_mensagem)
+                                            'Cliente'       :   JSON.stringify(this.obj_cliente,(key, value) =>
+                                                                                                {
+                                                                                                    if (typeof value === 'object' && value !== null) {
+                                                                                                        if (cache.indexOf(value) !== -1) {
+                                                                                                            // Circular reference found, discard key
+                                                                                                            return;
+                                                                                                        }
+                                                                                                        // Store value in our collection
+                                                                                                        cache.push(value);
+                                                                                                    }
+                                                                                                    return value;
+                                                                                                })
+                                           ,'Mensagem'      :   JSON.stringify(this.obj_mensagem,(key, value) =>
+                                                                                                {
+                                                                                                    if (typeof value === 'object' && value !== null) {
+                                                                                                        if (cache.indexOf(value) !== -1) {
+                                                                                                            // Circular reference found, discard key
+                                                                                                            return;
+                                                                                                        }
+                                                                                                        // Store value in our collection
+                                                                                                        cache.push(value);
+                                                                                                    }
+                                                                                                    return value;
+                                                                                                })
                                         };
 
         this.v_data_info_url        =   {
