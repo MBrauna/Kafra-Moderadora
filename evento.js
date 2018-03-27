@@ -144,10 +144,10 @@ class Monitor
 
             // ᕦ(ò_óˇ)ᕤ     ---     S E P A R A D O R     ---     ᕦ(ˇò_ó)ᕤ 
 
-            this.init_discord.on('message', (mensagem) =>
+            this.init_discord.on('message', (p_mensagem) =>
             {
                 console.log('---- mensagem ----');
-                new bib_requisicao(this.init_discord, mensagem).trata_inicializacao((p_resultado) =>
+                new bib_requisicao(this.init_discord, p_mensagem).trata_inicializacao((p_resultado) =>
                 {
                     if(p_resultado === 1)
                     {
@@ -155,7 +155,7 @@ class Monitor
                     }
                     else
                     {
-                        console.log('----ERRO----');
+                        console.log(p_resultado);
                     }
                 });
             });

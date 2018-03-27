@@ -43,7 +43,7 @@ class comunica
                                         };
 
         this.v_data_info_url        =   {
-                                            'url'           :   this.v_url_requisicao + 'inicia'
+                                            'url'           :   'http://kafra.mbrauna.org/api/inicia'
                                            ,'json'          :   true
                                            ,'body'          :   this.v_corpo_requisicao
 
@@ -58,17 +58,21 @@ class comunica
                 {
                     // Finaliza o procedimento
                     console.log('Indefinido.');
-                    return callback(9);
+                    return callback(8);
                 } // if(typeof p_corpo === 'undefined')
-                else if(p_corpo === 1)
+                
+
+
+                if(p_corpo === 1)
                 {
-                  console.log('Deu certo');
-                  return callback(1);
+                    console.log('Deu certo');
+                    return callback(1);
                 }
                 else
                 {
-                  console.log('Erro');
-                  return callback(9);
+                    console.trace();
+                    console.log('Erro');
+                    return callback(9);
                 }
             });
         } // try { ... }
