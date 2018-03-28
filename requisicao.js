@@ -87,20 +87,22 @@ class comunica
     func_atualiza()
     {
         // Inicializar as constantes utilizadas nos tratamentos
-        let vobj_servidor   =   {}
-           ,v_cache         =   []
+        let v_servidor      =   []
            ;
 
-
+        // Acessa o cliente e obtém todos os servidores ativos no cliente DISCORD
         this.obj_cliente.guilds.forEach((p_servidor) =>
         {
-            let v_servidor  =   []
-               ,v_canal     =   []
-               ,v_regra     =   []
+            // Declara as arrays que irão compor os dados para o servidor
+            let v_canal     =   [] // channels
+               ,v_regra     =   [] // roles
+               ,v_membro    =   [] // members
                ;
 
+            // Acessa o atributo channels para obteção dos dados de canais -> Client Discord
             p_servidor.channels.forEach((p_canal) =>
             {
+                // Monta um objeto com os dados necessários para o canal obtido
                 var tmp_canal   =   {
                                         id          :   p_canal.id
                                        ,nome        :   p_canal.name
@@ -109,8 +111,57 @@ class comunica
                                        ,posicao     :   p_canal.position
                                        ,nsfw        :   p_canal.nsfw
                                     };
+
+                // Adiciona o canal à array
                 v_canal.push(tmp_canal);
             }); // p_servidor.forEach((p_canal) =>
+
+            // Acessa o atributo roles para obtenção dos dados de permissões -> Client Discord
+            p_servidor.roles.forEach((p_regra) =>
+            {
+                var tmp_regra   =   {
+                                        id          :   p_regra.id
+                                       ,nome        :   p_regra.name
+                                       ,corhexa     :   p_regra.hexColor
+                                       ,cor         :   p_regra.cor
+                                       ,permissao   :   p_regra.permissions
+                                       ,mencao      :   p_regra.mentionable
+                                       ,posicao     :   p_regra.position
+                                    };
+
+                // Adiciona a regra à array
+                v_regra.push(tmp_regra);
+            }); // p_servidor.roles.forEach((p_regra) =>
+
+            // Acessa o atributo roles para obtenção dos dados de permissões -> Client Discord
+            p_servidor.members.forEach((p_membro) =>
+            {
+                var tmp_membro      =   {
+                                            id          :   p_membro.id
+                                           ,username    :   p_membro.nickname
+                                           ,apelido     :   p_membro.displayName
+                                           ,DspCorHexa  :   p_membro.displayHexColor
+                                           ,DspCor      :   p_membro.displayColor
+                                        };
+                // Adiciona o membro à array
+                v_membro.push(tmp_membro);
+            }); // p_servidor.members.forEach((p_membro) =>
+
+
+            // Monta os dados para o servidor
+            var tmp_servidor    =   {
+                                        id              :   p_servidor.id
+                                       ,icone           :   p_servidor.icon
+                                       ,icone_url       :   p_servidor.iconURL
+                                       ,qtde_membros    :   p_servidor.memberCount
+                                       ,nome            :   p_servidor.name
+                                       ,id_lider        :   p_servidor.ownerID
+                                       ,regiao          :   p_servidor.region
+                                       ,canal           :   v_canal
+                                       ,regra           :   v_regra
+                                       ,membro          :   v_membro
+                                    };
+
         }); // this.obj_cliente.guilds.forEach((p_servidor) =>
     } // func_inicia_bot()
 
