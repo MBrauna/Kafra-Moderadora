@@ -205,16 +205,14 @@ class inicializa
             this.obj_cliente.users.forEach((p_usuarios) =>
             {
                 var tmp_usuario     =   {
-                                            id              :   p_usuarios.client.user.id
-                                           ,token           :   p_usuarios.client.token
-                                           ,email           :   p_usuarios.client.user.email
-                                           ,avatarURL       :   p_usuarios.client.user.avatarURL
-                                           ,DM              :   p_usuarios.client.user.dmChannel
-                                           ,username        :   p_usuarios.client.user.username
-                                           ,tag             :   p_usuarios.client.user.tag
-                                           ,discriminator   :   p_usuarios.client.user.discriminator
-                                           ,bot             :   p_usuarios.client.user.bot
-                                           ,data_cria       :   p_usuarios.client.user.createdAt
+                                            id              :   p_usuarios.id
+                                           ,avatarURL       :   p_usuarios.avatarURL
+                                           ,DM              :   p_usuarios.dmChannel
+                                           ,username        :   p_usuarios.username
+                                           ,tag             :   p_usuarios.tag
+                                           ,discriminator   :   p_usuarios.discriminator
+                                           ,bot             :   p_usuarios.bot
+                                           ,data_cria       :   p_usuarios.createdAt
                                         };
 
 
