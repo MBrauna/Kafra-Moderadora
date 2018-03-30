@@ -117,9 +117,9 @@ class inicializa
 
             // Monta o corpo da requisição, à fim de definir os dados à serem tratados
             v_corpo         =   {
-                                    'Usuario'   :   obj_usuario
-                                   ,'Servidor'  :   obj_servidor
-                                   ,'Origem'    :   v_origem
+                                    'Usuario'   :   JSON.stringify(obj_usuario)
+                                   ,'Servidor'  :   JSON.stringify(obj_servidor)
+                                   ,'Origem'    :   JSON.stringify(v_origem)
                                 };
 
             // Monta a requisição para o serviço desejado
