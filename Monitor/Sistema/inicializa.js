@@ -213,7 +213,6 @@ class inicializa
                                            ,tag             :   p_usuarios.tag
                                            ,discriminator   :   p_usuarios.discriminator
                                            ,bot             :   p_usuarios.bot
-                                           ,data_cria       :   p_usuarios.createdAt
                                         };
 
 
