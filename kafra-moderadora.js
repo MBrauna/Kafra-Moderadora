@@ -22,7 +22,7 @@
  ****************************************************************************************************/
 
 // Inicialização de bibliotecas                                 (∩｀-´)⊃━☆ﾟ.*･｡ﾟ
-const bib_kafra_moderadora        =   require('./evento.js');     // Inicializa a biblioteca de funcionalidades Kafra Moderadora
+const bib_kafra_moderadora        =   require('./Monitor/evento.js');     // Inicializa a biblioteca de funcionalidades Kafra Moderadora
 // Inicialização de bibliotecas                                 (∩｀-´)⊃━☆ﾟ.*･｡ﾟ
 
 // ᕦ(ò_óˇ)ᕤ     ---     S E P A R A D O R     ---     ᕦ(ˇò_ó)ᕤ 

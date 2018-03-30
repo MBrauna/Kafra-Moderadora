@@ -23,7 +23,6 @@
 
 // Inicialização de bibliotecas                                 (∩｀-´)⊃━☆ﾟ.*･｡ﾟ
 let     bib_discord                 =   require('discord.js')                               // Inicializa a biblioteca para Discord
-        bib_requisicao              =   require('./requisicao.js')
        ;
 // Inicialização de bibliotecas                                 (∩｀-´)⊃━☆ﾟ.*･｡ﾟ
 
@@ -44,20 +43,22 @@ class Monitor
          * dor carregados.                                                      *
          ************************************************************************/
 
-        this.init_discord               =   new bib_discord.Client();   // Marca a instância do cliente Discord
-
         this.pgb_token_discord          =   p_token_discord;            // Token do bot - ver arquivo .env
         this.pgb_token_kafra            =   p_token_kafra;              // Token de acesso para Kafra Moderadora.
 
+
+        // Discord
+        this.init_discord               =   new bib_discord.Client();   // Marca a instância do cliente Discord
+
         // Carrega eventos e seus métodos
-        this.evento_auto();
-        this.evento_usuario();
-        this.evento_servidor();
+        this.monitor_sistema();
+        this.monitor_usuario();
+        this.monitor_servidor();
 
         this.init_discord.login(this.pgb_token_discord);
     } // constructor(p_bib_discord,p_token_discord,p_token_braunabot,p_usuario_braunabot)
 
-    evento_auto()
+    monitor_sistema()
     {
         /************************************************************************
          * Autor: Michel Brauna                                Data: 14/03/2018 *
@@ -77,10 +78,6 @@ class Monitor
             this.init_discord.on('ready', () =>
             {
                 this.init_discord.user.setActivity('Ragnarök Online');
-
-
-                new bib_requisicao(this.init_discord).inicializa();
-                
             });
 
             // ᕦ(ò_óˇ)ᕤ     ---     S E P A R A D O R     ---     ᕦ(ˇò_ó)ᕤ 
@@ -126,10 +123,10 @@ class Monitor
             console.trace();
         } // catch(erro) { ... }
         
-    } // evento_auto()
+    } // monitor_sistema()
 
 
-    evento_usuario()
+    monitor_usuario()
     {
         /************************************************************************
          * Autor: Michel Brauna                                Data: 14/03/2018 *
@@ -235,10 +232,10 @@ class Monitor
             console.log(erro);
             console.trace();
         } // catch(erro) { ... }
-    } // evento_usuario()
+    } // monitor_usuario()
 
 
-    evento_servidor()
+    monitor_servidor()
     {
         /************************************************************************
          * Autor: Michel Brauna                                Data: 14/03/2018 *
@@ -419,7 +416,7 @@ class Monitor
             console.log(erro);
             console.trace();
         } // catch(erro) { ... }
-    } // evento_servidor()
+    } // monitor_servidor()
 
 } // class Monitor
 
