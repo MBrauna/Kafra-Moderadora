@@ -65,9 +65,10 @@ class inicializa
         {
             bib_requisicao.post(p_dados_url, (p_erro, p_resposta, p_corpo) =>
             {
-                let v_req_erro       =   p_erro;
-                   ,v_req_resposta   =   p_resposta;
-                   ,v_req_corpo      =   p_corpo;
+                let v_req_erro       =   p_erro
+                   ,v_req_resposta   =   p_resposta
+                   ,v_req_corpo      =   p_corpo
+                   ;
 
                 // Retorna para a função callback;
                 callback(v_req_erro, v_req_resposta, v_req_corpo);
