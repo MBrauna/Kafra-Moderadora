@@ -273,7 +273,6 @@ class inicializa
                                             id          :   p_canal.id
                                            ,nome        :   p_canal.name
                                            ,tipo        :   p_canal.type
-                                           ,servidor    :   p_canal.guild
                                            ,posicao     :   p_canal.position
                                            ,nsfw        :   p_canal.nsfw
                                         };
