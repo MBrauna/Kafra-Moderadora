@@ -192,7 +192,8 @@ class inicializa
          * sob rastreio do bot e então cadastro ou atualização dos dados*
          * enviados pelo webservice Discord.                            *
          ****************************************************************/
-        const v_usuario     =   [];
+        let v_usuario     =   []
+           ;
 
         try
         {
