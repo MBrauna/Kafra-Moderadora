@@ -23,6 +23,7 @@
 
 // Inicialização de bibliotecas                                 (∩｀-´)⊃━☆ﾟ.*･｡ﾟ
 let     bib_discord                 =   require('discord.js')                               // Inicializa a biblioteca para Discord
+       ,bib_inicializacao           =   require('./Sistema/inicializa.js')
        ;
 // Inicialização de bibliotecas                                 (∩｀-´)⊃━☆ﾟ.*･｡ﾟ
 
@@ -70,7 +71,7 @@ class Monitor
             this.init_discord.on('disconnect', (mensagem) =>
             {
 
-                console.log('---- disconnect ----');
+                console.log('O cliente - DISCORD - foi encerrado! Verifique.');
             });
 
             // ᕦ(ò_óˇ)ᕤ     ---     S E P A R A D O R     ---     ᕦ(ˇò_ó)ᕤ 
@@ -78,13 +79,19 @@ class Monitor
             this.init_discord.on('ready', () =>
             {
                 this.init_discord.user.setActivity('Ragnarök Online');
+
+                // Método para atualizar o cliente de Discord
+                new bib_inicializacao(this.init_discord).func_inicializa();
+                // Método para atualizar o cliente de Discord
+
+                console.log('O cliente - DISCORD - foi iniciado! Verifique.');
             });
 
             // ᕦ(ò_óˇ)ᕤ     ---     S E P A R A D O R     ---     ᕦ(ˇò_ó)ᕤ 
 
             this.init_discord.on('reconnecting', () =>
             {
-                console.log('---- reconnecting ----');
+                console.log('O cliente - DISCORD - está reconectando! Verifique.');
             });
 
              // ᕦ(ò_óˇ)ᕤ     ---     S E P A R A D O R     ---     ᕦ(ˇò_ó)ᕤ 
@@ -133,8 +140,6 @@ class Monitor
          *                                                                      *
          *   Método para tratativa de todos os eventos à nível de cliente.      *
          ************************************************************************/
-
-        var v_retorno   =   null;
 
         try
         {
