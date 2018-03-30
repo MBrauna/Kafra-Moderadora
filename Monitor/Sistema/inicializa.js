@@ -109,16 +109,17 @@ class inicializa
 
             // Monta o objeto para cliente de origem
             v_origem        =   {
-                                    id          :   this.obj_cliente.user.id
-                                   ,bot         :   this.obj_cliente.user.bot
-                                   ,token       :   this.obj_cliente.user.client.token
+                                    id              :   this.obj_cliente.user.id
+                                   ,bot             :   this.obj_cliente.user.bot
+                                   ,token           :   this.obj_cliente.user.client.token
+                                   ,codigo_disc     :   this.obj_cliente.user.discriminator
                                 };
 
             // Monta o corpo da requisição, à fim de definir os dados à serem tratados
             v_corpo         =   {
                                     'Usuario'   :   obj_usuario
                                    ,'Servidor'  :   obj_servidor
-                                   ,'Origem'    :   this.obj_cliente.user
+                                   ,'Origem'    :   v_origem
                                 };
 
             // Monta a requisição para o serviço desejado
