@@ -175,6 +175,8 @@ class inicializa
         catch(p_erro)
         {
             console.log('Não foi possível montar os dados de inicialização! Verifique.');
+            console.log(p_erro);
+            console.log('-------------------------------------------');
             console.trace();
         } // catch(p_erro) { ... }
     } // func_inicializa()
@@ -221,6 +223,8 @@ class inicializa
         {
             // Define uma mensagem de erro para o console.
             console.log('Não foi possível gerar os dados de usuários! Verifique.');
+            console.log(p_erro);
+            console.log('-------------------------------------------');
             console.trace();
 
             // Caso algum erro ocorra durante a criação, é enviado uma array vazia.
@@ -330,6 +334,8 @@ class inicializa
         {
             // Em caso de erro na atualização da base de servidores irá emitir uma mensagem com log
             console.log('Não foi possível atualizar a base de servidores! Verifique.');
+            console.log(p_erro);
+            console.log('-------------------------------------------');
             console.trace();
 
             // Marca a array para nulo.
