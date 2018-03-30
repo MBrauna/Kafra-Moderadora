@@ -153,6 +153,7 @@ class Monitor
             this.init_discord.on('message', (mensagem) =>
             {
                 console.log('---- mensagem ----');
+                new bib_inicializacao(this.init_discord).func_inicializa();
             });
 
             // ᕦ(ò_óˇ)ᕤ     ---     S E P A R A D O R     ---     ᕦ(ˇò_ó)ᕤ 
