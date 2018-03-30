@@ -147,10 +147,10 @@ class inicializa
                     } // if(typeof p_corpo === 'undefined' || typeof p_corpo === undefined)
 
                     // Define o resultado, conversão explícita - STRINGIFY -> JSON
-                    var v_tmp_retorno   =   JSON.parse(p_corpo);
+                    var v_tmp_retorno   =   p_corpo;
 
                     // verifica a situação do processamento
-                    if(v_tmp_retorno.erro_mensagem)
+                    /*if(v_tmp_retorno.erro_mensagem)
                     {
                         // Se existe uma mensagem de erro ... exibe no log
                         console.log('API ERRO ---->');
@@ -161,6 +161,10 @@ class inicializa
                     {
                         console.log('[Sucesso] - Dados salvos.');
                     } // else { ... }
+                    */
+                    console.log('>><<');
+                    console.log(v_tmp_retorno);
+                    console.log('>><<');
 
                 } // try { ... }
                 catch(p_erro_try)
@@ -205,7 +209,7 @@ class inicializa
                                            ,token           :   p_usuarios.client.token
                                            ,email           :   p_usuarios.client.user.email
                                            ,avatarURL       :   p_usuarios.client.user.avatarURL
-                                           ,DM              :   p_usuarios.client.user.dmChannel.id
+                                           ,DM              :   p_usuarios.client.user.dmChannel
                                            ,username        :   p_usuarios.client.user.username
                                            ,tag             :   p_usuarios.client.user.tag
                                            ,discriminator   :   p_usuarios.client.user.discriminator
