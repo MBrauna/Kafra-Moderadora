@@ -304,6 +304,7 @@ class inicializa
                                                ,DspCorHexa  :   p_membro.displayHexColor
                                                ,DspCor      :   p_membro.displayColor
                                             };
+
                     // Adiciona o membro à array
                     v_membro.push(tmp_membro);
                 }); // p_servidor.members.forEach((p_membro) =>
@@ -348,7 +349,24 @@ class inicializa
 
     // ᕦ(ò_óˇ)ᕤ     ---     S E P A R A D O R     ---     ᕦ(ˇò_ó)ᕤ
 
+    constructor(p_cliente)
+    {
+        this.obj_cliente    = p_cliente;
+    } // constructor(p_cliente)
 
+    // ᕦ(ò_óˇ)ᕤ     ---     S E P A R A D O R     ---     ᕦ(ˇò_ó)ᕤ
+
+    desconetar(p_mensagem)
+    {
+        console.log(p_mensagem);
+    } // disconecta(p_mensagem)
+
+    // ᕦ(ò_óˇ)ᕤ     ---     S E P A R A D O R     ---     ᕦ(ˇò_ó)ᕤ
+
+    erro(p_mensagem)
+    {
+        console.log(p_mensagem);
+    } // erro(p_mensagem)
 } // class inicializa
 
 // Torna o método público - Acesso externo é permitido.

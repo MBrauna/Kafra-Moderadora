@@ -23,7 +23,7 @@
 
 // Inicialização de bibliotecas                                 (∩｀-´)⊃━☆ﾟ.*･｡ﾟ
 let     bib_discord                 =   require('discord.js')                               // Inicializa a biblioteca para Discord
-       ,bib_inicializacao           =   require('./Sistema/inicializa.js')
+       ,bib_inicializacao           =   require('./Sistema/Sistema.js')
        ;
 // Inicialização de bibliotecas                                 (∩｀-´)⊃━☆ﾟ.*･｡ﾟ
 
@@ -70,6 +70,8 @@ class Monitor
         {
             this.init_discord.on('disconnect', (mensagem) =>
             {
+                // Método para marcação de dados para desconexão
+                new bib_inicializacao(this.init_discord).desconetar(mensagem);
 
                 console.log('O cliente - DISCORD - foi encerrado! Verifique.');
             });
@@ -121,7 +123,10 @@ class Monitor
 
             this.init_discord.on('error', (mensagem) =>
             {
-                console.log('---- error ----');
+                // Método para marcação de dados para erro
+                new bib_inicializacao(this.init_discord).erro(mensagem);
+
+                console.log('O cliente - DISCORD - apresentou erro! Verifique.');
             });
         } // try { .. }
         catch(erro)
