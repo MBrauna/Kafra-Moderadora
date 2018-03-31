@@ -274,7 +274,6 @@ class inicializa
                                            ,nome        :   p_canal.name
                                            ,tipo        :   p_canal.type
                                            ,posicao     :   p_canal.position
-                                           ,nsfw        :   p_canal.nsfw
                                         };
 
                     // Adiciona o canal à array
@@ -288,7 +287,6 @@ class inicializa
                                             id          :   p_regra.id
                                            ,nome        :   p_regra.name
                                            ,corhexa     :   p_regra.hexColor
-                                           ,cor         :   p_regra.cor
                                            ,permissao   :   p_regra.permissions
                                            ,mencao      :   p_regra.mentionable
                                            ,posicao     :   p_regra.position
