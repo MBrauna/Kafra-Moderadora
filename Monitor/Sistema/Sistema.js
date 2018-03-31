@@ -349,13 +349,6 @@ class inicializa
 
     // ᕦ(ò_óˇ)ᕤ     ---     S E P A R A D O R     ---     ᕦ(ˇò_ó)ᕤ
 
-    constructor(p_cliente)
-    {
-        this.obj_cliente    = p_cliente;
-    } // constructor(p_cliente)
-
-    // ᕦ(ò_óˇ)ᕤ     ---     S E P A R A D O R     ---     ᕦ(ˇò_ó)ᕤ
-
     desconetar(p_mensagem)
     {
         console.log(p_mensagem);
