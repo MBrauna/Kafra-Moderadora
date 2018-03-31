@@ -257,14 +257,22 @@ class Monitor
         {
             this.init_discord.on('channelCreate', (canal) =>
             {
-                console.log('---- channelCreate ----');
+                // Método para atualizar o cliente de Discord
+                new bib_inicializacao(this.init_discord).func_inicializa();
+                // Método para atualizar o cliente de Discord
+
+                console.log('O cliente - DISCORD - identificou que um canal foi criado! Verifique.');
             });
 
             // ᕦ(ò_óˇ)ᕤ     ---     S E P A R A D O R     ---     ᕦ(ˇò_ó)ᕤ 
 
             this.init_discord.on('channelDelete', (canal) =>
             {
-                console.log('---- channelDelete ----');
+                // Método para atualizar o cliente de Discord
+                new bib_inicializacao(this.init_discord).func_inicializa();
+                // Método para atualizar o cliente de Discord
+
+                console.log('O cliente - DISCORD - identificou que um canal foi removido! Verifique.');
             });
 
             // ᕦ(ò_óˇ)ᕤ     ---     S E P A R A D O R     ---     ᕦ(ˇò_ó)ᕤ 
@@ -278,7 +286,11 @@ class Monitor
 
             this.init_discord.on('channelUpdate', (canal_antigo, canal_novo) =>
             {
-                console.log('---- channelUpdate ----');
+                // Método para atualizar o cliente de Discord
+                new bib_inicializacao(this.init_discord).func_inicializa();
+                // Método para atualizar o cliente de Discord
+
+                console.log('O cliente - DISCORD - identificou que um canal foi alterado! Verifique.');
             });
 
             // ᕦ(ò_óˇ)ᕤ     ---     S E P A R A D O R     ---     ᕦ(ˇò_ó)ᕤ 
@@ -327,21 +339,33 @@ class Monitor
 
             this.init_discord.on('guildCreate', (canal) =>
             {
-                console.log('---- guildCreate ----');
+                // Método para atualizar o cliente de Discord
+                new bib_inicializacao(this.init_discord).func_inicializa();
+                // Método para atualizar o cliente de Discord
+
+                console.log('O cliente - DISCORD - identificou que um servidor foi criado! Verifique.');
             });
 
             // ᕦ(ò_óˇ)ᕤ     ---     S E P A R A D O R     ---     ᕦ(ˇò_ó)ᕤ 
 
             this.init_discord.on('guildDelete', (canal) =>
             {
-                console.log('---- guildDelete ----');
+                // Método para atualizar o cliente de Discord
+                new bib_inicializacao(this.init_discord).func_inicializa();
+                // Método para atualizar o cliente de Discord
+
+                console.log('O cliente - DISCORD - identificou que um servidor foi removido! Verifique.');
             });
 
             // ᕦ(ò_óˇ)ᕤ     ---     S E P A R A D O R     ---     ᕦ(ˇò_ó)ᕤ 
 
             this.init_discord.on('guildMemberAdd', (usuario_canal) =>
             {
-                console.log('---- guildMemberAdd ----');
+                // Método para atualizar o cliente de Discord
+                new bib_inicializacao(this.init_discord).func_inicializa();
+                // Método para atualizar o cliente de Discord
+
+                console.log('O cliente - DISCORD - identificou que um usuário foi criado! Verifique.');
             });
 
             // ᕦ(ò_óˇ)ᕤ     ---     S E P A R A D O R     ---     ᕦ(ˇò_ó)ᕤ 
@@ -355,7 +379,11 @@ class Monitor
 
             this.init_discord.on('guildMemberRemove', (usuario_canal) =>
             {
-                console.log('---- guildMemberRemove ----');
+                // Método para atualizar o cliente de Discord
+                new bib_inicializacao(this.init_discord).func_inicializa();
+                // Método para atualizar o cliente de Discord
+
+                console.log('O cliente - DISCORD - identificou que um usuário foi removido! Verifique.');
             });
 
             // ᕦ(ò_óˇ)ᕤ     ---     S E P A R A D O R     ---     ᕦ(ˇò_ó)ᕤ 
@@ -390,7 +418,11 @@ class Monitor
 
             this.init_discord.on('guildUpdate', (canal_antigo, canal_novo) =>
             {
-                console.log('---- guildUpdate ----');
+                // Método para atualizar o cliente de Discord
+                new bib_inicializacao(this.init_discord).func_inicializa();
+                // Método para atualizar o cliente de Discord
+
+                console.log('O cliente - DISCORD - identificou que um servidor foi alterado! Verifique.');
             });
 
             // ᕦ(ò_óˇ)ᕤ     ---     S E P A R A D O R     ---     ᕦ(ˇò_ó)ᕤ 
@@ -404,7 +436,11 @@ class Monitor
 
             this.init_discord.on('roleCreate', (regra) =>
             {
-                console.log('---- roleCreate ----');
+                // Método para atualizar o cliente de Discord
+                new bib_inicializacao(this.init_discord).func_inicializa();
+                // Método para atualizar o cliente de Discord
+
+                console.log('O cliente - DISCORD - identificou que uma regra foi criada! Verifique.');
             });
 
             // ᕦ(ò_óˇ)ᕤ     ---     S E P A R A D O R     ---     ᕦ(ˇò_ó)ᕤ 
@@ -418,7 +454,11 @@ class Monitor
 
             this.init_discord.on('roleUpdate', (regra_antiga, regra_nova) =>
             {
-                console.log('---- roleUpdate ----');
+                // Método para atualizar o cliente de Discord
+                new bib_inicializacao(this.init_discord).func_inicializa();
+                // Método para atualizar o cliente de Discord
+
+                console.log('O cliente - DISCORD - identificou que uma regra foi alterada! Verifique.');
             });
 
         } // try { .. }
