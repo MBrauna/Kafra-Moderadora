@@ -207,7 +207,8 @@ class mensagem
         } // try { ... }
         catch(p_erro)
         {
-
+            console.log(p_erro);
+            console.trace();
         } // catch(p_erro) { ... }
     } // trata_mensagem() { ... }
 
