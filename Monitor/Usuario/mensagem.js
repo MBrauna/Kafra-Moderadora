@@ -197,11 +197,13 @@ class mensagem
                                            ,'body'          :   v_corpo_requisicao
                                         };
 
+            console.log('>>INICIEI<<');
             // Comunica com o servidor
             this.comunica_portal(v_requisicao, (p_erro, p_resposta, p_corpo) =>
             {
                 console.log(p_corpo);
             }); // this.comunica_portal(v_requisicao, (p_erro, p_resposta, p_corpo) =>
+            console.log('>>FINALIZEI<<');
         } // try { ... }
         catch(p_erro)
         {
