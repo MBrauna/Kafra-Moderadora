@@ -199,10 +199,10 @@ class mensagem
 
             console.log('>>INICIEI<<');
             // Comunica com o servidor
-            this.comunica_portal(v_requisicao, (p_erro, p_resposta, p_corpo) =>
+            this.comunica_portal(v_url_requisicao, (p_erro, p_resposta, p_corpo) =>
             {
                 console.log(p_corpo);
-            }); // this.comunica_portal(v_requisicao, (p_erro, p_resposta, p_corpo) =>
+            }); // this.comunica_portal(v_url_requisicao, (p_erro, p_resposta, p_corpo) =>
             console.log('>>FINALIZEI<<');
         } // try { ... }
         catch(p_erro)
