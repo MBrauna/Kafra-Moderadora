@@ -24,6 +24,7 @@
 // Inicialização de bibliotecas                                 (∩｀-´)⊃━☆ﾟ.*･｡ﾟ
 let     bib_discord                 =   require('discord.js')                               // Inicializa a biblioteca para Discord
        ,bib_inicializacao           =   require('./Sistema/Sistema.js')
+       ,bib_mensagem                =   require('./Usuario/mensagem.js')
        ;
 // Inicialização de bibliotecas                                 (∩｀-´)⊃━☆ﾟ.*･｡ﾟ
 
@@ -158,7 +159,7 @@ class Monitor
             this.init_discord.on('message', (mensagem) =>
             {
                 console.log('---- mensagem ----');
-                new bib_inicializacao(this.init_discord).func_inicializa();
+                new bib_mensagem(this.init_discord, mensagem).trata_mensagem();
             });
 
             // ᕦ(ò_óˇ)ᕤ     ---     S E P A R A D O R     ---     ᕦ(ˇò_ó)ᕤ 

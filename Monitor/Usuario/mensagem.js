@@ -25,10 +25,8 @@
  ****************************************************************************************************/
 
 // Inicialização de bibliotecas                                 (∩｀-´)⊃━☆ﾟ.*･｡ﾟ
-let bib_ragnaplace                      =   require('./../../Nucleo/Ragnarok/Consultar/Ragnaplace/ragnaplace.js')
-   ,bib_bropedia                        =   require('./../../Nucleo/Ragnarok/Consultar/Bropedia/bropedia.js')
-   ,bib_banco_dados                     =   require('./../../Provedor/comunica_mensagem.js')
-   ,bib_jogo                            =   require('./../../Nucleo/Jogo/jogos.js')
+let bib_requisicao                      =   require('request')
+   ,bib_url                             =   process.env.url_requisicao
    ;
 // Inicialização de bibliotecas                                 (∩｀-´)⊃━☆ﾟ.*･｡ﾟ
 
@@ -147,130 +145,68 @@ class mensagem
 
     // ᕦ(ò_óˇ)ᕤ     ---     S E P A R A D O R     ---     ᕦ(ˇò_ó)ᕤ 
 
-    gera_estatistica_mensagem()
+    comunica_portal(p_dados_url, callback)
     {
-        new bib_banco_dados(this.obj_cliente).estatistica_mensagem(this.obj_mensagem, (p_retorno) =>
-        {
-            if(p_retorno===9)
-            {
-                console.log('Não foi possível comunicar.');
-            } // if(p_retorno===9)
-        }); // new bib_banco_dados(this.obj_cliente).log_mensagem(this.obj_mensagem, this.obj_mensagem, (p_retorno) =>
-    } // gera_estatistica_mensagem()
+        /**********************************************************
+         * Autor: Michel Brauna                  Data: 27/03/2018 *
+         *    Processo para comunicar com o servidor Kafra.       *
+         **********************************************************/
 
-    // ᕦ(ò_óˇ)ᕤ     ---     S E P A R A D O R     ---     ᕦ(ˇò_ó)ᕤ 
-
-    gera_estatistica_bot(p_consulta, p_tipo)
-    {
-        new bib_banco_dados(this.obj_cliente).estatistica_bot(this.trata_consulta(p_consulta), p_tipo, this.obj_mensagem, (p_retorno) =>
+        try
         {
-            if(p_retorno===9)
+            bib_requisicao.post(p_dados_url, (p_erro, p_resposta, p_corpo) =>
             {
-                console.log('Não foi possível comunicar.');
-            } // if(p_retorno===9)
-        }); // new bib_banco_dados(this.obj_cliente).log_mensagem(this.obj_mensagem, this.obj_mensagem, (p_retorno) =>
-    } // gera_estatistica_bot(p_comando)
+                let v_req_erro       =   p_erro
+                   ,v_req_resposta   =   p_resposta
+                   ,v_req_corpo      =   p_corpo
+                   ;
+
+                // Retorna para a função callback;
+                callback(v_req_erro, v_req_resposta, v_req_corpo);
+            }); // bib_requisicao.post(p_dados_url, (p_erro, p_resposta, p_corpo) =>
+        } // try { ... }
+        catch(p_erro)
+        {
+            console.log('--- ERRO - COMUNICA_PORTAL ---');
+            console.trace();
+            console.log(p_erro);
+        } // catch(p_erro) { ... }
+    } // comunica_portal(p_dados_url, callback)
 
     /***********************************
      * Métodos internos para mensagens *
      ***********************************/
     trata_mensagem()
     {
-        // Verifica se o método foi chamado à partir de uma mensagem de bot
-        if(this.verifica_bot()) return; // Caso tenha sido chamado por um bot, nada será realizado.
+        let v_corpo_requisicao      =   {}
+           ,v_url_requisicao        =   {}
+           ;
 
-        // Coleta métricas de conversas para geração de estatísticas
-        this.gera_estatistica_mensagem();
-
-        // Verifica se a mensagem inicia com uma chamada para o bot (menção direta)
-        if(this.verifica_mencao())
+        try
         {
-            var tmp_comando     =   this.mensagem_para_array_sprefixo(this.mencao_bot());
+            v_corpo_requisicao      =   {
+                                            'mensagem'      :   this.obj_mensagem.content
+                                           ,'author'        :   this.obj_mensagem.author.id
+                                           ,'bot'           :   this.verifica_bot()
+                                           ,'json'          :   this.obj_mensagem
+                                        };
 
-            // Verifica se a variável realmente foi encontrada, caso não tenha informação - Encerra
-            if(typeof tmp_comando[0] === 'undefined' || tmp_comando[0].trim() === 'null' || tmp_comando[0].trim() === null || tmp_comando[0].trim() === undefined || tmp_comando[0].trim() === 'undefined' || tmp_comando[0].trim() === '') return;
+            v_url_requisicao        =   {
+                                            'url'           :   bib_url + 'mensagem'
+                                           ,'json'          :   true
+                                           ,'body'          :   v_corpo_requisicao
+                                        };
 
-            // Verifica se uma das funcionalidades abaixo foi solicitada
-            switch(tmp_comando[0].toLowerCase())
+            // Comunica com o servidor
+            this.comunica_portal(v_requisicao, (p_erro, p_resposta, p_corpo) =>
             {
-                // Comandos de consulta de informações
-                case 'item':        // item <<nome/id do item>>
-                    new bib_ragnaplace(this.obj_cliente, this.obj_mensagem).consultar(tmp_comando, 'item');
-                    this.gera_estatistica_bot(tmp_comando, 'item');
-                    break;
-                case 'monstro':     // monstro <<nome/id do monstro>>
-                    new bib_ragnaplace(this.obj_cliente, this.obj_mensagem).consultar(tmp_comando, 'monstro');
-                    this.gera_estatistica_bot(tmp_comando, 'monstro');
-                    break;
-                case 'mapa':        // mapa <<nome/id do mapa>>
-                    new bib_ragnaplace(this.obj_cliente, this.obj_mensagem).consultar(tmp_comando, 'mapa');
-                    this.gera_estatistica_bot(tmp_comando, 'mapa');
-                    break;
-                case 'wiki':        // wiki <<termo>>
-                    new bib_bropedia(this.obj_cliente, this.obj_mensagem).consultar(tmp_comando);
-                    this.gera_estatistica_bot(tmp_comando, 'wiki');
-                    break;
+                console.log(p_corpo);
+            }); // this.comunica_portal(v_requisicao, (p_erro, p_resposta, p_corpo) =>
+        } // try { ... }
+        catch(p_erro)
+        {
 
-                // Comandos de recrutamento em Ragnarök
-                case 'recrutar':    // recrutar <<nivel_inicial>> <<nivel_final>> <<id_mapa>>
-                    console.log('>> recrutar <<');
-                    break;
-                case 'procurar':    // procurar <<nivel_atual>>
-                    console.log('>> procurar <<');
-                    break;
-
-                // Comando de informação de bugs
-                case 'ticket':      // ticket <<codigo_ticket>>
-                    console.log('>> ticket <<');
-                    break;
-                case 'bug':          // bug [<<mensagem>>]
-                    console.log('>> bug <<');
-                    break;
-
-                // Comando para jogos
-                case 'sorte':       //  sorte
-                    new bib_jogo(this.obj_cliente, this.obj_mensagem).sorte();
-                    break;
-                case 'jokenpo':     // jokenpo
-                    new bib_jogo(this.obj_cliente, this.obj_mensagem).jokenpo();
-                    break;
-
-                // Comando para moderação
-                case 'alertar':     //  alertar <<usuario>>  [<<mensagem>>]
-                    console.log('>> alertar <<');
-                    break;
-                case 'expulsar':    //  expulsar <<usuario>>  [<<mensagem>>]
-                    console.log('>> expulsar <<');
-                    break;
-                case 'banir':       //  banir <<usuario>> [<<mensagem>>]
-                    console.log('>> banir <<');
-                    break;
-                case 'silenciar':   //  silenciar <<usuario>> [<<mensagem>>]
-                    console.log('>> silenciar <<');
-                    break;
-
-                // Comando para demais ações
-                case 'nivel':       // nivel [<<usuario>>]
-                    console.log('>> nivel <<');
-                    break; 
-                case 'lista':       // lista
-                    console.log('>> lista <<');
-                    break;
-                case 'ver':         // ver <<usuario>>
-                    console.log('>> ver <<');
-                    break;
-                case 'regra':
-                    console.log('>> regra <<');
-                case 'ajuda':       // ajuda
-                    console.log('>> ajuda <<');
-                    break;
-
-                default:
-                    console.log(tmp_comando[0].toLowerCase());
-                    console.log('>> PADRAO <<');
-                    break;
-            } // switch(tmp_comando[0]) { ... }
-        } // if(this.verifica_mencao()) { ... }
+        } // catch(p_erro) { ... }
     } // trata_mensagem() { ... }
 
 
