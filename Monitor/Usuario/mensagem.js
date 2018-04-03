@@ -116,7 +116,7 @@ class mensagem
                                            ,tts         :   this.obj_mensagem.tts
                                            ,id          :   this.obj_mensagem.id
                                            ,conteudo    :   this.obj_mensagem.content
-                                           ,mencao      :   this.obj_mensagem.mentions
+                                           ,mencao      :   this.obj_mensagem.mentions.users
                                         };
 
             v_obj_requisicao        =   {
