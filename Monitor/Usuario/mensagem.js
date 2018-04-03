@@ -122,7 +122,7 @@ class mensagem
             v_obj_requisicao        =   {
                                             'url'           :   bib_url + 'mensagem'
                                            ,'json'          :   true
-                                           ,'body'          :   v_corpo_requisicao
+                                           ,'body'          :   v_obj_requisicao
                                         };
 
             console.log('>>INICIEI<<');
