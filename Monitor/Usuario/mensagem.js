@@ -140,3 +140,7 @@ class mensagem
         } // catch(p_erro) { ... }
     } // trata_mensagem()
 } // class mensagem
+
+
+// Torna o método público - Acesso externo é permitido.
+module.exports = mensagem;
