@@ -127,6 +127,9 @@ class inicializa
                                     'url'           :   bib_url + 'inicializa'
                                    ,'json'          :   true
                                    ,'body'          :   v_corpo
+                                   ,'headers'       :   {
+                                                            'Authorization'     :   process.env.TOKEN_AUTORIZACAO
+                                                        }
                                 };
 
 

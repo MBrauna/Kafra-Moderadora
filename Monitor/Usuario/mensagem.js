@@ -196,6 +196,9 @@ class mensagem
                                             'url'           :   bib_url + 'mensagem'
                                            ,'json'          :   true
                                            ,'body'          :   v_obj_requisicao
+                                           ,'headers'       :   {
+                                                                    'Authorization'     :   process.env.TOKEN_AUTORIZACAO
+                                                                }
                                         };
 
             console.log('>>INICIEI<<');
