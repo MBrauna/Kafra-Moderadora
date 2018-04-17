@@ -190,6 +190,7 @@ class mensagem
                                            ,conteudo_array      :   this.mensagem_para_array()
                                            ,usa_comando         :   this.verifica_mencao()
                                            ,conteudo_comando    :   this.mensagem_para_array_sprefixo(this.mencao_bot())
+                                           ,bot_id              :   this.obj_cliente.user.id
                                         };
 
             v_obj_requisicao        =   {
