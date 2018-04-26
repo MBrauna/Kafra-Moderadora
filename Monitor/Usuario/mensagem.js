@@ -260,7 +260,14 @@ class mensagem
                     } // if(vtmp_corpo.sucesso)
                     else
                     {
-                        console.log(vtmp_corpo);
+                        if(vtmp_corpo.mensagem === null)
+                        {
+                            console.log('-----');
+                        }
+                        else
+                        {
+                            console.log(vtmp_corpo);
+                        }
                     }
                 } // try { ... }
                 catch(p_erro)
