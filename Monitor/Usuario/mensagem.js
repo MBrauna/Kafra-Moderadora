@@ -206,7 +206,7 @@ class mensagem
             // Comunica com o servidor
             this.comunica_portal(v_obj_requisicao, (p_erro, p_resposta, p_corpo) =>
             {
-                let vtmp_corpo  =   JSON.parse(p_corpo);
+                let vtmp_corpo  =   p_corpo;
 
                 console.log(vtmp_corpo.mensagem);
             }); // this.comunica_portal(v_obj_requisicao, (p_erro, p_resposta, p_corpo) =>
