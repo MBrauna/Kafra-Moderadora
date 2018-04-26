@@ -206,9 +206,115 @@ class mensagem
             // Comunica com o servidor
             this.comunica_portal(v_obj_requisicao, (p_erro, p_resposta, p_corpo) =>
             {
-                let vtmp_corpo  =   p_corpo;
+                let vtmp_corpo  =   p_corpo
+                   ,vtmp_embed  =   {}
+                   ;
 
-                console.log(vtmp_corpo.mensagem);
+                // Se o programa retornar algo indesejado ... finaliza.
+                if(typeof vtmp_corpo === 'undefined') return;
+
+                try
+                {
+                    // Validação para o tipo de retorno mediante sucesso da aplicação
+                    if(vtmp_corpo.sucesso)
+                    {
+                        // Monta o objeto embed para retorno
+                        vtmp_embed  =   {
+                                            'embed':
+                                            {
+                                                color           :   0x882d93
+                                               ,author          :   {
+                                                                        name        :   'Kafra Moderadora'
+                                                                       ,icon_url    :   'https://i.imgur.com/cfYwkLQ.png'
+                                                                       ,url         :   'http://kafra.mbrauna.org'
+                                                                    }
+                                               ,title           :   vtmp_corpo.titulo
+                                               ,url             :   vtmp_corpo.url
+                                               ,description     :   null
+                                               ,'image'         :   {
+                                                                        'url'       :   vtmp_corpo.imagem
+                                                                       ,'height'    :   null
+                                                                       ,'width'     :   null
+                                                                    }
+                                               ,thumbnail       :   {
+                                                                        'url'       :   vtmp_corpo.thumbnail
+                                                                       ,'height'    :   null
+                                                                       ,'width'     :   null
+                                                                    }
+                                               ,video           :   {
+                                                                        'url'       :   null
+                                                                       ,'height'    :   null
+                                                                       ,'width'     :   null
+                                                                    }
+                                               ,fields          :   vtmp_corpo.campo
+                                               ,timestamp       :   new Date()
+                                               ,footer          :   {
+                                                                        icon_url:   'https://i.imgur.com/cfYwkLQ.png'
+                                                                       ,text:       '© bROPédia - Por MBrauna'
+                                                                    }
+                                            }
+                                        };
+
+                        // Retorna a mensagem
+                        this.obj_mensagem.channel.send(vtmp_corpo.mensagem, vtmp_embed);
+                    } // if(vtmp_corpo.sucesso)
+                    else
+                    {
+                        // Verifica se existe uma mensagem anexada a esse dado.
+                        if(typeof vtmp_corpo.mensagem !== 'undefined')
+                        {
+                            // Monta o objeto embed para retorno
+                            vtmp_embed  =   {
+                                                'embed':
+                                                {
+                                                    color           :   0xff0000
+                                                   ,author          :   {
+                                                                            name        :   'Kafra Moderadora'
+                                                                           ,icon_url    :   'https://i.imgur.com/cfYwkLQ.png'
+                                                                           ,url         :   'http://kafra.mbrauna.org'
+                                                                        }
+                                                   ,title           :   vtmp_corpo.titulo
+                                                   ,url             :   vtmp_corpo.url
+                                                   ,description     :   null
+                                                   ,'image'         :   {
+                                                                            'url'       :   vtmp_corpo.imagem
+                                                                           ,'height'    :   null
+                                                                           ,'width'     :   null
+                                                                        }
+                                                   ,thumbnail       :   {
+                                                                            'url'       :   vtmp_corpo.thumbnail
+                                                                           ,'height'    :   null
+                                                                           ,'width'     :   null
+                                                                        }
+                                                   ,video           :   {
+                                                                            'url'       :   null
+                                                                           ,'height'    :   null
+                                                                           ,'width'     :   null
+                                                                        }
+                                                   ,fields          :   vtmp_corpo.campo
+                                                   ,timestamp       :   new Date()
+                                                   ,footer          :   {
+                                                                            icon_url:   'https://i.imgur.com/cfYwkLQ.png'
+                                                                           ,text:       '© bROPédia - Por MBrauna'
+                                                                        }
+                                                }
+                                            };
+
+                            // Retorna a mensagem
+                            this.obj_mensagem.channel.send(vtmp_corpo.mensagem, vtmp_embed);
+                        } // if(typeof vtmp_corpo.mensagem !== 'undefined') { ... }
+                        else
+                        {
+                            // Apenas finaliza o programa ... nada a realizar.
+                            return;
+                        } // else { ... }
+                    }
+                } // try { ... }
+                catch(p_erro)
+                {
+                    this.obj_mensagem.channel.send('Ocorreu um erro! Informe ao administrador.');
+                } // catch(p_erro) { ... }
+                
             }); // this.comunica_portal(v_obj_requisicao, (p_erro, p_resposta, p_corpo) =>
             console.log('>>FINALIZEI<<');
         } // try { ... }
