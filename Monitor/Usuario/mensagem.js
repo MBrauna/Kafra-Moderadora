@@ -261,7 +261,7 @@ class mensagem
                     else
                     {
                         // Verifica se existe uma mensagem anexada a esse dado.
-                        if(typeof vtmp_corpo.mensagem !== 'undefined')
+                        if(typeof vtmp_corpo.mensagem !== 'undefined' || vtmp_corpo.mensagem !== null || vtmp_corpo.mensagem !== 'null')
                         {
                             // Monta o objeto embed para retorno
                             vtmp_embed  =   {
