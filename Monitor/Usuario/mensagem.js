@@ -213,8 +213,6 @@ class mensagem
                 // Se o programa retornar algo indesejado ... finaliza.
                 if(typeof vtmp_corpo === 'undefined') return;
 
-                console.log(vtmp_corpo);
-
                 try
                 {
                     // Validação para o tipo de retorno mediante sucesso da aplicação
