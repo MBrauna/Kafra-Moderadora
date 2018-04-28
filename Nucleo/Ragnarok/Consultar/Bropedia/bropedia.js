@@ -1,5 +1,5 @@
 /****************************************************************************************************
- * Autor: MBrauna & Lazarento                                                      Data: 21/02/2018 *
+ * Autor: MBrauna                                                                  Data: 21/02/2018 *
  ****************************************************************************************************
  *                                                                                                  *
  *                             ██╗  ██╗ █████╗ ███████╗██████╗  █████╗                              *
@@ -19,22 +19,33 @@
  ****************************************************************************************************/
 
 // Inicialização de bibliotecas                                 (∩｀-´)⊃━☆ﾟ.*･｡ﾟ
-let bib_requisicao      =   require('request')
-   ,bib_underline       =   require('underscore')
-   ,bib_wtf_wiki        =   require('wtf_wikipedia')
+let bib_requisicao          =   require('request')
+   ,bib_underline           =   require('underscore')
+   ,bib_wtf_wiki            =   require('wtf_wikipedia')
    ;
 // Inicialização de bibliotecas                                 (∩｀-´)⊃━☆ﾟ.*･｡ﾟ
 
 class bropedia
 {
-    constructor(p_obj_msg, p_config, p_mensagem, p_cliente)
+    constructor(p_cliente, p_mensagem)
     {
-        this.obj_resposta       =   p_obj_msg;
-        this.obj_config         =   p_config;
-        this.obj_mensagem       =   p_mensagem;
         this.obj_cliente        =   p_cliente;
-
+        this.obj_mensagem       =   p_mensagem;
     } // constructor(p_obj_msg, p_config, p_mensagem, p_cliente)
+
+
+    trata_consulta(p_array_frase)
+    {
+        var v_string_requisicao = '';
+
+        for(var i=1;i<p_array_frase.length;i++)
+        {
+            // Forma a string
+            v_string_requisicao = v_string_requisicao + p_array_frase[i] + ' ';
+        } // for(var i=1;i<=p_array_frase.length;i++)
+
+        return v_string_requisicao.trim();
+    } // trata_consulta(p_array_frase)
 
     monta_resposta(p_frase, p_mensagem)
     {
@@ -60,24 +71,6 @@ class bropedia
         } // catch(p_erro) { ... }
 
     } // monta_resposta(p_cliente, p_mensagem, p_frase, p_configuracao)
-
-
-
-
-    trata_consulta(p_array_frase)
-    {
-        var v_string_requisicao = '';
-
-        for(var i=1;i<p_array_frase.length;i++)
-        {
-            // Forma a string
-            v_string_requisicao = v_string_requisicao + p_array_frase[i] + ' ';
-        } // for(var i=1;i<=p_array_frase.length;i++)
-
-        return v_string_requisicao.trim();
-    } // trata_consulta(p_array_frase)
-
-
 
     consultar(p_consulta)
     {
@@ -124,11 +117,11 @@ class bropedia
                         {
                             v_obj_resposta          =   {
                                                             'embed' :   {
-                                                                            color               :   this.obj_config.cor_vermelha.color
+                                                                            color               :   0xff0000
                                                                            ,author              :   {
                                                                                                         name        :   'Kafra Moderadora'
-                                                                                                       ,icone       :   'https://i.imgur.com/cfYwkLQ.png'
-                                                                                                       ,url         :   'https://github.com/bropedia/Kafra-Moderadora'
+                                                                                                       ,icon_url    :   'https://i.imgur.com/cfYwkLQ.png'
+                                                                                                       ,url         :   'http://kafra.mbrauna.org'
                                                                                                     }
                                                                            ,title               :   'Termo não encontrado!'
                                                                            ,url                 :   null
@@ -173,19 +166,20 @@ class bropedia
                             v_resposta.query.search.forEach(p_tmp_dado => {
                                 var tmp_info = {
                                                     name: 'Termo: ' +  p_tmp_dado.title
-                                                   ,value: '<@' + this.obj_cliente.user.id + '> wiki ' + p_tmp_dado.title
+                                                   ,value: 'wiki ' + p_tmp_dado.title
                                                 };
 
                                 v_array_resp.push(tmp_info);
                             });
 
+                            // Informa o usuário
                             v_obj_resposta          =   {
                                                             'embed' :   {
-                                                                            color               :   this.obj_config.cor_amarela.color
+                                                                            color               :   0xffff00
                                                                            ,author              :   {
                                                                                                         name        :   'Kafra Moderadora'
-                                                                                                       ,icone       :   'https://i.imgur.com/cfYwkLQ.png'
-                                                                                                       ,url         :   'https://github.com/bropedia/Kafra-Moderadora'
+                                                                                                       ,icon_url    :   'https://i.imgur.com/cfYwkLQ.png'
+                                                                                                       ,url         :   'http://kafra.mbrauna.org'
                                                                                                     }
                                                                            ,title               :   'O termo consultado não foi encontrado'
                                                                            ,url                 :   'https://bropedia.net'
@@ -244,13 +238,14 @@ class bropedia
                     if(typeof v_pagina === 'undefined')
                     {
                         // Define o objeto a ser utilizado
+                        // Informa o usuário
                         v_obj_resposta          =   {
                                                         'embed' :   {
-                                                                        color               :   this.obj_config.cor_vermelha.color
+                                                                        color               :   0xff0000
                                                                        ,author              :   {
                                                                                                     name        :   'Kafra Moderadora'
-                                                                                                   ,icone       :   'https://i.imgur.com/cfYwkLQ.png'
-                                                                                                   ,url         :   'https://github.com/bropedia/Kafra-Moderadora'
+                                                                                                   ,icon_url    :   'https://i.imgur.com/cfYwkLQ.png'
+                                                                                                   ,url         :   'http://kafra.mbrauna.org'
                                                                                                 }
                                                                        ,title               :   'TERMO NÃO ENCONTRADO NA WIKI'
                                                                        ,url                 :   null
@@ -315,14 +310,14 @@ class bropedia
                         if(typeof v_pagina_final == 'undefined')
                         {
 
-                            // Define o objeto a ser utilizado
+                            // Informa o usuário
                             v_obj_resposta          =   {
                                                             'embed' :   {
                                                                             color               :   this.obj_config.cor_amarela.color
                                                                            ,author              :   {
                                                                                                         name        :   'Kafra Moderadora'
-                                                                                                       ,icone       :   'https://i.imgur.com/cfYwkLQ.png'
-                                                                                                       ,url         :   'https://github.com/bropedia/Kafra-Moderadora'
+                                                                                                       ,icon_url    :   'https://i.imgur.com/cfYwkLQ.png'
+                                                                                                       ,url         :   'http://kafra.mbrauna.org'
                                                                                                     }
                                                                            ,title               :   'NÃO FOI POSSÍVEL CONSULTAR'
                                                                            ,url                 :   null
@@ -364,52 +359,11 @@ class bropedia
                         else
                         {
                             // Define o objeto a ser utilizado
-                            v_obj_resposta          =   {
-                                                            'embed' :   {
-                                                                            color               :   this.obj_config.cor_verde.color
-                                                                           ,author              :   {
-                                                                                                        name        :   'Kafra Moderadora'
-                                                                                                       ,icone       :   'https://i.imgur.com/cfYwkLQ.png'
-                                                                                                       ,url         :   'https://github.com/bropedia/Kafra-Moderadora'
-                                                                                                    }
-                                                                           ,title               :   v_pagina_final.title
-                                                                           ,url                 :   v_pagina_final.canonicalurl
-                                                                           ,description         :   'Este é o resultado mais relevante para ' + v_consulta + '.'
-                                                                           ,'image'             :   {
-                                                                                                        "url"       :   null
-                                                                                                       ,"height"    :   null // 123
-                                                                                                       ,"width"     :   null // 123
-                                                                                                    }
-                                                                           ,thumbnail           :   {
-                                                                                                        "url"       :   'https://i.imgur.com/mE0YWWh.png'
-                                                                                                       ,"height"    :   null // 123
-                                                                                                       ,"width"     :   null // 123 
-                                                                                                    }
-                                                                           ,video               :   {
-                                                                                                        "url"       :   null // 'https://i.imgur.com/LOGICNS.jpg'
-                                                                                                       ,"height"    :   null // 123
-                                                                                                       ,"width"     :   null // 123
-                                                                                                    }
-                                                                           ,fields              :   [
-                                                                                                        {
-                                                                                                            name    :   v_pagina_final.title
-                                                                                                           ,value   :   v_pagina_final.canonicalurl
-                                                                                                        }
-                                                                                                       ,{
-                                                                                                            name    :   '**Resumão da Kafra**'
-                                                                                                           ,value   :   v_revisao['*'].slice(v_revisao['*'].indexOf('descrição') + 9).substr(1,300)
-                                                                                                        }
-                                                                                                    ]
-                                                                          ,timestamp            :   new Date()
-                                                                          ,footer               :   {
-                                                                                                        icon_url:   'https://i.imgur.com/cfYwkLQ.png'
-                                                                                                       ,text:       '© bROPédia - Por MBrauna'
-                                                                                                    }
-                                                                        }
-                                                        };
+                            // Informa o usuário
                             this.monta_resposta('<@' + this.obj_mensagem.author.id + '> é consulta que você quer? \n Então toma (∩｀-´)⊃━☆ﾟ.*･｡ﾟ \n ' + v_pagina_final.canonicalurl
                                                ,null
                                                 );
+                            return;
                         } // else  { ... }
                     }); // bib_requisicao.get(v_url_bropedia, (p_erro, p_resposta, p_corpo) =>
                 } // else { ... }
@@ -425,13 +379,14 @@ class bropedia
             try
             {
                 // Cria uma novo objeto para modificação.
+                // Informa o usuário
                 v_obj_resposta          =   {
                                                 'embed' :   {
-                                                                color               :   this.obj_config.cor_amarela.color
+                                                                color               :   0xff0000
                                                                ,author              :   {
                                                                                             name        :   'Kafra Moderadora'
-                                                                                           ,icone       :   'https://i.imgur.com/cfYwkLQ.png'
-                                                                                           ,url         :   'https://github.com/bropedia/Kafra-Moderadora'
+                                                                                           ,icon_url    :   'https://i.imgur.com/cfYwkLQ.png'
+                                                                                           ,url         :   'http://kafra.mbrauna.org'
                                                                                         }
                                                                ,title               :   'NÃO FOI POSSÍVEL CONSULTAR'
                                                                ,url                 :   null
@@ -468,6 +423,7 @@ class bropedia
                 this.monta_resposta('<@' + this.obj_mensagem.author.id + '> AI GODI UM ERRO SELVAGEM APARECEU!'
                                    ,v_obj_resposta
                                   );
+                return;
             } // try { ... }
             catch(p_erro_sec)
             {
