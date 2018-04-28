@@ -244,8 +244,8 @@ class mensagem
                                                                        ,'width'     :   null
                                                                     }
                                                ,fields          :   [
-                                                                        name    :   'A wild BUG appears!'
-                                                                        value   :   'Errrr ... não sei te explicar isto, mas um erro selvagem apareceu! Não quero capturar essa coisa bizarra não.'
+                                                                        'name'    :   'A wild BUG appears!'
+                                                                        'value'   :   'Errrr ... não sei te explicar isto, mas um erro selvagem apareceu! Não quero capturar essa coisa bizarra não.'
                                                                     ]
                                                ,timestamp       :   new Date()
                                                ,footer          :   {
