@@ -260,6 +260,9 @@ class mensagem
 
                     // Retorna a mensagem
                     this.obj_mensagem.channel.send(null, vtmp_embed);
+
+                    // Força a finalização deste callback
+                    return;
                 } // if(typeof vtmp_corpo.sucesso === 'undefined')
 
                 // DEBUG
