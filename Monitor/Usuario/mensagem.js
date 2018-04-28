@@ -287,7 +287,7 @@ class mensagem
                                                                     }
                                                ,title           :   vtmp_corpo.titulo
                                                ,url             :   vtmp_corpo.url
-                                               ,description     :   null
+                                               ,description     :   vtmp_corpo.descricao
                                                ,'image'         :   {
                                                                         'url'       :   vtmp_corpo.imagem
                                                                        ,'height'    :   null
