@@ -213,6 +213,52 @@ class mensagem
                 // Se o programa retornar algo indesejado ... finaliza.
                 if(typeof vtmp_corpo === 'undefined') return;
 
+                // Verifica se a variável sucesso foi informada, caso não tenha sido, provavelmente ocorreu um erro.
+                if(typeof vtmp_corpo.sucesso === 'undefined')
+                {
+                    vtmp_embed  =   {
+                                            'embed':
+                                            {
+                                                color           :   0x882d93
+                                               ,author          :   {
+                                                                        name        :   'Kafra Moderadora'
+                                                                       ,icon_url    :   'https://i.imgur.com/cfYwkLQ.png'
+                                                                       ,url         :   'http://kafra.mbrauna.org'
+                                                                    }
+                                               ,title           :   'AI FERROU!'
+                                               ,url             :   null
+                                               ,description     :   'Pane no sistema, alguém me desconfigurou!'
+                                               ,'image'         :   {
+                                                                        'url'       :   'https://i.imgur.com/LOGICNS.jpg'
+                                                                       ,'height'    :   null
+                                                                       ,'width'     :   null
+                                                                    }
+                                               ,thumbnail       :   {
+                                                                        'url'       :   'https://i.imgur.com/pc1Sfui.gif'
+                                                                       ,'height'    :   null
+                                                                       ,'width'     :   null
+                                                                    }
+                                               ,video           :   {
+                                                                        'url'       :   null
+                                                                       ,'height'    :   null
+                                                                       ,'width'     :   null
+                                                                    }
+                                               ,fields          :   [
+                                                                        name    :   'A wild BUG appears!'
+                                                                        value   :   'Errrr ... não sei te explicar isto, mas um erro selvagem apareceu! Não quero capturar essa coisa bizarra não.'
+                                                                    ]
+                                               ,timestamp       :   new Date()
+                                               ,footer          :   {
+                                                                        icon_url:   'https://i.imgur.com/cfYwkLQ.png'
+                                                                       ,text:       '© bROPédia - Por MBrauna'
+                                                                    }
+                                            }
+                                        };
+
+                    // Retorna a mensagem
+                    this.obj_mensagem.channel.send(null, vtmp_embed);
+                } // if(typeof vtmp_corpo.sucesso === 'undefined')
+
                 // DEBUG
                 console.log(vtmp_corpo);
 
