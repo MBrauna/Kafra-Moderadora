@@ -219,7 +219,7 @@ class mensagem
                     vtmp_embed  =   {
                                             'embed':
                                             {
-                                                color           :   0x882d93
+                                                color           :   0xff0000
                                                ,author          :   {
                                                                         name        :   'Kafra Moderadora'
                                                                        ,icon_url    :   'https://i.imgur.com/cfYwkLQ.png'
