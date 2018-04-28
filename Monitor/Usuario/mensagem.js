@@ -259,7 +259,7 @@ class mensagem
                                         };
 
                     // Retorna a mensagem
-                    this.obj_mensagem.channel.send(null, vtmp_embed);
+                    this.obj_mensagem.channel.send('Vish!', vtmp_embed);
 
                     // Força a finalização deste callback
                     return;
