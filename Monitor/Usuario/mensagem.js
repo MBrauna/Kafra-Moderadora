@@ -210,6 +210,10 @@ class mensagem
                    ,vtmp_embed  =   {}
                    ;
 
+                // Para DEBUG
+                console.log(vtmp_corpo);
+                // Para DEBUG
+
                 // Se o programa retornar algo indesejado ... finaliza.
                 if(typeof vtmp_corpo === 'undefined') return;
 
@@ -265,8 +269,6 @@ class mensagem
                     return;
                 } // if(typeof vtmp_corpo.sucesso === 'undefined')
 
-                // DEBUG
-                console.log(vtmp_corpo);
 
                 try
                 {
