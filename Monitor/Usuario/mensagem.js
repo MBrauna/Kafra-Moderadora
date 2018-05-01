@@ -59,7 +59,7 @@ class mensagem
          *   Método irá obter a frase gerada e tratá-la de *
          * forma à transformá-la numa array.               *
          ***************************************************/
-        return this.obj_mensagem.replace("'", " ").content.trim().split(/ +/g);
+        return this.obj_mensagem.content.trim().split(/ +/g);
     } // mensagem_para_array() { ... }
 
     // ᕦ(ò_óˇ)ᕤ     ---     S E P A R A D O R     ---     ᕦ(ˇò_ó)ᕤ 
