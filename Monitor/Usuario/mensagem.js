@@ -179,6 +179,8 @@ class mensagem
             // Nenhum tratamento será realizado caso seja identificado que a mensagem originou de um bot
             if(this.verifica_bot()) return;
 
+            console.log(msg.mentions);
+
             // Inicia a criação do corpo
             v_obj_requisicao        =   {
                                             autor               :   this.obj_mensagem.author
