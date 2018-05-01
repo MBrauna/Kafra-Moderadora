@@ -77,7 +77,7 @@ class mensagem
         if(this.verifica_mencao())
         {
             // Caso tenha ocorrido ... retorna a array sem prefixo
-            return this.obj_mensagem.replace("'", " ").content.slice(v_tamanho_mencao).trim().split(/ +/g);
+            return this.obj_mensagem.content.slice(v_tamanho_mencao).trim().split(/ +/g);
         } // if(this.verifica_mencao()) { ... }
         else
         {
@@ -186,7 +186,7 @@ class mensagem
                                            ,canal               :   this.obj_mensagem.channel
                                            ,tts                 :   this.obj_mensagem.tts
                                            ,id                  :   this.obj_mensagem.id
-                                           ,conteudo            :   this.obj_mensagem.content.replace("'", " ")
+                                           ,conteudo            :   this.obj_mensagem.content
                                            ,conteudo_array      :   this.mensagem_para_array()
                                            ,usa_comando         :   this.verifica_mencao()
                                            ,conteudo_comando    :   this.mensagem_para_array_sprefixo(this.mencao_bot())
