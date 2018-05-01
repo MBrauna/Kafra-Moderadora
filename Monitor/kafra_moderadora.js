@@ -72,7 +72,6 @@ class Monitor
             this.init_discord.on('disconnect', (mensagem) =>
             {
                 // Método para marcação de dados para desconexão
-                new bib_inicializacao(this.init_discord).desconetar(mensagem);
 
                 console.log('O cliente - DISCORD - foi encerrado! Verifique.');
             });
@@ -82,10 +81,6 @@ class Monitor
             this.init_discord.on('ready', () =>
             {
                 this.init_discord.user.setActivity('Ragnarök Online');
-
-                // Método para atualizar o cliente de Discord
-                new bib_inicializacao(this.init_discord).func_inicializa();
-                // Método para atualizar o cliente de Discord
 
                 console.log('O cliente - DISCORD - foi iniciado! Verifique.');
             });
@@ -124,8 +119,6 @@ class Monitor
 
             this.init_discord.on('error', (mensagem) =>
             {
-                // Método para marcação de dados para erro
-                new bib_inicializacao(this.init_discord).erro(mensagem);
 
                 console.log('O cliente - DISCORD - apresentou erro! Verifique.');
             });
@@ -159,7 +152,6 @@ class Monitor
             this.init_discord.on('message', (mensagem) =>
             {
                 console.log('---- mensagem ----');
-                new bib_mensagem(this.init_discord, mensagem).trata_mensagem();
             });
 
             // ᕦ(ò_óˇ)ᕤ     ---     S E P A R A D O R     ---     ᕦ(ˇò_ó)ᕤ 
@@ -258,9 +250,6 @@ class Monitor
         {
             this.init_discord.on('channelCreate', (canal) =>
             {
-                // Método para atualizar o cliente de Discord
-                new bib_inicializacao(this.init_discord).func_inicializa();
-                // Método para atualizar o cliente de Discord
 
                 console.log('O cliente - DISCORD - identificou que um canal foi criado! Verifique.');
             });
@@ -269,9 +258,6 @@ class Monitor
 
             this.init_discord.on('channelDelete', (canal) =>
             {
-                // Método para atualizar o cliente de Discord
-                new bib_inicializacao(this.init_discord).func_inicializa();
-                // Método para atualizar o cliente de Discord
 
                 console.log('O cliente - DISCORD - identificou que um canal foi removido! Verifique.');
             });
@@ -287,9 +273,6 @@ class Monitor
 
             this.init_discord.on('channelUpdate', (canal_antigo, canal_novo) =>
             {
-                // Método para atualizar o cliente de Discord
-                new bib_inicializacao(this.init_discord).func_inicializa();
-                // Método para atualizar o cliente de Discord
 
                 console.log('O cliente - DISCORD - identificou que um canal foi alterado! Verifique.');
             });
@@ -340,9 +323,6 @@ class Monitor
 
             this.init_discord.on('guildCreate', (canal) =>
             {
-                // Método para atualizar o cliente de Discord
-                new bib_inicializacao(this.init_discord).func_inicializa();
-                // Método para atualizar o cliente de Discord
 
                 console.log('O cliente - DISCORD - identificou que um servidor foi criado! Verifique.');
             });
@@ -351,9 +331,6 @@ class Monitor
 
             this.init_discord.on('guildDelete', (canal) =>
             {
-                // Método para atualizar o cliente de Discord
-                new bib_inicializacao(this.init_discord).func_inicializa();
-                // Método para atualizar o cliente de Discord
 
                 console.log('O cliente - DISCORD - identificou que um servidor foi removido! Verifique.');
             });
@@ -362,9 +339,6 @@ class Monitor
 
             this.init_discord.on('guildMemberAdd', (usuario_canal) =>
             {
-                // Método para atualizar o cliente de Discord
-                new bib_inicializacao(this.init_discord).func_inicializa();
-                // Método para atualizar o cliente de Discord
 
                 console.log('O cliente - DISCORD - identificou que um usuário foi criado! Verifique.');
             });
@@ -380,9 +354,6 @@ class Monitor
 
             this.init_discord.on('guildMemberRemove', (usuario_canal) =>
             {
-                // Método para atualizar o cliente de Discord
-                new bib_inicializacao(this.init_discord).func_inicializa();
-                // Método para atualizar o cliente de Discord
 
                 console.log('O cliente - DISCORD - identificou que um usuário foi removido! Verifique.');
             });
@@ -419,9 +390,6 @@ class Monitor
 
             this.init_discord.on('guildUpdate', (canal_antigo, canal_novo) =>
             {
-                // Método para atualizar o cliente de Discord
-                new bib_inicializacao(this.init_discord).func_inicializa();
-                // Método para atualizar o cliente de Discord
 
                 console.log('O cliente - DISCORD - identificou que um servidor foi alterado! Verifique.');
             });
@@ -437,9 +405,6 @@ class Monitor
 
             this.init_discord.on('roleCreate', (regra) =>
             {
-                // Método para atualizar o cliente de Discord
-                new bib_inicializacao(this.init_discord).func_inicializa();
-                // Método para atualizar o cliente de Discord
 
                 console.log('O cliente - DISCORD - identificou que uma regra foi criada! Verifique.');
             });
@@ -455,9 +420,6 @@ class Monitor
 
             this.init_discord.on('roleUpdate', (regra_antiga, regra_nova) =>
             {
-                // Método para atualizar o cliente de Discord
-                new bib_inicializacao(this.init_discord).func_inicializa();
-                // Método para atualizar o cliente de Discord
 
                 console.log('O cliente - DISCORD - identificou que uma regra foi alterada! Verifique.');
             });
