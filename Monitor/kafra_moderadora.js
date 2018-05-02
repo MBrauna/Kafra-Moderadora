@@ -22,8 +22,9 @@
  ****************************************************************************************************/
 
 // Inicialização de bibliotecas                                 (∩｀-´)⊃━☆ﾟ.*･｡ﾟ
-let     bib_discord                 =   require('discord.js')                               // Inicializa a biblioteca para Discord
-       ;
+let bib_discord                 =   require('discord.js')                               // Inicializa a biblioteca para Discord
+    bib_conectar                =   require('./Sistema/Conectar.js')                    // Biblioteca para inicialização
+    ;
 // Inicialização de bibliotecas                                 (∩｀-´)⊃━☆ﾟ.*･｡ﾟ
 
 
@@ -80,6 +81,8 @@ class Monitor
             {
                 this.init_discord.user.setActivity('Ragnarök Online');
 
+                new bib_conectar(this.init_discord).inicializar();
+
                 console.log('O cliente - DISCORD - foi iniciado! Verifique.');
             });
 
@@ -87,6 +90,7 @@ class Monitor
 
             this.init_discord.on('reconnecting', () =>
             {
+                new bib_conectar(this.init_discord).inicializar();
                 console.log('O cliente - DISCORD - está reconectando! Verifique.');
             });
 
