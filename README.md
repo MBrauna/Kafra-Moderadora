@@ -15,10 +15,10 @@ Convide a [Kafra moderadora para seu Discord](https://discordapp.com/oauth2/auth
 - [x] Organização de grupos para Ragnarök Online.
 - [x] Busca de grupos ativos para Ragnarök Online.
 - [x] Chat
-- [ ] Sistema de nível
-- [ ] Filtro de palavras
-- [ ] Sistema de avisos
-- [ ] Banimento/Expulsão
+- [x] Sistema de nível
+- [x] Filtro de palavras
+- [x] Sistema de avisos
+- [x] Banimento/Expulsão
 
 
 
