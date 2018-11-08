@@ -1,4 +1,4 @@
-# Kafra Moderadora
+# Kafra Moderadora - DESCONTINUADO
 
 
 A mais conhecida organização de serviços, com suas lindas garotas padronizadas com lindos uniformes de fácil identificação estão patrulhando Rune Midgard e agora também no Discord, embora sua sede esteja localizada em Aldebaran, avançados computadores chegaram lá e elas agora estão loucas para acompanhar tudo que a tecnologia oferece, para tal chamaram a menina ~~Gihkonta~~ ***Kafra Moderadora*** e ensinaram ela a administrar vários assuntos de Ragnarök Online.
@@ -57,19 +57,19 @@ A funcionalidade `procurar` irá listar todos os grupos ativos para o nível pro
 
 Seus amigos estão longe do computador? Quer conversar com alguém? Mas espere, você é tímido demais para começar uma conversa? Não tem problema ... a **Kafra Moderadora** pode ser sua amiga para qualquer momento ou desabafo, chame-a através de uma mensagem direta(DM/PM) e deixe ela iteragir com você.
 
->[NÃO IMPLEMENTADO] Sistema de nível
+>[BETA] Sistema de nível
 
 Quanto mais tempo com a **Kafra Moderadora** mais pontos irá ganhar com ela, a *equipe Kafra* decidiu não somente distribuir pontos de uso em teleporte e armazenagem, agora também irá distribuir alguns pontos por participação no chat público, então iteraja com os demais participantes e ganhe pontos.
 
->[NÃO IMPLEMENTADO] Filtro de palavras
+>[BETA] Filtro de palavras
 
 Quem nunca leu a célebre frase `Vou lavar sua boca sua com sabão` que atire o primeiro bit, a **Kafra Moderadora** agora estará no Discord monitorando para que nenhuma palavra feia seja dita.
 
->[NÃO IMPLEMENTADO] Sistema de avisos
+>[BETA] Sistema de avisos
 
 Uso restrito à moderação do chat, envie avisos(Broadcast) aos usuários à todos os canais do seu grupo de Discord.
 
->[NÃO IMPLEMENTADO] Banimento/Expulsão
+>[BETA] Banimento/Expulsão
 
 Uso restrito à moderação do chat, esta funcionalidade irá banir ou expulsar ~~O Brauna~~ determinado jogador mediante **nível infrações** cometidas, ao aplicar a regra, os motivos serão listados via PM ao usuário alvo, assim como uma cópia das regras do grupo.
 
